@@ -33,8 +33,10 @@ W trakcie trwania kolokwium mogą Państwo korzystać z dostarczonej dokumentacj
     ![Alt text](Img/clean_solution.png?raw=true)
 2)  Proszę w folderze `Kolokwium` wykonać poniższe polecenia.
     ```powershell
-    Remove-Item Kolokwium/bin -Recurse -Force
-    Remove-Item Kolokwium/obj -Recurse -Force
+    Remove-Item Kolokwium.App/bin -Recurse -Force
+    Remove-Item Kolokwium.App/obj -Recurse -Force
+    Remove-Item Kolokwium.BLL/bin -Recurse -Force
+    Remove-Item Kolokwium.BLL/obj -Recurse -Force
     ```
     Proszę się upewnić że foldery `bin` i `obj` zostały usunięte ze wszystkich projektów.
     

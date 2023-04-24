@@ -31,18 +31,18 @@ W trakcie trwania kolokwium mogą Państwo korzystać z dostarczonej dokumentacj
 ### Umieszenie rozwiązania w archiwum
 1)  Po zakończeniu czasu przeznaczonego na kolokwium, proszę klinąć PPM w `Solution Explorerze` na Solucji `Kolokwium` a następnie wybrać `Clean Solution`.
     ![Alt text](Img/clean_solution.png?raw=true)
-2)  Proszę w folderze `Kolokwium` wykonać poniższe polecenia.
+2)  Proszę w folderze `Programowanie_obiektowe_S-kolokwium1` wykonać poniższe polecenia.
     ```powershell
-    Remove-Item Kolokwium.App/bin -Recurse -Force
-    Remove-Item Kolokwium.App/obj -Recurse -Force
-    Remove-Item Kolokwium.BLL/bin -Recurse -Force
-    Remove-Item Kolokwium.BLL/obj -Recurse -Force
+    Remove-Item Kolokwium/Kolokwium.App/bin -Recurse -Force
+    Remove-Item Kolokwium/Kolokwium.App/obj -Recurse -Force
+    Remove-Item Kolokwium/Kolokwium.BLL/bin -Recurse -Force
+    Remove-Item Kolokwium/Kolokwium.BLL/obj -Recurse -Force
     ```
     Proszę się upewnić że foldery `bin` i `obj` zostały usunięte ze wszystkich projektów.
     
     <img src="Img/del_folders.png" width=600 height=300></img>
 
-3)  Następnie proszę spakować rozwiązanie przy pomocy poniższego kodu. Plik `Rozwiazanie_Kolokwium.zip` będzie znajdował sie w folderze `Kolokwium`
+3)  Następnie proszę spakować rozwiązanie przy pomocy poniższego kodu (ewentualnie proszę spakować folder `Kolokwium` ręcznie przy pomocy `7zip`). Plik `Rozwiazanie_Kolokwium.zip` będzie znajdował sie w folderze `Programowanie_obiektowe_S-kolokwium1`
 
     ```
     tar caf Rozwiazanie_Kolokwium.zip --exclude=./Rozwiazanie_Kolokwium.zip Kolokwium 

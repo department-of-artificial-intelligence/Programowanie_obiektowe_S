@@ -31,13 +31,27 @@ W trakcie trwania kolokwium mogą Państwo korzystać z dostarczonej dokumentacj
 ### Umieszenie rozwiązania w archiwum
 1)  Po zakończeniu czasu przeznaczonego na kolokwium, proszę klinąć PPM w `Solution Explorerze` na Solucji `Kolokwium` a następnie wybrać `Clean Solution`.
     ![Alt text](Img/clean_solution.png?raw=true)
-2)  Następnie proszę spakować całą solucję do pliku `Imie_Nazwisko_Kolokwium.zip`, podając swoje `Imie` i `Nazwisko` jako początek nazwy pliku. Np. `Jan_Kowalski_Kolokwium.zip` Proszę dodać WSZYSTKIE pliki należące do solucji.
-3)  Proszę przejść pod adres [Archiver](http://ik2a.kik.pcz.czest.pl/archiver/TestArchive/Index)
-4)  Następnie proszę wybrać Państwa test i kilknąć przycisk `Link`
+2)  Proszę w folderze `Kolokwium` wykonać poniższe polecenia.
+    ```powershell
+    Remove-Item Kolokwium/bin -Recurse -Force
+    Remove-Item Kolokwium/obj -Recurse -Force
+    ```
+    Proszę się upewnić że foldery `bin` i `obj` zostały usunięte ze wszystkich projektów.
+    
+    <img src="Img/del_folders.png" width=600 height=300></img>
+
+3)  Następnie proszę spakować rozwiązanie przy pomocy poniższego kodu. Plik `Rozwiazanie_Kolokwium.zip` będzie znajdował sie w folderze `Kolokwium`
+
+    ```
+    tar caf Rozwiazanie_Kolokwium.zip --exclude=./Rozwiazanie_Kolokwium.zip Kolokwium 
+    ```
+    
+4)  Proszę przejść pod adres [Archiver](http://ik2a.kik.pcz.czest.pl/archiver/TestArchive/Index)
+5)  Następnie proszę wybrać Państwa test i kilknąć przycisk `Link`
 
     ![Alt text](Img/ArchiverUpload1.png?raw=true)
     
-5)  Proszę wypełnić formularz podając swoje dane, wskazać plik `Imie_Nazwisko_Kolokwium.zip`, a następnie nacisnąc przycisk `Upload`
+6)  Proszę wypełnić formularz podając swoje dane, wskazać plik `Rozwiazanie_Kolokwium.zip`, a następnie nacisnąc przycisk `Upload`
 
     ![Alt text](Img/ArchiverUpload2.png?raw=true)
     

@@ -37,7 +37,7 @@
 1)  Po zakończeniu czasu przeznaczonego na kolokwium, proszę klinąć PPM w `Solution Explorerze` na Solucji `Kolokwium` a następnie wybrać `Clean Solution`.
     ![Alt text](Img/clean_solution.png?raw=true)
 2) Następnie proszę uruchomić `Terminal (View -> Terminal)`.
-     ![Alt text](Img/open_terminal.png?raw=true)
+     ![Alt text](Img/open_terminal2.png?raw=true)
 3) Znajdując sie w folderze `Kolokwium` proszę wykonać w nim poniższe polecenia.
     ```powershell
    Remove-Item Kolokwium.WpfApp/bin -Recurse -Force

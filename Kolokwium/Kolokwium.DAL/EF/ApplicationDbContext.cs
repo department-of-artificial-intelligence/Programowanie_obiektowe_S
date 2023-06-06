@@ -1,5 +1,4 @@
-﻿using Kolokwium.Model;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Kolokwium.DAL.EF;
 public class ApplicationDbContext : DbContext

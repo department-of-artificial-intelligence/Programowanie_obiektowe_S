@@ -3,7 +3,8 @@
 ### Pobranie gałęzi oraz przygotowanie projektów
 1) Proszę pobrać gałąź kolokwium w formie pliku zip. A następnie wypakować jego zawartość.
   <img src="Img/download_zip.png" width=350 height=300></img>
-2) Następnie proszę uruchomić `Visual Studio 2022` i otworzyć solucję `Kolokwium.sln`.  
+2) W kolejnym kroku prosze ustwić projekt startowy (`Set startup project`) na `Kolokwium.WpfApp`  
+3) Następnie proszę uruchomić `Visual Studio 2022` i otworzyć solucję `Kolokwium.sln`.  
 3) Proszę skompilować całą solucję klikając PPM w `Solution Explorerze` na Solucji `Kolokwium` a następnie wybierając `Build Solution`.
 
     ![Alt text](Img/compile_solution.png?raw=true)

@@ -55,6 +55,51 @@ namespace PO.Lab1 {
                 Console.WriteLine(carCount);
             }
         }
+        class Garage
+        {
+            private Car[] _cars;
+            private string _address;
+            private int _carsCount;
+            private int _capacity;
+
+            public int Capacity { 
+                get => _capacity;
+                set
+                {
+                    _capacity = value;
+                    _cars = new Car[value];
+                }
+            }
+            public string Address { get=>_address ; set => _address = value; }
+            public Garage()
+            {
+                _address = "nieznany";
+                _capacity = 0;
+                _cars = null;
+                _carsCount = 0;
+            }
+            public Garage(string address, int capacity)
+            {
+
+            }
+            public void CarIn(Car car)
+            {
+
+            }
+            public Car CarOut(Car car)
+            {
+
+            }
+            public override string ToString()
+            {
+                return base.ToString();
+            }
+            public void Details()
+            {
+
+            }
+        }
+
         public static void Main(string[] args)
         {
             Car car1 = new Car();

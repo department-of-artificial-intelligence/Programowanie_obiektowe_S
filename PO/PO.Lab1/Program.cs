@@ -20,7 +20,6 @@ public class Car
         _engineVolume = engineVolume;
         _avgConsump = avgConsump;
     }
-
     public string Brand
     {
         get { return _brand; }

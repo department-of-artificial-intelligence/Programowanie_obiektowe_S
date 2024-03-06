@@ -128,7 +128,34 @@ public class Garage
         }
     }
 }
+public class Person
+{
+    private string[] _registrationNumbers = new string[3];
+    private string _firstName;
+    private string _lastName;
+    private string _address;
+    private static int _maxCountCar;
+    private static int _countCar;
+    public int MaxCountCar { get => _maxCountCar; set => _maxCountCar = value; }
+    public string FirstName { get => _firstName; set => _firstName = value; }
+    public string LastName { get => _lastName; set => _lastName = value; }
+    public int CarsCount { get => _countCar; set => _countCar = value; }
+    public string Address { get => _address; set => _address = value; }
+    public Person()
+    {
+        _firstName = "";
+        _lastName = "";
+        _address = "";
+        _countCar++;
+    }
+    public Person(string firstName,string lastName,string address,Car car[3])
+    {
+        _firstName = firstName;
+        _lastName = lastName;
+        _address = address;
 
+    }
+}
 class Program {
     static void Main(string[] args)
     {

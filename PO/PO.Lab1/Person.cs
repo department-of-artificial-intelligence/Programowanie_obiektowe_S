@@ -8,7 +8,7 @@ namespace PO.Lab1
 {
     public class Person
     {
-        private string[]? _registrationNumbers;
+        private string[] _registrationNumbers = null!;
 
         private int _maxCarCount;
         private string _firstName;
@@ -77,7 +77,7 @@ namespace PO.Lab1
         public override string ToString()
         {
             var str = "";
-            str += string.Join<Person>('\n', _registrationNumbers);
+            str += string.Join<string>('\n', _registrationNumbers);
             return str;
         }
 

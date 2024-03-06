@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
 using System;
+using Microsoft.VisualBasic.FileIO;
 
 public class Car
 {
@@ -71,6 +72,86 @@ public class Car
     }
 }
 
+public class Garage
+{
+    private string _address;
+    private Car[] _cars;
+    private int _capacity;
+    private int _carsCount;
+    public string Address { get { return _address; } set { _address = value; } }
+    public int Capacity { get { return _capacity; } set { _capacity = value; } }
+    public Garage()
+    {
+        Address = "Default";
+        Capacity = 0;
+        _cars = new Car[0];
+        _carsCount = 0;
+    }
+    public Garage(string address, int capacity)
+    {
+        Address = address;
+        Capacity = capacity;
+        _cars = new Car[0];
+        _carsCount = 0;
+    }
+
+    public void CarIn(Car car)
+    {
+        if(_carsCount < _capacity)
+        {
+            Car[] temp = new Car[_carsCount];
+            for(int i=0;i<_carsCount; i++)
+            {
+                temp[i] = _cars[i];
+            }
+            _carsCount++;
+            _cars = new Car[_carsCount];            
+            for(int i = 0;i<_carsCount-1;i++)
+            {
+                _cars[i] = temp[i];
+            }
+            _cars[_carsCount-1] = car;
+        }
+        else
+        {
+            Console.WriteLine("Garage is Full!\n");
+        }
+    }
+    public Car CarOut()
+    {
+        if(_carsCount > 0)
+        {
+            _carsCount--;
+            Car car = _cars[_carsCount];
+            _cars[_carsCount] = null;
+            return car;
+        }
+        else
+        {
+            Console.WriteLine("Garage is empty");
+            return null;
+        }
+    }
+    public override string ToString()
+    {
+        string txt = $"Address: {_address}\nCapacity: {_capacity}\nCars count: {_carsCount}\n";
+        foreach(Car car in _cars) 
+        {
+            if(car != null)
+            {
+            txt += "\n---------------------\n";
+            txt += car.ToString();
+            txt += "\n---------------------\n";
+            } 
+        }
+        return txt +="\n====================================";
+    }
+    public void Details()
+    {
+        Console.WriteLine(this);
+    }
+}
+
 internal class Program
 {
     static void Main(string[] args)
@@ -93,6 +174,27 @@ internal class Program
         Console.WriteLine($"Route cost: {routeCost}");
         Car.DisplayCarCount();
         Console.WriteLine("\r\n=========================================\r\n");
+
+
+        Garage garage1 = new Garage();
+        garage1.Address = "ul. Garażowa 1";
+        garage1.Capacity = 1;
+        Garage garage2 = new Garage("ul. Garażowa 2", 2);
+        garage1.CarIn(car1);
+        garage1.Details();
+        garage1.CarIn(car2);
+        garage2.CarIn(car2);
+        var movedCar = garage1.CarOut();
+        garage2.CarIn(movedCar);
+        garage2.Details();
+        garage1.Details();
+        garage2.CarOut();
+        garage2.Details();
+        garage2.CarOut();
+        garage2.CarOut(); 
+        garage2.Details();
+        garage1.Details();
+        //Console.WriteLine("\r\n=========================================\r\n");
 
         Console.ReadKey();
     }

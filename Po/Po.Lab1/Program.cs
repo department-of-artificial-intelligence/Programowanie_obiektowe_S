@@ -130,12 +130,13 @@ public class Garage
 }
 public class Person
 {
-    private string[] _registrationNumbers = new string[3];
+    private string[]? _registrationNumbers = new string[3];
     private string _firstName;
     private string _lastName;
     private string _address;
     private static int _maxCountCar;
     private static int _countCar;
+    private Car[] _car = new Car[3];
     public int MaxCountCar { get => _maxCountCar; set => _maxCountCar = value; }
     public string FirstName { get => _firstName; set => _firstName = value; }
     public string LastName { get => _lastName; set => _lastName = value; }
@@ -147,13 +148,61 @@ public class Person
         _lastName = "";
         _address = "";
         _countCar++;
+       
     }
-    public Person(string firstName,string lastName,string address,Car car[3])
+    public Person(string firstName,string lastName,string address, Car car)
     {
         _firstName = firstName;
         _lastName = lastName;
         _address = address;
-
+        
+        _countCar++;
+        for (int i = 0; i < _countCar; i++)
+        {
+            _car[i] = car;
+        }
+    }
+    public void addCarRegistrationNumber(string register)
+    {
+        if (_maxCountCar >= 3)
+        {
+            Console.WriteLine("możesz mieć maksymalnie 3 samochody");
+        }
+        else {
+            for (int i = 0; i < 3; i++)
+            {
+                if (i == _maxCountCar)
+                {
+                    _registrationNumbers[i] = register;
+                    _maxCountCar++;
+                    break;
+                }
+            }
+        }
+    }
+    public void RemoveCarRegistrationNumber(string register)
+    {
+        for (int i = 0; i < _maxCountCar; i++)
+        {
+            if (register == _registrationNumbers[i])
+            {
+                _registrationNumbers[i] = null;
+                MaxCountCar--;
+                _countCar--;
+            }
+            else {
+                Console.WriteLine("nie ma takiej rejestracji");
+                break;
+            }
+        }
+    }
+    public override string ToString()
+    {
+        return  "Imię: " + _firstName + ", Nazwisko: " + _lastName + ", Numery rejestracyjne: " + string.Join(", ", _registrationNumbers); ;
+    }
+    public void Details()
+    {
+        Console.WriteLine(this.ToString());
     }
 }
 class Program {
@@ -198,5 +247,13 @@ class Program {
         garage1.Details();
         Console.WriteLine("\r\n=========================================\r\n");
 
+        Person p = new Person("Marcin","Maj","ul.gajowa 2", car2);
+        p.addCarRegistrationNumber("32456f");
+        p.addCarRegistrationNumber("S245");
+        p.addCarRegistrationNumber("21435");
+        p.addCarRegistrationNumber("32456f");
+        p.RemoveCarRegistrationNumber("32456f");
+        p.RemoveCarRegistrationNumber("2222");
+        p.Details();
     }
 }

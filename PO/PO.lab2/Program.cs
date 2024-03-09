@@ -55,6 +55,7 @@ namespace PO.Lab2
                 _year = 0;
                 _group = 0; 
                 _indexId = 0;
+              //  _grades = new List<Grades>();
             }
             public Student(string firstName, string lastName, DateTime dateOfBirth, int year, int group, int indexId)
                 :base(firstName, lastName, dateOfBirth)
@@ -62,18 +63,30 @@ namespace PO.Lab2
                 _year=year;
                 _group=group;
                 _indexId=indexId;
+              //  _grades = new List<Grades>();
             }
             public override string ToString()
             {
-                return base.ToString() + $"year: {_year}, group: {_group}, indexId: {_indexId}";
+                if(_grades == null)
+                    _grades = new List<Grades>();
+                string Line = string.Empty;
+                foreach(Grades Ocenka in _grades)
+                {
+                    Line += '\n' + Ocenka.ToString();
+                }
+                return base.ToString() + $"year: {_year}, group: {_group}, indexId: {_indexId}" + Line;
             }
             public void AddGrade(string SubjectName, double value, DateTime date)
             {
-                Grades grades = new Grades(SubjectName, date, value);
-                _grades.Add(grades);
+                Grades NewGrades = new Grades(SubjectName, date, value);
+                if (_grades == null)
+                    _grades = new List<Grades>();
+                _grades.Add(NewGrades);
             }
             public void AddGrade(Grades grade)
             {
+                if (_grades == null)
+                    _grades = new List<Grades>();
                 _grades.Add(grade);
             }
             public void DisplayGrades()
@@ -81,6 +94,42 @@ namespace PO.Lab2
                 foreach(Grades Ocenka in _grades)
                 {
                     Console.WriteLine(Ocenka.ToString());
+                }
+            }
+            public void DisplayGrades(string SubjectName)
+            {
+                foreach (Grades Ocenka in _grades)
+                {
+                    if(Ocenka.SubjectName == SubjectName)
+                    Console.WriteLine(Ocenka.ToString());
+                }
+            }
+            public void DeleteGrade(string subjectName, double value, DateTime date)
+            {
+                for(int i = 0; i < _grades.Count(); i++)
+                {
+                    if (_grades[i].SubjectName == subjectName && _grades[i].Value == value && _grades[i].Date == date)
+                        _grades.RemoveAt(i);
+                }
+            }
+            public void DeleteGrade(Grades grade)
+            {
+                for (int i = 0; i < _grades.Count(); i++)
+                {
+                    if (_grades[i].SubjectName == grade.SubjectName && _grades[i].Value == grade.Value && _grades[i].Date == grade.Date)
+                        _grades.RemoveAt(i);
+                }
+            }
+            public void DeleteGrade()
+            {
+                 _grades.Clear();
+            }
+            public void DeleteGrade(string subjectName)
+            {
+                for (int i = 0; i < _grades.Count(); i++)
+                {
+                    if (_grades[i].SubjectName == subjectName)
+                        _grades.RemoveAt(i);
                 }
             }
         }
@@ -157,14 +206,34 @@ namespace PO.Lab2
             {
                 return base.ToString() + $"position: {_position}, club: {_club}, scoredgoals: {_scoredGoals}";
             }
-            public void ScoreGoal()
+            public virtual void ScoreGoal()
             {
                 _scoredGoals++;
             }
 
         }
-
-
+        public class HandballPlayer : Player
+        {
+            public HandballPlayer(string firstName, string lastName, DateTime dateOfBirth, string position, string club, int Scoredgoals = 0)
+                : base(firstName, lastName, dateOfBirth, position, club, Scoredgoals)
+            {}
+            public override void ScoreGoal()
+            {
+                base.ScoreGoal();
+                Console.WriteLine("Handball player scored goal!");
+            }
+        }
+        public class FootballPlayer : Player
+        {
+            public FootballPlayer(string firstName, string lastName, DateTime dateOfBirth, string position, string club, int Scoredgoals = 0)
+                : base(firstName, lastName, dateOfBirth, position, club, Scoredgoals)
+            { }
+            public override void ScoreGoal()
+            {
+                base.ScoreGoal();
+                Console.WriteLine("Football player scored goal!");
+            }
+        }
 
         public static void Main(string[] args)
         {
@@ -178,6 +247,34 @@ namespace PO.Lab2
             student.Details();
             ((Player)person3).ScoreGoal();
             person3.Details();
+
+            ((Student)person2).AddGrade("PO", 5.0D, new DateTime(2011, 2, 20));
+            ((Student)person2).AddGrade("Bazy Danych", 5.0D, new DateTime(2011, 2, 13));
+            person2.Details();
+            Grades grade = new Grades("Bazy Danych", new DateTime(2011, 5, 1), 5.0D);
+            student.AddGrade(grade);
+            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 5, 11));
+            student.AddGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
+            student.DisplayGrades();
+            student.Details();
+            student.DeleteGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
+            student.Details();
+            student.DeleteGrade("AWWW");
+            student.Details();
+            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 4, 3));
+            student.DeleteGrade();
+            student.Details();
+            Person footballPlayer =
+ new FootballPlayer("Mateusz", "Żbik", new DateTime(1986, 8, 10), "striker", "FC Barcelona", 10);
+            Person handballPlayer =
+            new HandballPlayer("Piotr", "Kos", new DateTime(1984, 9, 14), "striker", "FC Bayern");
+            footballPlayer.Details();
+            handballPlayer.Details();
+            ((Player)handballPlayer).ScoreGoal(); // rzutowanie bezpośrednie
+            (footballPlayer as Player).ScoreGoal(); // rzutowanie referencyjne
+            footballPlayer.Details();
+            handballPlayer.Details();
+
         }
 
 

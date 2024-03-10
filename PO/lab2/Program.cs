@@ -92,8 +92,8 @@ namespace lab2
             _scoredGoals++;
         }
 
-
-        class Program
+    }
+    class Program
     {
         static void Main(string[] args)
         {
@@ -108,6 +108,7 @@ namespace lab2
                 ((Player)person3).ScoreGoal();
                 person3.Details();
 
-            }
+        }
     }
 }
+    

@@ -114,11 +114,12 @@ namespace PO.Lab2
             }
             public void DeleteGrade(Grades grade)
             {
-                for (int i = 0; i < _grades.Count(); i++)
-                {
-                    if (_grades[i].SubjectName == grade.SubjectName && _grades[i].Value == grade.Value && _grades[i].Date == grade.Date)
-                        _grades.RemoveAt(i);
-                }
+                // for (int i = 0; i < _grades.Count(); i++)
+                // {
+                //    if (_grades[i].SubjectName == grade.SubjectName && _grades[i].Value == grade.Value && _grades[i].Date == grade.Date)
+                //         _grades.RemoveAt(i);
+                // }
+                _grades.Remove(grade);
             }
             public void DeleteGrade()
             {

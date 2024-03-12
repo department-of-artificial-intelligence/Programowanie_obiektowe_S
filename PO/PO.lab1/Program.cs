@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information 
 using System;
+using System.Text;
+using System.Xml.Serialization;
 namespace lab1.App
 {
     public class Car
@@ -118,10 +120,63 @@ namespace lab1.App
             get { return _address; }
             set { _address = value; }
         }
-        /*public void CarIn(Car a)
+        public void CarIn(Car car)
         {
-            if (_capacity < _carCount)
-        }*/
+            if (_carCount >= _capacity)
+            {
+                Console.WriteLine("Garag jest pelny \n");
+            }
+            else
+            {
+                _cars[_carCount] = car;
+                _carCount++;
+                Console.WriteLine("Auto jest dodane do garagu");
+            }
+        }
+        public Car CarOut()
+        {
+            if (_carCount == 0)
+            {
+                Console.WriteLine("Garage is empty. No cars to remove.");
+                return null!;
+            }
+            else
+            {
+                Car removedCar = _cars[_carCount - 1];
+                _cars[_carCount - 1] = null!;
+                _carCount--;
+                Console.WriteLine("Car removed from the garage.");
+                return removedCar;
+            }
+        }
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine($"Garage Address: {_address}");
+            stringBuilder.AppendLine($"Capacity: {_capacity}");
+            stringBuilder.AppendLine($"Number of Cars: {_carCount}");
+            stringBuilder.AppendLine("Cars in the Garage:");
+            foreach (Car car in _cars)
+            {
+                if (car != null)
+                    stringBuilder.AppendLine(car.ToString());
+            }
+            return stringBuilder.ToString();
+        }
+
+        public void Details()
+        {
+            Console.WriteLine($"Garage Address: {_address}");
+            Console.WriteLine($"Capacity: {_capacity}");
+            Console.WriteLine($"Number of Cars: {_carCount}");
+            Console.WriteLine("Cars Details:");
+            foreach (Car car in _cars)
+            {
+                if (car != null)
+                    car.Details();
+            }
+        }
+
     };
 
     class Program
@@ -145,6 +200,25 @@ namespace lab1.App
             double routeCost = car2.CalculateCost(500, 5);
             Console.WriteLine($"Route cost: {routeCost}");
             Car.DisplayCarCount();
+            Console.WriteLine("\r\n=========================================\r\n");
+            Garage garage1 = new Garage();
+            garage1.Address = "ul. Garażowa 1";
+            garage1.Capacity = 1;
+            Garage garage2 = new Garage("ul. Garażowa 2", 2);
+            garage1.CarIn(car1);
+            garage1.Details();
+            garage1.CarIn(car2);
+            garage2.CarIn(car2);
+            var movedCar = garage1.CarOut();
+            garage2.CarIn(movedCar);
+            garage2.Details();
+            garage1.Details();
+            garage2.CarOut();
+            garage2.Details();
+            garage2.CarOut();
+            garage2.CarOut();
+            garage2.Details();
+            garage1.Details();
             Console.WriteLine("\r\n=========================================\r\n");
         }
     }

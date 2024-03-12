@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Diagnostics;
+using System.Numerics;
 using System.Text.RegularExpressions;
 
 namespace lab2
@@ -39,11 +40,13 @@ namespace lab2
         private int _year;
         private int _group;
         private int _indexId;
+		private List<Grade> _grades = null;
 
-        public int Year { get { return _year; } set { _year = value; } }
+		public int Year { get { return _year; } set { _year = value; } }
         public int Group { get { return _group;} set { _group = value; } }
         public int IndexId { get { return _indexId; } set { _indexId = value; } }
-        public Student() { _year = 0; _group = 0; _indexId = 0; }
+		public List<Grade> Grades { get { return _grades; } set { _grades = value; } }
+		public Student() { _year = 0; _group = 0; _indexId = 0; }
         public Student(string firstName, string lastName, DateTime dateOfBirth, int year, int group, int indexId)
             : base(firstName, lastName, dateOfBirth) 
         {
@@ -56,9 +59,46 @@ namespace lab2
         {
             return $"{base.ToString()}, {_year}, {_group}, {_indexId}";
         }
-    }
 
-    public class Player : Person
+		public void AddGrade(string subjectName, double value, DateTime date)
+		{
+			Grade grade = new Grade(subjectName, value, date);
+			_grades.Add(grade);
+		}
+	}
+
+    public class Grade
+    {
+        private string _subjectName;
+        private DateTime _date;
+        private double _value;
+
+        public string SubjectName { get => _subjectName; set => _subjectName = value; }
+        public DateTime Date { get => _date; set => _date = value; }
+        public double Value { get => _value; set => _value = value; }
+
+        public Grade()
+        {
+            _subjectName = string.Empty;
+            _date = DateTime.MinValue;
+            _value = 0;
+        }
+        public Grade(string subjectName, double value, DateTime date)
+        {
+            _subjectName = subjectName;
+            _date = date;
+            _value = value;
+        }
+		public override string ToString()
+		{
+			return $"Subject: {SubjectName}, Value: {Value}, Date: {Date}";
+		}
+        public void Details()
+        {
+            Console.WriteLine(this.ToString());
+        }
+
+		public class Player : Person
     {
         private string _position;
         private string _club;

@@ -1,4 +1,6 @@
-﻿public class Car
+﻿using System.Net.Sockets;
+
+public class Car
 {
 	private double _avgConsump;
 	private string _brand;
@@ -59,6 +61,142 @@
 	}
 }
 
+public class Garage
+{
+	private Car[] _cars;
+	private string _address;
+	private int _carsCount = 0;
+	private int _capacity;
+
+	public string Address { get => _address; set => _address = value; }
+	public int Capacity
+	{
+		get => _capacity;
+		set
+		{
+			_capacity = value;
+			_cars = new Car[value];
+		}
+	}
+
+	public Garage()
+	{
+		_cars = Array.Empty<Car>();
+		_address = "";
+		_capacity = 0;
+	}
+	public Garage(string address, int capacity)
+	{
+		_address = address;
+		_capacity = capacity;
+		_cars = new Car[capacity];
+	}
+
+	public void CarIn(Car car)
+	{
+		if(_carsCount >= _capacity)
+		{
+			Console.WriteLine("Garage is full.");
+		}
+		else
+		{
+			_cars[_carsCount] = car;
+			_carsCount++;
+		}
+	}
+
+	public Car? CarOut()
+	{
+		if(_carsCount == 0)
+		{
+			Console.WriteLine("Garage is empty");
+			return null;
+		}
+        else
+        {
+			Car carToMoveOut = _cars[_carsCount - 1];
+			_cars[_carsCount - 1] = null;
+			_carsCount--;
+			return carToMoveOut;
+		}
+    }
+	public override string ToString()
+	{
+		string result = $"Garage Address: {_address}, Capacity: {_capacity}, Cars Count: {_carsCount}\n";
+		foreach (Car car in _cars)
+		{
+			if (car != null)
+				result += car.ToString() + "\n";
+		}
+		return result;
+	}
+
+	public void Details()
+	{
+		Console.WriteLine(this.ToString());
+	}
+}
+
+public class Person
+{
+	private string _firstName;
+	private string _lastName;
+	private int _age;
+	private string[] _carRegistrationNumbers;
+	private int _carCount;
+
+	public string FirstName { get => _firstName; set => _firstName = value; }
+	public string LastName { get => _lastName; set => _lastName = value; }
+	public int Age { get => _age; set => _age = value; }
+
+	public Person(string firstName, string lastName, int age)
+	{
+		_firstName = firstName;
+		_lastName = lastName;
+		_age = age;
+		_carRegistrationNumbers = new string[3]; 
+		_carCount = 0;
+	}
+
+	public void AddCarRegistrationNumber(string registrationNumber)
+	{
+		if (_carCount < 3)
+		{
+			_carRegistrationNumbers[_carCount] = registrationNumber;
+			_carCount++;
+		}
+		else
+		{
+			Console.WriteLine("Maximum number of cars for this person.");
+		}
+	}
+
+	public void RemoveCarRegistrationNumber(string registrationNumber)
+	{
+		for (int i = 0; i < _carCount; i++)
+		{
+			if (_carRegistrationNumbers[i] == registrationNumber)
+			{
+				_carRegistrationNumbers[i] = null;
+				_carCount--;
+				return;
+			}
+		}
+		Console.WriteLine($"Car with registration number {registrationNumber} not found.");
+	}
+
+	public override string ToString()
+	{
+		string carRegistrationNumbers = string.Join(", ", _carRegistrationNumbers);
+		return $"Person: {_firstName} {_lastName}, Age: {_age}, Cars: {carRegistrationNumbers}";
+	}
+
+	public void Details()
+	{
+		Console.WriteLine(this.ToString());
+	}
+}
+
 class Program
 {
     static void Main(string[] args)
@@ -80,6 +218,26 @@ class Program
 		double routeCost = car2.CalculateCost(500, 5);
 		Console.WriteLine($"Route cost: {routeCost}");
 		Car.DisplayCarCount();
+		Console.WriteLine("\r\n=========================================\r\n");
+
+		Garage garage1 = new Garage();
+		garage1.Address = "ul. Garażowa 1";
+		garage1.Capacity = 1;
+		Garage garage2 = new Garage("ul. Garażowa 2", 2);
+		garage1.CarIn(car1);
+		garage1.Details();
+		garage1.CarIn(car2);
+		garage2.CarIn(car2);
+		var movedCar = garage1.CarOut();
+		garage2.CarIn(movedCar);
+		garage2.Details();
+		garage1.Details();
+		garage2.CarOut();
+		garage2.Details();
+		garage2.CarOut();
+		garage2.CarOut();
+		garage2.Details();
+		garage1.Details();
 		Console.WriteLine("\r\n=========================================\r\n");
 	}
 }

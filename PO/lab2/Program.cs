@@ -28,6 +28,7 @@ namespace lab2
         {
             return $"{_firstName}, {_lastName}, {_dateOfBirth}";
         }
+
         public virtual void Details(){
             Console.WriteLine(this.ToString());
         }

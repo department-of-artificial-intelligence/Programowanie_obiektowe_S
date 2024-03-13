@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System;
+
 //using System.Collections.Generic;
 //using System.Diagnostics;
 //using System.Linq;
@@ -17,10 +17,12 @@ namespace Po.Lab2
         private int _year;
         private int _group;
         private int _indexId;
+        private List<Grade> grades = new List<Grade>();
 
         public int Year { get => _year; set => _year = value; }
         public int Group { get => _group; set => _group = value; }
         public int IndexId { get => _indexId; set => _indexId = value; }
+        public List<Grade> IList { get => grades;}
 
         public Student()
         {
@@ -44,8 +46,24 @@ namespace Po.Lab2
         {
             base.Details();
         }
+        public void AddGrade(string subjectName, double value, DateTime date)
+        {
+            grades.Add(new Grade(subjectName, value, date));
+        }
+        public void AddGrade(Grade grade)
+        {
+            grades.Add(grade);
+        }
+        public void DisplayGrade()
+        {
+            foreach(Grade grade in grades)
+            { 
+                Console.WriteLine(grade.ToString());
+            }
+        }
+
     }
-    
-    
+
+
 }
 

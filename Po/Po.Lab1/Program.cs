@@ -83,19 +83,128 @@ public class Garage
         _car = new Car[_capacity];
         _carsCount++;
     }
+    public string Address { get => _address; set => _address = value; }
+   
     public void CarIn(Car c)
     {
-        if (_carsCount == 0)
+        if (_carsCount == _capacity)
+        {
+            Console.WriteLine("jest pełny");
+        }
+        else {
+            _car[_carsCount] = c;
+            _carsCount++;
+        }
+    }
+    public Car? CarOut()
+    {
+        if (_carsCount ==0)
         {
             Console.WriteLine("jest pusty");
+            return null;
+        } else 
+        {
+            Car car = _car[_carsCount - 1];
+            _car[_carsCount - 1] = null;
+            _carsCount--;
+            return car;
         }
-        else if (_carsCount >= 1)
-        { 
-            
+
+       
+    }
+    public override string ToString()
+    {
+        return $"Address: {_address}, _capacity: {_capacity}";
+    }
+    public void Details()
+    {
+        Console.WriteLine(this.ToString());
+        foreach(Car e in _car)
+        {
+            if (e != null)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
     }
 }
-
+public class Person
+{
+    private string[]? _registrationNumbers = new string[3];
+    private string _firstName;
+    private string _lastName;
+    private string _address;
+    private static int _maxCountCar;
+    private static int _countCar;
+    private Car[] _car = new Car[3];
+    public int MaxCountCar { get => _maxCountCar; set => _maxCountCar = value; }
+    public string FirstName { get => _firstName; set => _firstName = value; }
+    public string LastName { get => _lastName; set => _lastName = value; }
+    public int CarsCount { get => _countCar; set => _countCar = value; }
+    public string Address { get => _address; set => _address = value; }
+    public Person()
+    {
+        _firstName = "";
+        _lastName = "";
+        _address = "";
+        _countCar++;
+       
+    }
+    public Person(string firstName,string lastName,string address, Car car)
+    {
+        _firstName = firstName;
+        _lastName = lastName;
+        _address = address;
+        
+        _countCar++;
+        for (int i = 0; i < _countCar; i++)
+        {
+            _car[i] = car;
+        }
+    }
+    public void addCarRegistrationNumber(string register)
+    {
+        if (_maxCountCar >= 3)
+        {
+            Console.WriteLine("możesz mieć maksymalnie 3 samochody");
+        }
+        else {
+            for (int i = 0; i < 3; i++)
+            {
+                if (i == _maxCountCar)
+                {
+                    _registrationNumbers[i] = register;
+                    _maxCountCar++;
+                    break;
+                }
+            }
+        }
+    }
+    public void RemoveCarRegistrationNumber(string register)
+    {
+        for (int i = 0; i < _maxCountCar; i++)
+        {
+            if (register == _registrationNumbers[i])
+            {
+                _registrationNumbers[i] = null;
+                MaxCountCar--;
+                _countCar--;
+            }
+            else {
+                Console.WriteLine("nie ma takiej rejestracji");
+                break;
+            }
+        }
+    }
+    public override string ToString()
+    {
+        return  "Imię: " + _firstName + ", Nazwisko: " + _lastName + ", Numery rejestracyjne: " + string.Join(", ", _registrationNumbers); ;
+    }
+    public void Details()
+    {
+        Console.WriteLine(this.ToString());
+    }
+}
 class Program {
     static void Main(string[] args)
     {
@@ -117,5 +226,34 @@ class Program {
         Console.WriteLine($"Route cost: {routeCost}");
         Car.DisplayCarCount();
         Console.WriteLine("\r\n=========================================\r\n");
+
+        Garage garage1 = new Garage();
+        garage1.Address = "ul. Garażowa 1";
+        garage1.Capacity = 1;
+        Garage garage2 = new Garage("ul. Garażowa 2", 2);
+        garage1.CarIn(car1);
+        garage1.Details();
+        garage1.CarIn(car2);
+        garage2.CarIn(car2);
+        var movedCar = garage1.CarOut();
+        garage2.CarIn(movedCar);
+        garage2.Details();
+        garage1.Details();
+        garage2.CarOut();
+        garage2.Details();
+        garage2.CarOut();
+        garage2.CarOut();
+        garage2.Details();
+        garage1.Details();
+        Console.WriteLine("\r\n=========================================\r\n");
+
+        Person p = new Person("Marcin","Maj","ul.gajowa 2", car2);
+        p.addCarRegistrationNumber("32456f");
+        p.addCarRegistrationNumber("S245");
+        p.addCarRegistrationNumber("21435");
+        p.addCarRegistrationNumber("32456f");
+        p.RemoveCarRegistrationNumber("32456f");
+        p.RemoveCarRegistrationNumber("2222");
+        p.Details();
     }
 }

@@ -2,11 +2,11 @@
 using Po.Lab2;
 namespace Po.Lab2
 {
-    public class Grade : Student
+    public class Grade 
     {
-        private string? _subjectName;
+        private string _subjectName;
         private DateTime? _date;
-        private double? _value;
+        private double _value;
 
         public string SubjectName
         {
@@ -28,7 +28,7 @@ namespace Po.Lab2
         {
             _subjectName = null;
             _date = null;
-            _value = null;
+            _value = "";
         }
         public Grade(string subjectName, double value, DateTime date)
         {

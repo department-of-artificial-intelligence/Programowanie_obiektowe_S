@@ -63,7 +63,11 @@ class Program
         {
             get; set;
         }
-        public Journal() { }
+        public Journal()
+        :base()
+        {
+            Number = 0;
+        }
         public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number)
         :base(id,title,publisher,dateOfIssue) 
         {

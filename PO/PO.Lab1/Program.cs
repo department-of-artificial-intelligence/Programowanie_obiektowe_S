@@ -1,69 +1,193 @@
 ﻿using System.Runtime.InteropServices.Marshalling;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Lab1.App
 {
-    public class Car
+    public class Person
     {
-        private string? _brand;
-        private string? _model;
-        private int _doorCount;
-        private float _engineVolume;
-        private double _avgConsump;
-        static int carCount=0;
-        private string? _registrationNumber;
-
-        public Car()
+        protected string? _firstName;
+        public string? FirstName => _firstName;
+        protected string? _lastName;
+        public string? LastName => _lastName;
+        protected DateTime _dateOfBirth;
+        public DateTime DateOfBirth
         {
-            _brand = "none";
-            _model = "none";
-            DoorCount = 0;
-            EngineVolume = 0;
-            AvgConsump = 0;
-            _registrationNumber = "none";
-            carCount += 1;
+            get => _dateOfBirth;
+            set => _dateOfBirth = value;
         }
 
-        public Car(string brand, string model, int doorcount, float enginevolume, double avgconsump, string registrationnumber)
-        { 
-            _brand=brand;
-            _model=model;
-            DoorCount=doorcount;
-            EngineVolume=enginevolume;
-            AvgConsump=avgconsump;
-            _registrationNumber = registrationnumber ;
-            carCount += 1;
-        }
-
-        public string? Brand { get => _brand; set => _brand = value; }
-        public string? Model { get => _model; set=> _model=value; }
-        public string? RegistrationNumber { get=>_registrationNumber; set=> _registrationNumber = value; }
-        public int DoorCount { get { return _doorCount; } set { _doorCount = value; } }
-        public float EngineVolume { get { return _engineVolume; } set { _engineVolume = value; } }
-        public double AvgConsump { get { return _avgConsump; } set { _avgConsump = value; } }
-
-        public double CalculateConsump(double route)
+        public Person()
         {
-            return (_avgConsump * route) / 100;
+            _firstName = "none";
+            _lastName = "none";
+            _dateOfBirth = DateTime.Now;
         }
-
-        public double CalculateCost(double route, double price)
-        {
-            return CalculateConsump(route) * price;
+        public Person(string firstName, string lastName, DateTime dateOfBirth) { 
+            _firstName = firstName;
+            _lastName = lastName;
+            _dateOfBirth = dateOfBirth;
         }
 
         public override string ToString()
         {
-            return $"Auto {Brand} {Model} {DoorCount}-drzwiowy z pojemnością silnika {EngineVolume} oraz spalaniem {AvgConsump} na 100km\n";
+            return $"Person | First Name: {_firstName}, Last name: {_lastName}, Date of birth: {_dateOfBirth}\n";
+        }
+
+        public virtual void Details()
+        {
+            Console.WriteLine(this);
+        }
+
+
+    }
+
+    public class Student: Person
+    {
+        private int _year;
+        public int Year
+        {
+            get => _year;
+            set => _year = value;
+        }
+        private int _group;
+        public int Group
+        {
+            get => _group;
+            set => _group = value;
+        }
+        private int _indexId;
+        public int IndexId
+        {
+            get => _indexId;
+            set => _indexId = value;
+        }
+
+        private List<Grade> _grades;
+
+        public Student()
+            :base()
+        {
+            _firstName= "none";
+            _lastName= "none";
+            _dateOfBirth= DateTime.Now;
+            _year = 0;
+            _group = 0;
+            _indexId = 0;
+            _grades = new List<Grade>();
+            
+        }
+        public Student(string firstName, string lastName, DateTime dateOfBirth, int year, int group, int indexId, List<Grade> grades )
+            :base(firstName, lastName, dateOfBirth)
+        {
+            _firstName = firstName;
+            _lastName = lastName;
+            _dateOfBirth = dateOfBirth;
+            _year = year;
+            _group = group;
+            _indexId = indexId;
+            _grades = new List<Grade>(grades);
+        }
+
+        public override string ToString()
+        {
+            return $"Student | First Name: {_firstName}, Last name: {_lastName}, Date of birth: {_dateOfBirth}, Year: {_year}, Group: {_group}, Index Id: {_indexId}\n";
+        }
+
+        public override void Details()
+        {
+            base.Details();
+        }
+
+        public void AddGrade(string subjectName, double value, DateTime date)
+        {
+           
+        }
+    }
+
+    public class Player: Person
+    {
+        private string? _position;
+        public string? Position => _position;
+        private string? _club;
+        public string? Club => _club;
+        private int _scoredGoals;
+        public int ScoredGoals
+        {
+            get => _scoredGoals;
+            set => _scoredGoals = value;
+        }
+
+        public Player()
+            :base()
+        {
+            _firstName = "none";
+            _lastName = "none";
+            _dateOfBirth = DateTime.Now;
+            _position = "none";
+            _club = "none";
+            _scoredGoals = 0;
+
+        }
+        public Player(string firstName, string lastName,DateTime dateOfBirth, string position, string club, int scoredGoals)
+            :base(firstName, lastName, dateOfBirth)
+        {
+            _position = position;
+            _club = club;
+            _scoredGoals = scoredGoals;
+        }
+
+        public override string ToString()
+        {
+            return $"Player | First Name: {_firstName}, Last name: {_lastName}, Date of birth: {_dateOfBirth}, Position: {_position}, Club: {_club}, Scored goals: {_scoredGoals}\n";
+
+        }
+        
+        public void ScoreGoal()
+        {
+            _scoredGoals++;
+        }
+    }
+
+    public class Grade
+    {
+        private string? _subjectName;
+        public string? SubjectName => _subjectName;
+        private DateTime _date;
+        public DateTime Date
+        {
+            get => _date;
+            set => _date = value;
+        }
+
+        private double _value;
+        public double Value
+        {
+            get => _value;
+            set => _value = value;
+        }
+
+        public Grade()
+        {
+            _subjectName = "none";
+            _date = DateTime.Now;
+            _value = 0;
+        }
+        public Grade(string? subjectName, DateTime date, double value)
+        {
+            _subjectName = subjectName;
+            _date = date;
+            _value = value;
+        }
+
+        public override string ToString()
+        {
+            return $"Grade | Subject name: {_subjectName}, Date: {_date}, Value: {_value}\n";
+
         }
 
         public void Details()
         {
-            Console.WriteLine(this.ToString());
-        }
-
-        public static void DisplayCarCount()
-        {
-            Console.WriteLine($"Ilość aut w obiegu: {carCount}");
+            Console.WriteLine(this);
         }
     }
 
@@ -71,24 +195,16 @@ namespace Lab1.App
     {
         static void Main(string[] args)
         {
-            Car car1 = new Car();
-            car1.Details();
-            car1.Brand = "Fiat";
-            car1.Model = "126p";
-            car1.DoorCount = 2;
-            car1.EngineVolume = 650;
-            car1.AvgConsump = 6.0;
-            car1.RegistrationNumber = "KR12345";
-            car1.Details();
-            Car car2 = new Car("Syrena", "105", 2, 0.8f, 7.6d, "WE1234");
-            car2.Details();
-            Console.WriteLine(car1);
-            double routeConsumption = car2.CalculateConsump(500);
-            Console.WriteLine($"Route consumption: {routeConsumption} l");
-            double routeCost = car2.CalculateCost(500, 5);
-            Console.WriteLine($"Route cost: {routeCost}");
-            Car.DisplayCarCount();
-            Console.WriteLine("\r\n=========================================\r\n");
+            Person person1 = new Person("Adam", "Miś", new DateTime(1990, 3, 20, 12, 30, 10));
+            Person person2 = new Student("Michał", "Kot", new DateTime(1990, 4, 13), 3, 5, 12345);
+            Person person3 = new Player("Robert", "Lewandowski", new DateTime(1988, 10, 3), "Striker", "Bayern", 41);
+            person1.Details();
+            person2.Details();
+            person3.Details();
+            Student student = new Student("Krzysztof", "Jeż", new DateTime(1990, 12, 29), 2, 5, 54321);
+            student.Details();
+            ((Player)person3).ScoreGoal();
+            person3.Details();
         }
     }
 }

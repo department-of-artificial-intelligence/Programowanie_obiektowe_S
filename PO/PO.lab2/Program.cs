@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 
-namespace PO.Lab2
+namespace PO.lab2
 {
     class Program
     {

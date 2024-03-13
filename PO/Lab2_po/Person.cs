@@ -25,7 +25,7 @@ namespace Lab2_po
         {
             _firstName = "";
             _lastName = "";
-            _dateOfBirth = DateTime.MinValue;
+            _dateOfBirth = DateTime.Now;
         }
 
         public Person(string firstName, string lastName, DateTime dateOfBirth)

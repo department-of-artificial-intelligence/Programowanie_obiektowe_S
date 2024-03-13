@@ -76,7 +76,7 @@ public class Garage
 
     public Car CarOut()
     {
-        var cars = new List<Foo>(_cars);
+        var cars = new List<Car>(_cars);
         var result = cars[_carsCount - 1];
         cars.RemoveAt(_carsCount-1);
         return result;

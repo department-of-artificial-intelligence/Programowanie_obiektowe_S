@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FootballPlayer.cs" />
+    <Compile Include="Grade.cs" />
+    <Compile Include="HandBallPlayer.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

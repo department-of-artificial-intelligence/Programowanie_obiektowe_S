@@ -131,50 +131,50 @@ public class Garage
 public class Person
 {
     private string[]? _registrationNumbers = new string[3];
-    private string _firstName;
-    private string _lastName;
-    private string _address;
-    private static int _maxCountCar;
-    private static int _countCar;
-    private Car[] _car = new Car[3];
-    public int MaxCountCar { get => _maxCountCar; set => _maxCountCar = value; }
-    public string FirstName { get => _firstName; set => _firstName = value; }
-    public string LastName { get => _lastName; set => _lastName = value; }
-    public int CarsCount { get => _countCar; set => _countCar = value; }
-    public string Address { get => _address; set => _address = value; }
+  
+    //private Car[] _car = new Car[3];
+    public int MaxCountCar { get ; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public int CarsCount { get; set; }
+    public string Address { get; set; }
     public Person()
     {
-        _firstName = "";
-        _lastName = "";
-        _address = "";
-        _countCar++;
+        FirstName = "";
+        LastName = "";
+        Address = "";
+        CarsCount++;
        
     }
-    public Person(string firstName,string lastName,string address, Car car)
+    public Person(string firstName,string lastName,string address, Car[] car)
     {
-        _firstName = firstName;
-        _lastName = lastName;
-        _address = address;
-        
-        _countCar++;
-        for (int i = 0; i < _countCar; i++)
+        FirstName = firstName;
+        LastName = lastName;
+        Address = address;
+
+        CarsCount=car.Length;
+        for (int i = 0; i < car.Length; i++)
         {
-            _car[i] = car;
+            _registrationNumbers[i] = car[i].RegistrationNumber;
         }
     }
     public void addCarRegistrationNumber(string register)
     {
-        if (_maxCountCar >= 3)
+        if (_registrationNumbers.Contains(register))
+        {
+            Console.WriteLine("istenieje rejestracji");
+        }
+        if (CarsCount >= 3)
         {
             Console.WriteLine("możesz mieć maksymalnie 3 samochody");
         }
         else {
             for (int i = 0; i < 3; i++)
             {
-                if (i == _maxCountCar)
+                if (i == CarsCount)
                 {
                     _registrationNumbers[i] = register;
-                    _maxCountCar++;
+                    CarsCount++;
                     break;
                 }
             }
@@ -182,23 +182,27 @@ public class Person
     }
     public void RemoveCarRegistrationNumber(string register)
     {
-        for (int i = 0; i < _maxCountCar; i++)
+        if (!_registrationNumbers.Contains(register))
         {
-            if (register == _registrationNumbers[i])
+            Console.WriteLine("nie ma takiej rejestracji");
+        }
+        else
+        {
+            for (int i = 0; i < CarsCount; i++)
             {
-                _registrationNumbers[i] = null;
-                MaxCountCar--;
-                _countCar--;
-            }
-            else {
-                Console.WriteLine("nie ma takiej rejestracji");
-                break;
+                if (register == _registrationNumbers[i])
+                {
+                    _registrationNumbers[i] = null;
+                    //MaxCountCar--;
+                    CarsCount--;
+                }
+
             }
         }
     }
     public override string ToString()
     {
-        return  "Imię: " + _firstName + ", Nazwisko: " + _lastName + ", Numery rejestracyjne: " + string.Join(", ", _registrationNumbers); ;
+        return  "Imię: " + FirstName + ", Nazwisko: " + LastName + ", Numery rejestracyjne: " + string.Join(", ", _registrationNumbers); ;
     }
     public void Details()
     {
@@ -246,8 +250,8 @@ class Program {
         garage2.Details();
         garage1.Details();
         Console.WriteLine("\r\n=========================================\r\n");
-
-        Person p = new Person("Marcin","Maj","ul.gajowa 2", car2);
+        Car[] cars = {car1,car2 };
+        Person p = new Person("Marcin","Maj","ul.gajowa 2", cars);
         p.addCarRegistrationNumber("32456f");
         p.addCarRegistrationNumber("S245");
         p.addCarRegistrationNumber("21435");

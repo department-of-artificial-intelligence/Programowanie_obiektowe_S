@@ -15,7 +15,7 @@ namespace Po.Lab2
         }
         public DateTime Date
         {
-            get => _date;
+            get => (DateTime)_date;
             set => _date = value;
         }
         public double Value
@@ -28,11 +28,11 @@ namespace Po.Lab2
         {
             _subjectName = null;
             _date = null;
-            _value = "";
+            _value = 0;
         }
         public Grade(string subjectName, double value, DateTime date)
         {
-            _subjectName ??= subjectName;
+            _subjectName = subjectName;
             _date = date;
             _value = value;
         }

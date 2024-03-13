@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Po.Lab2;
 
 namespace Po.Lab2
 {
@@ -34,8 +34,15 @@ namespace Po.Lab2
         }
         public override string ToString()
         {
-            return base.ToString() + $"Year: {_year}, Group: {_group}" +
-                $", Index: {_indexId}";
+            string result = base.ToString() + $"Year: {_year}, Group: {_group}" +
+                $", Index: {_indexId}, Grades:\n";
+
+            foreach (Grade grade in grades)
+            {
+                result += grade.ToString() + "\n";
+            }
+
+            return result;
         }
         public override void Details()
         {
@@ -56,7 +63,27 @@ namespace Po.Lab2
                 Console.WriteLine(grade.ToString());
             }
         }
+        public void DisplayGrade(string subjectName)
+        {
+            foreach (Grade grade in grades)
+            {
+                if (grade.SubjectName == subjectName)
+                { 
+                    Console.WriteLine(grade.Value);
+                }
+            }
+        }
+        public void DeleteGrade(string subjectName, double value, DateTime date) => grades.Remove(new Grade(subjectName, value, date));
 
+        public void DeleteGrade(Grade grade) => grades.Remove(grade);
+        public void DeleteGrades()
+        {
+            grades.Clear();
+        }
+        public void DeleteGrades(string subjectName)
+        {
+            grades.RemoveAll(grade => grade.SubjectName == subjectName);
+        }
     }
     //public class Grade
     //{

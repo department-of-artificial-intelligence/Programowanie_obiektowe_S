@@ -30,7 +30,7 @@ namespace Po.Lab2
             _scoreGoals = 0;
         }
         public Player(string firstName, string lastName,
-            DateTime birthDate, string position, string club, int scoreGoals
+            DateTime birthDate, string position, string club, int scoreGoals=0
             ) : base(firstName, lastName, birthDate)
         {
             _position = position;
@@ -40,9 +40,9 @@ namespace Po.Lab2
         public override string ToString()
         {
             return base.ToString() + $"Position: {_position}, Club:{_club}" +
-                $", ";
+                $", Score Goal: {_scoreGoals}";
         }
-        public void ScoreGoals()
+        public virtual void ScoreGoals()
         {
             _scoreGoals++;
         }

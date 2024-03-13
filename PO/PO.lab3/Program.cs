@@ -87,7 +87,7 @@ class Program
 
 
     }
-    public class Author
+    public class Person
     {
         public string FirstName
         {
@@ -97,25 +97,45 @@ class Program
         {
             get; set;
         }
+        public Person()
+        {
+            FirstName = string.Empty;
+            LastName = string.Empty;
+        }
+        public Person(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
+        public override string ToString()
+        {
+            return $"FirstName: {FirstName},LastName: {LastName} ";
+        }
+        public void Details()
+        {
+            Console.WriteLine(ToString());
+        }
+    }
+    public class Author : Person
+    {
+
         public string Nationality
         {
             get; set;
         }
         public Author() 
+        :base()
         {
-            FirstName = string.Empty;
-            LastName = string.Empty;
             Nationality = string.Empty;
         }
         public Author(string firstName, string lastName, string nationality)
+        : base(firstName,lastName)
         {
-            FirstName = firstName;
-            LastName = lastName;
             Nationality = nationality;
         }
         public override string ToString()
         {
-            return $"FirstName: {FirstName},LastName: {LastName},Nationality: {Nationality} ";
+            return base.ToString() +$"Nationality: {Nationality} ";
         }
     }
 
@@ -162,6 +182,8 @@ class Program
             Authors.Add(author);
         }
     }
+
+
     public class Catalog
     {
         public IList<Item> Items

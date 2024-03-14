@@ -11,10 +11,10 @@ namespace lab3_po
     public class Book : Item
     {
         private int _pageCount;
-        private List <Author> _authors = new List <Author> ();
+        private List<Author> _authors = new List<Author>();
 
-        public Book(string title, int id, string publisher, DateTime dateOfIssue, int pageCount, List<Author>authors)
-        :base(title, id, publisher, dateOfIssue)
+        public Book(string title, int id, string publisher, DateTime dateOfIssue, int pageCount, List<Author> authors)
+        : base(title, id, publisher, dateOfIssue)
         {
             _pageCount = pageCount;
             _authors = authors;

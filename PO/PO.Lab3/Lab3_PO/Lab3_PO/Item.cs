@@ -8,7 +8,7 @@ namespace lab3_po
 {
     public abstract class Item
     {
-        
+
         private string _title;
         private int _id;
         private string _publisher;
@@ -27,7 +27,7 @@ namespace lab3_po
             _dateOfIssue = DateTime.Now;
         }
 
-        public Item( string title, int id, string publisher, DateTime dateOfIssue)
+        public Item(string title, int id, string publisher, DateTime dateOfIssue)
         {
             Title = title;
             Id = id;

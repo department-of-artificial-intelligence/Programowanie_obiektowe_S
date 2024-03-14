@@ -12,7 +12,7 @@ namespace lab3_po
         public string _lastName;
         public string _nationality;
 
-        public Author() 
+        public Author()
         {
             _firstName = "";
             _lastName = "";

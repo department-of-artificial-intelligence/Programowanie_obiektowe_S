@@ -9,11 +9,11 @@ namespace lab3_po
     public class Journal : Item
     {
         private int _number;
-        public int Number { get { return _number;  } set { _number = value; } }
+        public int Number { get { return _number; } set { _number = value; } }
 
-        public Journal() :base() {}
+        public Journal() : base() { }
         public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number)
-        :base(title, id, publisher, dateOfIssue)
+        : base(title, id, publisher, dateOfIssue)
         {
             _number = number;
         }
@@ -38,3 +38,4 @@ namespace lab3_po
         }
     }
 }
+

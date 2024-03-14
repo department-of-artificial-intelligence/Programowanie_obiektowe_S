@@ -14,12 +14,12 @@ namespace lab3_po
         public IList<Item> Items1 { get => Items; set => Items = value; }
         public string ThematicDepartment { get => _thematicDepartment; set => _thematicDepartment = value; }
 
-        public Catalog(IList<Item>items)
+        public Catalog(IList<Item> items)
         {
             Items = items;
         }
 
-        public Catalog(string thematicDepartment, IList<Item>items)
+        public Catalog(string thematicDepartment, IList<Item> items)
         {
             _thematicDepartment = thematicDepartment;
             Items = items;
@@ -33,13 +33,13 @@ namespace lab3_po
         public override string ToString()
         {
             var str = $"thematic department: {_thematicDepartment}";
-            str += string.Join < Item >('\n', Items);
+            str += string.Join<Item>('\n', Items);
             return str;
         }
 
         public void ShowAllItems()
         {
-            Console.WriteLine(this);  
+            Console.WriteLine(this);
         }
     }
 }

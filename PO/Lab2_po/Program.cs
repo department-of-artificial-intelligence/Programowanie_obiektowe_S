@@ -18,21 +18,36 @@ namespace Lab02_po
             ((Player)person3).ScoreGoal();
             person3.Details();
 
-            //((Student)person2).AddGrade("PO", 5.0D, new DateTime(2011, 2, 20));
-            //((Student)person2).AddGrade("Bazy Danych", 5.0D, new DateTime(2011, 2, 13));
-            //person2.Details();
-            //Grade grade = new Grade("Bazy Danych", 5.0D, new DateTime(2011, 5, 1));
-            //student.AddGrade(grade);
-            //student.AddGrade("AWWW", 5.0D, new DateTime(2011, 5, 11));
-            //student.AddGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
-            //student.Details();
-            //student.DeleteGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
-            //student.Details();
-            //student.DeleteGrades("AWWW");
-            //student.Details();
-            //student.AddGrade("AWWW", 5.0D, new DateTime(2011, 4, 3));
-            //student.DeleteGrades();
-            //student.Details();
+            Console.WriteLine("------------------------------------------------\n");
+
+            ((Student)person2).AddGrade("PO", 5.0D, new DateTime(2011, 2, 20));
+            ((Student)person2).AddGrade("Bazy Danych", 5.0D, new DateTime(2011, 2, 13));
+            person2.Details();
+            Grade grade = new Grade("Bazy Danych", 5.0D, new DateTime(2011, 5, 1));
+            student.AddGrade(grade);
+            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 5, 11));
+            student.AddGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
+            student.Details();
+            student.DeleteGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
+            student.Details();
+            student.DeleteGrades("AWWW");
+            student.Details();
+            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 4, 3));
+            student.Details();
+            student.DeleteGrades();
+            student.Details();
+
+            Console.WriteLine("------------------------------------------------\n");
+
+            Person footballPlayer = new FootballPlayer("Mateusz", "Żbik", new DateTime(1986, 8, 10), "striker", "FC Barcelona", 10);
+            Person handballPlayer = new HandballPlayer("Piotr", "Kos", new DateTime(1984, 9, 14), "striker", "FC Bayern", 3);
+            footballPlayer.Details();
+            handballPlayer.Details();
+            ((Player)handballPlayer).ScoreGoal(); // rzutowanie bezpośrednie
+            (footballPlayer as Player).ScoreGoal(); // rzutowanie referencyjne
+            footballPlayer.Details();
+            handballPlayer.Details();
+
         }
     }
 }

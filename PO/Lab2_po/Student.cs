@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -38,14 +38,16 @@ namespace Lab2_po
         {
             var str = base.ToString();
             str += $" year: {_year}, group: {_group}, index: {_indexId}";
+            str += string.Join<Grade>('\n', _grades);
             return str; 
         }
 
         public void AddGrade(string subjectName, double value, DateTime date)
         {
-            Grade grade = new Grade();
+            Grade grade = new();
             grade.SubjectName = subjectName;
             grade.Value = value;
+            grade.Date = date;
             _grades.Add(grade);
         }
 
@@ -64,13 +66,15 @@ namespace Lab2_po
 
         public void DisplayGrades(string subjectName)
         {
-
+            var foundedGrade = _grades.Where(b => b.SubjectName == subjectName);
+            foreach (var grade in foundedGrade) { Console.WriteLine(this); }
         }
 
-        public void DeleteGrade(string subjectName, double value, DataSetDateTime date)
+        public void DeleteGrade(string subjectName, double value, DateTime date)
         {
-
+            _grades.RemoveAll(b => b.SubjectName == subjectName && b.Value == value && b.Date == date);
         }
+
 
         public void DeleteGrade(Grade grade)
         {
@@ -79,9 +83,18 @@ namespace Lab2_po
 
         public void DeleteGrades(string subjectName)
         {
-                var foundedGrade = _grades.Where(b => b.SubjectName == subjectName);
+                var foundedGrade = _grades.Where(b => b.SubjectName == subjectName).ToList();
                
                 foreach (var grade in foundedGrade) { _grades.Remove(grade); }
+        }
+
+        public void DeleteGrades()
+        {
+            var gradesToRemove = _grades.ToList();
+            foreach (var grade in gradesToRemove)
+            {
+                _grades.Remove(grade);
+            }
         }
     }
 }

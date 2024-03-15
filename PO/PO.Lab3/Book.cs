@@ -10,21 +10,20 @@ namespace lab3_po
 {
     public class Book : Item
     {
-        private int _pageCount;
-        private List<Author> _authors = new List<Author>();
-
+        public int PageCount { get; set; }
+        public IList<Author> Authors { get; set; }
         public Book(string title, int id, string publisher, DateTime dateOfIssue, int pageCount, List<Author> authors)
         : base(title, id, publisher, dateOfIssue)
         {
-            _pageCount = pageCount;
-            _authors = authors;
+            PageCount = pageCount;
+            Authors = authors;
         }
 
         public override string ToString()
         {
             var str = base.ToString();
-            str += $"page count: {_pageCount} ";
-            str += string.Join<Author>('\n', _authors);
+            str += $"page count: {PageCount} ";
+            str += string.Join<Author>('\n', Authors);
             return str;
         }
 
@@ -42,7 +41,7 @@ namespace lab3_po
 
         public void AddAuthor(Author author)
         {
-            _authors.Add(author);
+            Authors.Add(author);
         }
     }
 }

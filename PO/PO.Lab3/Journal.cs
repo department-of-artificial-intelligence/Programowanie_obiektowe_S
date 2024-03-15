@@ -8,20 +8,19 @@ namespace lab3_po
 {
     public class Journal : Item
     {
-        private int _number;
-        public int Number { get { return _number; } set { _number = value; } }
+        public int Number { get; set; }
 
         public Journal() : base() { }
         public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number)
         : base(title, id, publisher, dateOfIssue)
         {
-            _number = number;
+            Number = number;
         }
 
         public override string ToString()
         {
             var str = base.ToString(); ;
-            str += $"Number: {_number}";
+            str += $"Number: {Number}";
             return str;
         }
 

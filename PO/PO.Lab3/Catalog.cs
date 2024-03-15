@@ -8,12 +8,10 @@ namespace lab3_po
 {
     public class Catalog
     {
-        private IList<Item> Items = new List<Item>();
-        private string _thematicDepartment;
+        public IList<Item> Items { get; set; }
+        public string ThematicDepartment { get; set; }
 
         public IList<Item> Items1 { get => Items; set => Items = value; }
-        public string ThematicDepartment { get => _thematicDepartment; set => _thematicDepartment = value; }
-
         public Catalog(IList<Item> items)
         {
             Items = items;
@@ -21,7 +19,7 @@ namespace lab3_po
 
         public Catalog(string thematicDepartment, IList<Item> items)
         {
-            _thematicDepartment = thematicDepartment;
+            ThematicDepartment = thematicDepartment;
             Items = items;
         }
 
@@ -32,7 +30,7 @@ namespace lab3_po
 
         public override string ToString()
         {
-            var str = $"thematic department: {_thematicDepartment}";
+            var str = $"thematic department: {ThematicDepartment}";
             str += string.Join<Item>('\n', Items);
             return str;
         }

@@ -8,11 +8,11 @@ namespace PO.lab1
 {
     internal class Garage
     {
-        private Car[] _cars;
-        private string _address = null!;
-        private int? _carCount;
-        private int? _capacity;
-
+        //Pola
+        private Car[]? _cars;
+        private string _address;
+        private int _carCount = 0;
+        private int _capacity;
         
         public Car[]? Cars { get => _cars; set => _cars = value; }
         public string Address { get => _address; set => _address = value; }

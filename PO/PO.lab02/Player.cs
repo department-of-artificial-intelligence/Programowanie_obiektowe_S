@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
-namespace PO.lab02
+﻿namespace PO.lab02
 {
     internal class Player : Person
     {
-        private string _position;
-        private string _club;
+        private string _position = null!;
+        private string _club = null!;
         private int _scoredGoals;
 
         public string Position { get { return _position; } set { _position = value; } }

@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PO.lab02
+﻿namespace PO.lab02
 {
     internal class Person
     {
 
         protected string _firstName = null!;
         protected string _lastName = null!;
-
         protected DateTime _dateOfBirth;
 
-        public string FirstName { 
-            get { return _firstName; } 
-            set { _firstName = value; } 
+        public string FirstName
+        {
+            get { return _firstName; }
+            set { _firstName = value; }
         }
 
-        public string LastName { 
+        public string LastName
+        {
             get { return _lastName; }
             set { _lastName = value; }
         }
@@ -52,7 +46,7 @@ namespace PO.lab02
 
         public virtual void Details()
         {
-            base.ToString();
+            Console.WriteLine(this);
         }
 
     }

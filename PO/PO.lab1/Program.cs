@@ -3,7 +3,7 @@
 
 Car car1 = new Car();
 car1.Details();
-car1.Brand = "Fiat";
+car1.Brand = "Fiatt";
 car1.Model = "126p";
 car1.DoorCount = 2;
 car1.EngineVolume = 650;

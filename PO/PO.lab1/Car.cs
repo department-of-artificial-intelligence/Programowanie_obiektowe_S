@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PO.lab1
+﻿namespace PO.lab1
 {
     internal class Car
     {
@@ -32,7 +26,7 @@ namespace PO.lab1
             _carCount++;
         }
 
-        public Car(string brand, string model, int doorCount, 
+        public Car(string brand, string model, int doorCount,
                     float engineVolume, double avgConsum)
         {
             Brand = brand;

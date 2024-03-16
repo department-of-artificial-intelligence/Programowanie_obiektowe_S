@@ -28,7 +28,7 @@
             return $"Student | FirstName: {FirstName}, LastName: {LastName}, Date of Birth: {DateOfBirth}, Position: {Position}, Club: {Club}, Scored Goals: {ScoredGoals}.";
         }
 
-        public void ScoreGoal()
+        public virtual void ScoreGoal()
         {
             ScoredGoals++;
         }

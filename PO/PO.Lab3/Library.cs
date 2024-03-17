@@ -4,7 +4,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using static PO.Lab3.Program;
 
 namespace PO.Lab3
 {
@@ -34,24 +33,63 @@ namespace PO.Lab3
         {
             Catalogs.Add(catalog);
         }
+        public void AddItem(Item item,string thematicDepartment)
+        {
+            Catalogs.First(i=>i.ThematicDepartment==thematicDepartment).AddItem(item);
+        }
         public void ShowAllItems()
         {
-            throw new NotImplementedException();
+            foreach (var item in Catalogs)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         public Item FindItemBy(int id)
         {
-            throw new NotImplementedException();
+            foreach(var item in Catalogs)
+            {
+                var tmp = item.FindItemBy(id);
+                if (tmp != null)
+                    return tmp;
+            }
+            return null;
         }
 
         public Item FindItemBy(string title)
         {
-            throw new NotImplementedException();
+            foreach (var item in Catalogs)
+            {
+                var tmp = item.FindItemBy(title);
+                if (tmp != null)
+                    return tmp;
+            }
+            return null;
         }
 
         public Item FindItem(Expression<Func<Item, bool>> expression)
         {
-            throw new NotImplementedException();
+            foreach (var item in Catalogs)
+            {
+                var tmp = item.FindItem(expression);
+                if (tmp != null)
+                    return tmp;
+            }
+            return null;
+        }
+        public override string ToString()
+        {
+            string res = "Librarians : \n";
+            foreach (var item in Librarians)
+            {
+                res+="\t"+item + "\n";
+            }
+            res += "Catalogs : \n";
+            foreach (var item in Catalogs)
+            {
+                res += "\t" + item + "\n";
+            }
+            return res;
         }
     }
 }

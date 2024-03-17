@@ -40,9 +40,9 @@ namespace PO.lab3
         }
         public void ShowAllItems()
         {
-            foreach (Item item in Catalogs)
+            foreach (Catalog catalog in Catalogs)
             {
-                Console.WriteLine(Catalogs.ToString());
+                Console.WriteLine(catalog.ToString());
             }
         }
         public Item FindItemBy(int id)

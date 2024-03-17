@@ -43,7 +43,7 @@
 
         public override string ToString()
         {
-            return $"Person | Player | First name: {_firstName}, Last name: {_lastName}, Date of birth: {_dateOfBirth}, Position: {_position}, Club: {_club}, Scored goals: {_scoredGoals}";
+            return $"Player | First name: {_firstName}, Last name: {_lastName}, Date of birth: {_dateOfBirth}, Position: {_position}, Club: {_club}, Scored goals: {_scoredGoals}";
         }
 
         public void ScoreGoal()

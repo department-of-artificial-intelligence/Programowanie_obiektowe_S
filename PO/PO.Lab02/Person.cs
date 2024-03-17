@@ -45,7 +45,7 @@
 
         public virtual void Details()
         {
-            Console.WriteLine(this.ToString());
+            Console.WriteLine(this);
         }
     }
 }

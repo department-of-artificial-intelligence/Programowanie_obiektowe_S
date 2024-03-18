@@ -20,6 +20,27 @@ public class Program
         double routeCost = car2.CalculateCost(500, 5);
         Console.WriteLine($"Route cost: {routeCost}");
         Car.DisplayCarCount();
+
+        //ZADANIE 2
         Console.WriteLine("\r\n=========================================\r\n");
+
+        Garage garage1 = new Garage();
+        garage1.Address = "ul. Garażowa 1";
+        garage1.Capacity = 1;
+        Garage garage2 = new Garage("ul. Garażowa 2", 2);
+        garage1.CarIn(car1);
+        garage1.Details();
+        garage1.CarIn(car2);
+        garage2.CarIn(car2);
+        var movedCar = garage1.CarOut();
+        garage2.CarIn(movedCar);
+        garage2.Details();
+        garage1.Details();
+        garage2.CarOut();
+        garage2.Details();
+        garage2.CarOut();
+        garage2.CarOut();
+        garage2.Details();
+        garage1.Details();
     }
 }

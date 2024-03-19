@@ -89,15 +89,15 @@ namespace lab2
             _date = date;
             _value = value;
         }
-		public override string ToString()
-		{
-			return $"Subject: {SubjectName}, Value: {Value}, Date: {Date}";
-		}
+        public override string ToString()
+        {
+            return $"Subject: {SubjectName}, Value: {Value}, Date: {Date}";
+        }
         public void Details()
         {
             Console.WriteLine(this.ToString());
         }
-
+    }
 		public class Player : Person
     {
         private string _position;

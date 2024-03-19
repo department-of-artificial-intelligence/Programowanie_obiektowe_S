@@ -6,24 +6,27 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-	public class Author : Person
+	public class Person
 	{
-		public string Nationality { get; set; }
-		public Author()
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+		public Person()
 		{
 			FirstName = string.Empty;
 			LastName = string.Empty;
-			Nationality = string.Empty;
 		}
-		public Author(string firstName, string lastName, string nationality)
+		public Person(string firstName, string lastName)
 		{
 			FirstName = firstName;
 			LastName = lastName;
-			Nationality = nationality;
 		}
 		public override string ToString()
 		{
-			return $"{FirstName} {LastName} ({Nationality})";
+			return $"Person | FirstName: {FirstName}, LastName: {LastName}";
+		}
+		public void Details()
+		{
+			Console.WriteLine(ToString());
 		}
 	}
 }

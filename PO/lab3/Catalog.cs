@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace lab3
 {
-	public class Catalog
+	public class Catalog : IItemManagement
 	{
 		public IList<Item> Items { get; set; }
 		public string? ThematicDepartment { get; set; }
@@ -35,6 +36,18 @@ namespace lab3
 		public void ShowAllItems()
 		{
 			Console.WriteLine(ToString());
+		}
+		public Item? FindItemBy(int id)
+		{
+			return Items.FirstOrDefault(item => item.Id == id);
+		}
+		public Item? FindItemBy(string title)
+		{
+			return Items.FirstOrDefault(item => item.Title == title);
+		}
+		public Item? FindItemBy(Expression<Func<Item, bool>> predicate)
+		{
+			return Items.FirstOrDefault(predicate.Compile());
 		}
 	}
 }

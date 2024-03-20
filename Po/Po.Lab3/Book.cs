@@ -16,10 +16,7 @@ namespace Po.Lab3
             base(title,id,publisher,dateOfIssue){ 
             
             PageCount = pageCount;
-            foreach (Author e in authors)
-            { 
-                Authors = e;
-            }
+            
         }
 
         public override string ToString()

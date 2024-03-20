@@ -13,7 +13,7 @@ namespace Po.Lab3
         protected string _firstName;
         protected string _lastName;
         protected DateTime? _birthDate;
-
+         
         public string FirstName
         {
             get => _firstName; set =>

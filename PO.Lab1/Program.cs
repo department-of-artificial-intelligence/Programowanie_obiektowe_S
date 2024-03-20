@@ -1,171 +1,213 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Runtime.InteropServices.Marshalling;
 using System.Text;
 using System.Threading.Tasks;
 
+public interface IItemManagment
+{
+    public void ShowAllItems();
+    public Item FindItemBy(int id);
+    public Item FindItemBy(string title);
+    public Item FindItemBy(Expression<Func<Item,bool>> predicate);
+}
 public class Person
 {
-    protected string _firstName;
-    protected string _lastName;
-    protected DateTime _dateOfBirth;
-    public string FirstName { get { return _firstName; } set { _firstName = value; }}
-    public string LastName { get { return _lastName; } set { _lastName = value; } }
-    public DateTime DateOfBirth { get { return _dateOfBirth; } set { _dateOfBirth = value; } }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
     public Person()
     {
-        _firstName = "Default";
-        _lastName = "Default";
-        _dateOfBirth = default;
+        FirstName = default;
+        LastName = default;
     }
-    public Person(string firstName, string lastName, DateTime dateOfBirth)
+    public Person(string firstName, string lastName)
     {
         FirstName = firstName;
         LastName = lastName;
-        DateOfBirth = dateOfBirth;
     }
     public override string ToString()
     {
-        return $"First name: {_firstName} | Last name: {_lastName} | Birthday: {_dateOfBirth}";
+        return $"First Name: {FirstName}\nLast name: {LastName}";
     }
-    public virtual void Details()
-    {
-        Console.WriteLine(this.ToString());
-    }
-}
-
-public class Grade
-{
-    private string _subjectName;
-    private DateTime _date;
-    private double _value;
-
-    public string SubjectName { get { return _subjectName; } set { _subjectName = value; } }
-    public DateTime Date { get { return _date; } set {  _date = value; } }
-    public double Value { get { return _value; } set { _value = value; } }
-    
-    public Grade()
-    {
-        _subjectName = "Default";
-        _date = default;
-        _value = 0;
-    }
-    public Grade(string subjectName, double value, DateTime date)
-    {
-        SubjectName = subjectName;
-        Date = date;
-        Value = value;
-    }
-    public override string ToString()
-    {
-        return $"Subject: {_subjectName} | Date: {_date} | Grade: {_value} ";
-    }
-    public virtual void Details()
+    public void Details()
     {
         Console.WriteLine(ToString());
     }
 }
 
-public class Student : Person
+public class Librarian:Person
 {
-    private int _year;
-    private int _group;
-    private int _indexID;
-    private List<Grade> _grades;
-    public List<Grade> Grades {  get { return _grades; } }
-    public int Year { get { return _year; } set { _year = value; } }
-    public int Group { get { return _group; } set { _group = value; } }
-    public int IndexID { get { return _indexID; } set { _indexID = value; } }
-    
-    public Student():base() {
-        _year = 0;
-        _group = 0;
-        _indexID = 0;
-    }
-    public Student(string firstName, string lastName, DateTime dateOfBirth, int year, int group, int indexID):base(firstName, lastName, dateOfBirth)
+    public DateTime HireDate {  get; set; }
+    public decimal Salary { get; set; }
+    public Librarian():base()
     {
-        Year = year;
-        Group = group;
-        IndexID = indexID;
+        Salary = 0;
+        HireDate = default;
+    }
+    public Librarian(DateTime hireDate, decimal salary,string firstName,string lastName):base(firstName,lastName)
+    {
+        HireDate = hireDate;
+        Salary = salary;
     }
     public override string ToString()
     {
-        return base.ToString() + $" | Year: {_year} | Group: {_group} | Index: {_indexID}\n";
+        return base.ToString() + $"\nHire date: {HireDate}\nSalary: {Salary}";
     }
-    public void AddGrade(string subject, double value, DateTime date)
+}
+public abstract class Item
+{
+    private int _id;
+    private string _title;
+    private string _publisher;
+    private DateTime _dateOfIssue;
+    public int Id { get { return _id; } set { _id = value; } }
+    public string Title { get { return _title; } set { _title = value; } }
+    public string Publisher { get { return _publisher; } set { _publisher = value; } }
+    public DateTime DateofIssue { get { return _dateOfIssue; } set { _dateOfIssue = value; } }
+    public Item()
     {
-        Grade grade = new Grade(subject,value,date);
-        _grades.Add(grade);
+        _id = 0;
+        _publisher = default;
+        _dateOfIssue = default;
+        _title = default;
     }
-    public void AddGrade(Grade grade)
+    public Item(int id, string title, string publisher, DateTime dateOfIssue)
     {
-        _grades.Add(grade);
+        Id = id;
+        Title = title;
+        Publisher = publisher;
+        _dateOfIssue = dateOfIssue;
     }
-    public void DisplayGrades()
+    public override string ToString()
     {
-        foreach (var grade in _grades)
+        return $"Id: {_id}\nTitle: {_title}\nPublisher: {_publisher}\nDate of issue: {_dateOfIssue}";
+    }
+    public void Details()
+    {
+        Console.WriteLine(ToString());
+    }
+    public abstract string GenerateBarCode();
+}
+
+public class Book : Item
+{
+    public int PageCount { get; set; }
+    public IList<Author> Authors { get; set; }
+    public Book(string title, int id, string publisher, DateTime dateOfIssue, int pageCount, IList<Author> authors) : base(id, title, publisher, dateOfIssue)
+    {
+        PageCount = pageCount;
+        Authors = authors;
+    }
+    public override string ToString()
+    {
+        string txt = base.ToString() + $"\nPage count: {PageCount}\nAuthors:";
+        foreach (Author author in Authors)
         {
-            Console.WriteLine(grade);
-            Console.WriteLine("\n");
+            txt += author.ToString();
         }
-    } 
-    public void DeleteGrade(Grade grade)
-    {
-        if(_grades.Contains(grade))
-        _grades.Remove(grade);
+        return txt;
     }
-    public void DeleteGrade(string subject, double value, DateTime date)
+    public override string GenerateBarCode()
     {
-        Grade t = new Grade(subject,value, date);
-        if(_grades.Contains(t))
-            _grades.Remove(t);
+        Random random = new Random();
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        return new string(Enumerable.Repeat(chars, random.Next(8, 10))
+            .Select(s => s[random.Next(s.Length)]).ToArray());
     }
-    public void DeleteGrades()
+    public void AddAuthor(Author author)
     {
-        _grades.Clear();
-    }
-    public void DeleteGrades(string subject)
-    {
-        var gr = _grades.Where(g => g.SubjectName == subject);
-        foreach (var grade in gr)
-        {
-            _grades.Remove(grade);
-        }
+        Authors.Add(author);
     }
 }
 
-public class Player : Person
+public class Author:Person
 {
-    private string _position;
-    private string _club;
-    private int _scoredGoals;
-
-    public string Position { get { return _position; } set { _position = value; } }
-    public string Club { get { return _club; } set { _club = value; } }
-    public int ScoredGoals { get {  return _scoredGoals; } set { _scoredGoals = value; } }
-
-    public Player():base() {
-        _position = "Default";
-        _club = "Default";
-        _scoredGoals = 0;
-    }
-    public Player(string firstName, string lastName, DateTime dateOfBirth, string position, string club, int scoredGoals):base(firstName,lastName,dateOfBirth)
+  
+    public string Nationality { get; set; }
+    public Author()
     {
-        Position = position;
-        Club = club;
-        ScoredGoals = scoredGoals;
+        FirstName = default;
+        LastName = default;
+        Nationality = default;
     }
-
+    public Author(string firstName, string lastName, string nationality)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Nationality = nationality;
+    }
     public override string ToString()
     {
-        return base.ToString() + $" | Position: {_position} | Club: {_club} | Goals: {_scoredGoals}\n";
+        return $"\nFirst name: {FirstName}\nLast name: {LastName}\nNationality: {Nationality}";
     }
+}
 
-    public void ScoreGoal()
+public class Journal : Item
+{
+    public int Number { get; set; }
+    public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number) : base(id, title, publisher, dateOfIssue)
     {
-        _scoredGoals++;
+        Number = number;
+    }
+    public Journal()
+    {
+        Title = default;
+        Id = 0;
+        Publisher = default;
+        DateofIssue = default;
+        Number = 0;
+    }
+    public override string ToString()
+    {
+        return base.ToString() + $"\nNumber {Number}";
+    }
+    public override string GenerateBarCode()
+    {
+        Random random = new Random();
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        return new string(Enumerable.Repeat(chars, random.Next(4, 6))
+            .Select(s => s[random.Next(s.Length)]).ToArray());
     }
 
+}
+
+public class Catalog
+{
+    public IList<Item> Items { get; set; }
+    public string ThematicDepartment { get; set; }
+    public Catalog(IList<Item> items)
+    {
+        Items = items;
+        ThematicDepartment = "Default";
+    }
+    public Catalog(string thematicDepartment, IList<Item> items)
+    {
+        ThematicDepartment = thematicDepartment;
+        Items = items;
+    }
+    public void AddItem(Item item)
+    {
+        Items.Add(item);
+    }
+    public override string ToString()
+    {
+
+        string txt = $"Thematic department: {ThematicDepartment}\n----Items:";
+        foreach (Item item in Items)
+        {
+            txt += item.ToString() + "\n";
+        }
+        return txt;
+    }
+    public void ShowAllItems()
+    {
+        foreach (Item item in Items)
+        {
+            Console.WriteLine(item);
+        }
+    }
 }
 namespace PO.Lab1
 {
@@ -173,33 +215,24 @@ namespace PO.Lab1
     {
         static void Main(string[] args)
         {
-            Person person1 = new Person("Adam", "Miś", new DateTime(1990, 3, 20, 12, 30, 10));
-            Person person2 = new Student("Michał", "Kot", new DateTime(1990, 4, 13), 3, 5, 12345);
-            Person person3 = new Player("Robert", "Lewandowski", new DateTime(1988, 10, 3), "Striker", "Bayern", 41);
-            person1.Details();
-            person2.Details();
-            person3.Details();
-            Student student = new Student("Krzysztof", "Jeż", new DateTime(1990, 12, 29), 2, 5, 54321);
-            student.Details();
-            ((Player)person3).ScoreGoal();
-            person3.Details();
+            Item item1 = new Journal("JAISCR", 1, "Springer", new DateTime(2000, 1, 1), 1);
+            Author author = new Author("Robert", "Cook", "Polish");
+            Item item2 = new Book("Agile C#", 2, "SPRINGER", new DateTime(2015, 1, 1), 500,
+            new List<Author>() { author });
+            ((Book)item2).AddAuthor(author);
+            var bookBarCode = ((Book)item2).GenerateBarCode();
+            var journalBarCode = ((Journal)item1).GenerateBarCode();
+            Console.WriteLine($"{item1} \r\n Barcode {journalBarCode}");
+            Console.WriteLine($"{item2} \r\n Barcode {bookBarCode}");
+            IList<Item> items = new List<Item>();
+            items.Add(item1);
+            items.Add(item2);
+            Catalog catalog = new Catalog("IT C# development", items);
+            catalog.AddItem(new Journal("Neurocomputing", 1, "IEEE", new DateTime(2020, 1, 1), 1));
+            Console.WriteLine(catalog);
+            catalog.ShowAllItems();
 
-            Console.WriteLine("Zad 2  =====================\n");
-            ((Student)person2).AddGrade("PO", 5.0D, new DateTime(2011, 2, 20));
-            ((Student)person2).AddGrade("Bazy Danych", 5.0D, new DateTime(2011, 2, 13));
-            person2.Details();
-            Grade grade = new Grade("Bazy Danych", 5.0D, new DateTime(2011, 5, 1));
-            student.AddGrade(grade);
-            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 5, 11));
-            student.AddGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
-            student.Details();
-            student.DeleteGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
-            student.Details();
-            student.DeleteGrades("AWWW");
-            student.Details();
-            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 4, 3));
-            student.DeleteGrades();
-            student.Details();
+
         }
     }
 }

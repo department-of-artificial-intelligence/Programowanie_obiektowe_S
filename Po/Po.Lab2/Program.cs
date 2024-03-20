@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Po.Lab3;
+using System;
 //using System.Collections.Generic;
 //using System.Diagnostics;
 //using System.Linq;
@@ -7,7 +8,7 @@
 
 namespace Po.Lab2
 {
-    
+
     class Program
     {
         static void Main(string[] args)

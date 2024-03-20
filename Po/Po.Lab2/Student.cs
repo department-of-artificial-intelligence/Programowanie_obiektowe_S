@@ -10,7 +10,7 @@ using System;
 //using System.Text;
 //using System.Threading.Tasks;
 
-namespace Po.Lab2
+namespace Po.Lab3
 {
     public class Student : Person
     {

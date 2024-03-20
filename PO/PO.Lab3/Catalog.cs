@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Lab3_PO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace lab3_po
 {
-    public class Catalog
+    public class Catalog : IItemManagement
     {
         public IList<Item> Items { get; set; }
         public string ThematicDepartment { get; set; }
@@ -39,5 +41,23 @@ namespace lab3_po
         {
             Console.WriteLine(this);
         }
+
+        public Item FindItemBy(int id)
+        {
+            var foundedItem = Items.FirstOrDefault(b => b.Id == id);
+            return foundedItem;
+        }
+
+        public Item FindItemBy(string title)
+        {
+            var foundedItem = Items.FirstOrDefault(b => b.Title == title);
+            return foundedItem;
+        }
+
+        public Item FindItem(Expression<Func<Item, bool>>predicate)
+        {
+            var foundedItem = Items.FirstOrDefault(predicate.Compile());
+            return foundedItem;
+        } 
     }
 }

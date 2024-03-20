@@ -9,15 +9,15 @@ namespace lab3_po
     public abstract class Item
     {
 
-        private string _title;
-        private int _id;
-        private string _publisher;
-        private DateTime _dateOfIssue;
+        protected string _title;
+        protected int _id;
+        protected string _publisher;
+        protected DateTime _dateOfIssue;
 
-        protected int Id { get => _id; set => _id = value; }
-        protected string Title { get => _title; set => _title = value; }
-        protected string Publisher { get => _publisher; set => _publisher = value; }
-        protected DateTime DateOfIssue { get => _dateOfIssue; set => _dateOfIssue = value; }
+        public int Id { get => _id; set => _id = value; }
+        public string Title { get => _title; set => _title = value; }
+        public string Publisher { get => _publisher; set => _publisher = value; }
+        public DateTime DateOfIssue { get => _dateOfIssue; set => _dateOfIssue = value; }
 
         public Item()
         {

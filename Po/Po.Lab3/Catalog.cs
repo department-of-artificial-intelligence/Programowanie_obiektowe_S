@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Po.Lab3
 {
-    internal class Catalog
+    internal class Catalog : IItemManagement
     {
         public IList<Item> Items { get; set; }
         public string ThematicDepartment { get; set; }
@@ -37,6 +38,23 @@ namespace Po.Lab3
                     Console.WriteLine("Item: "+e);
                 }
             }
+        }
+
+
+        public Item FindItemBy(int id)
+        {
+            return Items.FirstOrDefault(item => item.Id == id);
+        }
+
+        public Item FindItemBy(string title)
+        {
+            return Items.FirstOrDefault(item => item.Title == title);
+        }
+
+        public Item FindItem(Expression<Func<Item, bool>> predicate)
+        {
+           Func<Item,bool> func = predicate.Compile();
+            return Items.FirstOrDefault(func);
         }
     }
 }

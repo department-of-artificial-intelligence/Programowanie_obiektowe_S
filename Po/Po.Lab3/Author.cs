@@ -6,28 +6,27 @@ using System.Threading.Tasks;
 
 namespace Po.Lab3
 {
-    internal class Author
+    internal class Author : Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        //public string FirstName { get; set; }
+        //public string LastName { get; set; }
         public string Nationality { get; set; }
 
         public Author() 
         { 
-            FirstName = string.Empty;
-            LastName = string.Empty;
-            Nationality = string.Empty;
+            FirstName = null;
+            LastName = null;
+            Nationality = null;
         }
-        public Author(string firstName,string lastName,string nationality)
+        public Author(string firstName,string lastName,
+            string nationality): base(firstName,lastName)
         { 
-            FirstName = firstName;
-            LastName =lastName;
+           
             Nationality = nationality;
         }
         public override string ToString()
         {
-            return $"first Name: {FirstName}, Last Name: " +
-                $"{LastName}, Nationality: {Nationality}";
+            return base.ToString()+$"Nationality: {Nationality}";
         }
     }
 }

@@ -16,12 +16,14 @@ namespace Po.Lab3
             base(title,id,publisher,dateOfIssue){ 
             
             PageCount = pageCount;
-            
+            Authors = e != null ? new List<Author>(e) : new List<Author>();
         }
 
         public override string ToString()
         {
-            return base.ToString()/*+$"Author: {Authors}"*/;
+            string authorNames = string.Join(", ", Authors.Select(a => a.ToString()));
+
+            return base.ToString() + $"Authors: {authorNames}";
         }
         public void AddAuthor(Author author)
         {

@@ -26,7 +26,8 @@ namespace Po.Lab3
         { Items.Add(Item); }
         public override string ToString()
         {
-            return $"Thematic Department: {ThematicDepartment}";
+            string itemsName = string.Join(", ", Items.Select(a => a.ToString()));
+            return $"Thematic Department: {ThematicDepartment}, Items: {itemsName}";
         }
         public void ShowAllItems()
         {
@@ -56,5 +57,6 @@ namespace Po.Lab3
            Func<Item,bool> func = predicate.Compile();
             return Items.FirstOrDefault(func);
         }
+
     }
 }

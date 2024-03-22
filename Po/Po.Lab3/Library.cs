@@ -39,12 +39,22 @@ namespace Po.Lab3
         }
         public void AddItem(Item item, string thematicDepartment)
         {
-            Catalogs.FirstOrDefault(catalog => catalog.ThematicDepartment == thematicDepartment);
+            var catalog = Catalogs.FirstOrDefault(catalog => catalog.ThematicDepartment == thematicDepartment);
+            if (catalog != null)
+            {
+                catalog.Items.Add(item);
+            }
+            else
+            {
+                // Obsługa przypadku, gdy nie znaleziono katalogu o podanym dziale tematycznym.
+                // Możesz rzucić wyjątek, zignorować operację lub podjąć inną odpowiednią akcję.
+            }
         }
-       /* public void ShowAllItems()
+        public void ShowAllItems()
         {
             Console.WriteLine(this.ToString());
-            foreach (Item e in Items)
+            IList<Item> items = new List<Item>();
+            foreach (Item e in items)
             {
                 if (e != null)
                 {
@@ -54,18 +64,56 @@ namespace Po.Lab3
         }
         public Item FindItemBy(int id)
         {
-            return Items.FirstOrDefault(item => item.Id == id);
+            foreach (var catalog in Catalogs)
+            { 
+                var item = catalog.Items.FirstOrDefault(item => item.Id == id);
+                if (item != null)
+                { 
+                    return item; 
+                }
+                
+            }
+            return null;
         }
 
         public Item FindItemBy(string title)
         {
-            return Items.FirstOrDefault(item => item.Title == title);
+           foreach(var catalog in Catalogs)
+            {
+                var item = catalog.Items.FirstOrDefault(item => item.Title == title);
+                if (item != null)
+                { 
+                    return item;
+                }
+            }
+            return null;
         }
 
         public Item FindItem(Expression<Func<Item, bool>> predicate)
         {
-            Func<Item, bool> func = predicate.Compile();
-            return Items.FirstOrDefault(func);
-        }*/
+
+            foreach (var catalog in Catalogs)
+            {
+                if (catalog.Items != null)
+                {
+                    foreach (var item in catalog.Items)
+                    {
+                        Func<Item, bool> func = predicate.Compile();
+
+                        if (func(item))
+                        {
+                            return item;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+        public override string ToString()
+        {
+            string libNames = string.Join(", ", Librarians.Select(a => a.ToString()));
+            string catNames = string.Join(", ", Catalogs.Select(a => a.ToString()));
+            return $"Address: {Address}, Librarians: {libNames}, Catalogs: {catNames}";
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Po.Lab3
         public int Id { get => _id; set => _id = value; }
         public string Title { get => _title; set => _title = value; }
         public string Publisher { get => _publisher; set => _publisher = value; }
-        public DateTime DateTimeOfIssue { get => (DateTime)_dateOfIssue; set => _dateOfIssue = value; }
+        public DateTime DateOfIssue { get => (DateTime)_dateOfIssue; set => _dateOfIssue = value; }
 
         public Item()
         { 

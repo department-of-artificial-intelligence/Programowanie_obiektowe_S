@@ -17,8 +17,7 @@ namespace PO.lab4
         }
         public override string ToString()
         {
-            Console.WriteLine ($"{base.ToString()} {AcademicTitle} {Position}");
-            return ";";
+            return $"Lecturer: {AcademicTitle} {Position} {base.ToString()}";
         }
     }
 }

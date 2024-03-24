@@ -4,7 +4,7 @@ namespace lab1.App
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("\r\n===================Zad01==================\r\n");
             Car car1 = new Car();
@@ -18,13 +18,13 @@ namespace lab1.App
             Car car2 = new Car("Syrena", "105", 2, 0.8f, 7.6d);
             car2.Details();
             Console.WriteLine(car1);
-            double routeConsumption = car2.Consump(500);
+            double routeConsumption = car2.CalculateConsump(500);
             Console.WriteLine($"Route consumption: {routeConsumption} l");
-            double routeCost = car2.Cost(500, 5);
+            double routeCost = car2.CalculateCost(500, 5);
             Console.WriteLine($"Route cost: {routeCost}");
             Car.DisplayCarCount();
-            Console.WriteLine("\r\n=========================================\r\n");
-           
+            Console.WriteLine("\r\n===================Zad02==================\r\n");
+
             Garage garage1 = new Garage();
             garage1.Address = "ul. Garażowa 1";
             garage1.Capacity = 1;
@@ -43,9 +43,9 @@ namespace lab1.App
             garage2.CarOut();
             garage2.Details();
             garage1.Details();
-            Console.WriteLine("\r\n=========================================\r\n");
+            Console.WriteLine("\r\n====================PD====================\r\n");
 
-
+            
         }
     }
 }

@@ -8,78 +8,62 @@ namespace PO.lab01
 {
     public class Garage
     {
-        private string _address = null!;
-        private int _capacity;
-        private int _carsCount = 0;
         private Car[]? _cars;
+        private string _address = null!;
+        private int _carsCount = 0;
+        private int _capacity;
 
-        public string Address { get => _address; set => _address = value; }
-
-        public int Capacity
-        {
-            get
-            {
-                return _capacity;
-            }
-
-            set
-            {
+        public int Capacity 
+        { 
+            get => _capacity;
+            set 
+            { 
                 _capacity = value;
-                _cars = new Car[value];
+                _cars = new Car[Capacity];
             }
         }
-
+        public string Address { get { return _address; } set { _address = value; } }
         public Garage()
         {
-            _address = "Nieznany";
+            _address = "Brak adresu";
             _capacity = 0;
             _cars = null;
         }
-
         public Garage(string address, int capacity)
         {
             _address = address;
-            _capacity = capacity;
-            _cars = new Car[capacity];
+            Capacity = capacity;
+            _cars = new Car[Capacity];
         }
-
-        public void CarIn(Car a)
+        public void CarIn(Car car)
         {
-            if (_carsCount > 0)
+            if (_carsCount < _capacity)
             {
-                if (_carsCount < _capacity)
-                {
-                    _cars[_carsCount - 1] = a;
-                    _carsCount++;
-                }
-                else
-                {
-                    Console.WriteLine("Przekroczona pojemność garażu");
-                }
+                _carsCount++;
+                _cars[_carsCount - 1] = car;
             }
+            else
+                Console.WriteLine("Garaż jest zapełniony");
         }
-
         public Car CarOut()
         {
-            Car a;
             if (_carsCount == 0)
             {
                 Console.WriteLine("Garaż jest pusty");
-                a = new Car();
-                return a;
+                return null;
             }
             else
             {
-                a = _cars[_carsCount - 1];
+                Car a = _cars[_carsCount - 1];
+                _cars[_carsCount - 1] = null;
                 _carsCount--;
                 return a;
             }
         }
-
         public override string ToString()
         {
             string a;
-            a = $"Garage | Address: {_address}, Capacity: {_capacity}, ";
+            a = $"Garaż -> Address: {_address}, Capacity: {_capacity}, ";
             a += $"NumOfCars:{_carsCount}, ";
 
             if (_cars != null)
@@ -94,28 +78,6 @@ namespace PO.lab01
             }
             return a;
         }
-
-        /*
-               public override string ToString()
-        {
-            var str = $"Garage address: {_address}, capacity: {_capacity}";
-            //str += string.Join('\n', _cars.ToList());
-            str += string.Join<Car>('\n', _cars);
-            return str;
-
-            //StringBuilder result = new StringBuilder();
-            //result.AppendLine($"Garage address: {_address}, capacity: {_capacity}");
-            //foreach (Car c in _cars)
-            //{
-            //    if (c != null)
-            //    {
-            //        result.AppendLine($"Brand: {c.Brand}, Model: {c.Model}, DoorCount: {c.DoorCount}, EngineVolume: {c.EngineVolume}, Average Consumption: {c.AvgConsump}");
-            //    }
-            //}
-            //return result.ToString();
-        }
-         */
-
         public void Details()
         {
             Console.WriteLine(this.ToString());

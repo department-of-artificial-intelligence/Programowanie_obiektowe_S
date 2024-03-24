@@ -70,20 +70,8 @@ namespace PO.Lab1
         public override string ToString()
         {
             var str = $"Garage address: {_address}, capacity: {_capacity}";
-            //str += string.Join('\n', _cars.ToList());
             str += string.Join<Car>('\n', _cars);
             return str;
-
-            //StringBuilder result = new StringBuilder();
-            //result.AppendLine($"Garage address: {_address}, capacity: {_capacity}");
-            //foreach (Car c in _cars)
-            //{
-            //    if (c != null)
-            //    {
-            //        result.AppendLine($"Brand: {c.Brand}, Model: {c.Model}, DoorCount: {c.DoorCount}, EngineVolume: {c.EngineVolume}, Average Consumption: {c.AvgConsump}");
-            //    }
-            //}
-            //return result.ToString();
         }
 
         public void Details()

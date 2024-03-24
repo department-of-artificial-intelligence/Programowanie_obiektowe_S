@@ -19,7 +19,7 @@ namespace PO.Lab4.Task1
         }
         public override string ToString()
         {
-            return $"{FirstName} {LastName} \\ {DateOfBirth.Date}";
+            return $"{FirstName} {LastName} \\ {DateOfBirth.ToString("dd/MM/yyyy")}";
         }
     }
 }

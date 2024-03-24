@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PO.Lab4.Task2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Transactions;
 
 namespace PO.Lab4.Task1
 {
-    internal class Student:Person
+    internal class Student:Person, IContainer, IDisplayable
     {
         private static int _id;
         public IList<FinalGrade> Grades { get; set; }
@@ -27,7 +28,7 @@ namespace PO.Lab4.Task1
         }
         public override string ToString()
         {
-            string res = $"{base.ToString()} \\ {Specialization} \\ {IndexId} \\ {Group} \\ {Semester} \\ {AverageGrades} \n\tGrades : ";
+            string res = $"{base.ToString()} \\ {Specialization} \\ {IndexId} \\ {Group} \\ {Semester} \\ {AverageGrades} \n\tGrades : \n";
             foreach(var grade in Grades) 
                 res += "\t\t"+grade.ToString()+"\n";
             return res ;

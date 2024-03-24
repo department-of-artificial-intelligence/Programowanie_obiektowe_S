@@ -1,4 +1,5 @@
 ﻿using PO.Lab4.Task1;
+using PO.Lab4.Task2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +66,7 @@ public class Program
         department2.Print();
         var obtainedStudent = department2.Get<Student>(x => x.Group == 1);
         obtainedStudent.Print();
-        department2.Get<Student>()
+        department2.Get<Student>(x => x.Group == 1)
         .GetList<FinalGrade>(g => g.Subject.Name == "Informatyka")
         .Print();
         department2.Add(new Subject("Paradygmaty programowania", "Informatyka", 2, 10));

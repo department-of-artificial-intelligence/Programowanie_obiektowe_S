@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PO.Lab4.Task2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PO.Lab4.Task1
 {
-    internal class OrganizationUnit
+    internal class OrganizationUnit:IContainer,IDisplayable
     {
         public string Name { get; set; }
         public string Address { get; set; }
@@ -19,9 +20,9 @@ namespace PO.Lab4.Task1
         }
         public override string ToString()
         {
-            string res = $"{Name} \\ {Address} \\ Lecturers : ";
+            string res = $"{Name} \\ {Address} \\ Lecturers : \n";
             foreach (var item in Lecturers)
-                res += "\t" + item+"\n";
+                res += "\t\t" + item+"\n";
             return res;
         }
     }

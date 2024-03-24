@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PO.Lab4.Task2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PO.Lab4.Task1
 {
-    internal class Department
+    internal class Department: IContainer, IDisplayable
     {
         public string Name { get; set; }
         public Person Dean { get; set; }

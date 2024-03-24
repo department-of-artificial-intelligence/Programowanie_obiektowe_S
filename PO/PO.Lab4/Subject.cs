@@ -21,7 +21,8 @@ namespace PO.Lab4
         }
         public override string ToString()
         {
-            return $"Name: {Name}, Specialization: {Specialization}, Semestr: {Semestr}, HourCount: {HourCount}";
+            Console.WriteLine($"Name: {Name}, Specialization: {Specialization}, Semestr: {Semestr}, HourCount: {HourCount}");
+            return "";
         }
     }
 }

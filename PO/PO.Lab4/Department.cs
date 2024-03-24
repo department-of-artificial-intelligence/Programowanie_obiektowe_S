@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PO.Lab4
 {
-    public class Department
+    public class Department : IContainer, IDisplayable
     {
         public string Name { get; set; }
         public Person Dean { get; set; }
@@ -19,6 +20,7 @@ namespace PO.Lab4
             Dean = dean;
             Subjects = subjects;
             Students = students;
+            OrganizationUnits = new List<OrganizationUnit>();
         }
         public override string ToString()
         {
@@ -27,20 +29,18 @@ namespace PO.Lab4
             {
                 str += unit.ToString() + " ";
             }*/
-            string str = "";
-            str += "Subjects: ";
-            foreach (Subject subject in Subjects) 
+            Console.WriteLine($"Name: {Name}, Dean : " + Dean.ToString());
+            Console.WriteLine("Subjects: ");
+            foreach (Subject subject in Subjects)
             {
-                if (subject != null)
-                str += subject.ToString() + " ";
+                Console.WriteLine(subject.ToString());
             }
-            str += '\n' + "Students: ";
-            foreach (Student subject in Students)
+            Console.WriteLine("Students: ");
+            foreach (Student stud in Students)
             {
-                    if(subject != null)
-                    str += Students.ToString() + " ";
+                Console.WriteLine(stud.ToString());
             }
-            return $"Name: {Name}, Dean : "+ Dean.ToString() + " " + str;
+            return "";
         }
     }
 }

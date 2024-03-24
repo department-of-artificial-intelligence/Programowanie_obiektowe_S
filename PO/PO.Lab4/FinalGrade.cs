@@ -19,7 +19,8 @@ namespace PO.Lab4
         }
         public override string ToString()
         {
-            return Subject.ToString() + $" Date: {Date}, Value: {Value}";
+            Console.WriteLine(Subject.ToString() + $" Date: {Date}, Value: {Value}");
+            return "";
         }
     }
 }

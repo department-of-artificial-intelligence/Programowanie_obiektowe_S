@@ -24,7 +24,8 @@ namespace PO.Lab4
         }
         public override string ToString()
         {
-            return $"FirstName: {FirstName}, LastName: {LastName}, DateOfBirth: {DateOfBirth}";
+            Console.WriteLine($"FirstName: {FirstName}, LastName: {LastName}, DateOfBirth: {DateOfBirth}");
+            return "";
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace PO.Lab4
 {
     public class Lecturer : Person
-    {
+    { 
         public string AcademicTitle { get; set; }
         public string Position { get; set; }
 
@@ -20,7 +20,8 @@ namespace PO.Lab4
         }
         public override string ToString()
         {
-            return $"AcademicTitle: {AcademicTitle}, Position: {Position} " + base.ToString();
+            Console.WriteLine($"AcademicTitle: {AcademicTitle}, Position: {Position}" + base.ToString());
+            return "";
         }
     }
 }

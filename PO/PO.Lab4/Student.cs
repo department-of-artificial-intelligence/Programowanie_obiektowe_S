@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PO.Lab4
 {
-    public class Student : Person
+    public class Student : Person, IContainer, IDisplayable
     {
         private static int _id;
         
@@ -25,16 +25,19 @@ namespace PO.Lab4
             Specialization = specialization;
             Group = group; 
             Semestr = semestr;
+            Grades = new List<FinalGrade> ();
         }
         public override string ToString()
         {
-            string str = "";
+            Console.WriteLine(base.ToString() + $"Semestr: {Semestr}, Group: {Group}, Specialization: {Specialization}, IndexId: {IndexId}, AverageGrades: {AverageGrades},'\n' Grades: ");
+            if(Grades != null) { 
             foreach (FinalGrade item in Grades)
             {
                 if (item != null)
-                    str += item.ToString() + '\n';
+                Console.WriteLine(item.ToString());
             }
-            return base.ToString() + $"Semestr: {Semestr}, Group: {Group}, Specialization: {Specialization}, IndexId: {IndexId}, AverageGrades: {AverageGrades},'\n' Grades: " + str;
+            }
+            return "";
         }
     }
 }

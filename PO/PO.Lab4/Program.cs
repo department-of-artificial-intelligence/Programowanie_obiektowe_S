@@ -1,4 +1,5 @@
 ﻿using Lab4.App;
+using PO.Lab4.Classes;
 using System.Globalization;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
@@ -6,164 +7,6 @@ using System.Text.RegularExpressions;
 
 namespace Lab4.App
 {
-    public abstract class Person
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public Person(string firstname, string lastName, DateTime dateOfBirth)
-        {
-
-            FirstName = firstname;
-            LastName = lastName;
-            DateOfBirth = dateOfBirth;
-        }
-
-        public override string ToString()
-        {
-            return $"Name: {FirstName}, LastName: {LastName}, DateofBirth{DateOfBirth}";
-        }
-    }
-
-    public class Lecturer : Person
-    {
-        public string AcademicTitle { get; set; }
-
-        public string Position { get; set; }
-
-        public Lecturer(string firstName, string lastName, DateTime dateOfBirth, string academicTitle, string position) : base(firstName, lastName, dateOfBirth)
-        {
-            Position = position;
-            AcademicTitle = academicTitle;
-        }
-        public override string ToString()
-        {
-            return base.ToString() + $"Position:{Position}, AcademicTitle{AcademicTitle}";
-        }
-    }
-
-    public class Student : Person
-    {
-        private static int id;
-        public IList<FinalGrade> Grades { get; set; }
-
-        public int Semestr { get; set; }
-
-        public int Group { get; set; }
-
-        public int IndexId { get; set; }
-
-        public string Specialization { get; set; }
-
-        public double AvarageGrades { get; }
-
-        public Student(string firstName, string lastName, DateTime dateOfBirth, string specialization, int group, int semester = 1) : base(firstName, lastName, dateOfBirth)
-        {
-            Specialization = specialization;
-            Group = group;
-            Semestr = semester;
-        }
-
-        public override string ToString()
-        {
-            return base.ToString() + $"Specialization{Specialization}, Grup{Group},Semester{Semestr}";
-        }
-    }
-
-    public class FinalGrade
-    {
-        public Subject Subject { get; set; }
-
-        public DateTime Date { get; set; }
-
-        public double Value { get; set; }
-
-        public FinalGrade(Subject subject, double value, DateTime date)
-        {
-            Subject = subject;
-            Date = date;
-            Value = value;
-        }
-
-        public override string ToString()
-        {
-            return base.ToString() + $"";
-        }
-    }
-
-    public class Department
-    {
-        public string Name { get; set; }
-
-        public Person Dean { get; set; }
-
-        public IList<OrganizationUnit> OrganizationUnits { get; set; }
-
-        public IList<Subject> Subjects { get; set; }
-
-        public IList<Student> Students { get; set; }
-
-        public Department(string name, Person dean, IList<Subject> subjects, IList<Student> students)
-        {
-            {
-                Name = name;
-                Dean = dean;
-                Subjects = subjects;
-                Students = students;
-
-            }
-        }
-        public override string ToString()
-        {
-            return base.ToString()+$"";
-        }
-    }
-
-    public class OrganizationUnit
-    {
-        public string Name { get; set; }
-
-        public string Address { get; set; }
-        public IList<Lecturer> Lectures { get; set; }
-
-        public OrganizationUnit(string name, string address, IList<Lecturer> lectures)
-        {
-            Name = name;
-            Address = address;
-            Lectures = lectures;
-        }
-
-        public override string ToString()
-        {
-            return base.ToString() + $"";
-        }
-    }
-
-    public class Subject
-    {
-        public string Name { get; set; }
-
-        public string Specialization { get; set; }
-
-        public int Semester { get; set; }
-
-        public int HoursCount { get; set; }
-        public Subject(string name, string specialization, int semestr, int hoursCount)
-        {
-
-            Name = name;
-            Specialization = specialization;
-            Semester = hoursCount;
-            HoursCount = hoursCount;
-
-        }
-        public override string ToString()
-        {
-            return base.ToString()+$"";
-        }
-    }
-
-
 }
 
 public class Program
@@ -209,6 +52,42 @@ public class Program
         new List<Subject>() { subject1, subject2 },
         new List<Student>() { student1, student2, (Student)student3 });
         Console.WriteLine(department);
+
+
+        student1.Add(grade1);
+        student2.AddRange(new List<FinalGrade> { grade2, grade3 });
+        ((Student)student3).AddRange(new List<FinalGrade> { grade4 });
+        Department department2 = new Department("WE",
+        new Lecturer("Jan", "Nowak", DateTime.Now.AddYears(-56), "dr hab.", "dziekan"),
+        new List<Subject>() { subject3, subject4 },
+        new List<Student>() { student1, student2, (Student)student3 }
+        );
+        department2.AddRange(new List<OrganizationUnit>
+{
+new OrganizationUnit("IOO", "Rolnicza 2", new List<Lecturer>{lecturer5}),
+new OrganizationUnit("SKL", "Miedziana 13", new List<Lecturer>{lecturer6})
+});
+        department2.Add(new Student("Jacek", "Bednarski", new DateTime(1989, 2, 12), "Matematyka", 1)
+        .AddRange(new List<FinalGrade> { grade7, grade8 }) as Student);
+        department2.Add(new Student("Marek", "Wiśniewski", new DateTime(2001, 12, 1), "Matematyka", 1)
+        .AddRange(new List<FinalGrade> { grade5, grade6 }) as Student);
+        department2.Print();
+        var obtainedStudent = department2.Get<Student>(x => x.Group == 1);
+        obtainedStudent.Print();
+        department2.Get<Student>(x => x.Group == 1)
+        .GetList<FinalGrade>(g => g.Subject.Name == "Informatyka")
+        .Print();
+        department2.Add(new Subject("Paradygmaty programowania", "Informatyka", 2, 10));
+        department2.Add(new Subject("Podstawy sieci komputerowych", "Informatyka", 2, 30));
+        var organizationUnit = department2.Get<OrganizationUnit>(x => x.Name == "SKL");
+        organizationUnit.Print();
+        department2.Get<OrganizationUnit>(x => x.Name == "SKL")
+        .Add(new Lecturer("Maria", "Nowak", new DateTime(1912, 12, 1), "mgr", "Lektor"));
+        organizationUnit.Print();
+        department2.Get<OrganizationUnit>(x => x.Name == "SKL")
+        .Remove<Lecturer>(l => l.FirstName == "Maria");
+        department2.GetList<OrganizationUnit>(ou => ou.Name == "SKL")
+        .Print();
 
     }
 }

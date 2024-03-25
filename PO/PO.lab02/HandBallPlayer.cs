@@ -14,6 +14,7 @@ namespace PO.lab02
         }
         public override void ScoreGoal()
         {
+            base.ScoreGoal();
             Console.WriteLine("Handball player scored goal!");
         }
     }

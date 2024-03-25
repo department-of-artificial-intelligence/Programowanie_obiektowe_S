@@ -16,7 +16,7 @@
 
         public override string ToString()
         {
-            return $"{base.ToString}, Number: {Number}";
+            return $"{base.ToString()}, Number: {Number}";
         }
 
         public override string GenerateBarCode()

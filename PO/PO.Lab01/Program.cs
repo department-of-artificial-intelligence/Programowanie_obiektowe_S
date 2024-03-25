@@ -2,7 +2,7 @@
 
 public class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         Car car1 = new Car();
         car1.Details();

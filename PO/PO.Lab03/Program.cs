@@ -2,12 +2,11 @@
 
 public class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         Item item1 = new Journal("JAISCR", 1, "Springer", new DateTime(2000, 1, 1), 1);
         Author author = new Author("Robert", "Cook", "Polish");
-        Item item2 = new Book("Agile C#", 2, "SPRINGER", new DateTime(2015, 1, 1), 500,
-        new List<Author>() { author });
+        Item item2 = new Book("Agile C#", 2, "SPRINGER", new DateTime(2015, 1, 1), 500, new List<Author>() { author });
         ((Book)item2).AddAuthor(author);
         var bookBarCode = ((Book)item2).GenerateBarCode();
         var journalBarCode = ((Journal)item1).GenerateBarCode();

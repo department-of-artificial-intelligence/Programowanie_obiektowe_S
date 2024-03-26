@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace PO.Lab03
+﻿namespace PO.Lab03
 {
     internal class Journal : Item
     {
-        public int Number {  get; set; }
+        public int Number { get; set; }
 
         public Journal() : base()
-        { 
+        {
             Number = 0;
         }
 
-        public Journal(int id, string title, string publisher, DateTime dateOfIssue, int number) 
+        public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number)
             : base(id, title, publisher, dateOfIssue)
         {
             Number = number;
@@ -29,7 +22,13 @@ namespace PO.Lab03
 
         public override string GenerateBarCode()
         {
-            return "12345678";
+            Random random = new Random();
+            string str = "";
+            for (int i = 0; i < 12; i++)
+            {
+                str += random.Next(10);
+            }
+            return str;
         }
     }
 }

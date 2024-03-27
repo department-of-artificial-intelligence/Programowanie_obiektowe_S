@@ -16,6 +16,7 @@ namespace PO_Lab5.BLL
             LegsCount = legs;
             Origin = origin;
             Species = species;
+
             Poison = poison;
         }
     }

@@ -29,8 +29,9 @@ namespace Po.Lab4
         
         public override string ToString()
         {
-            
-            return base.ToString() + $"Id: {IndexId}, Grades: {Grades}," +
+            string gradesName = Grades != null ? string.Join(", ", Grades.Select(a => a.ToString())) : "";
+
+            return base.ToString() + $"Id: {IndexId}, Grades: {gradesName}," +
                 $"Group: {Group}, Specialization: {Specialization}," +
                 $" Average Grades: {AvarageGrades}";
         }

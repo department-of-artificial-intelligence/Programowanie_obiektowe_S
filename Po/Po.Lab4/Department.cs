@@ -28,7 +28,7 @@ namespace Po.Lab4
         {
             string subjectsName = string.Join(", ", Subjects.Select(a => a.ToString()));
             string studentsName = string.Join(", ", Students.Select(a => a.ToString()));
-            string? orgaName = string.Join(", ", OrganizationUnits.Select(a => a.ToString()));
+            string? orgaName = OrganizationUnits != null ? string.Join(", ", OrganizationUnits.Select(a => a.ToString())) : "";
             return $"Name: {Name}, Dean: {Dean}, OrganizationUnits:" +
                 $" {orgaName}, Subjects: {subjectsName}, " +
                 $"Students: {studentsName}";

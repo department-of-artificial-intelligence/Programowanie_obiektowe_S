@@ -20,9 +20,9 @@ namespace Po.Lab4
         }
         public override string ToString()
         {
-            string itemsName = string.Join(", ", Lecturers.Select(a => a.ToString()));
+            string lecName = string.Join(", ", Lecturers.Select(a => a.ToString()));
             return $"Name: {Name}, Address: {Address}, " +
-                $"Lecturers: {Lecturers}";
+                $"Lecturers: {lecName}";
         }
     }
 }

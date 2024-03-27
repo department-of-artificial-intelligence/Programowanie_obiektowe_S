@@ -89,7 +89,7 @@ public class Program
             Semester = semester;
             IndexId = indexId;
             Grades = new List<FinalGrade>();
-            _id++;
+            _id =_id++;
         }
 
         public void AddGrade(FinalGrade grade)
@@ -311,3 +311,7 @@ public class Program
         Console.WriteLine(department);
     }
 }
+//Just do a full rewrite at this point.Interfaces , Abstract Classes ,Generics and extension methods should be used
+//to fix this.
+//Użyć string join bo podobno fajne
+//Person to klasa abstrakcyjna

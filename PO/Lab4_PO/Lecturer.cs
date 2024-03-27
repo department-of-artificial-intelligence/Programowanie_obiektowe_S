@@ -20,7 +20,7 @@ namespace Lab4_PO
         public override string ToString()
         {
             var str = base.ToString();
-            str += $"academic title: {AcademicTitle}, position: {Position}";
+            str += $"academic title: {AcademicTitle}, position: {Position} \n";
             return str;
         }
     }

@@ -27,7 +27,7 @@ namespace Lab4_PO
         public override string ToString()
         {
             var str = base.ToString();
-            str += $"Semester: {Semester}, group: {Group}, specialization: {Specialization} ";
+            str += $"Semester: {Semester}, group: {Group}, specialization: {Specialization} \n";
             str += string.Join<FinalGrade>('\n', Grades);
             return str;
         }

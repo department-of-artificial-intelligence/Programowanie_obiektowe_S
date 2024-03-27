@@ -21,7 +21,7 @@ namespace Lab4_PO
 
         public override string ToString()
         {
-            return $"First name: {FirstName}, last name: {LastName}, date of birth: {DateOfBirth} ";
+            return $"First name: {FirstName}, last name: {LastName}, date of birth: {DateOfBirth} \n ";
         }
 
     }

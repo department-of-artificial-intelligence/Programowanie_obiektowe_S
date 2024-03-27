@@ -21,7 +21,7 @@ namespace Lab4_PO
 
         public override string ToString()
         {
-            return $"Subject: {Subject}, date: {Date}, value: {Value}";
+            return $"Subject: {Subject}, date: {Date}, value: {Value}\n";
         }
     }
 }

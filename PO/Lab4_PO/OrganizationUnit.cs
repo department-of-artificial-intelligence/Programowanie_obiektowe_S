@@ -19,7 +19,7 @@ namespace Lab4_PO
         }
         public override string ToString()
         {
-            var str = $"Name: {Name}, address: {Address} ";
+            var str = $"Name: {Name}, address: {Address} \n";
             str += string.Join<Lecturer>('\n', Lecturers);
             return str;
         }

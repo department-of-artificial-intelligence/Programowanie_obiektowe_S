@@ -22,7 +22,7 @@ namespace Lab4_PO
         public override string ToString()
         {
             return $"Name: {Name}, specialization: {Specialization}, " +
-                $"semester: {Semester}, hours count: {HoursCount} ";
+                $"semester: {Semester}, hours count: {HoursCount} \n";
         }
     }
 }

@@ -13,17 +13,17 @@ namespace Lab4_PO
         public IList<OrganizationUnit> OrganizationUnits { get; set; }
         public IList<Subject> Subjects { get; set; }
         public IList<Student> Students { get; set; }
-        public Department(string name, Person dean, IList<OrganizationUnit> organizationUnits, IList<Subject> subjects, IList<Student> students)
+        public Department(string name, Person dean, IList<Subject> subjects, IList<Student> students)
         {
             Name = name;
             Dean = dean;
-            OrganizationUnits = organizationUnits;
+            OrganizationUnits = new List<OrganizationUnit>();
             Subjects = subjects;
             Students = students;
         }
         public override string ToString()
         {
-            var str = $"DEPARTMENT: name: {Name} ";
+            var str = $"DEPARTMENT: name: {Name} \n";
             str += Dean.ToString();
             str += OrganizationUnits.ToString();
             str += Subjects.ToString();

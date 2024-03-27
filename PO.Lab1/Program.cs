@@ -6,207 +6,177 @@ using System.Runtime.InteropServices.Marshalling;
 using System.Text;
 using System.Threading.Tasks;
 
-public interface IItemManagment
+public class Subject
 {
-    public void ShowAllItems();
-    public Item FindItemBy(int id);
-    public Item FindItemBy(string title);
-    public Item FindItemBy(Expression<Func<Item,bool>> predicate);
+    public string Name { get; set; }
+    public string Specialization { get; set; }
+    public int Semester {  get; set; }
+    public int HoursCount { get; set; }
+    public Subject(string name,string specialization,int semester,int hourscount) 
+    {
+        Name = name;
+        Specialization = specialization;
+        HoursCount = hourscount;
+        Semester = semester;
+    }
+    public override string ToString()
+    {
+        return $"\nName: {Name}\nSpecialization: {Specialization}\nHours count: {HoursCount}\n Semester: {Semester}";
+    }
 }
-public class Person
+
+public class FinalGrade
+{
+    public Subject Subject { get; set; }
+    public DateTime Date {  get; set; }
+    public double Value {  get; set; }
+    public FinalGrade(Subject subject, double value, DateTime date)
+    {
+        Subject = subject;
+        Date = date;
+        Value = value;
+    }
+    public override string ToString()
+    {
+        return $"\nSubject name: {Subject.Name}\nDate: {Date}\nGrade: {Value}" ;
+    }
+}
+
+public abstract class Person
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public Person()
-    {
-        FirstName = default;
-        LastName = default;
-    }
-    public Person(string firstName, string lastName)
+    public DateTime DateOfBirth { get; set; }
+    public Person(string firstName, string lastName, DateTime dateOfBirth)
     {
         FirstName = firstName;
         LastName = lastName;
+        DateOfBirth = dateOfBirth;
     }
     public override string ToString()
     {
-        return $"First Name: {FirstName}\nLast name: {LastName}";
-    }
-    public void Details()
-    {
-        Console.WriteLine(ToString());
+        return $"\nName: {FirstName}\nLast name: {LastName}\nBirthday: {DateOfBirth}";
     }
 }
 
-public class Librarian:Person
+public class Lecturer : Person
 {
-    public DateTime HireDate {  get; set; }
-    public decimal Salary { get; set; }
-    public Librarian():base()
+    public string AcademicTitle { get; set; }
+    public string Position {  get; set; }
+    public Lecturer(string firstName, string lastName, DateTime dateOfBirth, string academicTitle, string position):base(firstName,lastName,dateOfBirth)
     {
-        Salary = 0;
-        HireDate = default;
-    }
-    public Librarian(DateTime hireDate, decimal salary,string firstName,string lastName):base(firstName,lastName)
-    {
-        HireDate = hireDate;
-        Salary = salary;
+        AcademicTitle = academicTitle;
+        Position = position;
     }
     public override string ToString()
     {
-        return base.ToString() + $"\nHire date: {HireDate}\nSalary: {Salary}";
+        return base.ToString() + $"\nAcademic title: {AcademicTitle}\nPosition: {Position}";
     }
-}
-public abstract class Item
-{
-    private int _id;
-    private string _title;
-    private string _publisher;
-    private DateTime _dateOfIssue;
-    public int Id { get { return _id; } set { _id = value; } }
-    public string Title { get { return _title; } set { _title = value; } }
-    public string Publisher { get { return _publisher; } set { _publisher = value; } }
-    public DateTime DateofIssue { get { return _dateOfIssue; } set { _dateOfIssue = value; } }
-    public Item()
-    {
-        _id = 0;
-        _publisher = default;
-        _dateOfIssue = default;
-        _title = default;
-    }
-    public Item(int id, string title, string publisher, DateTime dateOfIssue)
-    {
-        Id = id;
-        Title = title;
-        Publisher = publisher;
-        _dateOfIssue = dateOfIssue;
-    }
-    public override string ToString()
-    {
-        return $"Id: {_id}\nTitle: {_title}\nPublisher: {_publisher}\nDate of issue: {_dateOfIssue}";
-    }
-    public void Details()
-    {
-        Console.WriteLine(ToString());
-    }
-    public abstract string GenerateBarCode();
+
 }
 
-public class Book : Item
+public class OrganizationUnit
 {
-    public int PageCount { get; set; }
-    public IList<Author> Authors { get; set; }
-    public Book(string title, int id, string publisher, DateTime dateOfIssue, int pageCount, IList<Author> authors) : base(id, title, publisher, dateOfIssue)
+    public string Name { get; set; }
+    public string Address { get; set; }
+    public IList<Lecturer> Lecturers { get; set; }
+    public OrganizationUnit(string name, string address, IList<Lecturer> lecturers)
     {
-        PageCount = pageCount;
-        Authors = authors;
+        Name = name;
+        Address = address;
+        Lecturers = lecturers;
     }
     public override string ToString()
     {
-        string txt = base.ToString() + $"\nPage count: {PageCount}\nAuthors:";
-        foreach (Author author in Authors)
+        string res = $"\nName: {Name}\nAddress: {Address}\nLecturers:\n";
+        foreach (var item in Lecturers)
         {
-            txt += author.ToString();
+            res += item + "\n";
         }
-        return txt;
-    }
-    public override string GenerateBarCode()
-    {
-        Random random = new Random();
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        return new string(Enumerable.Repeat(chars, random.Next(8, 10))
-            .Select(s => s[random.Next(s.Length)]).ToArray());
-    }
-    public void AddAuthor(Author author)
-    {
-        Authors.Add(author);
+        return res ;
     }
 }
 
-public class Author:Person
+public class Student: Person
 {
-  
-    public string Nationality { get; set; }
-    public Author()
+    private static int _id;
+    public IList<FinalGrade> Grades { get; set; }
+    public int Semester {  get; set; }
+    public int Group {  get; set; }
+    public string Specialization {  get; set; }
+    public double AvarageGrades
     {
-        FirstName = default;
-        LastName = default;
-        Nationality = default;
-    }
-    public Author(string firstName, string lastName, string nationality)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-        Nationality = nationality;
-    }
-    public override string ToString()
-    {
-        return $"\nFirst name: {FirstName}\nLast name: {LastName}\nNationality: {Nationality}";
-    }
-}
-
-public class Journal : Item
-{
-    public int Number { get; set; }
-    public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number) : base(id, title, publisher, dateOfIssue)
-    {
-        Number = number;
-    }
-    public Journal()
-    {
-        Title = default;
-        Id = 0;
-        Publisher = default;
-        DateofIssue = default;
-        Number = 0;
-    }
-    public override string ToString()
-    {
-        return base.ToString() + $"\nNumber {Number}";
-    }
-    public override string GenerateBarCode()
-    {
-        Random random = new Random();
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        return new string(Enumerable.Repeat(chars, random.Next(4, 6))
-            .Select(s => s[random.Next(s.Length)]).ToArray());
-    }
-
-}
-
-public class Catalog
-{
-    public IList<Item> Items { get; set; }
-    public string ThematicDepartment { get; set; }
-    public Catalog(IList<Item> items)
-    {
-        Items = items;
-        ThematicDepartment = "Default";
-    }
-    public Catalog(string thematicDepartment, IList<Item> items)
-    {
-        ThematicDepartment = thematicDepartment;
-        Items = items;
-    }
-    public void AddItem(Item item)
-    {
-        Items.Add(item);
-    }
-    public override string ToString()
-    {
-
-        string txt = $"Thematic department: {ThematicDepartment}\n----Items:";
-        foreach (Item item in Items)
+        get
         {
-            txt += item.ToString() + "\n";
+            double res = 0;
+            if(Grades.Count > 0)
+            {
+            foreach (var item in Grades)
+            {
+                res += item.Value;
+            }
+            res = res / Grades.Count;
+            }
+            return res;
         }
-        return txt;
     }
-    public void ShowAllItems()
+    public int IndexId { get; set; }
+    public Student(string firstName,string lastName,DateTime dateofBirth, string specialization, int semester, int group):base(firstName,lastName,dateofBirth)
     {
-        foreach (Item item in Items)
+        _id++;
+        Semester = semester;
+        Group = group;
+        Specialization = specialization;
+        IndexId = _id;
+        Grades = new List<FinalGrade>();
+    }
+    public Student(string firstName, string lastName, DateTime dateofBirth, string specialization, int group) : base(firstName, lastName, dateofBirth)
+    {
+        _id++;
+        Semester = 1;
+        Group = group;
+        Specialization = specialization;
+        IndexId = _id;
+        Grades = new List<FinalGrade>();
+    }
+    public override string ToString()
+    {
+        string result = base.ToString() + $"\nSemester: {Semester}\nGroup: {Group}\nSpecialization: {Specialization}\nIndex: {IndexId}\nAvarageGrades: {AvarageGrades}\nGrades:\n";
+        foreach (var item in Grades)
         {
-            Console.WriteLine(item);
+            result += item.ToString();
         }
+        return result;
+    }
+}
+
+public class Department
+{
+    public string Name { get; set; }
+    public Person Dean { get; set; }
+    public IList<OrganizationUnit> OrganizationUnits { get; set; }
+    IList<Student> Students { get; set; }
+    IList<Subject> Subjects { get; set; }
+    public Department(string name, Person dean, IList<Subject> subjects, IList<Student> students)
+    {
+        Name = name;
+        Dean = dean;
+        Students = students;
+        Subjects = subjects;
+        OrganizationUnits = new List<OrganizationUnit>();
+    }
+    public override string ToString()
+    {
+        string result = $"\nDaprtment Name: {Name}\nDean: {Dean}\nOrganizations: \n";
+        if(OrganizationUnits.Count > 0)
+        {
+        foreach (var item in OrganizationUnits) { result += item.ToString() ; }
+        }
+        result += $"\nStudents: \n";
+        foreach (var item in Students) { result += item.ToString() ; }
+        result += $"\nSubjects: \n";
+        foreach (var item in Subjects) { result += item.ToString() ; }
+        return result;
     }
 }
 namespace PO.Lab1
@@ -215,22 +185,45 @@ namespace PO.Lab1
     {
         static void Main(string[] args)
         {
-            Item item1 = new Journal("JAISCR", 1, "Springer", new DateTime(2000, 1, 1), 1);
-            Author author = new Author("Robert", "Cook", "Polish");
-            Item item2 = new Book("Agile C#", 2, "SPRINGER", new DateTime(2015, 1, 1), 500,
-            new List<Author>() { author });
-            ((Book)item2).AddAuthor(author);
-            var bookBarCode = ((Book)item2).GenerateBarCode();
-            var journalBarCode = ((Journal)item1).GenerateBarCode();
-            Console.WriteLine($"{item1} \r\n Barcode {journalBarCode}");
-            Console.WriteLine($"{item2} \r\n Barcode {bookBarCode}");
-            IList<Item> items = new List<Item>();
-            items.Add(item1);
-            items.Add(item2);
-            Catalog catalog = new Catalog("IT C# development", items);
-            catalog.AddItem(new Journal("Neurocomputing", 1, "IEEE", new DateTime(2020, 1, 1), 1));
-            Console.WriteLine(catalog);
-            catalog.ShowAllItems();
+            Student student1 = new Student("Jan", "Kowalski", new DateTime(1995, 1, 1), "Informatyka", 1);
+            Student student2 = new Student("Piotr", "Nowak", new DateTime(1990, 1, 1), "Matematyka", 3, 2);
+            Person student3 = new Student("Adam", "Bedrnarski", new DateTime(1993, 1, 1), "Informatyka", 1, 2);
+            Subject subject1 = new Subject("Programowanie obiektowe", "Informatyka", 4, 30);
+            Subject subject2 = new Subject("Bazy danych", "Informatyka", 4, 30);
+            Subject subject3 = new Subject("Algebra", "Matematyka", 1, 15);
+            Subject subject4 = new Subject("Analiza", "Matematyka", 1, 30);
+            FinalGrade grade1 = new FinalGrade(subject1, 4.5d, DateTime.Now.AddDays(30));
+            FinalGrade grade2 = new FinalGrade(subject1, 5d, DateTime.Now.AddDays(10));
+            FinalGrade grade3 = new FinalGrade(subject2, 3.5d, DateTime.Now.AddDays(50));
+            FinalGrade grade4 = new FinalGrade(subject2, 3.0d, DateTime.Now.AddDays(20));
+            FinalGrade grade5 = new FinalGrade(subject3, 5d, DateTime.Now.AddDays(10));
+            FinalGrade grade6 = new FinalGrade(subject3, 4.0d, DateTime.Now.AddDays(10));
+            FinalGrade grade7 = new FinalGrade(subject4, 4.0d, DateTime.Now.AddDays(30));
+            FinalGrade grade8 = new FinalGrade(subject4, 3.5d, DateTime.Now.AddDays(20));
+            Lecturer lecturer1 = new Lecturer("Krzysztof", "Nowakowski", new DateTime(1978, 12, 12), "dr inż.",
+            "Adiunkt");
+            Lecturer lecturer2 = new Lecturer("Jan", "Kowalski", new DateTime(1960, 10, 12), "Prof. dr hab. inż.",
+            "Profesor");
+            Lecturer lecturer3 = new Lecturer("Adam", "Nowakowski", new DateTime(1968, 2, 12), "dr inż.", "Adiunkt");
+            Lecturer lecturer4 = new Lecturer("Arkadiusz", "Bednarski", new DateTime(1969, 1, 12), "dr hab. inż.",
+            "Profesor");
+            Lecturer lecturer5 = new Lecturer("Janusz", "Wiśniewski", new DateTime(1988, 2, 12), "dr inż.", "Adiunkt");
+            Lecturer lecturer6 = new Lecturer("Dariusz", "Kowalewski", new DateTime(1979, 1, 12), "dr hab. inż.",
+            "Profesor");
+            var lecturerList1 = new List<Lecturer> { lecturer1, lecturer2 };
+            var lecturerList2 = new List<Lecturer> { lecturer4, lecturer3 };
+            OrganizationUnit organizationUnit1 = new OrganizationUnit("Katedra Informatyki",
+             "Częstochowa", lecturerList1);
+            OrganizationUnit organizationUnit2 = new OrganizationUnit("Kadera Inteligentnych Systemów Informatycznych",
+             "Częstochowa", lecturerList2);
+            Console.WriteLine(organizationUnit1);
+            Console.WriteLine(organizationUnit2);
+            Lecturer dean = new Lecturer("Tadeusz", "Nowak", new DateTime(1955, 1, 12), "Prof. dr hab. inż.",
+             "Profesor");
+            Department department = new Department("Wydział Inżynierii Mechanicznej i Informatyki", dean,
+            new List<Subject>() { subject1, subject2 },
+            new List<Student>() { student1, student2, (Student)student3 });
+            Console.WriteLine(department);
 
 
         }

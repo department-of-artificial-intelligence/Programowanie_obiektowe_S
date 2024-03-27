@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PO.lab4
 {
-    public class OrganizationUnit
+    public class OrganizationUnit:IDisplayable, IContainer
     {
         public string Name {  get; set; }
         public string Address { get; set; }
@@ -19,10 +19,11 @@ namespace PO.lab4
         }
         public override string ToString()
         {
-            Console.WriteLine( $"{Name} {Address}");
-            foreach (Lecturer l in Lecturers)
+            Console.WriteLine($"Organization Unit: {Name} | {Address}");
+            Console.WriteLine("With Lecturers: ");
+            foreach (var lecturer in Lecturers)
             {
-                Console.WriteLine( l.ToString() + '\n' );
+                Console.WriteLine(lecturer);
             }
             return "";
         }

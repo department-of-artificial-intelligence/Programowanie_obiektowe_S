@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PO.lab4
 {
-    public class FinalGrade
+    public class FinalGrade:IContainer
     {
         public Subject Subject { get; set; }
         public DateTime Date { get; set; }
@@ -19,8 +19,7 @@ namespace PO.lab4
         }
         public override string ToString()
         {
-            Console.WriteLine( $"{Subject} {Date} {Value}");
-            return "";
+            return $"Final Grade: {Subject.ToString()} {Date.ToString("yyyy/MM/dd")} {Value}";
         }
     }
 }

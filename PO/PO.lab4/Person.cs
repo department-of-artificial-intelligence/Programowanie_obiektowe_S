@@ -19,8 +19,7 @@ namespace PO.lab4
         }
         public override string ToString()
         {
-            Console.WriteLine($"{FirstName} {LastName} {DateOfBirth}");
-            return "";
+            return $"{FirstName} {LastName} {DateOfBirth.ToString("dd.MM.yyyy")}";
         }
     }
 }

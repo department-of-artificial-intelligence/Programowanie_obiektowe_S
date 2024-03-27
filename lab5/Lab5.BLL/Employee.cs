@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Lab5.BLL
 {
-    public class Animal
+    public class Employee : zoo
     {
     }
 }

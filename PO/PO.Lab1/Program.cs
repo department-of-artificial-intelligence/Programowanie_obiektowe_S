@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System;
 using System.Security.AccessControl;
 using System.Collections.Generic;
+using System.Text;
 
 namespace lab1;
 public class Car
@@ -139,7 +140,7 @@ public class Garage
 
 public class Person
 {
-    public string[]? _registrationNumber;  
+    public string?[] _registrationNumber;  
     public string _firstName;
     public string _lastName;
     public string _address;
@@ -188,13 +189,48 @@ public class Person
         }
     }
 
-    public int MaxCarCount {  get { return _maxCarCount; } set { _maxCarCount = value; } }
+    public int MaxCarCount {  get { return _maxCarCount; } set { _maxCarCount = value; Array.Resize(ref _registrationNumber, _maxCarCount); } }
     public string FirstName { get { return _firstName; } set { _firstName = value; } }
     public string LastName { get { return _lastName; } set { _firstName = value; } }
     public string Address { get { return _address; } set { _address = value; } }
     public int CarsCount { get { return _carsCount; } set { _carsCount = value; } }
 
+    public void AddCarRegistrationNumber(string registrationNumber)
+    {
+        if (_carsCount < _maxCarCount)
+        {
+            _registrationNumber[_carsCount] = new string(registrationNumber);
+            ++_carsCount;
+        }
+        else
+        {
+            Console.WriteLine("Nie mozna dodać więcej samochodów!");
+        }
+    }
+    public void RemoveCarRegistrationNumber(string registrationNumber)
+    {
+        if( _carsCount != 0)
+        {
+            --_carsCount;
+            _registrationNumber[_carsCount] = null;
 
+        }
+    }
+
+    public override string ToString()
+    {
+        StringBuilder s = new StringBuilder();
+        for(int i = 0; i < _carsCount; ++i)
+        {
+            s.Append(new StringBuilder(_registrationNumber[i]));
+        }
+        return s.ToString();
+    }
+
+    public void Details()
+    {
+        Console.WriteLine($"First Name: {_firstName}, Last Name: {_lastName}, Address: {_address}, Cars Count: {_carsCount}\n" + ToString());
+    }
 
 }
 

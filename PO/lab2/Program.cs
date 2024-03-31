@@ -1,7 +1,7 @@
 ﻿using lab2;
 class Program {
 
-    static void Main(string[] args)
+    static void Main()
     {
         Person person1 = new Person("Adam", "Miś", new DateTime(1990, 3, 20, 12, 30, 10));
         Person person2 = new Student("Michał", "Kot", new DateTime(1990, 4, 13), 3, 5, 12345);

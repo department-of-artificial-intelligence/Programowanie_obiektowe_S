@@ -52,11 +52,7 @@ namespace PO.lab03
         }
         public Item FindItemBy(int id)
         {
-            foreach(Item i in Catalogs.Items)
-            {
-
-            }
-
+            return null;
         }
         public Item FindItemBy(string title)
         {

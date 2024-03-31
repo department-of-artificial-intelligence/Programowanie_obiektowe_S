@@ -1,11 +1,11 @@
-﻿
+﻿using PO.lab03;
 
 class Program
 {
     static void Main(string[] args)
     {
-        /*
-        Item item1 = new Journal("JAISCR", 1, "Springer", new DateTime(2000, 1, 1), 1);
+        
+       Item item1 = new Journal("JAISCR", 1, "Springer", new DateTime(2000, 1, 1), 1);
         Author author = new Author("Robert", "Cook", "Polish");
         Item item2 = new Book("Agile C#", 2, "SPRINGER", new DateTime(2015, 1, 1), 500,
         new List<Author>() { author });
@@ -21,6 +21,6 @@ class Program
         catalog.AddItem(new Journal("Neurocomputing", 1, "IEEE", new DateTime(2020, 1, 1), 1));
         Console.WriteLine(catalog);
         catalog.ShowAllItems();
-        */
+
     }
 }

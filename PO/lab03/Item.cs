@@ -34,8 +34,5 @@ public abstract class Item
     {
         Console.WriteLine(this.ToString());
     }
-    public virtual string GenerateBarCode()
-    {
-
-    }
+    public abstract string GenerateBarCode();
 }

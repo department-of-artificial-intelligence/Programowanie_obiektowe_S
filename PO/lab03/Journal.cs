@@ -1,24 +1,20 @@
 ﻿public class Journal : Item
 {
-    public int Number { get; set; }
-
+    public int Number {  get; set; }
     public Journal() : base()
     {
         Number = 0;
     }
-
-    public Journal(string title, string publisher, int id, DateTime dateOfIssue, int number) : base(title, id, publisher, dateOfIssue)
+    public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number) : base(title, id, publisher, dateOfIssue)
     {
         Number = number;
     }
-
     public override string ToString()
     {
-        string a = ToString();
-        a += $", number: {Number}";
+        string a = base.ToString();
+        a += $" | Number: {Number}";
         return a;
     }
-
     public override string GenerateBarCode()
     {
         Random rnd = new Random();

@@ -17,13 +17,11 @@ namespace PO.lab03
         { get; set; }
         public Catalog(IList<Item>items) 
         {
-            Items = new List<Item>();
             Items = items;
         }
         public Catalog(string thematicDepartment, IList<Item> items) 
         {
             ThematicDepartment = thematicDepartment;
-            Items = new List<Item>();
             Items = items;
         }
         public void AddItem(Item item) 

@@ -19,6 +19,7 @@ namespace PO.lab4
         }
        public override string ToString() 
         {
+
             return $"LECTURER | {base.ToString()} Academic Title {AcademicTitle} Position {Position}";
         }
     }

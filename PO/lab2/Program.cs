@@ -27,6 +27,6 @@ class Program {
         student.Details();
         student.AddGrade("AWWW", 5.0D, new DateTime(2011, 4, 3));
         student.DeleteGrades();
-        student.Details();*/
+        student.Details();
     }
 }

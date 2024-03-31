@@ -23,7 +23,8 @@ namespace PO.lab4
         }
         public override string ToString() 
         {
-            return $"ORGANIZATION UNIT| Name {Name} Address {Address} Lectures {Lectures}";
+            string lecturersString = string.Join("\n", Lectures.Select(Lecturer => Lecturer.ToString()));
+            return $"ORGANIZATION UNIT| Name {Name} Address {Address} \n Lectures \n {lecturersString}";
         }
     }
 }

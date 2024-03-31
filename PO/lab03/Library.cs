@@ -36,15 +36,27 @@ namespace PO.lab03
         }
         public void AddItem(Item item, string thematicDepartment)
         {
-
+            Catalog catalog = Catalogs.FirstOrDefault(c => c.ThematicDepartment == thematicDepartment);
+            if (catalog != null)
+            {
+                catalog.AddItem(item);
+            }
         }
         public void ShowAllItems()
         {
-            
+            if(Catalogs != null)
+            {
+                foreach(Catalog C in Catalogs)
+                    Console.WriteLine(C.ToString());
+            }
         }
         public Item FindItemBy(int id)
         {
-            return null;
+            foreach(Item i in Catalogs.Items)
+            {
+
+            }
+
         }
         public Item FindItemBy(string title)
         {

@@ -8,11 +8,7 @@ namespace PO.lab03
 {
     public class Catalog
     {
-        public IList<Item>?Items
-        {
-            get => Items;
-            set => Items = value; 
-        }
+        public IList<Item> Items { get; set; }
         public string ?ThematicDepartment
         { get; set; }
         public Catalog(IList<Item>items) 

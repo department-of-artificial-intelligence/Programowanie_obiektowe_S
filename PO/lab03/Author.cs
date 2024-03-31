@@ -1,22 +1,19 @@
-﻿public class Author
+﻿using PO.lab03;
+public class Author : Person
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
     public string Nationality { get; set; }
-    public Author()
+    public Author() : base()
     {
-        FirstName = "No name";
-        LastName = "No surname";
         Nationality = "Germany";
     }
-    public Author(string firstName, string lastName, string nationality) 
+    public Author(string firstName, string lastName, string nationality) : base(firstName, lastName)
     {
-        FirstName=firstName;
-        LastName=lastName;
         Nationality=nationality;
     }
     public override string ToString() 
     {
-        return $" | First Name: {FirstName} | Surname: {LastName} | Nationality: {Nationality}";
+        string a = base.ToString();
+        a += $" | Nationality: {Nationality}";
+        return a;
     }
 }

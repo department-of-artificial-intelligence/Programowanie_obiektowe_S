@@ -5,14 +5,20 @@ using System.Text;
 
 namespace Lab5.BLL
 {
-    public class Reptiles : Animal
+    public class Reptile : Animal
     {
-        public bool Jadowitosc
+        public bool Jadowitosc {  get; set; }
+        public Reptile():base() 
         {
-            get => default;
-            set
-            {
-            }
+            Jadowitosc = false;
+        }
+        public Reptile(string foodType, int legsCount, string origin, string species, bool jadowitosc):base(foodType, legsCount, origin, species) 
+        {
+            Jadowitosc = jadowitosc;
+        }
+        public override string ToString()
+        {
+            return $"{base.ToString()} {Jadowitosc} ";
         }
     }
 }

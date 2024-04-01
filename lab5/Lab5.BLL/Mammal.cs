@@ -7,18 +7,18 @@ namespace Lab5.BLL
 {
     public class Mammal : Animal
     {
-        public string Natural
-        {
-            get;
-            set;
-        }
+        public string Natural { get; set; }
         public Mammal() : base()
         {
             Natural = "";
         }
-        public Mammal():base()
+        public Mammal(string foodType, int legsCount, string origin, string species, string natural):base(foodType, legsCount, origin, species)
         {
-
+            Natural= natural;
+        }
+        public override string ToString()
+        {
+            return $"{base.ToString()} {Natural} ";
         }
     }
 }

@@ -10,7 +10,7 @@
         }
 
         public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number)
-            : base(id, title, publisher, dateOfIssue)
+            : base(title, id, publisher, dateOfIssue)
         {
             Number = number;
         }

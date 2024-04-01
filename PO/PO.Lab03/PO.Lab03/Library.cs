@@ -83,12 +83,22 @@ namespace PO.Lab03
         public override string ToString()
         {
             string a = "";
-            foreach (var i in Catalogs)
-                a += i.ToString();
             foreach (var j in Librarians)
+            {
                 a += j.ToString();
+                a += "\n";
+            }
 
-            return $"Librarian | Address: {Address}, {a}";
+
+            foreach (var i in Catalogs)
+            {
+                a += i.ToString();
+                a += "\n";
+            }
+
+
+
+            return $"== Library == | Address: {Address}, \n{a}";
         }
 
 

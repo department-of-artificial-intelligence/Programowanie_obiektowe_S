@@ -2,13 +2,11 @@
 {
     internal class Book : Item
     {
-
-
         public int PageCount { get; set; }
         public IList<Author> Authors { get; set; }
 
-        public Book(int id, string title, string publisher, DateTime dateOfIssue, int pageCount, IList<Author> authors)
-            : base(id, title, publisher, dateOfIssue)
+        public Book(string title, int id, string publisher, DateTime dateOfIssue, int pageCount, IList<Author> authors)
+            : base(title, id, publisher, dateOfIssue)
         {
             PageCount = pageCount;
             Authors = new List<Author>(authors);
@@ -19,7 +17,7 @@
             string str = "";
             foreach (var element in Authors)
             {
-                str += $"\n{element}";
+                str += $"\n\t{element}";
             }
             return $"Book| Title:{_title} Id:{_id} Publisher:{_publisher} DateOffIssue: {_dateOfIssue} " +
                 $"PageCount: {PageCount} + Authors: {str} ";

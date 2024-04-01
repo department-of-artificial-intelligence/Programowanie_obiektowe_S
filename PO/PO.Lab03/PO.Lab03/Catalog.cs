@@ -5,7 +5,7 @@ namespace PO.Lab03
     internal class Catalog : IItemManagement
     {
         public IList<Item> Items { get; set; }
-        public string ThematicDepartment { get; set; };
+        public string ThematicDepartment { get; set; }
 
 
         public Catalog(IList<Item> items)

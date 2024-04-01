@@ -25,4 +25,4 @@
         public void Details() { Console.WriteLine(this); }
     }
 }
-}
+

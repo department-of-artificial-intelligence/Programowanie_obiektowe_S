@@ -20,7 +20,7 @@
             _dateOfIssue = DateTime.MinValue;
         }
 
-        protected Item(int id, string title, string publisher, DateTime dateOfIssue)
+        protected Item(string title, int id, string publisher, DateTime dateOfIssue)
         {
             _id = id;
             _title = title;

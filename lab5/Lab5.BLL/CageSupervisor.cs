@@ -17,5 +17,10 @@ namespace Lab5.BLL
             WorkStartDate = workstartdate;
             Cages = cages;
         }
+        public CageSupervisor(string FirstName, string LastName, DateTime dateOfBirth, IList<Cage> cages) : base(FirstName, LastName, dateOfBirth)
+        {
+            WorkStartDate = DateTime.Now;
+            Cages = cages;
+        }
     }
 }

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Reptile : Animal
+    public class Reptile : Animal, IDisplayable
     {
         public bool Jadowitosc {  get; set; }
         public Reptile():base() 

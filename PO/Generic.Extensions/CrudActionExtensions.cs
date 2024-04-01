@@ -28,12 +28,31 @@ namespace Generic.Extensions
         }
         public static TObjectType Get<TObjectType>(this IContainer container, Func<TObjectType, bool> searchPredicate)
         {
-            var newcontainer = container.Set<TObjectType>();
-            return newcontainer.First(searchPredicate);
+            var list = container?.Set<TObjectType>();
+            if (list != null)
+            {
+                var result = list.FirstOrDefault(searchPredicate);
+                if (result != null)
+                {
+                    return result;
+                }
+            }
+            Console.WriteLine("'Get' NOMATCHEXCEPTION");
+            return default;
         }
         public static IList<TObjectType> GetList<TObjectType>(this IContainer container, Func<TObjectType, bool> searchPredicate)
         {
             return container.Set<TObjectType>().Where(searchPredicate).ToList();
+        }
+        public static IList<TObjectType>? GetList<TObjectType>(this IContainer container)
+        {
+            var list = container?.Set<TObjectType>();
+
+            if (list == null)
+            {
+                return null;
+            }
+            return list;
         }
         public static IContainer Add<TObjectType>(this IContainer container, TObjectType obj)
         {
@@ -42,7 +61,13 @@ namespace Generic.Extensions
         }
         public static bool Remove<TObjectType>(this IContainer container, Func<TObjectType, bool> searchFn)
         {
-            return container.Set <TObjectType>().Remove(container.Set<TObjectType>().FirstOrDefault(searchFn));
+            bool res = false;
+            TObjectType objToRemove = container.Get(searchFn);
+            if (objToRemove != null)
+            {
+                res = container.Set<TObjectType>().Remove(objToRemove);
+            }
+            return res;
         }
         public static IContainer AddRange<TObjectType>(this IContainer container, IList<TObjectType> listOfElements)
         {

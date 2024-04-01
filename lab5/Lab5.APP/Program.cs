@@ -2,8 +2,6 @@
 using Lab5.BLL;
 using System;
 using System.Collections.Generic;
-using Generic.Extensions;
-using Lab5.BLL;
 
 namespace Lab5.APP
 {
@@ -11,7 +9,7 @@ namespace Lab5.APP
     {
         static void Main(string[] args)
         {
-            Zoo zoo = new Zoo("Slaski ogrod zoologiczny", new List<CageSupervisor>(), new List<Cage>(), new List<Animal>());
+            Zoo zoo = new Zoo("Slaski ogrod zoologiczny", new List<Employee>(), new List<Cage>(), new List<Animal>());
             Animal dog = new Mammal("flesh", 4, "Europe", "Gray Wolf", "Europe");
             Animal cow = new Mammal("grass", 4, "Europe", "B. taurus", "Europe");
             Animal crocodile1 = new Reptile("flesh", 4, "Africa", "C. niloticus", false);
@@ -45,8 +43,8 @@ namespace Lab5.APP
             falcon.Print();
             employees.Print();
             zoo.Remove<CageSupervisor>(e => e.FirstName == "Adam" && e.LastName == "Nowak");
-            zoo.GetList<CageSupervisor>()
-            .Print();
+            zoo.GetList<CageSupervisor>().Print();
+            Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");
             cage1.Print();
             cages2.Print();
             Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Cage
+    public class Cage : IDisplayable, Generic.Extensions.IContainer
     {
         private int _number;
         public int Number {get { return _number;}set { Random rand = new Random();  _number = rand.Next(1,100); } }

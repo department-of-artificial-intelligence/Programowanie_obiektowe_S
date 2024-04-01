@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Generic.Extensions">
+      <HintPath>..\Generic.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

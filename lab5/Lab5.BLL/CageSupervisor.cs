@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class CageSupervisor: Employee, IDisplayable, IConteiner
+    public class CageSupervisor : Employee, IDisplayable, IContainer
     {
-        public CageSupervisor() { }
+        public IList<Cage> Cages { get; set; }
+        public DateTime WorkStartDate { get; set; }
+
+        public CageSupervisor(string FirstName, string LastName, DateTime dateOfBirth, DateTime workstartdate, IList<Cage> cages) : base(FirstName, LastName, dateOfBirth)
+        {
+            WorkStartDate = workstartdate;
+            Cages = cages;
+        }
+        public CageSupervisor(string FName, string LName, DateTime DOB) : base(FName, LName, DOB)
+        {
+            WorkStartDate = DateTime.Now;
+            Cages = new List<Cage>();
+        }
     }
 }

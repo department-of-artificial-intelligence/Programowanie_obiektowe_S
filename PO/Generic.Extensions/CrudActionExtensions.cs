@@ -73,7 +73,7 @@ namespace Generic.Extensions
         {
             foreach (var item in listOfElements)
             {
-                container?.Set<TObjectType>()?.Add(item);
+                container.Set<TObjectType>()?.Add(item);
             }
             return container;
         }

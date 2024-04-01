@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Employee : IDisplayable, Generic.Extensions.IContainer
+    public class Employee : IDisplayable, IContainer
     {
         public string FirstName{ get; set; }
         public string LastName { get; set; }

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Generic.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Lab5.BLL
 {
-    public class Cage
+    public class Cage:IContainer
     {
         private static int countCages = 0;
         protected int _capacity;
@@ -38,10 +39,10 @@ namespace Lab5.BLL
         }
         public override string ToString()
         {
-            string res = $"{Capacity} {IsDirty} || Cages:\n";
+            string res = $"{Capacity} {IsDirty} || Animals:\n";
             foreach (var item in Animals)
             {
-                res += "\t" + item + "\n";
+                res += "\t\t\t" + item + "\n";
             }
             return res;
         }

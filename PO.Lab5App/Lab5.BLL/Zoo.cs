@@ -9,14 +9,14 @@ namespace Lab5.BLL
     public class Zoo:IContainer
     {
         protected string _name;
-        public List<Employee> Employees { get; set; }
-        public List<Cage> Cages { get; set; }
+        public IList<Employee> Employees { get; set; }
+        public IList<Cage> Cages { get; set; }
 
-        public List<Animal> Animals { get; set; }
+        public IList<Animal> Animals { get; set; }
 
         public string Name { get=>_name; set=>_name=value; }
 
-        public Zoo(string name, List<Employee> employees, List<Cage> cages, List<Animal> animals)
+        public Zoo(string name, IList<Employee> employees, IList<Cage> cages, IList<Animal> animals)
         {
             Name= name;
             Employees = employees;
@@ -34,9 +34,31 @@ namespace Lab5.BLL
             cage.Capacity += v;
         }
 
-        public CageSupervisor HireEmployee(string v1, string v2, DateTime dateTime)
+        public CageSupervisor HireEmployee(string name, string surname, DateTime birthDate)
         {
-            throw new NotImplementedException();
+            CageSupervisor newEmp = new CageSupervisor(name, surname, birthDate
+                ,DateTime.Now,new List<Cage>());
+            Employees.Add(newEmp);
+            return newEmp;
+        }
+        public override string ToString()
+        {
+            string res = $"Name : {Name}\n\tEmployees : \n";
+            foreach(var emp in Employees)
+            {
+                res += "\t\t"+emp.ToString()+"\n";
+            }
+            res += "\tCages : \n";
+            foreach (var emp in Cages)
+            {
+                res += "\t\t" + emp.ToString() + "\n";
+            }
+            res += "\tAnimals : \n";
+            foreach (var emp in Animals)
+            {
+                res += "\t\t" + emp.ToString() + "\n";
+            }
+            return res ;
         }
     }
 }

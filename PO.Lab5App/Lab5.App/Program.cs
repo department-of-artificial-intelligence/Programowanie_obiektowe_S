@@ -55,7 +55,7 @@ class App
         falcon.Print();
         employees.Print();
         zoo.Remove<Employee>(e => e.FirstName == "Adam" && e.LastName == "Nowak");
-        zoo.GetList<Employee>()
+        zoo.GetList<Employee>((v)=>true)
         .Print();
         cage1.Print();
         cages2.Print();

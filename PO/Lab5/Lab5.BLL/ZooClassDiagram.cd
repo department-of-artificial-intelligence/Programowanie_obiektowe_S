@@ -3,51 +3,66 @@
   <Class Name="Lab5.BLL.Animal">
     <Position X="1.5" Y="2" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAEAABAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <HashCode>AAAEAABAAAAAAAAEAAABAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Animal.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Bird">
     <Position X="4.25" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAABAQAAAAA=</HashCode>
-      <FileName>Ptak.cs</FileName>
+      <HashCode>AAAAAAACAAAAAAAEAAAAAAAAAAAAAAAAAAABAQAAAAA=</HashCode>
+      <FileName>Bird.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Reptile">
-    <Position X="4.75" Y="5.25" Width="1.5" />
+    <Position X="2.75" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Reptile.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Mammal">
     <Position X="4.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Mammal.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Cage">
-    <Position X="7.75" Y="5" Width="1.5" />
+    <Position X="6.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAEAAIAACAAAAABAAAAAAAABAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAEAAAQAAACAAAAABAAAAAAAAAEAAA=</HashCode>
       <FileName>Cage.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Employee">
-    <Position X="11.5" Y="3.5" Width="1.5" />
+    <Position X="9.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAEAAAAAAAAAAAQAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Employee.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Zoo">
-    <Position X="8" Y="1.75" Width="1.5" />
+    <Position X="7" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAAAAAAAQAAQECAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAACAAAAAAAEAgAQAAQECIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Zoo.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab5.BLL.CageSupervisor" Collapsed="true">
+    <Position X="10" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAEAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CageSupervisor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

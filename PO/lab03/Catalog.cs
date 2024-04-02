@@ -27,16 +27,20 @@ namespace PO.lab03
         }
         public Item FindItem(Expression<Func<Item, bool>> predicate)
         {
-            return null;
+            var foundedItem = Items.FirstOrDefault(predicate.Compile());
+            return foundedItem;
         }
         public Item FindItemBy(int id)
         {
-            return null;
+            var foundedItem = Items.FirstOrDefault(b => b.Id == id);
+            return foundedItem;
         }
         public Item FindItemBy(string title)
         {
-            return null;
+            var foundedItem = Items.FirstOrDefault(b => b.Title == title);
+            return foundedItem;
         }
+
         public override string ToString()
         {
             string a = $"Thematic Department: {ThematicDepartment}";

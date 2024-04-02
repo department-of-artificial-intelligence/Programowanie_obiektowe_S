@@ -52,7 +52,7 @@ namespace PO.lab03
         }
         public Item FindItemBy(int id)
         {
-            return null;
+            var foundedItem = Catalogs.FindItemBy(id);
         }
         public Item FindItemBy(string title)
         {

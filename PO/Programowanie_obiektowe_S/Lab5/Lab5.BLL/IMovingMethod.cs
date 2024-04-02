@@ -7,5 +7,6 @@ namespace Lab5.BLL
 {
     interface IMovingMethod
     {
+        public int LegsCount { get; set; }
     }
 }

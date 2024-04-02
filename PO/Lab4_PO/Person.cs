@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4_PO
 {
-    public abstract class Person
+    public abstract class Person : IContainer
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab4_PO
 {
-    public class Student : Person
+    public class Student : Person, IContainer
     {
         private static int id;
         public IList<FinalGrade> Grades { get; set; }
@@ -28,6 +28,10 @@ namespace Lab4_PO
         {
             var str = base.ToString();
             str += $"Semester: {Semester}, group: {Group}, specialization: {Specialization} \n";
+            if (Grades == null)
+            {
+                return str;
+            }
             str += string.Join<FinalGrade>('\n', Grades);
             return str;
         }

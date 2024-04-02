@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4_PO
 {
-    public class OrganizationUnit
+    public class OrganizationUnit : IContainer
     {
         public string Name { get; set; }
         public string Address { get; set; }

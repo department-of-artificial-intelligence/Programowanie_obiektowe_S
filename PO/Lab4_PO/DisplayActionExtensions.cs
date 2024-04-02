@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace Lab4_PO
 {
-    public class DisplayActionExtensions
+    public static class DisplayActionExtensions
     {
+        public static void Print<TObjectType>(this TObjectType obj)
+        {
+            Console.WriteLine(obj.ToString());
+        }
 
+        public static void Print<TObjectType>(this IList<TObjectType> list)
+        {
+            foreach (var item in list)
+            {
+                Console.WriteLine(item.ToString() + " ");
+            }
+        }
     }
 }

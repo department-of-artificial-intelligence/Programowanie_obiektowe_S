@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4_PO
 {
-    public class Department
+    public class Department : IContainer
     {
         public string Name {  get; set; }
         public Person Dean { get; set; }
@@ -23,12 +23,17 @@ namespace Lab4_PO
         }
         public override string ToString()
         {
-            var str = $"DEPARTMENT: name: {Name} \n";
-            str += Dean.ToString();
-            str += OrganizationUnits.ToString();
-            str += Subjects.ToString();
-            str += Students.ToString();
-            return str;
+            string s1 = string.Join(", ", OrganizationUnits);
+            string s2 = string.Join(", ", Subjects);
+            string s3 = string.Join(", ", Students);
+            return $"Name: {Name}, Dean: {Dean} \n {s1} \n {s2} \n {s3}";
+
+            //var str = $"DEPARTMENT: name: {Name} \n";
+            //str += Dean.ToString();
+            //str += OrganizationUnits.ToString();
+            //str += Subjects.ToString();
+            //str += Students.ToString();
+            //return str;
         }
     }
 }

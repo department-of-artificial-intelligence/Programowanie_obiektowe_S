@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab4_PO
 {
-    public class FinalGrade
+    public class FinalGrade : IContainer
     {
         public Subject Subject { get; set; }
         public DateTime Date { get; set; }

@@ -52,15 +52,79 @@ namespace PO.lab03
         }
         public Item FindItemBy(int id)
         {
-            var foundedItem = Catalogs.FindItemBy(id);
+            foreach (var catalog in Catalogs)
+            {
+                var item = catalog.FindItemBy(id);
+                if (item != null)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
         public Item FindItemBy(string title)
         {
+            foreach (var catalog in Catalogs)
+            {
+                var item = catalog.FindItemBy(title);
+                if (item != null)
+                {
+                    return item;
+                }
+            }
             return null;
         }
         public Item FindItem(Expression<Func<Item, bool>> predicate)
         {
+            foreach (var catalog in Catalogs)
+            {
+                var item = catalog.FindItem(predicate);
+                if (item != null)
+                {
+                    return item;
+                }
+            }
             return null;
         }
+        /*
+          public Item FindItemBy(int id)
+        {
+            foreach (var catalog in Catalogs)
+            {
+                var item = catalog.FindItemBy(id);
+                if (item != null)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public Item FindItemBy(string title)
+        {
+            foreach (var catalog in Catalogs)
+            {
+                var item = catalog.FindItemBy(title);
+                if (item != null)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public Item FindItem(Expression<Func<Item, bool>> predicate)
+        {
+            foreach (var catalog in Catalogs)
+            {
+                var item = catalog.FindItem(predicate);
+                if (item != null)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+         */
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab4
 {
-    public class Department
+    public class Department : IContainer, IDisplayable
     {
         public string Name { get; set; }
         public Person Dean { get; set; }
@@ -22,7 +22,17 @@ namespace lab4
         }
         public override string ToString()
         {
-            return $"Department | Name: {Name}, Dean: {Dean}, SubjectCount: {Subjects.Count}, StudentCount: {Students.Count}";
+            string res = $"Department | Name: {Name}, Dean: {Dean}, SubjectCount: {Subjects.Count}, StudentCount: {Students.Count}\n";
+            foreach (var item in Subjects)
+            {
+                res += item.ToString() + "\n";
+            }
+            res += "-------------------------------------------------------------------------------------------\n";
+			foreach (var item in Students)
+			{
+				res += item.ToString() + "\n";
+			}
+			return res;
         }
     }
 }

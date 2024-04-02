@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace lab4
 {
-    public class OrganizationUnit
-    {
+    public class OrganizationUnit : IContainer, IDisplayable
+	{
         public string Name { get; set; }
         public string Address { get; set; }
         public IList<Lecturer> Lecturers { get; set; }

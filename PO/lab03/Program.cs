@@ -22,8 +22,8 @@ class Program
         Console.WriteLine(catalog);
         catalog.ShowAllItems();
 
-        Console.WriteLine("=============================ZAD02=============================");
-        /*
+        Console.WriteLine("\n\n=============================ZAD02=============================");
+        
         string searchedValue = "Agile C#";
         Item foundedItemById = catalog.FindItem(item => item.Id == 1);
         Item foundedItemByTitle = catalog.FindItem(item => item.Title == searchedValue);
@@ -39,7 +39,7 @@ class Program
         Console.WriteLine(foundedItemByIdOld);
         Console.WriteLine(foundedItemByTitleOld);
         Console.WriteLine("++++++++++++++++++++++++++++++++++");
-        P erson librarian = new Librarian("John", "Kowalsky", DateTime.Now.Date, 2000);
+        Person librarian = new Librarian("John", "Kowalsky", DateTime.Now.Date, 2000);
         Library library = new Library("Czestochowa, Armii Krajowej 36", new List<Librarian>(), new List<Catalog>());
         library.AddLibrarian((Librarian)librarian);
         library.ShowAllLibrarians();
@@ -58,6 +58,6 @@ class Program
         Console.WriteLine(foundedById);
         Console.WriteLine(foundedByTitle);
         Console.WriteLine(foundedByLambda);
-         */
+         
     }
 }

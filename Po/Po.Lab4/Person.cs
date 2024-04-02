@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Po.Lab4
 {
-    internal abstract class Person
+    internal abstract class Person : IContainer
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
+
         public Person(string firstName, string lastName, DateTime dateOfBirth)
         {
 

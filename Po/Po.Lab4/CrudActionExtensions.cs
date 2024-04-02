@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Po.Lab4
 {
-    internal static class CrudActionExtensions
+    public static class CrudActionExtensions
     {
         public static IList<TObjectType>? Set<TObjectType>(this IContainer containerObject)
         {
@@ -17,7 +17,7 @@ namespace Po.Lab4
 
             if (propertyInfo != null)
             {
-                var value = propertyInfo.GetValue(containerObject);
+                var value = propertyInfo?.GetValue(containerObject);
                 return value as IList<TObjectType>;
             }
             else
@@ -34,17 +34,17 @@ namespace Po.Lab4
             }
         }
         public static TObjectType Get<TObjectType>(this IContainer container, 
-            Func<TObjectType, bool> searchPredicate)
+            Func<TObjectType, bool>? searchPredicate = null)
         { 
             var containerObjectType = container.GetType();
             var propetyInfo = containerObjectType.GetProperties().FirstOrDefault(
-                propa => propa.PropertyType == typeof(TObjectType)
+                propa => propa.PropertyType == typeof(IList<TObjectType>)
                 );
             var value = propetyInfo?.GetValue(container);
             var list = value as IList<TObjectType>;
             if (list != null)
             {
-                return list.FirstOrDefault(searchPredicate);
+                return searchPredicate != null ? list.FirstOrDefault(searchPredicate) : list.FirstOrDefault();
             }
             else {
                 throw new InvalidOperationException("Container does not contain a list of specified type");
@@ -67,8 +67,21 @@ namespace Po.Lab4
             }
         }
         public static IContainer Add<TObjectType>(this IContainer container, TObjectType obj)
-        { 
-            container.Set<TObjectType>()?.Add(obj);
+        {
+            //container.Set<TObjectType>()?.Add(obj);
+
+            var containerObjectType = container.GetType();
+            var propertyInfo = containerObjectType.GetProperties().FirstOrDefault(
+                p => p.PropertyType == typeof(IList<TObjectType>));
+            var value = propertyInfo?.GetValue(container);
+            var list = value as IList<TObjectType>;
+            if (list == null)
+                list = new List<TObjectType>();
+            if (list != null)
+            {
+                list.Add(obj);
+                propertyInfo.SetValue(container, list);
+            }
             return container;
         }
         public static bool Remove<TObjectType>(this IContainer container, Func<TObjectType, bool> searchFn)
@@ -85,6 +98,7 @@ namespace Po.Lab4
                 {
                     list.Remove(item);
                 }
+                propertyInfo.SetValue(container, list);
                 return true;
             }
             else { 
@@ -97,6 +111,7 @@ namespace Po.Lab4
             var propertyInfo = containerObjectType.GetProperties().FirstOrDefault(
                 p=>p.PropertyType == typeof(IList<TObjectType>));
             var value = propertyInfo?.GetValue(container);
+            
             var list = new List<TObjectType>();
 
             if (list != null)
@@ -105,6 +120,7 @@ namespace Po.Lab4
                 { 
                     list.Add(element); 
                 }
+                propertyInfo.SetValue(container, list);
             }
             return container;
         }

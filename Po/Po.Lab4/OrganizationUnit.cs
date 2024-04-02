@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Po.Lab4
 {
-    internal class OrganizationUnit
+    internal class OrganizationUnit : IContainer, IDisplayable
     {
         public string Name { get; set; }
         public string Address { get; set; }

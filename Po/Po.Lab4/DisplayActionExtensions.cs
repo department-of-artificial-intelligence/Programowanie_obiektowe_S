@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Po.Lab4
 {
-    internal class DisplayActionExtensions
+    public static class DisplayActionExtensions
     {
-        public void Print<TObjectType>(TObjectType obj)
+        public static void Print<TObjectType>(this TObjectType obj)
         {
             Console.WriteLine(obj);
         }
-        public void Print<TObjectType>(IList<TObjectType> list)
+        public static void Print<TObjectType>(this IList<TObjectType> list)
         {
             foreach (var element in list)
             {

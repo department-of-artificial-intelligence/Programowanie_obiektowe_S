@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Runtime.InteropServices.Marshalling;
 using System.Text;
 using System.Threading.Tasks;
-
+using Generic.Extensions;
 public class Subject
 {
     public string Name { get; set; }
@@ -97,7 +97,7 @@ public class OrganizationUnit
     }
 }
 
-public class Student: Person
+public class Student: Person,IContainer
 {
     private static int _id;
     public IList<FinalGrade> Grades { get; set; }
@@ -150,7 +150,7 @@ public class Student: Person
     }
 }
 
-public class Department
+public class Department:IContainer
 {
     public string Name { get; set; }
     public Person Dean { get; set; }
@@ -223,6 +223,8 @@ namespace PO.Lab1
             Department department = new Department("Wydział Inżynierii Mechanicznej i Informatyki", dean,
             new List<Subject>() { subject1, subject2 },
             new List<Student>() { student1, student2, (Student)student3 });
+            department.Set<Student>().FirstOrDefault(s => s.IndexId==student1.IndexId).Set<FinalGrade>().Where(g => g.Value > 3);
+            student1.Set<FinalGrade>().Where(g => g.Value > 3);
             Console.WriteLine(department);
 
 

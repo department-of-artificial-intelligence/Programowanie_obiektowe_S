@@ -16,7 +16,7 @@
 - UWAGA: W przypadku umieszczenia elementów kolokwium w innym miejscu, spowoduje to znaczne obniżenie oceny lub uzyskanie oceny niedostatecznej. 
 ```
   Jedynym elementem który należy umieścić w projekcie `Kolokwium.App` jest kod testujący. Znajduje się on pod poniższym adresem:
-  [https://ik2a.kik.pcz.pl/po/{code}.pdf](http://ik2a.kik.pcz.czest.pl/po/code.pdf)
+  [https://ik2a.kik.pcz.pl/po/{code}.pdf](https://ik2a.kik.pcz.pl/po/code.pdf)
   Proszę zastąpić `{code}` wartością kodu podaną przez prowadzącego.
 
 ### Proszę przejść do wykonywania zadań

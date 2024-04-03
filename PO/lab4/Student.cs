@@ -19,6 +19,7 @@ namespace lab4
             , string specialization, int group, int semester = 1)
             : base(firstName, lastName, dateOfBirth)
         {
+            Grades = new List<FinalGrade>();
             Specialization = specialization;
             Group = group;
             Semester = semester;

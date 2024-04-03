@@ -32,12 +32,6 @@ namespace lab4
 			return newcontainer.First(searchPredicate);
 		}
 
-		public static TObjectType Get<TObjectType>(this IContainer container)
-		{
-			var newcontainer = container.Set<TObjectType>();
-			return newcontainer.First();
-		}
-
 		public static IList<TObjectType> GetList<TObjectType>(this IContainer container, Func<TObjectType, bool> searchPredicate)
 		{
 			if (container == null)

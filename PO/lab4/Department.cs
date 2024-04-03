@@ -15,6 +15,7 @@ namespace lab4
         public IList<Student> Students { get; set; }
         public Department(string name, Person dean, IList<Subject> subjects, IList<Student> students)
         {
+            OrganizationUnits = new List<OrganizationUnit>();
             Name = name;
             Dean = dean;
             Subjects = subjects;

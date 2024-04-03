@@ -68,11 +68,6 @@ class Program
 		department2.Print();
 		var obtainedStudent = department2.Get<Student>(x => x.Group == 1);
 		obtainedStudent.Print();
-        //Test Jan Kowalski
-        obtainedStudent.Add<FinalGrade>(new FinalGrade(new Subject("Informatyka", "Informatyka", 1, 10), 3.0d, new DateTime()));
-        obtainedStudent.GetList<FinalGrade>(g => g.Subject.Name == "Informatyka").Print();
-        Console.WriteLine("Hello");
-
 		department2.Get<Student>(x => x.Group == 1)
 		.GetList<FinalGrade>(g => g.Subject.Name == "Informatyka")
 		.Print();

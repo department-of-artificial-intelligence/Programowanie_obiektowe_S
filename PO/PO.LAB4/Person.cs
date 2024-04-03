@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PO.LAB4
 {
-    internal class Person
+    internal abstract class  Person
     {
         public string FirstName
         { get; set; }

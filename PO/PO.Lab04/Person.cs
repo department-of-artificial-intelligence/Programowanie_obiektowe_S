@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PO.Lab04
+﻿namespace PO.Lab04
 {
     internal abstract class Person
     {
@@ -30,7 +24,7 @@ namespace PO.Lab04
 
         public override string ToString()
         {
-            return $"Person | FirstName: {FirstName}, LastName: {LastName}, Date of birth: {DateOfBirth}";
+            return $" Firstname: {FirstName}, Lastname: {LastName}, Date of birth: {DateOfBirth}";
         }
     }
 }

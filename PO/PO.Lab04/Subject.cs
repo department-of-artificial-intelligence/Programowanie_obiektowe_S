@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PO.Lab04
+﻿namespace PO.Lab04
 {
     internal class Subject
     {
-        
+
         public string Name { get; set; }
         public string Specialization { get; set; }
         public int Semester { get; set; }
@@ -24,7 +18,7 @@ namespace PO.Lab04
 
         public override string? ToString()
         {
-            return $"Name: {Name}, Specialization: {Specialization}, Semester: {Semester}, Hours: {HoursCount}";
+            return $"Subject | Name: {Name}, Specialization: {Specialization}, Semester: {Semester}, Hours: {HoursCount}";
         }
     }
 }

@@ -7,23 +7,33 @@ namespace Lab5.BLL
 {
     public class Bird : Animal
     {
-        private string _nutrition;
+        
         private int _legsCount;
-        private string _placeOfOccurance;
-        private string _sprecies;
-        private string _wingspan;
-        private int _stamina;
-
-        public string Nutrition { get => _nutrition; set => _nutrition = value; }
+        private double _wingspan;
+        private double _stamina;
         public int LegsCount { get => _legsCount; set => _legsCount = value; }
-        public string PlaceOfOccurance { get => _placeOfOccurance; set => _placeOfOccurance = value; }
-        public string Sprecies { get => _sprecies; set => _sprecies = value; }
-        public string Wingspan { get => _wingspan; set => _wingspan = value; }
-        public int Stamina { get => _stamina; set => _stamina = value; }
+        public double Wingspan { get => _wingspan; set => _wingspan = value; }
+        public double Stamina { get => _stamina; set => _stamina = value; }
+
+        public Bird(string nutrition, int legsCount, string origin, string species, double wingspan, double stamina)
+            :base(nutrition, species, origin)
+        {
+            LegsCount = legsCount;
+            Wingspan = wingspan;
+            Stamina = stamina;
+        }
 
         public void Fly()
         {
-            throw new System.NotImplementedException();
+            double flyTime = Wingspan * Stamina;
+            Console.WriteLine(flyTime);
+        }
+
+        public override string ToString()
+        {
+            var str = base.ToString();
+            str += $"legs count: {LegsCount}, wingspan: {Wingspan}, stamina: {Stamina}";
+            return str;
         }
     }
 }

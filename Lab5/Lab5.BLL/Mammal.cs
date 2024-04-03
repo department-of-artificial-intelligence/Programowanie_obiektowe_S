@@ -7,16 +7,24 @@ namespace Lab5.BLL
 {
     public class Mammal : Animal
     {
-        private string _nutrition;
         private int _legsCount;
-        private string _placeOfOccurance;
-        private string _species;
         private string _naturalEnvironment;
 
-        public string Nutrition { get => _nutrition; set => _nutrition = value; }
         public int LegsCount { get => _legsCount; set => _legsCount = value; }
-        public string PlaceOfOccurance { get => _placeOfOccurance; set => _placeOfOccurance = value; }
-        public string Species { get => _species; set => _species = value; }
         public string NaturalEnvironment { get => _naturalEnvironment; set => _naturalEnvironment = value; }
+
+        public Mammal(string nutrition, int legsCount, string origin, string species, string naturalEnvironment)
+            :base(nutrition, species, origin)
+        {
+            LegsCount = legsCount;
+            NaturalEnvironment = naturalEnvironment;
+        }
+
+        public override string ToString()
+        {
+            var str = base.ToString();
+            str += $"legs count: {LegsCount}, natural environment: {NaturalEnvironment}";
+            return str;
+        }
     }
 }

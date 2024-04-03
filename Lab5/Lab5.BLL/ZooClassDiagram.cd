@@ -1,45 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Lab5.BLL.Animal">
-    <Position X="6" Y="0.75" Width="1.5" />
+    <Position X="7.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>BAAEARQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Animal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Lab5.BLL.Zoo">
-    <Position X="3.5" Y="1" Width="1.5" />
+    <Position X="10" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAEAAQYAAQEGAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Zoo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Lab5.BLL.Mammal">
-    <Position X="9.5" Y="3.25" Width="1.5" />
+    <Position X="9.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAEARAAAAAAgAEAAAABAAAAAAAAgAECAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAEEAAABAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>Mammal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Lab5.BLL.Reptile">
-    <Position X="6" Y="3.25" Width="1.5" />
+    <Position X="5.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAEARAAAAAAgAAAAAEBAAAAAAAAgAACAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAEAAEBAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Reptile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Lab5.BLL.Bird">
-    <Position X="3" Y="3.25" Width="1.5" />
+    <Position X="2" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAABACAAAAggQAAIEBAAAAAAAAgAACAAABAAAAAAA=</HashCode>
+      <HashCode>AAAAAAACAAAAggQEAAEBAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Bird.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Lab5.BLL.Cage">
-    <Position X="0.5" Y="2" Width="1.5" />
+    <Position X="4.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAgAAAAAAAAABAAAQCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAAAAAAAgAAAAAAEAABQAAQCAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Cage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab5.BLL.Employee">
+    <Position X="14.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAEAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAg=</HashCode>
+      <FileName>Employee.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -16,12 +16,8 @@
 - UWAGA: W przypadku umieszczenia elementów kolokwium w innym miejscu, spowoduje to znaczne obniżenie oceny lub uzyskanie oceny niedostatecznej. 
 ```
   Jedynym elementem który należy umieścić w projekcie `Kolokwium.App` jest kod testujący. Znajduje się on pod poniższym adresem:
-  [http://ik2a.kik.pcz.czest.pl/po/{code}.pdf](http://ik2a.kik.pcz.czest.pl/po/code.pdf)
+  [https://ik2a.kik.pcz.pl/po/{code}.pdf](http://ik2a.kik.pcz.czest.pl/po/code.pdf)
   Proszę zastąpić `{code}` wartością kodu podaną przez prowadzącego.
-
-### Uruchomienie dokumentacji
-W trakcie trwania kolokwium mogą Państwo korzystać z dostarczonej dokumentacji Microsoft Learn. 
-[https://learn.microsoft.com](https://learn.microsoft.com)
 
 ### Proszę przejść do wykonywania zadań
 
@@ -48,7 +44,7 @@ W trakcie trwania kolokwium mogą Państwo korzystać z dostarczonej dokumentacj
     tar caf Rozwiazanie_Kolokwium.zip --exclude=./Rozwiazanie_Kolokwium.zip Kolokwium 
     ```
     
-4)  Proszę przejść pod adres [Archiver](http://ik2a.kik.pcz.czest.pl/archiver/TestArchive/Index)
+4)  Proszę przejść pod adres [Archiver](https://ik2a.kik.pcz.pl/archiver/TestArchive/Index)
 5)  Następnie proszę wybrać Państwa test i kilknąć przycisk `Link`
 
     ![Alt text](Img/ArchiverUpload1.png?raw=true)

@@ -24,15 +24,15 @@ namespace PO.lab4
         }
         public override string ToString()
         {
-            Console.WriteLine($"Student: {base.ToString()} Semester {Semestr} Group {Group} {IndexId} {Specialization} {AverageGrades}, with grades: ");
+            string res=$"Student: {base.ToString()} Semester {Semestr} Group {Group} {IndexId} {Specialization} {AverageGrades}, with grades: ";
             if (Grades != null)
             {
                 foreach (var grade in Grades)
                 {
-                    Console.WriteLine($"{grade}");
+                    res+=grade.ToString()+'\n';
                 }
             }
-            return "";
+            return res;
         }
     }
 }

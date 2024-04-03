@@ -57,7 +57,7 @@
     cd Kolokwium 
 
     ```
-5)  Proszę przejść pod adres [Archiver](http://ik2a.kik.pcz.czest.pl/archiver/TestArchive/Index)
+5)  Proszę przejść pod adres [Archiver](https://ik2a.kik.pcz.pl/archiver/TestArchive/Index)
 6)  Następnie proszę wybrać Państwa test i kilknąć przycisk `Link`
 
     ![Alt text](Img/ArchiverUpload1.png?raw=true)

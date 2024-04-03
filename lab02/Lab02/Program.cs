@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices.Marshalling;
 using System.Collections.Generic;
@@ -235,13 +235,13 @@ public class Player : Person
     }
     public string Club
     {
-        get { return _club;}
+        get { return _club; }
         set { _club = value; }
     }
     public int ScoredGoals
     {
-        get { return _scoredGoals;}
-        set { _scoredGoals = value;}
+        get { return _scoredGoals; }
+        set { _scoredGoals = value; }
     }
 
     public Player() : base()
@@ -323,7 +323,7 @@ internal class Program
         footballPlayer.Details();
         handballPlayer.Details();
         ((Player)handballPlayer).ScoreGoal(); // rzutowanie bezpośrednie
-        (footballPlayer as Player).ScoreGoal(); // rzutowanie referencyjne
+        (footballPlayer as Player)?.ScoreGoal(); // rzutowanie referencyjne
         footballPlayer.Details();
         handballPlayer.Details();
 

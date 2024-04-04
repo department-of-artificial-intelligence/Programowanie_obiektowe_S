@@ -2,7 +2,7 @@
 {
     internal class Student : Person, IContainer, IDisplayable
     {
-        private static int _id;
+        //private static int _id;
 
 
         public IList<FinalGrade> Grades { get; set; }
@@ -22,7 +22,18 @@
 
         public override string ToString()
         {
-            return $"Student | {base.ToString()}, Specialization: {Specialization}, Semester: {Semester}, Group: {Group}";
+            string gradeStr = "";
+            if (Grades != null)
+            {
+                gradeStr = ", Grades:";
+                foreach (var grade in Grades)
+                {
+                    gradeStr += "\n      " + grade.ToString();
+                }
+            }
+
+
+            return $"Student | {base.ToString()}, Specialization: {Specialization}, Semester: {Semester}, Group: {Group} {gradeStr}";
         }
     }
 }

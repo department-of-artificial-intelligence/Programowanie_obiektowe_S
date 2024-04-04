@@ -1,6 +1,6 @@
 ﻿namespace PO.Lab04
 {
-    internal class OrganizationUnit
+    internal class OrganizationUnit : IContainer, IDisplayable
     {
         public string Name { get; set; }
         public string Address { get; set; }

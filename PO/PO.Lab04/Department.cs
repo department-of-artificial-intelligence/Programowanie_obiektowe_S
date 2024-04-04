@@ -1,6 +1,6 @@
 ﻿namespace PO.Lab04
 {
-    internal class Department
+    internal class Department : IContainer, IDisplayable
     {
 
         public string Name { set; get; }
@@ -13,13 +13,20 @@
         {
             Name = name;
             Dean = dean;
-            Subjects = new List<Subject>(subjects);
-            Students = new List<Student>(students);
+            OrganizationUnits = new List<OrganizationUnit>();
+            Subjects = subjects;
+            Students = students;
         }
 
 
         public override string ToString()
         {
+            string orgstr = "";
+            foreach (var org in OrganizationUnits)
+            {
+                orgstr += "\n   " + org.ToString();
+            }
+
             string substr = "";
             foreach (var sub in Subjects)
             {
@@ -35,7 +42,8 @@
 
             return $"Departament | Name: {Name}, " +
                 $"\nDean: {Dean}, " +
-                $"\nOrganization Units: {substr}" +
+                $"\nOrganization Units: {orgstr}" +
+                $"\nSubjects: {substr}" +
                 $"\nStudents: {studstr}";
         }
     }

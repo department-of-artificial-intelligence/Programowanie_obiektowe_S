@@ -25,9 +25,14 @@ namespace Lab5.BBL
             set;
         }
 
-        public void fly()
+
+        public void Fly()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine(WingSpan*Endurance);
+        }
+        public override string ToString()
+        {
+            return base.ToString()+ $"WingSpan: {WingSpan}, Endurance: {Endurance}";
         }
     }
 }

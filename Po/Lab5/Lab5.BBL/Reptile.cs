@@ -14,10 +14,12 @@ namespace Lab5.BBL
 
         public bool Venomous
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            set;
+        }
+        public override string ToString()
+        {
+            return base.ToString()+ $"Venomous: {Venomous}";
         }
     }
 }

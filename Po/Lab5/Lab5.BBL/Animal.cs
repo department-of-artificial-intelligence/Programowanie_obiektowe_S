@@ -43,5 +43,6 @@ namespace Lab5.BBL
             Nutrition = nutrition;
             Origin = origin;
         }
+
     }
 }

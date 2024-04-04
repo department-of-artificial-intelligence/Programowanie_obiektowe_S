@@ -16,7 +16,10 @@ namespace Lab5.BBL
         {
             NaturalHabitat = naturalHabitat;
         }
-
+        public override string ToString()
+        {
+            return base.ToString()+ $"Natural Habitat: {NaturalHabitat}";
+        }
        
     }
 }

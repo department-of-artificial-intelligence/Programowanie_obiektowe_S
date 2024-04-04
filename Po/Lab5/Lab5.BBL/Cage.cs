@@ -13,7 +13,11 @@ namespace Lab5.BBL
             get;
             set;
         }
-
+        public int Id
+        {
+            get;
+            set;
+        }
         public bool CleanUp
         {
             get;
@@ -30,6 +34,11 @@ namespace Lab5.BBL
             this.NumberOfCage = numberOfCage;
             this.CleanUp = cleanUp;
             this.AnimalList = animalList;
+        }
+        public override string ToString()
+        {
+            string animal = string.Join(", ", AnimalList.Select(a=>a.ToString()));
+            return $"ID: {Id}, Cage size: {NumberOfCage}, Clean Up: {CleanUp}, Animal: {animal}";
         }
     }
 }

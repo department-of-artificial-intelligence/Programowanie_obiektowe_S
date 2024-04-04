@@ -26,9 +26,13 @@ namespace Lab5.BLL
 
         public override string ToString()
         {
-            var str = $"id: {_id}, capacity: {Capacity}, is dirty: {Cleaning}, ";
+            var str = $"Cage: id: {_id}, capacity: {Capacity}, is dirty: {Cleaning}, List of Animal:" +
+                $"\n";
             str += string.Join<Animal>('\n', Animals);
+            str += '\n';
             return str;
         }
+
+
     }
 }

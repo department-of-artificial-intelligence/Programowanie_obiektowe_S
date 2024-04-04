@@ -26,7 +26,8 @@ namespace Lab5.BLL
         public void Fly()
         {
             double flyTime = Wingspan * Stamina;
-            Console.WriteLine(flyTime);
+            Console.WriteLine("Fly: " + flyTime);
+            Console.WriteLine('\n');
         }
 
         public override string ToString()

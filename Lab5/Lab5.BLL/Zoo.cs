@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
@@ -32,7 +33,18 @@ namespace Lab5.BLL
             str += string.Join<Cage>('\n', Cages);
             str += string.Join<Animal>('\n', Animals);
             return str;
+        }
+        public Cage BuildCage(int capacity, bool cleaning)
+        {
+            Cage cage = new Cage(capacity, cleaning, new List<Animal>());
+            cage.Capacity = capacity;
+            cage.Cleaning = cleaning;
+            return cage;
+        }
 
+        public void ExpandCage(Cage cage, int capacity)
+        {
+            cage.Capacity += capacity;
         }
     }
 }

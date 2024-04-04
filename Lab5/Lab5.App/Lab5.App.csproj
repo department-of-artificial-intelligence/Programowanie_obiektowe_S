@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Lab5.BLL\Lab5.BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Generic.Extensions">
+      <HintPath>..\Generic.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

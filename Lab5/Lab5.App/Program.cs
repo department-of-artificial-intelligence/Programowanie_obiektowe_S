@@ -28,36 +28,35 @@ class Program
         Console.WriteLine(cage4);
 
 
-        var cages1 = zoo.AddRange(new List<Cage>() { cage1, cage2 } ).Set<Cage>();
-        var cages2 = zoo.AddRange(new List<Cage>() { cage3 } ).Set<Cage>();
-        //Employee employee1 = new CageSupervisor("Jan", "Kowalski",
-        // new DateTime(1990, 1, 1), DateTime.Now, cages1);
-        //Employee employee2 = new CageSupervisor("Adam", "Nowak",
-        // new DateTime(1988, 1, 1), DateTime.Now, cages2);
-        //var newEmployee = zoo.HireEmployee("Robert", "Kowalczyk", new DateTime(1988, 1, 1));
-        //var employees = zoo.AddRange(new List<Employee>()
-        //                            {
-        //                            employee1,
-        //                            employee2
-        //                            }).Set<Employee>();
+        var cages1 = zoo.AddRange(new List<Cage>() { cage1, cage2 }).Set<Cage>();
+        var cages2 = zoo.AddRange(new List<Cage>() { cage3 }).Set<Cage>();
+        Employee employee1 = new CageSupervisor("Jan", "Kowalski",
+         new DateTime(1990, 1, 1), DateTime.Now, cages1);
+        Employee employee2 = new CageSupervisor("Adam", "Nowak",
+         new DateTime(1988, 1, 1), DateTime.Now, cages2);
+        var newEmployee = Zoo.HireEmployee("Robert", "Kowalczyk", new DateTime(1988, 1, 1));
+        var employees = zoo.AddRange(new List<Employee>()
+                                    {
+                                    employee1,
+                                    employee2
+                                    }).Set<Employee>();
         //((CageSupervisor)newEmployee).Add(cage4);
-        //cage4.Add(cobra);
-        //zoo.Add(cage4);
-        //Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");
-        //Console.WriteLine();
-        //dog.Print();
-        //crocodile1.Print();
-        //falcon.Print();
-        //employees.Print();
-        //zoo.Remove<Employee>(e => e.FirstName == "Adam" && e.LastName == "Nowak");
-        //zoo.GetList<Employee>()
-        //.Print();
-        //cage1.Print();
-        //cages2.Print();
-        //Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");
-        //zoo.Print();
-        //Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");
-        //zoo.Print();
+        cage4.Add(cobra);
+        zoo.Add(cage4);
+        Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");
+        Console.WriteLine();
+        dog.Print();
+        crocodile1.Print();
+        falcon.Print();
+        employees.Print();
+        zoo.Remove<Employee>(e => e.FirstName == "Adam" && e.LastName == "Nowak");
+        //zoo.GetList<Employee>().Print();
+        cage1.Print();
+        cages2.Print();
+        Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");
+        zoo.Print();
+        Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");
+        zoo.Print();
     }
 
 }

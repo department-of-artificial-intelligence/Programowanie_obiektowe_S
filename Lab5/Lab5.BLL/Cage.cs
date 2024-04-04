@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Generic.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Lab5.BLL
 {
-    public class Cage
+    public class Cage : IContainer
     {
         private static int _id = 0;
         private int _capacity;

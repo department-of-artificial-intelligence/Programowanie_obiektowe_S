@@ -6,13 +6,15 @@
       <HashCode>BAAEARQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>Animal.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Zoo">
     <Position X="10" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAEAAQYAAQEGAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAACAAAAAAAEAAQYAAQEGIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Zoo.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Mammal">
     <Position X="9.75" Y="6.75" Width="1.5" />
@@ -20,6 +22,7 @@
       <HashCode>AAAAAAAAAAAAgAEEAAABAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>Mammal.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Reptile">
     <Position X="5.75" Y="6.75" Width="1.5" />
@@ -27,6 +30,7 @@
       <HashCode>AAAAAAAAAAAAgAAEAAEBAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Reptile.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Bird">
     <Position X="2" Y="6.25" Width="1.5" />
@@ -34,6 +38,7 @@
       <HashCode>AAAAAAACAAAAggQEAAEBAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Bird.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Cage">
     <Position X="4.5" Y="0.75" Width="1.5" />
@@ -41,13 +46,15 @@
       <HashCode>CAAAAAAAgAAAAAAEAABQAAQCAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Cage.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Employee">
     <Position X="14.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAEAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAg=</HashCode>
+      <HashCode>AAEAAEAAAAEAAAAEAAEAAAAAAAAQAAAAAAAAAIAQAAg=</HashCode>
       <FileName>Employee.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

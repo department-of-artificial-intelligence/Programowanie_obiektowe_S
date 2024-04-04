@@ -6,7 +6,7 @@ using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Zoo
+    public class Zoo : IContainer
     {
         private string _name;
         private IList<Employee> employees;
@@ -45,6 +45,12 @@ namespace Lab5.BLL
         public void ExpandCage(Cage cage, int capacity)
         {
             cage.Capacity += capacity;
+        }
+
+        public static Employee HireEmployee(string firstName, string lastName, DateTime dateOfBirth)
+        {
+            var newEmployee = new Employee(firstName, lastName, dateOfBirth);
+            return newEmployee;
         }
     }
 }

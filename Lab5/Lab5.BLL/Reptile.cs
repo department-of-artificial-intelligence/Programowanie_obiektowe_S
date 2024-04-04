@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Generic.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Lab5.BLL
 {
-    public class Reptile : Animal
+    public class Reptile : Animal, IContainer
     {
         private int _legsCount;
         private bool _venomous;

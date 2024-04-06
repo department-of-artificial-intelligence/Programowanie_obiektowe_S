@@ -1,6 +1,7 @@
 ﻿
 namespace lab3
 {
+    using System;
     internal abstract class Item
     {
         protected int _id;

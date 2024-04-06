@@ -1,6 +1,7 @@
 ﻿
 namespace lab3
 {
+    using System;
     internal class Journal : Item
     {
         public int Number { get; set; }
@@ -20,7 +21,7 @@ namespace lab3
 
         public override string GenerateBarCode()
         {
-            return " ";
+            return "Journal";
         }
     }
 }

@@ -3,11 +3,11 @@ class Program
 {
     static void Main(string[] args)
     {
-
+        /*
         Console.WriteLine("===================Zad01===================\n\n");
         Student student1 = new Student("Jan", "Kowalski", new DateTime(1995, 1, 1), "Informatyka", 1);
         Student student2 = new Student("Piotr", "Nowak", new DateTime(1990, 1, 1), "Matematyka", 3, 2);
-        Person student3 = new Student("Adam", "Bedrnarski", new DateTime(1993, 1, 1), "Informatyka", 1, 2);/*
+        Person student3 = new Student("Adam", "Bedrnarski", new DateTime(1993, 1, 1), "Informatyka", 1, 2);
     Subject subject1 = new Subject("Programowanie obiektowe", "Informatyka", 4, 30);
     Subject subject2 = new Subject("Bazy danych", "Informatyka", 4, 30);
     Subject subject3 = new Subject("Algebra", "Matematyka", 1, 15);

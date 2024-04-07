@@ -25,8 +25,12 @@ namespace PO.lab04
         }
         public override string ToString()
         {
-            string str = base.ToString();
-            str += Grades.ToString();
+            string str = base.ToString() + '\n';
+            if(Grades != null)
+            {
+                foreach(var g in Grades)
+                    str += Grades.ToString() + '\n';
+            }
             str += $" | Semester: {Semester} | Group: {Group} | Id: {_id} | Specilization: {Specialization} | Average grades: {AverageGrades}";
             return str;
         }

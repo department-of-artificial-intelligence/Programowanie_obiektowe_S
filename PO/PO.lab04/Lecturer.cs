@@ -9,16 +9,8 @@ namespace PO.lab04
 {
     public class Lecturer : Person
     {
-        public string AcademicTitle
-        {
-            get => AcademicTitle; 
-            set => AcademicTitle = value;
-        }
-        public string Position
-        {
-            get => Position;
-            set => Position = value;
-        }
+        public string AcademicTitle { get; set; }
+        public string Position {  get; set; }
         public Lecturer(string firstName, string lastName, DateTime dateOfBirth, string academicTitle, string position) : 
             base(firstName, lastName, dateOfBirth)
         {

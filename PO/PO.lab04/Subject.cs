@@ -8,10 +8,10 @@ namespace PO.lab04
 {
     public class Subject
     {
-        public string Name { get => Name; set => Name = value; }
-        public string Specialization{ get => Specialization; set => Specialization = value; }
-        public int Semester { get => Semester; set => Semester = value; }
-        public int HoursCount {  get => HoursCount; set => HoursCount = value; }
+        public string Name { get; set; }
+        public string Specialization{ get; set; }
+        public int Semester { get; set; }
+        public int HoursCount {  get; set; }
         public Subject(string name, string specialization, int semester, int hoursCount) 
         {
             Name = name;

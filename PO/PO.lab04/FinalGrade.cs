@@ -8,9 +8,9 @@ namespace PO.lab04
 {
     public class FinalGrade
     {
-        public Subject Subject { get => Subject; set => Subject = value; }
-        public DateTime Date { get => Date; set => Date = value; }
-        public double Value { get => Value; set => Value = value; }
+        public Subject Subject { get; set; }
+        public DateTime Date { get; set ; }
+        public double Value { get; set; }
         public FinalGrade(Subject subjetc, double value, DateTime date) 
         {
             Subject = subjetc;

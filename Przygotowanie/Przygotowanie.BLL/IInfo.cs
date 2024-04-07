@@ -8,9 +8,9 @@ namespace Przygotowanie.BLL
 {
     public interface IInfo
     {
-        public void Display()
-        {
+        //public void Display()
+        //{
 
-        }
+        //}
     }
 }

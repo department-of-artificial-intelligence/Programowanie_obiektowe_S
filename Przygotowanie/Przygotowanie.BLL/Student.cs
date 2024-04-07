@@ -23,7 +23,7 @@ namespace Przygotowanie.BLL
         public override string ToString()
         {
             var str = base.ToString();
-            str += $"Year: {Year}, group: {Group}, index: {IndexId}";
+            str += $"Year: {Year}, group: {Group}, index: {IndexId} ";
             return str;
         }
 

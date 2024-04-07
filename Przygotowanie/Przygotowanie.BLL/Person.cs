@@ -18,7 +18,7 @@ namespace Przygotowanie.BLL
 
         public override string ToString()
         {
-            var str = $"First name: {FirstName}, last name: {LastName}";
+            var str = $"First name: {FirstName}, last name: {LastName} ";
             return str;
         }
 

@@ -38,7 +38,7 @@ namespace Przygotowanie.BLL
             str += string.Join<Student>('\n', Students);
             str += Subject.ToString();
             str += ClassRoom.ToString();
-            str += $"day of week: {DayOfWeek}, Start time: {StartTime}, end time: {EndTime}";
+            str += $"day of week: {DayOfWeek}, Start time: {StartTime}, end time: {EndTime} ";
             return str;
         }
 

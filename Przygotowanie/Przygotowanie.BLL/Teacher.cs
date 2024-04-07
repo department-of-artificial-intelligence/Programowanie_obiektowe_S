@@ -19,17 +19,18 @@ namespace Przygotowanie.BLL
         {
             Lessons.Add(lesson);
             return lesson;
-        } 
+        }
 
-        public void RemoveLesson(Lesson lesson)
+        public void RemoveLesson(int id)
         {
-            Lessons.Remove(lesson);
+            var foundedLesson = Lessons.FirstOrDefault(b => b.Id == id);
+            Lessons.Remove(foundedLesson);
         }
 
         public override string ToString()
         {
             var str = base.ToString();
-            str += string.Join<Lesson>('\n', Lessons);
+            //str += string.Join<Lesson>('\n', Lessons);
             return str;
         }
     }

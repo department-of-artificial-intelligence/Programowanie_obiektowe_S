@@ -27,8 +27,9 @@ namespace Przygotowanie.BLL
 
         public override string ToString()
         {
-            var str = $"Number: {Number}, IsClean: {IsClean}, Max Capacity: {MaxCapacity}";
-            str += string.Join<int>('\n', Seats);
+            var str = $"Number: {Number}, IsClean: {IsClean}, Max Capacity: {MaxCapacity} ";
+            str += string.Join<int>(", ", Seats);
+            str += '\n';
             return str;
         }
 

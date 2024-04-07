@@ -20,18 +20,24 @@ namespace Przygotowanie.BLL
             Name = name;
             Teachers = teachers;
             Students = students;
+            Lessons = new List<Lesson>();
+            Subjects = new List<Subject>();
+            ClassRooms = new List<ClassRoom>();
         }
 
         public ClassRoom CreateClassRoom(int number, int maxCapacity, bool isClean)
         {
             IList<int> seats = new List<int>();
             ClassRoom classRoom = new ClassRoom(number, isClean, maxCapacity, seats);
+            ClassRooms.Add(classRoom);
             return classRoom;
         }
 
         public Subject CreateSubject(string name, string description)
         {
             Subject subject = new Subject(name, description);
+            Subjects.Add(subject);
+
             return subject;
         }
 
@@ -39,6 +45,7 @@ namespace Przygotowanie.BLL
         {
             IList<Student> students = new List<Student>();
             Lesson lesson = new Lesson(classRoom, subject, dayOfWeek, startTime, endTime, teacher, students);
+            Lessons.Add(lesson);
             return lesson;
         }
         
@@ -46,6 +53,7 @@ namespace Przygotowanie.BLL
         {
             IList<Lesson> lessons = new List<Lesson>();
             Teacher teacher = new Teacher(firstName, lastName, lessons);
+            Teachers.Add(teacher);
             return teacher;
         }
 
@@ -62,24 +70,25 @@ namespace Przygotowanie.BLL
         public Student CreateStudent(string firstName, string lastName, int year, int group, int indexId)
         {
             Student student = new Student(firstName, lastName, year, group, indexId);
+            Students.Add(student);
             return student;
         }
 
         public void RemoveLesson(int id)
         {
-            var foundedLesson = Lessons.Where(b => b.Id == id);
-            Lessons.Remove((Lesson)foundedLesson);
+            var foundedLesson = Lessons.FirstOrDefault(b => b.Id == id);
+            Lessons.Remove(foundedLesson);
         }
 
         public override string ToString()
         {
-            var str = $"Name: {Name} \n";
-            str += string.Join<Lesson>('\n', Lessons);
-            str += string.Join<Teacher>('\n', Teachers);
-            str += string.Join<Subject>('\n', Subjects);
-            str += string.Join<ClassRoom>('\n', ClassRooms);
-            str += string.Join<Student>('\n', Students);
-            return str;
+            var str1 = $"Name: {Name} \n";
+            var str2 = string.Join<Lesson>('\n', Lessons);
+            //var str3 = string.Join<Teacher>('\n', Teachers);
+            //var str4 = string.Join<Subject>('\n', Subjects);
+            //var str5 = string.Join<ClassRoom>('\n', ClassRooms);
+            //var str6 = string.Join<Student>('\n', Students);
+            return $"{str1} \n + {str2} \n ";
         }
 
         public void Display()

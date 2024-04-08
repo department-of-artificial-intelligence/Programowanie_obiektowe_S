@@ -46,8 +46,7 @@ namespace Po.Lab3
             }
             else
             {
-                // Obsługa przypadku, gdy nie znaleziono katalogu o podanym dziale tematycznym.
-                // Możesz rzucić wyjątek, zignorować operację lub podjąć inną odpowiednią akcję.
+                Console.WriteLine("nie mozna dodac");
             }
         }
         public void ShowAllItems()
@@ -62,7 +61,7 @@ namespace Po.Lab3
                 }
             }
         }
-        public Item FindItemBy(int id)
+        public Item? FindItemBy(int id)
         {
             foreach (var catalog in Catalogs)
             { 

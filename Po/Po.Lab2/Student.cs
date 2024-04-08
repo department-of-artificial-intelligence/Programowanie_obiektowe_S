@@ -73,7 +73,19 @@ namespace Po.Lab3
                 }
             }
         }
-        public void DeleteGrade(string subjectName, double value, DateTime date) => grades.Remove(new Grade(subjectName, value, date));
+        public void DeleteGrade(string subjectName, double value, DateTime date)
+        {
+            var grades1 = grades.FirstOrDefault(a => a.SubjectName == subjectName && a.Value == value && a.Date == date);
+            if (grades1 != null)
+            {
+                grades.Remove(grades1);
+                Console.WriteLine("znalezono");
+            }
+            else
+            {
+                Console.WriteLine("nie znaleziono");
+            }
+        }
 
         public void DeleteGrade(Grade grade) => grades.Remove(grade);
         public void DeleteGrades()

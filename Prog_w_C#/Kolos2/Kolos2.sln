@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kolos2.APP", "Kolos2.APP\Kolos2.APP.csproj", "{762925CD-FD07-4EDF-8DCA-B74A9CF9E19A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kolos2.BLL", "Kolos2.BLL\Kolos2.BLL.csproj", "{6F172390-9A0B-4398-A3D4-AA70F1C7E2CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{762925CD-FD07-4EDF-8DCA-B74A9CF9E19A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{762925CD-FD07-4EDF-8DCA-B74A9CF9E19A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{762925CD-FD07-4EDF-8DCA-B74A9CF9E19A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{762925CD-FD07-4EDF-8DCA-B74A9CF9E19A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F172390-9A0B-4398-A3D4-AA70F1C7E2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F172390-9A0B-4398-A3D4-AA70F1C7E2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F172390-9A0B-4398-A3D4-AA70F1C7E2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F172390-9A0B-4398-A3D4-AA70F1C7E2CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A21F5EF3-90C5-4CFD-BEB7-BF23668EEDB5}
+	EndGlobalSection
+EndGlobal

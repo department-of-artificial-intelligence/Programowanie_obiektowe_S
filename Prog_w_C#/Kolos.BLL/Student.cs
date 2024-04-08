@@ -16,7 +16,7 @@ namespace Kolos.BLL
         public string Specjalization { get; set; }
         public double AverageGrades { get; set; }
 
-        public Student(string firstName, string lastName, DateTime dateOfBirth, string specjalization,  int group, int semester) : base(firstName, lastName, dateOfBirth)
+        public Student(string firstName, string lastName, DateTime dateOfBirth, string specjalization,  int group, int semester = 1) : base(firstName, lastName, dateOfBirth)
         {
             Specjalization = specjalization;
             Group = group;

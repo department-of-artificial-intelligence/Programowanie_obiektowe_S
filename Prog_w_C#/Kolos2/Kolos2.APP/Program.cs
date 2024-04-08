@@ -1,6 +1,4 @@
-﻿using System;
-using Kolos.BLL;
-
+﻿using Kolos2.BLL;
 
 
 Student student1 = new Student("Jan", "Kowalski", new DateTime(1995, 1, 1), "Informatyka", 1);
@@ -35,11 +33,13 @@ OrganizationUnit organizationUnit1 = new OrganizationUnit("Katedra Informatyki",
 OrganizationUnit organizationUnit2 = new OrganizationUnit("Kadera Inteligentnych Systemów Informatycznych",
  "Częstochowa", lecturerList2);
 Console.WriteLine(organizationUnit1);
+Console.WriteLine();
 Console.WriteLine(organizationUnit2);
+Console.WriteLine();
+
 Lecturer dean = new Lecturer("Tadeusz", "Nowak", new DateTime(1955, 1, 12), "Prof. dr hab. inż.",
  "Profesor");
 Department department = new Department("Wydział Inżynierii Mechanicznej i Informatyki", dean,
 new List<Subject>() { subject1, subject2 },
 new List<Student>() { student1, student2, (Student)student3 });
 Console.WriteLine(department);
-

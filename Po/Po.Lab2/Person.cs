@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 
 
-namespace Po.Lab3
+namespace Po.Lab2
 {
     public class Person
     {

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 //using System.Text;
 //using System.Threading.Tasks;
 
-namespace Po.Lab3
+namespace Po.Lab2
 {
     public class Player : Person
     {

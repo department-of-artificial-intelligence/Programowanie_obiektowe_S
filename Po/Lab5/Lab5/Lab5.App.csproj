@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Generic.Extensions\Generic.Extensions.csproj" />
     <ProjectReference Include="..\Lab5.BBL\Lab5.BBL.csproj" />
   </ItemGroup>
 

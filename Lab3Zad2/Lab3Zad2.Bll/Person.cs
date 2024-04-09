@@ -12,23 +12,17 @@ namespace Lab3Zad2.Bll
         public string LastName { get; set; }
         public Person()
         {
-            FirstName = "unknown";
-            LastName = "unknown";
+            FirstName = string.Empty;
+            LastName = string.Empty;
         }
         public Person(string firstName, string lastName)
         {
             FirstName = firstName;
             LastName = lastName;
         }
-
         public override string ToString()
         {
-            return $"{FirstName} {LastName}";
-        }
-
-        public void Details()
-        {
-            this.ToString();
+            return $"Imie: {FirstName} Nazwisko: {LastName}";
         }
     }
 }

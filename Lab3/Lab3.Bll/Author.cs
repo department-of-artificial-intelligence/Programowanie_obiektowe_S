@@ -19,7 +19,7 @@ namespace Lab3.Bll
         }
         public override string ToString()
         {
-            string tmp = base.ToString() + $", {FirstName} {LastName} {Nationality} ";
+            string tmp = $", {FirstName} {LastName} {Nationality} ";
             return tmp;
         }
     }

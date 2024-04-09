@@ -5,29 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Lab3Zad2.Bll
 {
-    public class Author
+    public class Author : Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Nationality { get; set; }
 
-        public Author()
+        public string Natianality { get; set; }
+        public Author() : base()
         {
-            FirstName = "None";
-            LastName = "None";
-            Nationality = "None";
+            Natianality = string.Empty;
         }
-
-        public Author(string firstName, string lastName, string nationality)
+        public Author(string firstName, string lastName, string nationality) : base(firstName, lastName)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Nationality = nationality;
+            Natianality = nationality;
         }
-
         public override string ToString()
         {
-            return $"First Name: {FirstName} | Last Name: {LastName} Nationality: {Nationality}";
+            return $"Imie: {FirstName} Nazwisko: {LastName} Kraj pochodzenia: {Natianality}";
         }
     }
 }

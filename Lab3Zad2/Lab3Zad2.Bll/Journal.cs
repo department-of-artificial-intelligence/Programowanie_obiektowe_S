@@ -8,24 +8,30 @@ namespace Lab3Zad2.Bll
 {
     public class Journal : Item
     {
-
         public int Number { get; set; }
-        public Journal() { }
-        public Journal(int id, string title, string publisher, DateTime dateOfIssue, int number)
-            : base(id, title, publisher, dateOfIssue)
+        public Journal()
+        {
+            Number = 0;
+        }
+        public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number) : base(title, publisher, dateOfIssue)
         {
             Number = number;
+            _id = id;
         }
-
         public override string ToString()
         {
-            Console.Write(base.ToString() + "\n");
-            return $" Number: {Number}";
+            return base.ToString() + $", Number:{Number} Id: {_id}";
         }
-
         public override string GenerateBarCode()
         {
-            return Guid.NewGuid().ToString();
+            var rand = new Random();
+            string rand1 = "";
+            for (int i = 0; i < 8; i++)
+            {
+                rand1 += rand.Next().ToString();
+            }
+            return rand1;
         }
+
     }
 }

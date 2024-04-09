@@ -26,8 +26,9 @@ namespace Lab3.Bll
         public void AddItem(Item item) { Items.Add(item); }
         public override string ToString()
         {
-            string tmp = base.ToString() + $",Items:  {Items.Select(a=>a.ToString())} ,ThermaticDepartment: {ThematicDepartment} ";
-            return tmp;
+            string przed = string.Empty;
+            przed += string.Join("\n", Items);
+            return $"ThematicDepartment: {ThematicDepartment} Przedmioty:{przed}";
         }
         public void ShowAllItems()
         {

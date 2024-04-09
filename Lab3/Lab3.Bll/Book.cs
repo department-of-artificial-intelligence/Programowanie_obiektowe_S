@@ -33,8 +33,9 @@ namespace Lab3.Bll
         }
         public override string ToString()
         {
-            string tmp = base.ToString() + $", Author: {Authors.Select(a=>a.ToString())} ";
-            return tmp;
+            string Aut = string.Empty;
+            Aut += string.Join("\n", Authors);
+            return base.ToString() + $" Id:{_id} Autor: {Aut} Ilosc stron: {PageCount}";
         }
     }
 }

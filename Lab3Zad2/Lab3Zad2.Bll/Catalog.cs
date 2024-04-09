@@ -7,60 +7,56 @@ using System.Threading.Tasks;
 
 namespace Lab3Zad2.Bll
 {
-    public class Catalog : IItemManagement
+    public class Catalog : ItemManagment
     {
         public IList<Item> Items { get; set; }
         public string ThematicDepartment { get; set; }
-
         public Catalog(IList<Item> items)
         {
-            Items = new List<Item>(items);
-            ThematicDepartment = "none";
+            Items = items;
         }
-
         public Catalog(string thematicDepartment, IList<Item> items)
         {
-            Items = new List<Item>(items);
             ThematicDepartment = thematicDepartment;
+            Items = items;
         }
-
         public void AddItem(Item item)
         {
             Items.Add(item);
         }
-
         public override string ToString()
         {
-            StringBuilder str_list = new StringBuilder();
-            foreach (var i in Items)
-            {
-                str_list.Append(i + "\n");
-            }
-            return $"Catalog: {ThematicDepartment} Lista: {str_list}";
+            string przed = string.Empty;
+            przed += string.Join("\n", Items);
+            return $"ThematicDepartment: {ThematicDepartment} Przedmioty:{przed}";
         }
-
         public void ShowAllItems()
         {
             Console.WriteLine(this);
-        }
 
-        public Item FindItem(Expression<Func<Item, bool>> lambda)
-        {
-            var a = lambda.Compile();
-            var Result = Items.FirstOrDefault(a);
-            return Result;
         }
-
         public Item FindItemBy(int id)
         {
-            var result = Items.FirstOrDefault(i => i.Id == id);
-            return result;
+            foreach (var item in Items)
+            {
+                if (item.Id == id) return item;
+            }
+            return default;
         }
-
         public Item FindItemBy(string title)
         {
-            var result = Items.FirstOrDefault(i => i.Title == title);
-            return result;
+            foreach (var item in Items)
+                if (item.Title == title)
+                    return item;
+            return default;
         }
+        public Item FindItem(Expression<Func<Item, bool>> predicate)
+        {
+            foreach (Item i in Items)
+                if (predicate.Compile()(i))
+                    return i;
+            return default;
+        }
+
     }
 }

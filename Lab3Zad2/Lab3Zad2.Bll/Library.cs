@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Lab3Zad2.Bll
 {
-    public class Library
+    public class Library : ItemManagment
     {
-        public string Address { get; set; }
+        public string Adress { get; set; }
         public IList<Librarian> Librarians { get; set; }
         public IList<Catalog> Catalogs { get; set; }
         public Library(string address, IList<Librarian> librarians, IList<Catalog> catalogs)
         {
-            Address = address;
-            Librarians = new List<Librarian>(librarians);
-            Catalogs = new List<Catalog>(catalogs);
+            Adress = address;
+            Librarians = librarians;
+            Catalogs = catalogs;
         }
         public void AddLibrarian(Librarian librarian)
         {
@@ -29,23 +29,18 @@ namespace Lab3Zad2.Bll
                 Console.WriteLine(i);
             }
         }
-
         public void AddCatalog(Catalog catalog)
         {
             Catalogs.Add(catalog);
         }
-
         public void AddItem(Item item, string thematicDepartment)
         {
-            for (int i = 0; i < Catalogs.Count; ++i)
+            foreach (var i in Catalogs)
             {
-                if (Catalogs[i].ThematicDepartment == thematicDepartment)
-                {
-                    Catalogs[i].AddItem(item);
-                }
+                if (i.ThematicDepartment == thematicDepartment)
+                    i.Items.Add(item);
             }
         }
-
         public void ShowAllItems()
         {
             for (int i = 0; i < Catalogs.Count; ++i)
@@ -53,53 +48,38 @@ namespace Lab3Zad2.Bll
                 Catalogs[i].ShowAllItems();
             }
         }
-
         public Item FindItemBy(int id)
         {
-            for (int i = 0; i < Catalogs.Count; ++i)
-            {
-                var result = Catalogs[i].Items.FirstOrDefault(i => i.Id == id);
-                if (result != null)
-                    return result;
-            }
-            return null;
-        }
+            foreach (var i in Catalogs)
+                foreach (var j in i.Items)
+                    if (j.Id == id)
+                        return j;
 
+            return default; ;
+        }
         public Item FindItemBy(string title)
         {
-            for (int i = 0; i < Catalogs.Count; ++i)
-            {
-                var result = Catalogs[i].Items.FirstOrDefault(i => i.Title == title);
-                if (result != null)
-                    return result;
-            }
-            return null;
-        }
+            foreach (var i in Catalogs)
+                foreach (var j in i.Items)
+                    if (j.Title == title)
+                        return j;
 
-        public Item FindItem(Expression<Func<Item, bool>> lambda)
+            return default;
+        }
+        public Item FindItem(Expression<Func<Item, bool>> predicate)
         {
-            var lambdaExpression = lambda.Compile();
-            for (int i = 0; i < Catalogs.Count; ++i)
-            {
-                var result = Catalogs[i].Items.FirstOrDefault(lambdaExpression);
-                if (result != null)
-                    return result;
-            }
-            return null;
-        }
+            foreach (var i in Catalogs)
+                foreach (var j in i.Items)
+                    if (predicate.Compile()(j))
+                        return j;
 
+            return default;
+        }
         public override string ToString()
         {
-            if (this.GetType() == typeof(Library))
-            {
-                this.ShowAllItems();
-                this.ShowAllLibrarians();
-                return null;
-            }
-            else
-            {
-                return $"{this}";
-            }
+            string cat = string.Join("\n ", Catalogs.Select(Catalogs => Catalogs.ToString()));
+            string lib = string.Join("\n", Librarians.Select(LibLibrarians => Librarians.ToString()));
+            return cat + lib + $"Adres: {Adress}";
         }
     }
 }

@@ -1,77 +1,62 @@
-﻿using System;
-using Lab3Zad2.Bll;
+﻿using Lab3Zad2.Bll;
 
-Item item1 = new Journal(1, "JAISCR", "Springer", new DateTime(2000, 1, 1), 1);
+Item item1 = new Journal("JAISCR", 1, "Springer", new DateTime(2000, 1, 1), 1);
 Author author = new Author("Robert", "Cook", "Polish");
-Item item2 = new Book(2, "Agile C#", "SPRINGER", new DateTime(2015, 1, 1), 500, new List<Author>() { author });
-
-var jorunalBarCode = ((Journal)item1).GenerateBarCode();
+Item item2 = new Book("Agile C#", 2, "SPRINGER", new DateTime(2015, 1, 1), 500, new List<Author>() { author });
+((Book)item2).AddAuthor(author);
 var bookBarCode = ((Book)item2).GenerateBarCode();
-Console.WriteLine($"{item1} \r\n Barcode {jorunalBarCode}\n");
-Console.WriteLine($"{item2} \r\n Barcode {bookBarCode}\n");
-
+var journalBarCode = ((Journal)item1).GenerateBarCode();
+Console.WriteLine($"{item1} \r\n Barcode {journalBarCode}");
+Console.WriteLine($"{item2} \r\n Barcode {bookBarCode}");
+Console.WriteLine();
 IList<Item> items = new List<Item>();
 items.Add(item1);
 items.Add(item2);
 Catalog catalog = new Catalog("IT C# development", items);
-catalog.AddItem(new Journal(3, "Neurocomputing", "IEEE", new DateTime(2020, 1, 1), 1));
+catalog.AddItem(new Journal("Neurocomputing", 1, "IEEE", new DateTime(2020, 1, 1), 1));
 Console.WriteLine(catalog);
+Console.WriteLine();
 catalog.ShowAllItems();
 
-Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++\n");
+//--- find position
 string searchedValue = "Agile C#";
 Item foundedItemById = catalog.FindItem(item => item.Id == 1);
 Item foundedItemByTitle = catalog.FindItem(item => item.Title == searchedValue);
 Item foundedItemByDateRange = catalog.FindItem(item => item.DateOfIssue >= new DateTime(2014, 12, 31) &&
-                                                   item.DateOfIssue <= new DateTime(2015, 12, 31));
+item.DateOfIssue <= new DateTime(2015, 12, 31));
+Console.WriteLine("++++++++++++++++++++++++++++++++++");
 Console.WriteLine(foundedItemById);
 Console.WriteLine(foundedItemByTitle);
 Console.WriteLine(foundedItemByDateRange);
-Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++\n");
 Item foundedItemByIdOld = catalog.FindItemBy(1);
 Item foundedItemByTitleOld = catalog.FindItemBy(searchedValue);
-System.Console.WriteLine(foundedItemByIdOld);
-System.Console.WriteLine(foundedItemByTitleOld);
-Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++\n");
+Console.WriteLine("Found old way");
+Console.WriteLine(foundedItemByIdOld);
+Console.WriteLine(foundedItemByTitleOld);
+Console.WriteLine("++++++++++++++++++++++++++++++++++");
 Person librarian = new Librarian("John", "Kowalsky", DateTime.Now.Date, 2000);
-//dodano nowy obiekt do kodu testującego
-Person librarian2 = new Librarian("Hubert", "Kowalsky", DateTime.Now.Date, 2000);
+Person librarian2 = new Librarian("macke", "rawy", DateTime.Now.Date, 95628466);
 Library library = new Library("Czestochowa, Armii Krajowej 36", new List<Librarian>(), new List<Catalog>());
 library.AddLibrarian((Librarian)librarian);
-library.AddLibrarian((Librarian)librarian2);
-Console.ForegroundColor = ConsoleColor.Blue;
-Console.WriteLine("WYPISUJE BIBLIOTEKARZY PRZY UŻYCIU SHOW_ALL_LIBRARIANS() -> TO_STRING()\n");
-Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine("----------------------------------------------------------------------");
+Console.WriteLine();
+
 library.ShowAllLibrarians();
-Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++\n");
+Console.WriteLine();
 
 Catalog catalog2 = new Catalog("Novels", new List<Item>());
 library.AddCatalog(catalog2);
 library.AddCatalog(catalog);
+Item newItem = new Book("Song of Ice and Fire", 4, "Publisher", new DateTime(2011, 1, 1), 800, new List<Author>() { author });
 
-Item newItem = new Book(4, "Song of Ice and Fire", "Publisher", new DateTime(2011, 1, 1), 800, new List<Author>() { author });
 library.AddItem(newItem, "Novels");
-Console.ForegroundColor = ConsoleColor.Blue;
-Console.WriteLine("WYPISUJE ZAWARTOŚĆ BIBLIOTEKI PRZY UŻYCIU TO_STRING() -> (SHOW_ALL_LIBRARIANS() I SHOW_ALL_ITEMS()) -> TO_STRING()\n");
-Console.ForegroundColor = ConsoleColor.White;
 Console.WriteLine(library);
-Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++\n");
-Console.ForegroundColor = ConsoleColor.Blue;
-Console.WriteLine("WYPISUJE ZAWARTOŚĆ KATALOGÓW PRZY UŻYCIU SHOW_ALL_ITEMS() -> TO_STRING() \n");
-Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine("===========================All Items=======================\r\n");
 library.ShowAllItems();
-Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++\n");
-
-
-Console.ForegroundColor = ConsoleColor.Blue;
-Console.WriteLine("FIND BY SECTION \n");
-Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine("===========================FIND BY=======================\r\n");
 var foundedById = library.FindItemBy(4);
-Console.WriteLine(foundedById);
 var foundedByTitle = library.FindItemBy(searchedValue);
+var foundedByLambda = library.FindItem(x => x.Publisher == "Springer");
+Console.WriteLine(foundedById);
 Console.WriteLine(foundedByTitle);
-///!!!
-var foundedbyLambda = library.FindItem(x => x.Publisher == "Springer");
-Console.WriteLine(foundedbyLambda);
-///!!!
-Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++\n");
+Console.WriteLine(foundedByLambda);

@@ -10,41 +10,50 @@ namespace Lab3Zad2.Bll
     {
         protected int _id;
         protected string _title;
-        protected string _publisher;
+        protected string _publihser;
         protected DateTime _dateOfIssue;
 
-        public int Id { get => _id; set => _id = value; }
-        public string Title { get => _title; set => _title = value; }
-        public string Publisher { get => _publisher; set => _publisher = value; }
-        public DateTime DateOfIssue { get => _dateOfIssue; set => _dateOfIssue = value; }
-
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+        public string Title
+        {
+            get { return _title; }
+            set { _title = value; }
+        }
+        public string Publisher
+        {
+            get { return _publihser; }
+            set { _publihser = value; }
+        }
+        public DateTime DateOfIssue
+        {
+            get { return _dateOfIssue; }
+            set { _dateOfIssue = value; }
+        }
         public Item()
         {
             _id = 0;
-            _title = "none";
-            _publisher = "none";
-            _dateOfIssue = new DateTime(2022, 03, 19);
+            _title = string.Empty;
+            _publihser = string.Empty;
+            _dateOfIssue = DateTime.MinValue;
         }
-
-        public Item(int id, string title, string publisher, DateTime dateOfIssue)
+        public Item(string title, string publiser, DateTime dateOfIssue)
         {
-            _id = id;
             _title = title;
-            _publisher = publisher;
-            _dateOfIssue = new DateTime();
+            _publihser = publiser;
             _dateOfIssue = dateOfIssue;
         }
-
         public override string ToString()
         {
-            return $"Id: {_id} | Title: {_title} | Publisher: {_publisher} | DateOfIssue: {_dateOfIssue}";
+            return $"Tytuł: {_title} Wydawdca: {_publihser} Data wydania: {_dateOfIssue}";
         }
-
         public void Details()
         {
-            Console.WriteLine(this);
+            Console.WriteLine(this.ToString());
         }
-
         public abstract string GenerateBarCode();
     }
 }

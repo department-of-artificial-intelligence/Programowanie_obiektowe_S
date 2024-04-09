@@ -10,33 +10,33 @@ namespace Lab3Zad2.Bll
     {
         public int PageCount { get; set; }
         public IList<Author> Authors { get; set; }
-
-        public Book(int id, string title, string publisher, DateTime dateOfIssue, int pageCount, IList<Author> authors)
-            : base(id, title, publisher, dateOfIssue)
+        public Book(string title, int id, string publiser, DateTime dateOfIssue, int pageCount, IList<Author> authors) : base(title, publiser, dateOfIssue)
         {
             PageCount = pageCount;
-            Authors = new List<Author>(authors);
+            Authors = authors;
+            _id = id;
         }
-
         public override string ToString()
         {
-            StringBuilder listBuild = new StringBuilder();
-            foreach (var i in Authors)
-            {
-                listBuild.Append(i);
-            }
-            Console.WriteLine(base.ToString());
-            return $"Page Count: {PageCount} Athors: {listBuild}";
+            string Aut = string.Empty;
+            Aut += string.Join("\n", Authors);
+            return base.ToString() + $" Id:{_id} Autor: {Aut} Ilosc stron: {PageCount}";
         }
-
         public override string GenerateBarCode()
         {
-            return Guid.NewGuid().ToString();
+            var rand = new Random();
+            string rand1 = "";
+            for (int i = 0; i < 8; i++)
+            {
+                rand1 += rand.Next().ToString();
+            }
+            return rand1;
         }
-
         public void AddAuthor(Author author)
         {
             Authors.Add(author);
         }
+
+
     }
 }

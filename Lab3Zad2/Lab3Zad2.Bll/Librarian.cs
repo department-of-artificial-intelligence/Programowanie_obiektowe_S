@@ -10,20 +10,19 @@ namespace Lab3Zad2.Bll
     {
         public DateTime HireDate { get; set; }
         public decimal Salary { get; set; }
-        public Librarian()
+        public Librarian() : base()
         {
-            HireDate = new DateTime(2000, 1, 1);
+            HireDate = DateTime.MinValue;
             Salary = 0;
         }
-        public Librarian(string firstName, string lastName, DateTime hireDate, decimal salary) :
-            base(firstName, lastName)
+        public Librarian(string firstname, string lastname, DateTime hireDate, decimal salary) : base(firstname, lastname)
         {
             HireDate = hireDate;
             Salary = salary;
         }
         public override string ToString()
         {
-            return $"{base.ToString()} Hire date: {HireDate} Salary: {Salary}";
+            return base.ToString() + $"Data zatrudnienia: {HireDate} Pesja: {Salary}";
         }
     }
 }

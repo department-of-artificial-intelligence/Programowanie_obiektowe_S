@@ -30,14 +30,11 @@ Lecturer lecturer6 = new Lecturer("Dariusz", "Kowalewski", new DateTime(1979, 1,
 "Profesor");
 var lecturerList1 = new List<Lecturer> { lecturer1, lecturer2 };
 var lecturerList2 = new List<Lecturer> { lecturer4, lecturer3 };
-OrganizationUnit organizationUnit1 = new OrganizationUnit("Katedra Informatyki",
- "Częstochowa", lecturerList1);
-OrganizationUnit organizationUnit2 = new OrganizationUnit("Kadera Inteligentnych Systemów Informatycznych",
- "Częstochowa", lecturerList2);
+OrganizationUnit organizationUnit1 = new OrganizationUnit("Katedra Informatyki","Częstochowa", lecturerList1);
+OrganizationUnit organizationUnit2 = new OrganizationUnit("Kadera Inteligentnych Systemów Informatycznych","Częstochowa", lecturerList2);
 Console.WriteLine(organizationUnit1);
 Console.WriteLine(organizationUnit2);
-Lecturer dean = new Lecturer("Tadeusz", "Nowak", new DateTime(1955, 1, 12), "Prof. dr hab. inż.",
- "Profesor");
+Lecturer dean = new Lecturer("Tadeusz", "Nowak", new DateTime(1955, 1, 12), "Prof. dr hab. inż.","Profesor");
 Department department = new Department("Wydział Inżynierii Mechanicznej i Informatyki", dean,
 new List<Subject>() { subject1, subject2 },
 new List<Student>() { student1, student2, (Student)student3 });

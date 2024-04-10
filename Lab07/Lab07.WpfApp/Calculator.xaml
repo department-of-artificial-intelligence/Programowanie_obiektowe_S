@@ -1,0 +1,30 @@
+﻿<Window x:Class="Lab07.WpfApp.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab07.WpfApp"
+        mc:Ignorable="d"
+        Loaded="OnInit"
+        Title="Calculator" Height="800" Width="500">
+    <Grid>
+        <TextBox Name="textBox" IsReadOnly="False" HorizontalAlignment="Center" Margin="0,38,0,0" TextAlignment="Right" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="480" Height="30"/>
+        <Button Name="button0" Content="0" HorizontalAlignment="Left" Margin="33,113,0,0" VerticalAlignment="Top" Height="40" Width="40" RenderTransformOrigin="2.967,0.668"/>
+        <Button Name="button1" Content="1" HorizontalAlignment="Left" Margin="33,158,0,0" VerticalAlignment="Top" Height="40" Width="40" />
+        <Button Name="button2" Content="2" HorizontalAlignment="Left" Margin="78,158,0,0" VerticalAlignment="Top" Height="40" Width="40" />
+        <Button Name="button3" Content="3" HorizontalAlignment="Left" Margin="123,158,0,0" VerticalAlignment="Top" Height="40" Width="40" />
+        <Button Name="button4" Content="4" HorizontalAlignment="Left" Margin="33,203,0,0" VerticalAlignment="Top" Height="40" Width="40" />
+        <Button Name="button5" Content="5" HorizontalAlignment="Left" Margin="78,203,0,0" VerticalAlignment="Top" Height="40" Width="40" />
+        <Button Name="button6" Content="6" HorizontalAlignment="Left" Margin="123,203,0,0" VerticalAlignment="Top" Height="40" Width="40" />
+        <Button Name="button7" Content="7" HorizontalAlignment="Left" Margin="33,248,0,0" VerticalAlignment="Top" Height="40" Width="40" />
+        <Button Name="button9" Content="8" HorizontalAlignment="Left" Margin="78,248,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button Name="button8" Content="9" HorizontalAlignment="Left" Margin="123,248,0,0" VerticalAlignment="Top" Height="40" Width="40" RenderTransformOrigin="2.967,0.668"/>
+        <Button Name="dotButton" Content="." HorizontalAlignment="Left" Margin="123,0,0,0" VerticalAlignment="Center" Height="40" Width="40" RenderTransformOrigin="0.475,0.467"/>
+        <Button Name="plusButton" Content="+" HorizontalAlignment="Left" Margin="227,113,0,0" VerticalAlignment="Top" Height="85" Width="40" />
+        <Button Name="clearButton" Content="C" HorizontalAlignment="Left" Margin="272,113,0,0" VerticalAlignment="Top" Height="40" Width="40" Click="clearButton_Click" />
+        <Button Name="multipyButton" Content="*" HorizontalAlignment="Left" Margin="272,158,0,0" VerticalAlignment="Top" Height="40" Width="40" />
+        <Button Name="minusButton" Content="-" HorizontalAlignment="Left" Margin="227,203,0,0" VerticalAlignment="Top" Height="40" Width="40" />
+        <Button Name="divideButton" Content="/" HorizontalAlignment="Left" Margin="272,203,0,0" VerticalAlignment="Top" Height="40" Width="40" />
+        <Button Name="equalsButton" Content="=" HorizontalAlignment="Left" Margin="227,248,0,0" VerticalAlignment="Top" Height="40" Width="85" RenderTransformOrigin="2.967,0.668"/>
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kolokwium.App", "Kolokwium.App\Kolokwium.App.csproj", "{212E099F-61F1-4E6E-B116-79AD598FECD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kolokwium.BBL", "Kolokwium.BBL\Kolokwium.BBL.csproj", "{996671F5-D71F-4E79-964D-4C49C6A6EE44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{212E099F-61F1-4E6E-B116-79AD598FECD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212E099F-61F1-4E6E-B116-79AD598FECD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212E099F-61F1-4E6E-B116-79AD598FECD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212E099F-61F1-4E6E-B116-79AD598FECD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{996671F5-D71F-4E79-964D-4C49C6A6EE44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{996671F5-D71F-4E79-964D-4C49C6A6EE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{996671F5-D71F-4E79-964D-4C49C6A6EE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{996671F5-D71F-4E79-964D-4C49C6A6EE44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9513862E-A691-4A86-9EC6-DC6FF9EED935}
+	EndGlobalSection
+EndGlobal

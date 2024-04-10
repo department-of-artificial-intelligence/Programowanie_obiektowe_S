@@ -7,28 +7,22 @@ using System.Threading.Tasks;
 namespace lab3
 {
     using System;
-    internal class Author
+    internal class Author : Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public string Nationality {  get; set; }
 
         public Author()
         {
-            FirstName = "";
-            LastName = "";
             Nationality = "";
         }
 
-        public Author(string firstName, string lastName, string nationality)
+        public Author(string firstName, string lastName, string nationality) : base(firstName, lastName)
         {
-            FirstName = firstName;
-            LastName = lastName;
             Nationality = nationality;
         }
         public override string ToString()
         {
-            return $"First name | {FirstName}, Last name | {LastName}, Nationality | {Nationality}";
+            return $"{base.ToString()}, Nationality: {Nationality}";
         }
     }
 }

@@ -20,10 +20,15 @@ namespace lab4
             Dean = dean;
             Subjects = subjects;
             Students = students;
+            OrganizationUnits = new List<OrganizationUnit>();
         }
         public override string ToString()
         {
-            return $"Name | {Name}, Dean | {Dean}";
+            string s1 = string.Join(",", OrganizationUnits);
+            string s2 = string.Join(",", Subjects);
+            string s3 = string.Join(",", Students);
+
+            return $"Name | {Name}, \nDean | {Dean} {s1} \n{s2} \n{s3}";
         }
     }
 }

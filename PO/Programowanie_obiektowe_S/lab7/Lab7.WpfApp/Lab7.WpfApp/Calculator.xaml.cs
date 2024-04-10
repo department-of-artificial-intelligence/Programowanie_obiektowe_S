@@ -71,7 +71,7 @@ namespace Lab7.WpfApp
         {
             if (sender is Button button)
             {
-                TextBox.Text += button.Content;
+                
                 
             }
             

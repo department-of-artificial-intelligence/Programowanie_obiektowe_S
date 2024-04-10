@@ -14,7 +14,19 @@ namespace Po.Lab4
         public int Group { get; set; }
         public int IndexId { get; set; }
         public string Specialization { get; set; }
-        public double AvarageGrades { get; }
+        public double AvarageGrades { get 
+            {
+                if (Grades == null || Grades.Count == 0)
+                {
+                    return 0.0;
+                }
+                double sum = 0;
+                foreach (var grade in Grades)
+                {
+                    sum += grade.Value;
+                }
+                return sum/Grades.Count;
+            } }
         public Student(string firstName, string lastName, 
             DateTime dateOfBirth, string specialization, int group,int semester =1
             ) : base(firstName, lastName, dateOfBirth)
@@ -24,6 +36,7 @@ namespace Po.Lab4
             Semester = semester;
             Group = group;
             Specialization = specialization;
+            Grades = new List<FinalGrade>();
             
         }
         

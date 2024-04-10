@@ -16,7 +16,7 @@ namespace Po.Lab3
             base(title,id,publisher,dateOfIssue){ 
             
             PageCount = pageCount;
-            Authors = e != null ? new List<Author>(e) : new List<Author>();
+            Authors = e;//e != null ? new List<Author>(e) : new List<Author>();
         }
 
         public override string ToString()

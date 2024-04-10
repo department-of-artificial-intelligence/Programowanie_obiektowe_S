@@ -51,14 +51,19 @@ namespace Po.Lab3
         }
         public void ShowAllItems()
         {
-            Console.WriteLine(this.ToString());
-            IList<Item> items = new List<Item>();
-            foreach (Item e in items)
-            {
-                if (e != null)
-                {
-                    Console.WriteLine("Item: " + e);
-                }
+            //Console.WriteLine(this.ToString());
+            //IList<Item> items = new List<Item>();
+            //var items = Catalogs.FirstOrDefault(a=>a.Items);
+            //foreach (Item e in items)
+            //{
+            //    if (e != null)
+            //    {
+            //        Console.WriteLine("Item: " + e);
+            //    }
+            //}
+            foreach (Catalog cat in Catalogs)
+            { 
+                cat.ShowAllItems();
             }
         }
         public Item? FindItemBy(int id)

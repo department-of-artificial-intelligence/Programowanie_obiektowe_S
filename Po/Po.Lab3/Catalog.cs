@@ -31,7 +31,7 @@ namespace Po.Lab3
         }
         public void ShowAllItems()
         {
-            Console.WriteLine(this.ToString());
+            //Console.WriteLine(this.ToString());
             foreach (Item e in Items)
             {
                 if (e != null)

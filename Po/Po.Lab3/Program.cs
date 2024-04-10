@@ -28,6 +28,7 @@ namespace Po.Lab3
             Catalog catalog = new Catalog("IT C# development", items);
             catalog.AddItem(new Journal("Neurocomputing", 1, "IEEE", new DateTime(2020, 1, 1), 1));
             Console.WriteLine(catalog);
+            Console.WriteLine("++++++++++++++++++ShowAllItems++++++++++++++++++");
             catalog.ShowAllItems();
 
             //--- find position

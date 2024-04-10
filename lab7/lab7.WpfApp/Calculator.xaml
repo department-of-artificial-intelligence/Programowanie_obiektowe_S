@@ -1,0 +1,84 @@
+﻿<Window x:Class="lab7.WpfApp.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab7.WpfApp"
+        mc:Ignorable="d"
+        Title="Calculator" Height="450" Width="800">
+    <Grid RenderTransformOrigin="0.628,0.556">
+        <Button x:Name="Buttom_1" Content="1" HorizontalAlignment="Left" Margin="133,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Buttom_1_Click"/>
+        <Button x:Name="Buttom_9" Content="9" HorizontalAlignment="Left" Margin="93,248,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Button_Click_2"/>
+        <Button x:Name="Buttom_8" Content="8" HorizontalAlignment="Left" Margin="173,208,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Button_Click_1"/>
+        <Button x:Name="Buttom_7" Content="7" HorizontalAlignment="Left" Margin="133,208,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Button_Click"/>
+        <Button x:Name="Buttom_6" Content="6" HorizontalAlignment="Left" Margin="93,208,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Buttom_6_Click"/>
+        <Button x:Name="Buttom_5" Content="5" HorizontalAlignment="Left" Margin="173,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Buttom_5_Click"/>
+        <Button x:Name="Buttom_4" Content="4" HorizontalAlignment="Left" Margin="133,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Buttom_4_Click"/>
+        <Button x:Name="Buttom_3" Content="3" HorizontalAlignment="Left" Margin="93,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Buttom_3_Click"/>
+        <Button x:Name="Buttom_2" Content="2" HorizontalAlignment="Left" Margin="173,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Buttom_2_Click"/>
+        <Button x:Name="Buttom_0" Content="0" HorizontalAlignment="Left" Margin="93,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Buttom_0_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Buttom_dode" Content="." HorizontalAlignment="Left" Margin="173,285,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Buttom_dode_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Buttom_C" Content="    C    " HorizontalAlignment="Left" Margin="343,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40" Click="Buttom_C_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Buttom_mnoz" Content="    *    " HorizontalAlignment="Left" Margin="343,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Buttom_minus" Content="    -    " HorizontalAlignment="Left" Margin="298,208,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Buttom_dziel" Content="    /    " HorizontalAlignment="Left" Margin="343,208,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.928,0.531" Width="40" Height="40">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="Buttom_plus" Content="    +    " HorizontalAlignment="Left" Margin="298,118,0,0" VerticalAlignment="Top" Height="85" Width="40"/>
+        <Button x:Name="Buttom_row" Content="=" HorizontalAlignment="Left" Margin="298,253,0,0" VerticalAlignment="Top" Height="35" Width="85"/>
+        <TextBox x:Name="Textbox"  HorizontalAlignment="Left" Margin="93,63,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="196" TextChanged="Textbox_TextChanged"/>
+
+    </Grid>
+</Window>

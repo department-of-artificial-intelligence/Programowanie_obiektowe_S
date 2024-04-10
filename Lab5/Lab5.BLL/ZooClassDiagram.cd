@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Lab5.BLL.Mamal">
+    <Position X="1.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mamal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab5.BLL.Bird">
+    <Position X="1.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bird.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab5.BLL.Reptile">
+    <Position X="1.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Reptile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab5.BLL.Animal">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <AssociationLine Name="Cage" Type="Lab5.BLL.Cage" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="3.686" />
+        <Point X="6.625" Y="3.686" />
+        <Point X="6.625" Y="1.375" />
+        <Point X="7.25" Y="1.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAQDAAAAAAAAAABIAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Animal.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Cage" />
+      <Property Name="Zoo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Lab5.BLL.Cage">
+    <Position X="7.25" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIACAAAAAAABAAQACAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Cage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Employee" />
+      <Property Name="Zoo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Lab5.BLL.Employee">
+    <Position X="7" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAIAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Zoo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Lab5.BLL.Zoo">
+    <Position X="11.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAQAAAAAAAAAAAAAAAAAAAAAAAwAAA=</HashCode>
+      <FileName>Zoo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

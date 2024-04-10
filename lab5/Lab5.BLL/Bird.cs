@@ -2,34 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Bird : Animal
+    public class Bird : Animal, IDisplayable
     {
-
-        public float Rozpietosc_skrzydel
+        public double WingScope {  get; set; }
+        public int Endurance {  get; set; }
+        public Bird(string foodType, int legsCount, string origin, string species, double wingScope, int endurance) :base(foodType, legsCount, origin, species) 
         {
-            get => default;
-            set
-            {
-            }
+            WingScope = wingScope;
+            Endurance = endurance;
         }
-
-        public float Wytrzymalosc
+        public double Fly()
         {
-            get => default;
-            set
-            {
-            }
+            return WingScope*Endurance;
         }
-
-        public float Dlugosc_lotu
+        public override string ToString()
         {
-            get => default;
-            set
-            {
-            }
+            return $"{base.ToString()} {WingScope} {Endurance} ";
         }
     }
 }

@@ -24,16 +24,20 @@ namespace PO.lab4
         }
         public override string ToString()
         {
-            Console.WriteLine($"Department: {Name} Dean{Dean} and Subjects: ");
+            string res=$"Department: {Name} Dean{Dean} and Subjects: ";
             foreach (var sub in Subjects)
             {
-                Console.WriteLine($"{sub}");
+                res+=sub.ToString()+'\n';
             }
             foreach (var std in Students)
             {
-                Console.WriteLine($"{std}");
+                res+=std.ToString() + '\n';
             }
-            return "";
+            foreach (var org in OrganizationUnits)
+            {
+                res += org.ToString() + '\n';
+            }
+            return res;
         }
     }
 }

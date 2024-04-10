@@ -19,13 +19,12 @@ namespace PO.lab4
         }
         public override string ToString()
         {
-            Console.WriteLine($"Organization Unit: {Name} | {Address}");
-            Console.WriteLine("With Lecturers: ");
+            string res=$"Organization Unit: {Name} | {Address} \n With Lecturers: ";
             foreach (var lecturer in Lecturers)
             {
-                Console.WriteLine(lecturer);
+                res+=lecturer.ToString()+'\n';
             }
-            return "";
+            return res;
         }
     }
 }

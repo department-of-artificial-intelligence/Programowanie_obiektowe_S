@@ -2,46 +2,49 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Zoo
+    public class Zoo : IDisplayable, IContainer
     {
-        public string Natural
+        private string _name;
+        public string Name { get { return _name; } set { _name = value; } }
+        public IList<Employee> Employees { get; set; }
+        public IList<Cage> Cages { get; set; }
+        public IList<Animal> Animals { get; set; }
+        public Zoo(string name, IList<Employee> employees, IList<Cage> cages, IList<Animal> animals)
         {
-            get => default;
-            set
-            {
-            }
+            Name = name;
+            Employees = employees;
+            Cages = cages;
+            Animals = animals;
         }
-
-        public System.Collections.Generic.List<Animal> Animals
+        public Cage BuildCage(int capacity, bool iscleaned)
         {
-            get => default;
-            set
-            {
-            }
+            Cage cage = new Cage(capacity, iscleaned);
+            Cages.Add(cage);
+            return Cages[Cages.Count-1];
         }
-
-        public System.Collections.Generic.List<Cage> Cage
+        public Employee HireEmployee(string name, string lastName, DateTime dateOfBirth)
         {
-            get => default;
-            set
-            {
-            }
+            Employee employee = new CageSupervisor(name, lastName, dateOfBirth, DateTime.Now, new List<Cage>());
+            Employees.Add(employee);
+            return employee;
         }
-
-        public System.Collections.Generic.List<Employee> Employees
+        public void ExpandCage(Cage cage, int capacity)
         {
-            get => default;
-            set
-            {
-            }
+            var findCage=Cages.FirstOrDefault(c=>c.Number==cage.Number);
+            findCage.Capacity+= capacity;
         }
-
-        public Cage BuildCage()
+        public override string ToString()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine(Name);
+            foreach (var cage in Cages)
+            {
+                Console.WriteLine(cage);
+            }
+            return "";
         }
     }
 }

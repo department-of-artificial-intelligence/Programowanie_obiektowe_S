@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab_4_Przygotowanie
+{
+    internal class Student : Person
+    {
+
+        private static int _id = 1;
+
+        public IList<FinalGrade> Grades { get; set; }
+        public int Semester { get; set; }
+        public int Group { get; set; }
+        public int IndexId { get; set; }
+        public string Specialization { get; set; }
+        public double AverageGrade { get; }
+
+        public Student(string firstName, string lastName, DateTime dateOfBirth, string specialization, int group, int semester = 1)
+        :base(firstName, lastName, dateOfBirth){ 
+        
+            Grades = new List<FinalGrade>();
+            Specialization = specialization;
+            Group = group;
+            Semester = semester;
+
+        }
+
+        public override string ToString()
+        {
+            return $"Student | {base.ToString()} Specialization {Specialization}, Group {Group}, Semester {Semester}";
+        }
+    }
+}

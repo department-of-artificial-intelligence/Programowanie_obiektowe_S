@@ -138,7 +138,7 @@ namespace WpfApp.Lab7
                     }
                     else
                     {
-                        Screen.Text = "No No No mister fish";
+                        Screen.Text = "No mister fish";
                     }
                     break;
                 default:

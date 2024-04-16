@@ -44,15 +44,15 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Button Margin="5" Grid.RowSpan="2">+</Button>
+            <Button Margin="5" Grid.RowSpan="2" Click="Button_Click_Sign">+</Button>
             <Button Margin="5" Grid.Column="1" Click="Button_Click_Clear">C</Button>
-            <Button Margin="5" Grid.Row="1" Grid.Column="1">*</Button>
-            <Button Margin="5" Grid.Column="0" Grid.Row="2">-</Button>
-            <Button Margin="5" Grid.Column="1" Grid.Row="2">/</Button>
-            <Button Margin="5" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">=</Button>
+            <Button Margin="5" Grid.Row="1" Grid.Column="1" Click="Button_Click_Sign">*</Button>
+            <Button Margin="5" Grid.Column="0" Grid.Row="2" Click="Button_Click_Sign">-</Button>
+            <Button Margin="5" Grid.Column="1" Grid.Row="2" Click="Button_Click_Sign">/</Button>
+            <Button Margin="5" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Click="Button_Click_Result">=</Button>
         </Grid>
-        <Button Width="66.6" Height="66.6" Margin="-100,400,0,0" Click="Button_Click">
-            .
+        <Button Width="66.6" Height="66.6" Margin="-100,400,0,0" Click="Button_Click_Dot">
+            ,
         </Button>
     </Grid>
 </Window>

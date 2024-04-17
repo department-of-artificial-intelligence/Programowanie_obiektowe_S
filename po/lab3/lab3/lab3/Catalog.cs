@@ -1,14 +1,14 @@
-﻿
+﻿    
 namespace lab3
 {
-    internal class Catalog
+    using System;
+    using System.Linq.Expressions;
+
+    internal class Catalog : ItemManagement
     {
         public IList<Item> Items { get; set; }
         public string ThematicDepartment { get; set; }
-        public Catalog (IList<Item> items)
-        {
-            Items = items;
-        }
+        
         public Catalog(string thematicDepartment, IList<Item> items)
         {
             ThematicDepartment = thematicDepartment;
@@ -19,6 +19,23 @@ namespace lab3
             Items.Add(item);
         }
 
+        public Item? FindItem(Expression<Func<Item, bool>> predicate)
+        {
+            return Items.FirstOrDefault(predicate.Compile());
+        }
+
+        
+        public Item? FindItemBy(string title)
+        {
+               return Items.FirstOrDefault(item => item.Title == title);
+        }
+        
+
+
+        public Item? FindItemBy(int id)
+        {
+            return Items.FirstOrDefault(item => item.Id == id);
+        }
         public override string ToString()
         {
             string items = "";
@@ -26,7 +43,7 @@ namespace lab3
             {
                 items += $"\n{item}";
             }
-            return $"Catalog | ThematicDepartment: {ThematicDepartment}" + Items;
+            return $"Catalog | ThematicDepartment: {ThematicDepartment}" + items;
         }
 
         public void ShowAllItems()

@@ -2,11 +2,12 @@
 
 namespace lab3
 {
+    using System;
     internal class Book : Item
     {
         public int PageCount { get; set; }
         public IList<Author> Authors { get; set; }
-        public Book(string title,int id, string publisher, DateTime dateOfIssue, int pageCount, IList<Authorization> authors)
+        public Book(string title,int id, string publisher, DateTime dateOfIssue, int pageCount, IList<Author> authors)
             : base(title, id, publisher, dateOfIssue)
         {
             PageCount = pageCount;
@@ -24,12 +25,12 @@ namespace lab3
 
         public override string GenerateBarCode()
         {
-            return " ";
+            return "boooooooooooooook ";
         }
 
         public void AddAuthor(Author author)
         {
-            author.Add(author);
+            Authors.Add(author);
         }
     }
 }

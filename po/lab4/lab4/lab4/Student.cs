@@ -15,12 +15,13 @@ namespace lab4
         public int IndexId { get; set; }
         public string Specialization {  get; set; }
         public double AverageGrades { get; }
-        public Student(string firstName, string lastName, DateTime dateOfBirth, string specialization, int group, int semester)
+        public Student(string firstName, string lastName, DateTime dateOfBirth, string specialization, int group, int semester = 1)
             : base(firstName, lastName, dateOfBirth)
         {
             Specialization = specialization;
             Group = group;
             Semester = semester;
+            Grades = new List<FinalGrade>();
         }
         public override string ToString()
         {

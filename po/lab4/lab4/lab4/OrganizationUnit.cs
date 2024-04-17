@@ -20,7 +20,8 @@ namespace lab4
 
         public override string ToString()
         {
-            return $"Name | {Name}, Address | {Address}";
+            string s1 = string.Join(" \n", Lecturers.Select(x => x.ToString()));
+            return $"Name | {Name}, Address | {Address}\n" + s1;
         }
     }
 }

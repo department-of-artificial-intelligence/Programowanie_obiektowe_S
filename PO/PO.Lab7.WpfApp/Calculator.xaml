@@ -1,0 +1,28 @@
+﻿<Window x:Class="PO.Lab7.WpfApp.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PO.Lab7.WpfApp"
+        mc:Ignorable="d"
+        Title="Calculator" Height="400" Width="300">
+    <Grid Margin="0,0,0,0">
+        <Button x:Name="Button_1" Content="1" HorizontalAlignment="Left" Margin="19,90,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_1_Click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_2" Content="2" HorizontalAlignment="Left" Margin="74,90,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button2_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_3" Content="3" HorizontalAlignment="Left" Margin="129,90,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button3_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_4" Content="4" HorizontalAlignment="Left" Margin="19,145,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button4_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_5" Content="5" HorizontalAlignment="Left" Margin="74,145,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button5_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_6" Content="6" HorizontalAlignment="Left" Margin="129,145,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button6_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_7" Content="7" HorizontalAlignment="Left" Margin="19,200,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button7_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_8" Content="8" HorizontalAlignment="Left" Margin="74,200,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button8_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_9" Content="9" HorizontalAlignment="Left" Margin="129,200,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button9_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_0" Content="0" HorizontalAlignment="Left" Margin="74,255,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button0_click" RenderTransformOrigin="-0.556,0.389"/>
+        <TextBox x:Name="Result" HorizontalAlignment="Left" Height="40" Margin="19,25,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="252" FontSize="25" Background="#FFE0E0E0" IsEnabled="False"/>
+        <Button x:Name="Button_sum" Content="+" HorizontalAlignment="Left" Margin="221,90,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="ButtonSum_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_difference" Content="-" HorizontalAlignment="Left" Margin="221,145,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="ButtonDifference_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_product" Content="X" HorizontalAlignment="Left" Margin="221,200,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="ButtonProduct_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_quotient" Content="/" HorizontalAlignment="Left" Margin="221,255,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="ButtonQuotient_click" RenderTransformOrigin="-0.556,0.389"/>
+        <Button x:Name="Button_equal" Content="=" HorizontalAlignment="Left" Margin="221,310,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="ButtonResult_click" RenderTransformOrigin="-0.556,0.389"/>
+
+    </Grid>
+</Window>

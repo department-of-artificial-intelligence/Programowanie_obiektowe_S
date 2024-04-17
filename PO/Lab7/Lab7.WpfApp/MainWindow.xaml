@@ -1,0 +1,13 @@
+﻿<Window x:Class="Lab7.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab7.WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="299" Width="240">
+    <Grid Margin="0,0,443,0">
+        <Button x:Name="Button0" Content="Button" HorizontalAlignment="Left" Margin="19,114,0,0" VerticalAlignment="Top" Width="71" Height="70" Background="#FFDE2020" Click="Button0_Click"/>
+
+    </Grid>
+</Window>

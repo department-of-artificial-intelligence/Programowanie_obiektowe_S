@@ -1,0 +1,29 @@
+﻿<Window x:Class="Lab07.WpfApp.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab07.WpfApp"
+        mc:Ignorable="d"
+        Title="Calculator" Height="450" Width="320">
+    <Grid>
+        <TextBox x:Name="PropText" HorizontalAlignment="Left" Margin="20,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Height="45" FontSize="16"/>
+        <Button x:Name="Btn7" Content="7" HorizontalAlignment="Left" Height="49" Margin="10,111,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click"/>
+        <Button x:Name="Btn8" Content="8" HorizontalAlignment="Left" Height="49" Margin="70,111,0,0" VerticalAlignment="Top" Width="49" Click="Button_Click"/>
+        <Button x:Name="Btn9" Content="9" HorizontalAlignment="Left" Height="49" Margin="131,111,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click"/>
+        <Button x:Name="Btn4" Content="4" HorizontalAlignment="Left" Height="50" Margin="10,165,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click"/>
+        <Button x:Name="Btn5" Content="5" HorizontalAlignment="Left" Height="50" Margin="70,165,0,0" VerticalAlignment="Top" Width="49" Click="Button_Click"/>
+        <Button x:Name="Btn6" Content="6" HorizontalAlignment="Left" Height="50" Margin="131,165,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click"/>
+        <Button x:Name="Btn1" Content="1" HorizontalAlignment="Left" Height="49" Margin="10,222,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click"/>
+        <Button x:Name="Btn2" Content="2" HorizontalAlignment="Left" Height="49" Margin="70,222,0,0" VerticalAlignment="Top" Width="49" Click="Button_Click"/>
+        <Button x:Name="Btn3" Content="3" HorizontalAlignment="Left" Height="49" Margin="131,222,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click"/>
+        <Button x:Name="Btn0" Content="0" HorizontalAlignment="Left" Height="49" Margin="70,278,0,0" VerticalAlignment="Top" Width="49" Click="Button_Click"/>
+        <Button x:Name="BtnAdd" Content="+" HorizontalAlignment="Left" Height="90" Margin="205,131,0,0" VerticalAlignment="Top" Width="40" Click="Button_Add"/>
+        <Button x:Name="BtnCle" Content="C" HorizontalAlignment="Left" Height="40" Margin="250,131,0,0" VerticalAlignment="Top" Width="40" Click="Button_Clear"/>
+        <Button x:Name="BtnMul" Content="*" HorizontalAlignment="Left" Height="40" Margin="250,181,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button x:Name="BtnMin" Content="-" HorizontalAlignment="Left" Height="40" Margin="205,226,0,0" VerticalAlignment="Top" Width="40" Click="Button_Sub"/>
+        <Button x:Name="BtnDiv" Content="/" HorizontalAlignment="Left" Height="40" Margin="250,226,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button x:Name="BtnSol" Content="=" HorizontalAlignment="Left" Height="40" Margin="205,271,0,0" VerticalAlignment="Top" Width="85" Click="Button_Solve"/>
+
+    </Grid>
+</Window>

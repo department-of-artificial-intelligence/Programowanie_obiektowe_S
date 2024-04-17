@@ -1,0 +1,31 @@
+﻿<Window x:Class="lab7.BLL.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab7.BLL"
+        mc:Ignorable="d"
+        Title="Calculator" Height="500" Width="400">
+    <Grid>
+        <Button x:Name="b1" Content="1" HorizontalAlignment="Left" Margin="27,324,0,0" VerticalAlignment="Top" Height="67" Width="70" Click="b1_Click"/>
+        <Button x:Name="b2" Content="2" HorizontalAlignment="Left" Margin="115,324,0,0" VerticalAlignment="Top" Height="67" Width="70" Click="b2_Click"/>
+        <Button x:Name="b3" Content="3" HorizontalAlignment="Left" Margin="200,324,0,0" VerticalAlignment="Top" Height="67" Width="70"/>
+        <Button x:Name="b4" Content="4" HorizontalAlignment="Left" Margin="27,240,0,0" VerticalAlignment="Top" Height="67" Width="70"/>
+        <Button x:Name="b5" Content="5" HorizontalAlignment="Left" Margin="115,240,0,0" VerticalAlignment="Top" Height="67" Width="70"/>
+        <Button x:Name="b6" Content="6" HorizontalAlignment="Left" Margin="200,240,0,0" VerticalAlignment="Top" Height="67" Width="70"/>
+        <Button x:Name="b7" Content="7" HorizontalAlignment="Left" Margin="27,154,0,0" VerticalAlignment="Top" Height="67" Width="70" Click="Button_Click"/>
+        <Button x:Name="b8" Content="8" HorizontalAlignment="Left" Margin="115,154,0,0" VerticalAlignment="Top" Height="67" Width="70"/>
+        <Button x:Name="b9" Content="9" HorizontalAlignment="Left" Margin="200,154,0,0" VerticalAlignment="Top" Height="67" Width="70"/>
+        <Button x:Name="b0" Content="0" HorizontalAlignment="Left" Margin="27,407,0,0" VerticalAlignment="Top" Height="67" Width="158"/>
+        <Button x:Name="bKropka" Content="." HorizontalAlignment="Left" Margin="200,407,0,0" VerticalAlignment="Top" Height="67" Width="70"/>
+        <TextBox x:Name="Wyswietlanie" HorizontalAlignment="Left" Margin="27,28,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="352" Height="86"/>
+        <Button x:Name="bC" Content="C" HorizontalAlignment="Left" Margin="284,154,0,0" VerticalAlignment="Top" Height="67" Width="95" Click="b9_Copy_Click"/>
+        <Button x:Name="bPlus" Content="+" HorizontalAlignment="Left" Margin="284,242,0,0" VerticalAlignment="Top" Height="25
+                " Width="95"/>
+        <Button x:Name="bMinus" Content="-" HorizontalAlignment="Left" Margin="284,282,0,0" VerticalAlignment="Top" Height="25                 " Width="95"/>
+        <Button x:Name="bMnoz" Content="*" HorizontalAlignment="Left" Margin="284,326,0,0" VerticalAlignment="Top" Height="25                 " Width="95"/>
+        <Button x:Name="bDziel" Content="/" HorizontalAlignment="Left" Margin="284,366,0,0" VerticalAlignment="Top" Height="25                 " Width="95"/>
+        <Button x:Name="bRownaSie" Content="=" HorizontalAlignment="Left" Margin="284,407,0,0" VerticalAlignment="Top" Height="67" Width="95" Click="ButtonRownaSie_Click"/>
+
+    </Grid>
+</Window>

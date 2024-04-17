@@ -1,0 +1,32 @@
+﻿<Window x:Class="Lab7.WpfApp.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab7.WpfApp"
+        mc:Ignorable="d"
+        Title="Calculator" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="textinout" HorizontalAlignment="Left" Margin="25,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="471" AutomationProperties.Name="Textinout"/>
+        <Button x:Name="siedem" Content="7" HorizontalAlignment="Left" Margin="25,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.505,0.553" Width="80" Height="50"/>
+        <Button x:Name="osiem" Content="8" HorizontalAlignment="Left" Margin="111,142,0,0" VerticalAlignment="Top" Width="80" Height="50"/>
+        <Button x:Name="dziewiec" Content="9" HorizontalAlignment="Left" Margin="196,142,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="cztery" Content="4" HorizontalAlignment="Left" Margin="25,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.505,0.553" Width="80" Height="50"/>
+        <Button x:Name="piec" Content="5" HorizontalAlignment="Left" Margin="111,197,0,0" VerticalAlignment="Top" Width="80" Height="50"/>
+        <Button x:Name="szesc" Content="6" HorizontalAlignment="Left" Margin="196,197,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="jeden" Content="1" HorizontalAlignment="Left" Margin="25,252,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.505,0.553" Width="80" Height="50"/>
+        <Button x:Name="dwa" Content="2" HorizontalAlignment="Left" Margin="111,252,0,0" VerticalAlignment="Top" Width="80" Height="50"/>
+        <Button x:Name="trzy" Content="3" HorizontalAlignment="Left" Margin="196,252,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="zero" Content="0" HorizontalAlignment="Left" Margin="25,307,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="clear1" Content="&lt;=" HorizontalAlignment="Left" Margin="110,307,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="clearall" Content="clear" HorizontalAlignment="Left" Margin="196,307,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="add" Content="+" HorizontalAlignment="Left" Margin="331,142,0,0" VerticalAlignment="Top" Height="50" Width="80" Click="add_Click"/>
+        <Button x:Name="minus" Content="-" HorizontalAlignment="Left" Margin="416,142,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="del" Content="/" HorizontalAlignment="Left" Margin="331,197,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="mul" Content="*" HorizontalAlignment="Left" Margin="416,197,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="sqrt" Content="sqrt" HorizontalAlignment="Left" Margin="331,252,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="potega" Content="^2" HorizontalAlignment="Left" Margin="416,252,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="rownasie" Content="=" HorizontalAlignment="Left" Margin="331,307,0,0" VerticalAlignment="Top" Height="50" Width="165" Click="rownasie_Click"/>
+
+    </Grid>
+</Window>

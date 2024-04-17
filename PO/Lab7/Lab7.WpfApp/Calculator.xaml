@@ -1,0 +1,31 @@
+﻿<Window x:Class="Lab7.WpfApp.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab7.WpfApp"
+        mc:Ignorable="d"
+        Title="Calculator" Height="600" Width="500
+        ">
+    <Grid>
+        <Button x:Name="_0" Content="0" HorizontalAlignment="Left" Margin="24,190,0,0" VerticalAlignment="Top" Height="62" Width="62" Click="Button_Click"/>
+        <Button x:Name="_1" Content="1" HorizontalAlignment="Left" Margin="86,190,0,0" VerticalAlignment="Top" Height="62" Width="62" Click="Button_Click"/>
+        <Button Content="2" HorizontalAlignment="Left" Margin="148,190,0,0" VerticalAlignment="Top" Height="62" Width="62" RenderTransformOrigin="0.411,0.936" Click="Button_Click"/>
+        <Button Content="3" HorizontalAlignment="Left" Margin="24,252,0,0" VerticalAlignment="Top" Height="62" Width="62" Click="Button_Click"/>
+        <Button Content="4" HorizontalAlignment="Left" Margin="86,252,0,0" VerticalAlignment="Top" Height="62" Width="62" Click="Button_Click"/>
+        <Button Content="5" HorizontalAlignment="Left" Margin="148,252,0,0" VerticalAlignment="Top" Height="62" Width="62" RenderTransformOrigin="0.411,0.936" Click="Button_Click"/>
+        <Button Content="6" HorizontalAlignment="Left" Margin="24,314,0,0" VerticalAlignment="Top" Height="62" Width="62" Click="Button_Click"/>
+        <Button Content="7" HorizontalAlignment="Left" Margin="86,314,0,0" VerticalAlignment="Top" Height="62" Width="62" Click="Button_Click"/>
+        <Button Content="8" HorizontalAlignment="Left" Margin="148,314,0,0" VerticalAlignment="Top" Height="62" Width="62" RenderTransformOrigin="0.411,0.936" Click="Button_Click"/>
+        <Button Content="9" HorizontalAlignment="Left" Margin="24,376,0,0" VerticalAlignment="Top" Height="62" Width="62" RenderTransformOrigin="0.411,0.936" Click="Button_Click"/>
+        <Button Content="." HorizontalAlignment="Left" Margin="100,467,0,0" VerticalAlignment="Top" Height="63" Width="62" RenderTransformOrigin="0.411,0.936" Click="Button_Click"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="286,154,0,0" VerticalAlignment="Top" Height="138" Width="62" RenderTransformOrigin="0.411,0.936" Click="Button_Click"/>
+        <Button Content="C" HorizontalAlignment="Left" Margin="368,154,0,0" VerticalAlignment="Top" Height="62" Width="62" RenderTransformOrigin="0.411,0.936" Click="Usuwam"/>
+        <Button Content="*" HorizontalAlignment="Left" Margin="368,230,0,0" VerticalAlignment="Top" Height="62" Width="62" RenderTransformOrigin="0.411,0.936" Click="Button_Click"/>
+        <Button Content="/" HorizontalAlignment="Left" Margin="368,309,0,0" VerticalAlignment="Top" Height="62" Width="62" RenderTransformOrigin="0.411,0.936" Click="Button_Click"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="286,309,0,0" VerticalAlignment="Top" Height="62" Width="62" RenderTransformOrigin="0.411,0.936" Click="Button_Click"/>
+        <Button Content="=" HorizontalAlignment="Left" Margin="286,381,0,0" VerticalAlignment="Top" Height="62" Width="144" RenderTransformOrigin="0.411,0.936" />
+        <TextBox x:Name="TextBoxName" HorizontalAlignment="Center" Margin="55,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415" Height="52" FontSize="44" FontWeight="Bold" TextChanged="TextBox_TextChanged" TextAlignment="Right" Text=""/>
+
+    </Grid>
+</Window>

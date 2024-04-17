@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,7 +27,7 @@ namespace Generic.Extensions
             }
         }
 
-        public static TObjectType Get<TObjectType>(this IContainer container, Func<TObjectType, bool> searchPredicate = null)
+        public static TObjectType? Get<TObjectType>(this IContainer container, Func<TObjectType, bool> searchPredicate = null)
         {
             var containerList = container.Set<TObjectType>();
             if (containerList != null)

@@ -1,7 +1,7 @@
-﻿<Application x:Class="Lab7.WpfApp.App"
+﻿<Application x:Class="LabSiedem.WpfApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Lab7.WpfApp"
+             xmlns:local="clr-namespace:LabSiedem.WpfApp"
              StartupUri="Calculator.xaml">
     <Application.Resources>
          

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSiedem.WpfApp", "LabSiedem.WpfApp\LabSiedem.WpfApp.csproj", "{CCF2848A-9909-4849-815A-1282C3EE5B80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSiedem.BLL", "LabSiedem.BLL\LabSiedem.BLL.csproj", "{5D81A1B6-017F-4306-9ED6-85C3D93EF688}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCF2848A-9909-4849-815A-1282C3EE5B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF2848A-9909-4849-815A-1282C3EE5B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF2848A-9909-4849-815A-1282C3EE5B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF2848A-9909-4849-815A-1282C3EE5B80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D81A1B6-017F-4306-9ED6-85C3D93EF688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D81A1B6-017F-4306-9ED6-85C3D93EF688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D81A1B6-017F-4306-9ED6-85C3D93EF688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D81A1B6-017F-4306-9ED6-85C3D93EF688}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14DC87E4-4B08-41A2-9BE9-E4E360F26405}
+	EndGlobalSection
+EndGlobal

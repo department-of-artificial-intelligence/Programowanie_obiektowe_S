@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace Lab7.WpfApp
+namespace LabSiedem.WpfApp
 {
     /// <summary>
     /// Interaction logic for App.xaml

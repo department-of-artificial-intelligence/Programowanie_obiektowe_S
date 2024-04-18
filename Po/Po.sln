@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab5.App", "Lab5\Lab5\Lab5.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab5.BBL", "Lab5\Lab5.BBL\Lab5.BBL.csproj", "{AB05D8EB-5BC3-49CB-91F8-94444D3B90F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generic.Extensions", "Generic.Extensions\Generic.Extensions.csproj", "{66CDE96A-D134-478B-B294-F2529319B1A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generic.Extensions", "Generic.Extensions\Generic.Extensions.csproj", "{66CDE96A-D134-478B-B294-F2529319B1A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab7.WpfApp", "Lab7.WpfApp\Lab7.WpfApp.csproj", "{58D21B2D-34E6-4D01-A996-2923DEB63B3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab7.BLL", "Lab7.BLL\Lab7.BLL.csproj", "{75D2F7A7-2207-4320-8251-9843B1F81D75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{66CDE96A-D134-478B-B294-F2529319B1A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66CDE96A-D134-478B-B294-F2529319B1A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66CDE96A-D134-478B-B294-F2529319B1A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58D21B2D-34E6-4D01-A996-2923DEB63B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58D21B2D-34E6-4D01-A996-2923DEB63B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58D21B2D-34E6-4D01-A996-2923DEB63B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58D21B2D-34E6-4D01-A996-2923DEB63B3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75D2F7A7-2207-4320-8251-9843B1F81D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75D2F7A7-2207-4320-8251-9843B1F81D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75D2F7A7-2207-4320-8251-9843B1F81D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75D2F7A7-2207-4320-8251-9843B1F81D75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

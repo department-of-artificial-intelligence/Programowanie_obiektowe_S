@@ -18,14 +18,14 @@
         <Button x:Name="dwa" Content="2" HorizontalAlignment="Left" Margin="111,252,0,0" VerticalAlignment="Top" Width="80" Height="50"/>
         <Button x:Name="trzy" Content="3" HorizontalAlignment="Left" Margin="196,252,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
         <Button x:Name="zero" Content="0" HorizontalAlignment="Left" Margin="25,307,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
-        <Button x:Name="clear1" Content="&lt;=" HorizontalAlignment="Left" Margin="110,307,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
-        <Button x:Name="clearall" Content="clear" HorizontalAlignment="Left" Margin="196,307,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="point" Content="." HorizontalAlignment="Left" Margin="110,307,0,0" VerticalAlignment="Top" Height="50" Width="80" Click="point_Click"/>
+        <Button x:Name="clearall" Content="clear" HorizontalAlignment="Left" Margin="196,307,0,0" VerticalAlignment="Top" Height="50" Width="80" Click="clearall_Click"/>
         <Button x:Name="add" Content="+" HorizontalAlignment="Left" Margin="331,142,0,0" VerticalAlignment="Top" Height="50" Width="80" Click="add_Click"/>
-        <Button x:Name="minus" Content="-" HorizontalAlignment="Left" Margin="416,142,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
-        <Button x:Name="del" Content="/" HorizontalAlignment="Left" Margin="331,197,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
-        <Button x:Name="mul" Content="*" HorizontalAlignment="Left" Margin="416,197,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
-        <Button x:Name="sqrt" Content="sqrt" HorizontalAlignment="Left" Margin="331,252,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
-        <Button x:Name="potega" Content="^2" HorizontalAlignment="Left" Margin="416,252,0,0" VerticalAlignment="Top" Height="50" Width="80"/>
+        <Button x:Name="minus" Content="-" HorizontalAlignment="Left" Margin="416,142,0,0" VerticalAlignment="Top" Height="50" Width="80" Click="minus_Click"/>
+        <Button x:Name="del" Content="/" HorizontalAlignment="Left" Margin="331,197,0,0" VerticalAlignment="Top" Height="50" Width="80" Click="del_Click"/>
+        <Button x:Name="mul" Content="*" HorizontalAlignment="Left" Margin="416,197,0,0" VerticalAlignment="Top" Height="50" Width="80" Click="mul_Click"/>
+        <Button x:Name="sqrt" Content="sqrt" HorizontalAlignment="Left" Margin="331,252,0,0" VerticalAlignment="Top" Height="50" Width="80" Click="sqrt_Click"/>
+        <Button x:Name="potega" Content="^2" HorizontalAlignment="Left" Margin="416,252,0,0" VerticalAlignment="Top" Height="50" Width="80" Click="potega_Click"/>
         <Button x:Name="rownasie" Content="=" HorizontalAlignment="Left" Margin="331,307,0,0" VerticalAlignment="Top" Height="50" Width="165" Click="rownasie_Click"/>
 
     </Grid>

@@ -24,6 +24,16 @@ namespace Lab7.WpfApp
         public Calculator()
         {
             InitializeComponent();
+            zero.Click += NumberButtonClick;
+            jeden.Click += NumberButtonClick;
+            dwa.Click += NumberButtonClick;
+            trzy.Click += NumberButtonClick;
+            cztery.Click += NumberButtonClick;
+            piec.Click += NumberButtonClick;
+            szesc.Click += NumberButtonClick;
+            siedem.Click += NumberButtonClick;
+            osiem.Click += NumberButtonClick;
+            dziewiec.Click += NumberButtonClick;
         }
 
         private void add_Click(object sender, RoutedEventArgs e)
@@ -42,10 +52,82 @@ namespace Lab7.WpfApp
             {
                 case '+':
                     z = x + y;
-                    textinout.TextInput;
+                    textinout.Text = z.ToString();
+                    break;
+                case '-':
+                    z = x - y;
+                    textinout.Text = Convert.ToString(z);
+                    break;
+                case '*':
+                    z = x * y;
+                    textinout.Text = Convert.ToString(z);
+                    break;
+                case '/':
+                    z = x / y;
+                    textinout.Text = Convert.ToString(z);
                     break;
             }
             
+        }
+
+        private void minus_Click(object sender, RoutedEventArgs e)
+        {
+            znak = '-';
+            x = Convert.ToDouble(textinout.Text.Trim());
+            textinout.Clear();
+        }
+
+        private void del_Click(object sender, RoutedEventArgs e)
+        {
+            znak = '/';
+            x = Convert.ToDouble(textinout.Text.Trim());
+            textinout.Clear();
+        }
+
+        private void mul_Click(object sender, RoutedEventArgs e)
+        {
+            znak = '*';
+            x = Convert.ToDouble(textinout.Text.Trim());
+            textinout.Clear();
+        }
+
+        private void sqrt_Click(object sender, RoutedEventArgs e)
+        {
+            x = Convert.ToDouble(textinout.Text.Trim());
+            textinout.Clear();
+            x = Math.Sqrt(x);
+            textinout.Text = x.ToString();
+        }
+
+        private void potega_Click(object sender, RoutedEventArgs e)
+        {
+            x = Convert.ToDouble(textinout.Text.Trim());
+            textinout.Clear();
+            x = x * x;
+            textinout.Text = x.ToString();
+        }
+
+        private void clearall_Click(object sender, RoutedEventArgs e)
+        {
+            var str = textinout.Text;
+            str = str.Trim();
+            string stringWithoutLastCharacter = str.Substring(0, str.Length - 1);
+            textinout.Text = stringWithoutLastCharacter;
+        }
+
+        private void point_Click(object sender, RoutedEventArgs e)
+        {
+            if(textinout.Text != string.Empty)
+            {
+                var str = textinout.Text;
+                str += ',';
+                textinout.Text = str;
+            }
+        }
+        private void NumberButtonClick(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            textinout.Text += button.Content;
         }
     }
 }

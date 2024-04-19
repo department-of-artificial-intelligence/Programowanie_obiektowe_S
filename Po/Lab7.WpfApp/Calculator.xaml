@@ -19,7 +19,7 @@
         <Button x:Name="Button9" Content="9" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Height="56" Width="55" FontSize="36" Click="Button9_Click"/>
         <Button x:Name="ButtonDot" Content="." HorizontalAlignment="Left" Margin="70,374,0,0" VerticalAlignment="Top" Height="56" Width="55" FontSize="36" Click="ButtonDot_Click"/>
         <Button x:Name="ButtonAdd" Content="+" HorizontalAlignment="Left" Margin="232,120,0,0" VerticalAlignment="Top" Height="116" Width="55" FontSize="36" Click="ButtonAdd_Click"/>
-        <Button x:Name="ButtonClear" Content="C" HorizontalAlignment="Left" Margin="292,120,0,0" VerticalAlignment="Top" Height="56" Width="55" FontSize="36"/>
+        <Button x:Name="ButtonClear" Content="C" HorizontalAlignment="Left" Margin="292,120,0,0" VerticalAlignment="Top" Height="56" Width="55" FontSize="36" Click="ButtonClear_Click"/>
         <Button x:Name="ButtonMul" Content="*" HorizontalAlignment="Left" Margin="292,180,0,0" VerticalAlignment="Top" Height="56" Width="55" RenderTransformOrigin="0.5,0.5" FontSize="36" Click="ButtonMul_Click"/>
         <Button x:Name="ButtonSub" Content="-" HorizontalAlignment="Left" Margin="232,241,0,0" VerticalAlignment="Top" Height="56" Width="55" RenderTransformOrigin="0.636,0.536" FontSize="36" Click="ButtonSub_Click"/>
         <Button x:Name="ButtonDiv" Content="/" HorizontalAlignment="Left" Margin="292,240,0,0" VerticalAlignment="Top" Height="56" Width="55" RenderTransformOrigin="0.636,0.536" FontSize="36" Click="ButtonDiv_Click"/>

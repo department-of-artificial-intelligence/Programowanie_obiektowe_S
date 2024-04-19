@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Lab7.BLL;
 namespace Lab7.WpfApp
 {
     /// <summary>
@@ -19,7 +19,8 @@ namespace Lab7.WpfApp
     /// </summary>
     public partial class Calculator : Window
     {
-        double num1,num2;
+        Calculator_Operation c = new Calculator_Operation();
+        private double num1,num2;
         bool bAdd=false, bSub=false,bMul=false, bDiv=false; 
         public Calculator()
         {
@@ -136,6 +137,11 @@ namespace Lab7.WpfApp
             bDiv = true;
         }
 
+        private void ButtonClear_Click(object sender, RoutedEventArgs e)
+        {
+            TextBoxEq.Text = TextBoxEq.Text.Substring(0,TextBoxEq.Text.Length-1);
+        }
+
         private void Button9_Click(object sender, RoutedEventArgs e)
         {
             if (TextBoxEq.Text == "0")
@@ -147,8 +153,15 @@ namespace Lab7.WpfApp
 
         private void ButtonDot_Click(object sender, RoutedEventArgs e)
         {
-            
+            bool Isdot = false;
+            if (!TextBoxEq.Text.Contains("."))
+            {
                 TextBoxEq.Text += ButtonDot.Content;
+                Isdot = true;
+            }
+            else { 
+                Isdot= false;
+            }
             
         }
 
@@ -168,18 +181,18 @@ namespace Lab7.WpfApp
             num2 = Double.Parse(TextBoxEq.Text);
             if (bAdd == true)
             {
-                wynik = num1 + num2;
+                wynik = c.operation_Add(num1,num2);
                 TextBoxEq.Text = wynik.ToString();
                 
             }
             if (bMul == true)
             {
-                wynik = num1 * num2;
+                wynik = c.operation_Mul(num1,num2);
                 TextBoxEq.Text = wynik.ToString();
             }
             if (bSub == true)
             {
-                wynik = num1 - num2;
+                wynik = c.operation_Sub(num1,num2);
                 TextBoxEq.Text = wynik.ToString();
             }
             if(bDiv==true) {
@@ -189,7 +202,7 @@ namespace Lab7.WpfApp
                 }
                 else { 
                
-                    wynik = num1 / num2;
+                    wynik = c.operation_Div(num1,num2);
                     TextBoxEq.Text = wynik.ToString();
                 }
             }

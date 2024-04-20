@@ -38,86 +38,118 @@ namespace Lab7.WpfApp
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
-            znak = '+';
-            x =  Convert.ToDouble(textinout.Text.Trim());
-            textinout.Clear();
+            if (znak == 'p')
+            {
+                znak = '+';
+                x = Convert.ToDouble(textinout.Text.Trim());
+                textinout.Clear();
+            }
         }
         
         private void rownasie_Click(object sender, RoutedEventArgs e)
         {
-            double z;
-            double y = Convert.ToDouble(textinout.Text.Trim());
-            textinout.Clear();
-            switch (znak)
+            if (textinout.Text != string.Empty)
             {
-                case '+':
-                    z = x + y;
-                    textinout.Text = z.ToString();
-                    break;
-                case '-':
-                    z = x - y;
-                    textinout.Text = Convert.ToString(z);
-                    break;
-                case '*':
-                    z = x * y;
-                    textinout.Text = Convert.ToString(z);
-                    break;
-                case '/':
-                    z = x / y;
-                    textinout.Text = Convert.ToString(z);
-                    break;
+                double z;
+                double y = Convert.ToDouble(textinout.Text.Trim());
+                textinout.Clear();
+                switch (znak)
+                {
+                    case '+':
+                        z = x + y;
+                        textinout.Text = z.ToString();
+                        break;
+                    case '-':
+                        z = x - y;
+                        textinout.Text = Convert.ToString(z);
+                        break;
+                    case '*':
+                        z = x * y;
+                        textinout.Text = Convert.ToString(z);
+                        break;
+                    case '/':
+                        z = x / y;
+                        textinout.Text = Convert.ToString(z);
+                        break;
+                    case 'p':
+                        textinout.Text = Convert.ToString(y);
+                        break;
+                    default:
+                        textinout.Text = Convert.ToString(y);
+                        break;
+                }
+                znak = 'p';
             }
             
         }
 
         private void minus_Click(object sender, RoutedEventArgs e)
         {
-            znak = '-';
-            x = Convert.ToDouble(textinout.Text.Trim());
-            textinout.Clear();
+            if (znak == 'p') 
+            { 
+                znak = '-';
+                x = Convert.ToDouble(textinout.Text.Trim());
+                textinout.Clear();
+            }
         }
 
         private void del_Click(object sender, RoutedEventArgs e)
         {
-            znak = '/';
-            x = Convert.ToDouble(textinout.Text.Trim());
-            textinout.Clear();
+            if (znak == 'p')
+            {
+                znak = '/';
+                x = Convert.ToDouble(textinout.Text.Trim());
+                textinout.Clear();
+            }
         }
 
         private void mul_Click(object sender, RoutedEventArgs e)
         {
-            znak = '*';
-            x = Convert.ToDouble(textinout.Text.Trim());
-            textinout.Clear();
+            if (znak == 'p')
+            {
+                znak = '*';
+                x = Convert.ToDouble(textinout.Text.Trim());
+                textinout.Clear();
+            }
         }
 
         private void sqrt_Click(object sender, RoutedEventArgs e)
         {
-            x = Convert.ToDouble(textinout.Text.Trim());
-            textinout.Clear();
-            x = Math.Sqrt(x);
-            textinout.Text = x.ToString();
+            if (textinout.Text != string.Empty)
+            {
+                x = Convert.ToDouble(textinout.Text.Trim());
+                textinout.Clear();
+                x = Math.Sqrt(x);
+                textinout.Text = x.ToString();
+            }
         }
 
         private void potega_Click(object sender, RoutedEventArgs e)
         {
-            x = Convert.ToDouble(textinout.Text.Trim());
-            textinout.Clear();
-            x = x * x;
-            textinout.Text = x.ToString();
+            if (textinout.Text != string.Empty)
+            {
+                x = Convert.ToDouble(textinout.Text.Trim());
+                textinout.Clear();
+                x = x * x;
+                textinout.Text = x.ToString();
+            }
         }
 
         private void clearall_Click(object sender, RoutedEventArgs e)
         {
-            var str = textinout.Text;
-            str = str.Trim();
-            string stringWithoutLastCharacter = str.Substring(0, str.Length - 1);
-            textinout.Text = stringWithoutLastCharacter;
+            if (textinout.Text != string.Empty)
+            {
+                var str = textinout.Text;
+                str = str.Trim();
+                string stringWithoutLastCharacter = str.Substring(0, str.Length - 1);
+                textinout.Text = stringWithoutLastCharacter;
+            }
         }
 
         private void point_Click(object sender, RoutedEventArgs e)
         {
-            if(textinout.Text != string.Empty)
+            int index = textinout.Text.IndexOf(',');
+            if(textinout.Text != string.Empty && !textinout.Text.Contains(','))
             {
                 var str = textinout.Text;
                 str += ',';

@@ -19,7 +19,7 @@ namespace Lab7.WpfApp
     /// </summary>
     public partial class Calculator : Window
     {
-        public char znak;
+        public char znak = 'p';
         public double x;
         public Calculator()
         {

@@ -22,7 +22,7 @@
         <Button x:Name="Button7" Content="7" HorizontalAlignment="Left" Margin="98,288,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button7_Click"/>
         <Button x:Name="Button8" Content="8" HorizontalAlignment="Left" Margin="151,288,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button8_Click"/>
         <Button x:Name="Button9" Content="9" HorizontalAlignment="Left" Margin="45,339,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button9_Click"/>
-        <Button x:Name="ButtonDot" Content="." HorizontalAlignment="Left" Margin="151,339,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="ButtonDot_Click"/>
+        <Button x:Name="ButtonDot" Content="." HorizontalAlignment="Left" Margin="151,339,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
         <Button x:Name="ButtonPlus" Grid.Column="1" Content="+" HorizontalAlignment="Left" Margin="47,186,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="ButtonPlus_Click"/>
         <Button x:Name="ButtonMinus" Grid.Column="1" Content="-" HorizontalAlignment="Left" Margin="100,186,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="ButtonMinus_Click"/>
         <Button x:Name="ButtonDivide" Grid.Column="1" Content="/" HorizontalAlignment="Left" Margin="47,237,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="ButtonDivide_Click"/>

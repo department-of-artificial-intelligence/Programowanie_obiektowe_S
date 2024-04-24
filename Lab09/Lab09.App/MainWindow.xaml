@@ -1,0 +1,15 @@
+﻿<Window x:Class="Lab09.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab09.App"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="0,0,-32,-17">
+        <Button Width="100" Height="75" Margin="-550,-360,0,0" Click="Button_Click_Add">Add student</Button>
+        <Button Width="100" Height="75" Margin="-325,-360,0,0" Click="Button_Click_Remove">Remove student</Button>
+        <DataGrid Margin="90" Name="dataGrid1">
+        </DataGrid>
+    </Grid>
+</Window>

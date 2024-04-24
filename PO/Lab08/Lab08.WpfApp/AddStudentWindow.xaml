@@ -1,0 +1,24 @@
+﻿<Window x:Class="Lab08.WpfApp.AddStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab08.WpfApp"
+        mc:Ignorable="d"
+        Title="AddStudentWindow" Height="300" Width="300">
+    <Grid>
+        <Label Content="Adding new student&#xD;&#xA;" HorizontalAlignment="Left" Margin="72,8,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+        <TextBox x:Name="FirstNameText" HorizontalAlignment="Left" Margin="123,60,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="147"/>
+        <Label x:Name="Lable1" Content="First Name:" HorizontalAlignment="Left" Margin="48,56,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="SurNameText" HorizontalAlignment="Left" Margin="123,91,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="147"/>
+        <Label x:Name="Lable1_Copy" Content="Sur Name:" HorizontalAlignment="Left" Margin="48,87,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="FaucltyText" HorizontalAlignment="Left" Margin="123,122,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="147"/>
+        <Label x:Name="Lable1_Copy1" Content="Fauclty:" HorizontalAlignment="Left" Margin="48,118,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="NumberText" HorizontalAlignment="Left" Margin="123,153,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="147"/>
+        <Label x:Name="Lable4" Content="Student No.:" HorizontalAlignment="Left" Margin="48,149,0,0" VerticalAlignment="Top"/>
+        
+        <Button Content="Add Student" HorizontalAlignment="Center" Margin="0,193,0,0" VerticalAlignment="Top" Height="37" Width="138" Click="AddStudent_Click"/>
+
+    </Grid>
+</Window>

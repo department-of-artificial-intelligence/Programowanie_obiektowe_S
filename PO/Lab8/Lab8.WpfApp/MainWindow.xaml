@@ -1,0 +1,15 @@
+﻿<Window x:Class="Lab8.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8.WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,181"/>
+        <Button x:Name="AddStudentButtonn" Content="AddStudent" HorizontalAlignment="Left" Margin="64,329,0,0" VerticalAlignment="Top" Height="62" Width="109" Click="AddStudentButton_Click"/>
+        <Button x:Name="ButtonRemoveStudent" Content="Delete student" HorizontalAlignment="Left" Margin="201,329,0,0" VerticalAlignment="Top" Height="62" Width="109" Click="ButtonRemoveStudent_Click"/>
+
+    </Grid>
+</Window>

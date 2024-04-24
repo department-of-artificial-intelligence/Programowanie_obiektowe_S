@@ -35,7 +35,7 @@ namespace Student.WpfApp
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void REMOVE (object sender, RoutedEventArgs e)
         {
 
         }
@@ -45,7 +45,7 @@ namespace Student.WpfApp
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ADD(object sender, RoutedEventArgs e)
         {
 
         }

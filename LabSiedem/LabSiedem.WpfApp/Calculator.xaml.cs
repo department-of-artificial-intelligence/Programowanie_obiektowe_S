@@ -23,24 +23,22 @@ namespace LabSiedem.WpfApp
 
         public Calculator()
         {
-            Button0.Click += NumberButtonClick;
-            Button1.Click += NumberButtonClick;
-            Button2.Click += NumberButtonClick;
-            Button3.Click += NumberButtonClick;
-            Button4.Click += NumberButtonClick;
-            Button5.Click += NumberButtonClick;
-            Button6.Click += NumberButtonClick;
-            Button7.Click += NumberButtonClick;
-            Button8.Click += NumberButtonClick;
-            Button9.Click += NumberButtonClick;
-            ButtonDot.Click += NumberButtonClick;
             InitializeComponent();
         }
 
         private void NumberButtonClick(object sender, EventArgs e)
         {
+
             Button button = (Button)sender;
-            outbox.Text += button.Content;
+            if(outbox.Text == "0")
+            {
+                outbox.Clear();
+                outbox.Text += button.Content;
+            }
+            else {
+                outbox.Text += button.Content;
+            }
+            
         }
         private void ButtonPlus_Click(object sender, RoutedEventArgs e)
         {

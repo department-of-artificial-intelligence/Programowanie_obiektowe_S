@@ -11,17 +11,17 @@
             <ColumnDefinition Width="217*"/>
             <ColumnDefinition Width="183*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Button0" Content="0" HorizontalAlignment="Left" Margin="45,186,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button0_Click"/>
-        <Button x:Name="Button1" Content="1" HorizontalAlignment="Left" Margin="98,186,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button1_Click"/>
-        <Button x:Name="Button2" Content="2" HorizontalAlignment="Left" Margin="151,186,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button2_Click"/>
+        <Button x:Name="Button0" Content="0" HorizontalAlignment="Left" Margin="45,186,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
+        <Button x:Name="Button1" Content="1" HorizontalAlignment="Left" Margin="98,186,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
+        <Button x:Name="Button2" Content="2" HorizontalAlignment="Left" Margin="151,186,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
         <TextBox x:Name="outbox" HorizontalAlignment="Left" Margin="45,139,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="335" Grid.ColumnSpan="2" Height="32"/>
-        <Button x:Name="Button3" Content="3" HorizontalAlignment="Left" Margin="45,237,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button3_Click"/>
-        <Button x:Name="Button4" Content="4" HorizontalAlignment="Left" Margin="98,237,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button4_Click"/>
-        <Button x:Name="Button5" Content="5" HorizontalAlignment="Left" Margin="151,237,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button5_Click"/>
-        <Button x:Name="Button6" Content="6" HorizontalAlignment="Left" Margin="45,288,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button6_Click"/>
-        <Button x:Name="Button7" Content="7" HorizontalAlignment="Left" Margin="98,288,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button7_Click"/>
-        <Button x:Name="Button8" Content="8" HorizontalAlignment="Left" Margin="151,288,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button8_Click"/>
-        <Button x:Name="Button9" Content="9" HorizontalAlignment="Left" Margin="45,339,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="Button9_Click"/>
+        <Button x:Name="Button3" Content="3" HorizontalAlignment="Left" Margin="45,237,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
+        <Button x:Name="Button4" Content="4" HorizontalAlignment="Left" Margin="98,237,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
+        <Button x:Name="Button5" Content="5" HorizontalAlignment="Left" Margin="151,237,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
+        <Button x:Name="Button6" Content="6" HorizontalAlignment="Left" Margin="45,288,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
+        <Button x:Name="Button7" Content="7" HorizontalAlignment="Left" Margin="98,288,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
+        <Button x:Name="Button8" Content="8" HorizontalAlignment="Left" Margin="151,288,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
+        <Button x:Name="Button9" Content="9" HorizontalAlignment="Left" Margin="45,339,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
         <Button x:Name="ButtonDot" Content="." HorizontalAlignment="Left" Margin="151,339,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="NumberButtonClick"/>
         <Button x:Name="ButtonPlus" Grid.Column="1" Content="+" HorizontalAlignment="Left" Margin="47,186,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="ButtonPlus_Click"/>
         <Button x:Name="ButtonMinus" Grid.Column="1" Content="-" HorizontalAlignment="Left" Margin="100,186,0,0" VerticalAlignment="Top" Height="46" Width="48" Click="ButtonMinus_Click"/>

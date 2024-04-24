@@ -1,0 +1,33 @@
+﻿<Window x:Class="PO_LAB8.WpfApp.AddStuudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PO_LAB8.WpfApp"
+        mc:Ignorable="d"
+        Title="AddStuudent" Height="500" Width="400">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Name="FN" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="25" HorizontalAlignment="Center"> FirstName: </TextBlock>
+            <TextBlock Name="LN" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="25" HorizontalAlignment="Center"> LastName: </TextBlock>
+            <TextBlock Name="FAC" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="25" HorizontalAlignment="Center"> Faculty: </TextBlock>
+            <TextBlock Name="IND" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="25" HorizontalAlignment="Center"> Index: </TextBlock>
+            <TextBox Name="FnBox" Grid.Row="0" Grid.Column="1" BorderBrush="DarkGray" Width="200" Height="30" BorderThickness="1"></TextBox>
+            <TextBox Name="LnBox" Grid.Row="1" Grid.Column="1" BorderBrush="DarkGray" Width="200" Height="30" BorderThickness="1"></TextBox>
+            <TextBox Name="FacBox" Grid.Row="2" Grid.Column="1" BorderBrush="DarkGray" Width="200" Height="30" BorderThickness="1"></TextBox>
+            <TextBox Name="IdxBox" Grid.Row="3" Grid.Column="1" BorderBrush="DarkGray" Width="200" Height="30" BorderThickness="1"></TextBox>
+            <Button Name="AddButton" Grid.Row="4" Grid.Column="1" Content="Add Student" FontSize="24"></Button>
+        </Grid>
+    </Grid>
+</Window>

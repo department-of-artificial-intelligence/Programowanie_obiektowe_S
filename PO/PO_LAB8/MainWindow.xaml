@@ -1,0 +1,22 @@
+﻿<Window x:Class="PO_LAB8.TabelaStud"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PO_LAB8"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid Margin="0,0,0,348">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="AddStudent" Content="Add Student" FontSize="15"> </Button>
+            <Button Grid.Column="1" Name="RemoveStudent" Content="Remove Student" FontSize="15"> </Button>
+        </Grid>
+        <Grid Margin="0,86,0,0">
+            <DataGrid Name="DataGridTable"/>
+        </Grid>
+    </Grid>
+</Window>

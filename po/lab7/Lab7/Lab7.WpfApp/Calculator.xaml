@@ -6,26 +6,26 @@
         xmlns:local="clr-namespace:Lab7.WpfApp"
         mc:Ignorable="d"
         Title="Calculator" Height="489" Width="467">
-    <Grid>
-        <Button x:Name="Button_7" Content="7" HorizontalAlignment="Left" Margin="25,139,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_8" Content="8" HorizontalAlignment="Left" Margin="87,139,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_9" Content="9" HorizontalAlignment="Left" Margin="150,139,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_4" Content="4" HorizontalAlignment="Left" Margin="25,202,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_5" Content="5" HorizontalAlignment="Left" Margin="87,202,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_6" Content="6" HorizontalAlignment="Left" Margin="150,202,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_1" Content="1" HorizontalAlignment="Left" Margin="25,264,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_2" Content="2" HorizontalAlignment="Left" Margin="87,264,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_3" Content="3" HorizontalAlignment="Left" Margin="150,264,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_0" Content="0" HorizontalAlignment="Left" Margin="87,326,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_kropka" Content="," HorizontalAlignment="Left" Margin="150,326,0,0" VerticalAlignment="Top" Height="60" Width="60"/>
-        <Button x:Name="Button_Add" Content="+" HorizontalAlignment="Left" Margin="317,139,0,0" VerticalAlignment="Top" Height="123" Width="60"/>
-        <Button x:Name="Button_Sub" Content="-" HorizontalAlignment="Left" Margin="317,264,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_Divide" Content="/" HorizontalAlignment="Left" Margin="380,264,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_Multiply" Content="*" HorizontalAlignment="Left" Margin="380,202,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_Clear" Content="C" HorizontalAlignment="Left" Margin="380,139,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <TextBox x:Name="PropText" HorizontalAlignment="Center" Margin="0,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="417"/>
-        <Button x:Name="Button_back" Content="⌫" HorizontalAlignment="Left" Margin="25,326,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click"/>
-        <Button x:Name="Button_Equals" Content="=" HorizontalAlignment="Left" Margin="317,326,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.48,0.002" Height="60" Width="123" Click="Button_Equals"/>
+    <Grid x:Name="Background" Background="#FF1C1C1C">
+        <Button x:Name="Button_7" Content="7" Background="#FF2F2F2F"  Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="60" Width="60" Click="Button_Click" Style="{StaticResource RoundedButton}" Margin="17,137,0,0" Grid.Column="2" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_8" Content="8" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="79,139,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_9" Content="9" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="142,139,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_4" Content="4" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="17,202,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_5" Content="5" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="79,202,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_6" Content="6" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="142,202,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_1" Content="1" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="17,264,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_2" Content="2" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="79,264,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_3" Content="3" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="142,264,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_0" Content="0" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="79,326,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_kropka" Content="," Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="142,326,0,0" VerticalAlignment="Top" Height="60" Width="60" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_Add" Content="+" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="309,139,0,0" VerticalAlignment="Top" Height="123" Width="60" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_Sub" Content="-" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="309,264,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_Divide" Content="/" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="372,264,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_Multiply" Content="*" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="372,202,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_Clear" Content="C" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="372,139,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <TextBox x:Name="PropText" HorizontalAlignment="Left" Margin="17,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="417" Height="38" Grid.Column="2"  Style="{StaticResource Trigger}" Foreground="White" SelectionTextBrush="#FF101010" Background="#1c1c1c" BorderBrush="#1c1c1c" FontSize="27" TextAlignment="Right" SelectionBrush="#FF1C1C1C"/>
+        <Button x:Name="Button_back" Content="⌫" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="17,326,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="Button_Click" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
+        <Button x:Name="Button_equals" Content="=" Background="#FF2F2F2F" HorizontalAlignment="Left" Margin="309,326,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.48,0.002" Height="60" Width="123" Click="Button_Equals" Grid.Column="2" Style="{StaticResource RoundedButton}" Foreground="White" BorderBrush="#FFEAEAEA"/>
 
     </Grid>
 </Window>

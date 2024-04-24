@@ -43,7 +43,7 @@ namespace lab3
             {
                 items += $"\n{item}";
             }
-            return $"Catalog | ThematicDepartment: {ThematicDepartment}" + items;
+            return $"ThematicDepartment: {ThematicDepartment}" + items;
         }
 
         public void ShowAllItems()

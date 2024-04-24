@@ -22,6 +22,7 @@ namespace WpfApp.Lab7
     {
         private double a;
         private double b;
+        private double c;
         private string action;
         public Calculator()
         {
@@ -118,8 +119,33 @@ namespace WpfApp.Lab7
 
         private void Button_Equal_Click(object sender, RoutedEventArgs e)
         {
-            double result = 0;
-            
+            b = Convert.ToDouble(Screen.Text);
+            switch (action)
+            {
+                case "+":
+                    c = a  + b; 
+                    break;
+                case "-":
+                    c = a - b;
+                    break;
+                case "*":
+                    c = a * b;
+                    break;
+                case "/":
+                    if (b != 0)
+                    {
+                        c = a / b;
+                    }
+                    else
+                    {
+                        Screen.Text = "No mister fish";
+                    }
+                    break;
+                default:
+                    Screen.Text = "0";
+                    break; 
+            }
+            Screen.Text = c.ToString();
         }
 
         private void Button_Sum_Click(object sender, RoutedEventArgs e)
@@ -131,26 +157,23 @@ namespace WpfApp.Lab7
 
         private void Button_Minus_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button)
-            {
-                Screen.Text += button.Content;
-            }
+            a = Convert.ToDouble(Screen.Text);
+            Screen.Text = "";
+            action = "-";
         }
 
         private void Button_Multy_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button)
-            {
-                Screen.Text += button.Content;
-            }
+            a = Convert.ToDouble(Screen.Text);
+            Screen.Text = "";
+            action = "*";
         }
 
         private void Button_Dev_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button)
-            {
-                Screen.Text += button.Content;
-            }
+            a = Convert.ToDouble(Screen.Text);
+            Screen.Text = "";
+            action = "/";
         }
     }
 }

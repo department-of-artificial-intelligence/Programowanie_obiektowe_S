@@ -1,0 +1,24 @@
+﻿<Window x:Class="Lab8.WpfApp.DodawanieStudenta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8.WpfApp"
+        mc:Ignorable="d"
+        Title="DodawanieStudenta" Height="450" Width="800">
+
+    <Grid>
+        <Button x:Name="add_student" Content="Add student" HorizontalAlignment="Left" Margin="33,37,0,0" VerticalAlignment="Top" Height="81" Width="286"/>
+        <Button x:Name="delete_student" Content="Delete student" HorizontalAlignment="Left" Margin="400,37,0,0" VerticalAlignment="Top" Height="81" Width="286"/>
+        <DataGrid x:Name="DataGridStudents" AutoGenerateColumns="False" Margin="33,165,94,111">
+
+            <DataGrid.Columns>
+
+
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

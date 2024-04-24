@@ -1,0 +1,21 @@
+﻿<Window x:Class="Lab08.WpfApp.Add_student"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab08.WpfApp"
+        mc:Ignorable="d"
+        Title="Add_student" Height="294" Width="310">
+    <Grid>
+        <Label Content="First name:" HorizontalAlignment="Left" Margin="34,40,0,0" VerticalAlignment="Top"/>
+        <Label Content="Last name:" HorizontalAlignment="Left" Margin="34,71,0,0" VerticalAlignment="Top"/>
+        <Label Content="Faculty:" HorizontalAlignment="Left" Margin="52,130,0,0" VerticalAlignment="Top"/>
+        <Label Content="Student No.:" HorizontalAlignment="Left" Margin="26,99,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="120,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="148"/>
+        <TextBox x:Name="LastnameBox" Margin="120,75,42,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBox x:Name="NumberBox" HorizontalAlignment="Left" Margin="120,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="148"/>
+        <TextBox x:Name="FacultyBox" HorizontalAlignment="Left" Margin="120,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="148"/>
+        <Button x:Name="AddFinale" Content="AddStudent" HorizontalAlignment="Left" Margin="34,196,0,0" VerticalAlignment="Top" Height="40" Width="221" Click="AddFinale_Click"/>
+
+    </Grid>
+</Window>

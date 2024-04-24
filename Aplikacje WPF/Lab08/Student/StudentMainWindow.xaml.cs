@@ -21,17 +21,33 @@ namespace Student.WpfApp
     /// </summary>
     public partial class StudentMainWindow : Window
     {
-        public IList<Student> Students { get; set; }
+        public IList<BLL.Student> Students { get; set; }
         public StudentMainWindow()
         {
 
             InitializeComponent();
-            Students = new List<Student>
+            Students = new List<BLL.Student>
             {
-                new Student(){FirstName = "Jan" , LastName = "Kowaki" , Faculity = "WIMII" , id = 135248 },
-                new Student(){FirstName = "Michal" , LastName = "Nowak" , Faculity = "WIMII" , id = 135963 },
-                new Student(){FirstName = "Adam" , LastName = "Spiner" , Faculity = "WIMII" , id = 135987 }
+                new BLL.Student(){FirstName = "Jan" , LastName = "Kowaki" , Faculity = "WIMII" , Id = 135248 },
+                new BLL.Student(){FirstName = "Michal" , LastName = "Nowak" , Faculity = "WIMII" , Id = 135963 },
+                new BLL.Student(){FirstName = "Adam" , LastName = "Spiner" , Faculity = "WIMII" , Id = 135987 }
             };
+        }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

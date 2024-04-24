@@ -1,0 +1,25 @@
+﻿<Window x:Class="Lab8.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8.WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="AddStudent" Content="Add Student" HorizontalAlignment="Left" Margin="32,40,0,0" VerticalAlignment="Top" Height="61" Width="209" RenderTransformOrigin="0.178,0.497" Click="AddStudent_Click"/>
+        <Button x:Name="DeleteStudent" Content="Delete Student" HorizontalAlignment="Left" Margin="246,40,0,0" VerticalAlignment="Top" Height="61" Width="209" RenderTransformOrigin="0.178,0.497" Click="DeleteStudent_Click"/>
+        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="19,119,13,13" RenderTransformOrigin="0.5,0.5" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.063"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+        </DataGrid>
+        <Button x:Name="AddGrade" Content="Add Grade" HorizontalAlignment="Left" Margin="460,40,0,0" VerticalAlignment="Top" Height="61" Width="209" RenderTransformOrigin="0.178,0.497" Click="AddGrade_Click" />
+
+    </Grid>
+</Window>

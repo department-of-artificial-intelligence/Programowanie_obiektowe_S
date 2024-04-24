@@ -7,10 +7,27 @@ namespace Lab8.BLL
         public string LastName { get; set; } = string.Empty;
         public ulong StudentNo {  get; set; }
         public string Faculty { get; set; } = string.Empty;
+        public IList<Grade> Grades { get; set; }
+        public string GradesText { get =>GetGradesText();}
 
-        public override string ToString()
+        public Student() { }
+
+        public Student(string firstName, string lastName, ulong studentNo, string faculty)
         {
-            return $"{FirstName} {LastName}, id {StudentNo}, wydzial {Faculty}";
+            FirstName = firstName;
+            LastName = lastName;
+            StudentNo = studentNo;
+            Faculty = faculty;
+        }
+
+        public string GetGradesText()
+        {
+            var result = "";
+            foreach (var grade in Grades)
+            {
+                result += $"#{grade.Id}: {grade.Value}, {grade.ClassName} ";
+            }
+            return result;
         }
     }
 

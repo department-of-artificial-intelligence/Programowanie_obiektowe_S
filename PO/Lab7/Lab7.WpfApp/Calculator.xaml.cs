@@ -38,7 +38,7 @@ namespace Lab7.WpfApp
             {
                 if(!string.IsNullOrEmpty(TextBox.Text))
                 { 
-                    TextBox.Text = TextBox.Text.Remove(TextBox.Text.Length -1);
+                    TextBox.Text = TextBox.Text.Remove(TextBox.Text.Length - 1);
                 }
             }
         }
@@ -65,7 +65,7 @@ namespace Lab7.WpfApp
 
         private void clear(object sender, RoutedEventArgs e)
         {
-
+            TextBox.Text = string.Empty;
         }
 
         private void final(object sender, RoutedEventArgs e)

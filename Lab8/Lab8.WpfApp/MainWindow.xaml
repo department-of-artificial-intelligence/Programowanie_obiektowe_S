@@ -5,11 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="600" Background="Gray">
+        Title="MainWindow" Height="450" Width="650" Background="#233142">
     <Grid>
-        <Button x:Name="Button_Add" Content="Add student" HorizontalAlignment="Left" Margin="100,30,0,0" VerticalAlignment="Top" Height="70" Width="150" Click="Add_Student" FontSize="20"/>
-        <Button x:Name="Button_Delete" Content="Delete student" HorizontalAlignment="Right" Margin="0,30,100,0" VerticalAlignment="Top" Height="70" Width="150" Click="Delete_Student" FontSize="20"/>
-        <DataGrid x:Name="Student_Grid" Margin="0,130,0,0"/>
-
+        <Button x:Name="Button_Add" Content="Add student" HorizontalAlignment="Left" Margin="50,30,0,0" VerticalAlignment="Top" Height="70" Width="150" Click="Add_Student" FontSize="20" Background="#455d7a" Cursor="Hand"/>
+        <Button x:Name="Button_Delete" Content="Delete student" HorizontalAlignment="Right" Margin="0,30,50,0" VerticalAlignment="Top" Height="70" Width="150" Click="Delete_Student" FontSize="20" Background="#f95959" Cursor="Hand"/>
+        <Button x:Name="Button_AddGrade" Content="Add grade" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="70" Width="150" Click="AddGrade_Student" FontSize="20" Background="#e3e3e3" Cursor="Hand"/>
+        <DataGrid x:Name="Student_Grid" Margin="0,130,0,0" Background="Gray" AutoGenerateColumns="False" FontSize="15">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Surname" Binding="{Binding SurName}"/>
+                <DataGridTextColumn Header="Faculty" Binding="{Binding Faculty}"/>
+                <DataGridTextColumn Header="Student No." Binding="{Binding StudentNo}"/>
+                <DataGridTemplateColumn Header="Grades" x:Name="GradesColumn">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding Grades}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Lesson}" Margin="2"/>
+                                            <TextBlock Text="{Binding Date}" Margin="2"/>
+                                            <TextBlock Text="{Binding Value}" Margin="2"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Average Grade" Binding="{Binding AverageGrade}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

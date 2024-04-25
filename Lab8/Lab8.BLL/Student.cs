@@ -13,20 +13,33 @@ namespace Lab8.BLL
         public string SurName { get; set; }
         public string Faculty {  get; set; }
         public int StudentNo {  get; set; }
+        public double AverageGrade { get {
+				if (Grades.Count == 0)
+				{
+					return 0; 
+				}
+				double sum = Grades.Sum(grade => grade.Value);
+				double average = sum / Grades.Count;
+
+				return Math.Round(average, 2);
+			} set { } }
+        public IList<Grade> Grades { get; set; }
         public Student()
         {
             StudentNo = 0;
             FirstName = string.Empty;
             SurName = string.Empty;
             Faculty = string.Empty;
+            Grades = new List<Grade>();
         }
 
-        public Student(string firstName, string surName, string faculty, int studentNo)
+        public Student(string firstName, string surName, string faculty, int studentNo, IList<Grade> grades)
         {
             FirstName = firstName;
             SurName = surName;
             Faculty = faculty;
             StudentNo = studentNo;
+            Grades = grades;
         }
     }
 }

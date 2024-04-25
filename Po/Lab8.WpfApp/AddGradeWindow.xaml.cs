@@ -37,13 +37,23 @@ namespace Lab8.WpfApp
 
         private void AddGrade_Click(object sender, RoutedEventArgs e)
         {
-            if (!Regex.IsMatch(TextBoxSubject.Text, @"^\p{L}{1,12}") ||
-                !Regex.IsMatch(TextBoxWeight.Text, @"^[0-9][1,5]$") ||
-                !Regex.IsMatch(TextBoxSubject.Text, @"^[0-9][1-5]$"))
+            if (!Regex.IsMatch(TextBoxSubject.Text, @"^\p{L}{1,12}")/* ||
+                !Regex.IsMatch(TextBoxWeight.Text, @"^[0-9]{4,10}$") ||
+                !Regex.IsMatch(TextBoxSubject.Text, @"^[0-9]{4,10}$")*/)
             {
                 MessageBox.Show("Invalid input data");
                 return;
             }
+            grades.NameSubject = TextBoxSubject.Text;
+            if (!int.TryParse(TextBoxWeight.Text, out int w1))
+                MessageBox.Show("Student is not a number");
+            grades.Weight = w1;
+            if ((!double.TryParse(TextBoxGradae.Text, out double grade1)))
+                MessageBox.Show("Student is not a number");
+            grades.GradeS = grade1;
+
+
+            DialogResult = true;
         }
     }
 }

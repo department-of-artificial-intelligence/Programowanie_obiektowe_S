@@ -9,7 +9,7 @@
     <Grid>
         <Button x:Name="AddStudent" Content="Add Student" HorizontalAlignment="Left" Margin="32,40,0,0" VerticalAlignment="Top" Height="61" Width="209" RenderTransformOrigin="0.178,0.497" Click="AddStudent_Click"/>
         <Button x:Name="DeleteStudent" Content="Delete Student" HorizontalAlignment="Left" Margin="246,40,0,0" VerticalAlignment="Top" Height="61" Width="209" RenderTransformOrigin="0.178,0.497" Click="DeleteStudent_Click"/>
-        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="19,119,13,13" RenderTransformOrigin="0.5,0.5" SelectionChanged="DataGrid_SelectionChanged">
+        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="19,119,13,13" RenderTransformOrigin="0.5,0.5" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False">
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

@@ -17,11 +17,14 @@ namespace Lab8.WpfApp
     public partial class MainWindow : Window
     {
         public IList<Student> Students { get; set; }
+        public IList<Grade> Grades1 { get; set; }
+       
         public MainWindow()
         {
             InitializeComponent();
-            Students = new List<Student> { 
-                new Student(){ FirstName="Jan", SurName="Kowalski",Faculty="WIMII",StudentNo=1010},
+            Students = new List<Student> {
+                new Student(){ FirstName="Jan", SurName="Kowalski",Faculty="WIMII",StudentNo=1010, 
+                    Grades = new List<Grade> { new Grade() { NameSubject="Polski",GradeS=3.5,Weight=1 } } },
                 new Student(){ FirstName="Michał", SurName="Nowak",Faculty="WIMII",StudentNo=1011},
                 new Student(){ FirstName="Jacek", SurName="Makieta",Faculty="WIMII",StudentNo=1012}
             };
@@ -38,15 +41,24 @@ namespace Lab8.WpfApp
             { Header = "Student No.", Binding = new Binding("StudentNo") });
 
             DataGridStudents.Columns.Add(new DataGridTextColumn()
-            { Header = "Grades", Binding = new Binding("JoinedGrades") });
+            { Header = "Name Subject", Binding = new Binding("NameSubject") });
+
+            DataGridStudents.Columns.Add(new DataGridTextColumn()
+            { Header = "Weight", Binding = new Binding("Weight") });
+            
+            DataGridStudents.Columns.Add(new DataGridTextColumn()
+            { Header = "Grade", Binding = new Binding("GradeS") });
 
             DataGridStudents.AutoGenerateColumns = false;
             DataGridStudents.ItemsSource = Students;
+            
+           // DataGridStudents.ItemsSource = Grades;
+            
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void AddStudent_Click(object sender, RoutedEventArgs e)
@@ -70,7 +82,19 @@ namespace Lab8.WpfApp
 
         private void AddGrade_Click(object sender, RoutedEventArgs e)
         {
-
+            AddGradeWindow a = new AddGradeWindow();
+            a.ShowDialog();
+            if (DataGridStudents.SelectedItem is Student student)
+            {
+                student.Grades.Add(new Grade(a.grades.NameSubject, a.grades.GradeS, a.grades.Weight));
+                Grades1.Add(new Grade(a.grades.NameSubject, a.grades.GradeS, a.grades.Weight));
+                
+                DataGridStudents.Items.Refresh();
+            }
+            //else MessageBox.Show("Choose student");
+            
+            
+            //var gr = Students.FirstOrDefault(a => a.Grades);
         }
     }
 }

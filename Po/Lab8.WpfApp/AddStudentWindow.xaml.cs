@@ -54,7 +54,7 @@ namespace Lab8.WpfApp
             DialogResult = true;
             MainWindow x = new MainWindow(); 
             
-            x.DataGridStudents.ItemsSource = x.Students;
+            //x.DataGridStudents.ItemsSource = x.Students;
         }
     }
 }

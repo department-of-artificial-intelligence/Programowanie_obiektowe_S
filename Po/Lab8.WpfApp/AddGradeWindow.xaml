@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
         Title="AddGradeWindow" Height="346" Width="297">
-    <Grid Margin="0,0,0,6">
-        <TextBlock x:Name="TextBoxSubject" HorizontalAlignment="Left" Margin="100,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="187"/>
-        <TextBlock x:Name="TextBoxWeight" HorizontalAlignment="Left" Margin="100,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="187"/>
-        <TextBlock x:Name="TextBoxGradae" HorizontalAlignment="Left" Margin="100,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="187"/>
-        <Label Content="Subject Name" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="85" Height="39"/>
-        <Label Content="Weight" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="85" Height="39"/>
-        <Label Content="Grade" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="85" Height="39"/>
+    <Grid Margin="0,10,10,-6">
+        <TextBox x:Name="TextBoxSubject" HorizontalAlignment="Left" Margin="95,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="187" Foreground="Black"/>
+        <TextBox x:Name="TextBoxWeight" HorizontalAlignment="Left" Margin="100,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="187"/>
+        <TextBox x:Name="TextBoxGradae" HorizontalAlignment="Left" Margin="100,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="187"/>
+        <Label Content="Subject Name" HorizontalAlignment="Left" Margin="5,62,0,0" VerticalAlignment="Top" Width="85" Height="39"/>
+        <Label Content="Weight" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="85" Height="39"/>
+        <Label Content="Grade" HorizontalAlignment="Left" Margin="10,181,0,0" VerticalAlignment="Top" Width="85" Height="39"/>
         <Button x:Name="AddGrade" Content="Add Grade" HorizontalAlignment="Center" Margin="0,251,0,0" VerticalAlignment="Top" Height="46" Width="277" Click="AddGrade_Click"/>
 
     </Grid>

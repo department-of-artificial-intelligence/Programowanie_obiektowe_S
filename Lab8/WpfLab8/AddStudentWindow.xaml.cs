@@ -21,7 +21,7 @@ namespace WpfLab8.APP
     /// </summary>
     public partial class AddStudentWindow : Window
     {
-        public Student student { get; set; }
+        public Student students { get; set; }
         public AddStudentWindow(Student student = null)
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace WpfLab8.APP
                 TextBoxLastName.Text = student.LastName;
                 TextBoxNo.Text = student.StudentNo.ToString();
             }
-            student = student ?? new Student();
+            students = student ?? new Student();
         }
 
         public void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
@@ -45,14 +45,14 @@ namespace WpfLab8.APP
                 MessageBox.Show("Invalid input data");
                 return;
             }
-            student.FirstName = TextBoxName.Text;
-            student.LastName = TextBoxLastName.Text;
-            student.Faculty = TextBoxFaculty.Text;
+            students.FirstName = TextBoxName.Text;
+            students.LastName = TextBoxLastName.Text;
+            students.Faculty = TextBoxFaculty.Text;
             if(!int.TryParse(TextBoxNo.Text, out int studentNo)) 
             {
                 MessageBox.Show("Student is not a number.");
             }
-            student.StudentNo=studentNo;
+            students.StudentNo=studentNo;
             DialogResult = true;
         }
     }

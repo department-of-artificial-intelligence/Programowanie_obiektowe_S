@@ -37,21 +37,21 @@ namespace WpfLab8
             DataGridStudents.AutoGenerateColumns = false;
             DataGridStudents.ItemsSource = Students;
         }
-        public void ButtonAdd_Click(object sender, RoutedEventArgs e)
-        {
-            AddStudentWindow addStudentWindow = new AddStudentWindow();
-            addStudentWindow.ShowDialog();
-            if (DialogResult == true)
-            {
-                Students.Add(addStudentWindow.student);
-                DataGridStudents.Items.Refresh();
-            }
-        }
         public void ButtonDel_Click(object sender, RoutedEventArgs e)
         {
             if(DataGridStudents.SelectedItem is Student studentToRemove)
             {
                 Students.Remove(studentToRemove);
+                DataGridStudents.Items.Refresh();
+            }
+        }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AddStudentWindow addStudentWindow = new AddStudentWindow();
+            if (addStudentWindow.ShowDialog() ?? false)
+            {
+                Students.Add(addStudentWindow.students);
                 DataGridStudents.Items.Refresh();
             }
         }

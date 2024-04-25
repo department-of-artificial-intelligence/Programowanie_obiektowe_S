@@ -43,6 +43,7 @@ namespace WpfLab8
             addStudentWindow.ShowDialog();
             if (DialogResult == true)
             {
+                Students.Add(addStudentWindow.student);
                 DataGridStudents.Items.Refresh();
             }
         }

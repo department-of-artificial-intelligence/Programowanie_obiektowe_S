@@ -7,7 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGrid_SelectionChanged"/>
-        <Button x:Name="ButtonDialog" Content="Button" HorizontalAlignment="Left" Margin="215,182,0,0" VerticalAlignment="Top" Click="ButtonDialog_Click"/>
+        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGrid_SelectionChanged" Margin="0,52,0,-52"/>
+        <Button x:Name="ButtonDialog" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="ButtonDialog_Click"/>
+        <Button Content="Clone stream
+                " HorizontalAlignment="Center" Height="26" Margin="0,191,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button Content="Load another Sudent
+                " HorizontalAlignment="Left" Margin="360,222,0,0" VerticalAlignment="Top" Width="119"/>
+        <Button Content="Load from txt file
+                " HorizontalAlignment="Left" Margin="360,247,0,0" VerticalAlignment="Top" Width="97"/>
+        <Button x:Name="SaveTXT" Content="Save to txt file
+                " HorizontalAlignment="Left" Margin="360,272,0,0" VerticalAlignment="Top" Width="88" Click="Button_Click_1"/>
+        <Button Content="Load from txt file
+                " HorizontalAlignment="Left" Margin="494,222,0,0" VerticalAlignment="Top" Width="94"/>
+        <Button Content="Save to XML
+                " HorizontalAlignment="Left" Margin="467,272,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button Content="Load from XML" HorizontalAlignment="Left" Margin="467,247,0,0" VerticalAlignment="Top" Width="94"/>
+        <Button Content="Save to JSON
+                " HorizontalAlignment="Left" Margin="574,272,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button Content="Load from JSON" HorizontalAlignment="Left" Margin="574,247,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

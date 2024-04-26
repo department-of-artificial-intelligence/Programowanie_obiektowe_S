@@ -5,10 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1200">
     <Grid>
         <Button x:Name="Button_Add_Student" Content="Add student" HorizontalAlignment="Left" Height="76" Margin="73,34,0,0" VerticalAlignment="Top" Width="161" Click="Button_Add_Student_Click"/>
-        <Button x:Name="Button_Delete_Student" Content="Delete student" HorizontalAlignment="Left" Height="76" Margin="260,34,0,0" VerticalAlignment="Top" Width="176"/>
+        <Button x:Name="Button_Delete_Student" Content="Delete student" HorizontalAlignment="Left" Height="76" Margin="260,34,0,0" VerticalAlignment="Top" Width="176" Click="Button_Delete_Student_Click"/>
         <DataGrid Margin="73,143,127,57" Name="DataGridStudent" ></DataGrid>
+        <Button x:Name="Button_AddGrade" Content="AddGrade" HorizontalAlignment="Left" Height="76" Margin="454,34,0,0" VerticalAlignment="Top" Width="85" Click="Button_AddGrade_Click"/>
+        <Button Content="Close stream" HorizontalAlignment="Left" Height="20" Margin="563,10,0,0" VerticalAlignment="Top" Width="160"/>
+        <Button Content="Load another student" HorizontalAlignment="Left" Height="20" Margin="563,35,0,0" VerticalAlignment="Top" Width="160"/>
+        <Button Content="Load from txt file (Stream)" HorizontalAlignment="Left" Height="20" Margin="563,60,0,0" VerticalAlignment="Top" Width="160"/>
+        <Button x:Name="Button_SaveTXT" Content="Save to txt file" HorizontalAlignment="Left" Height="17" Margin="563,95,0,0" VerticalAlignment="Top" Width="113" Click="Button_SaveTXT_Click"/>
+        <Button Content="Load from txt file" HorizontalAlignment="Left" Height="17" Margin="563,117,0,0" VerticalAlignment="Top" Width="113" Click="Button_Click"/>
+        <Button Content="Save to XML file" HorizontalAlignment="Left" Height="17" Margin="681,95,0,0" VerticalAlignment="Top" Width="113"/>
+        <Button Content="Load from XML file" HorizontalAlignment="Left" Height="17" Margin="681,117,0,0" VerticalAlignment="Top" Width="113"/>
+        <Button Content="Save to JSON file" HorizontalAlignment="Left" Height="17" Margin="799,95,0,0" VerticalAlignment="Top" Width="113"/>
+        <Button Content="Load from JSON file" HorizontalAlignment="Left" Height="17" Margin="799,117,0,0" VerticalAlignment="Top" Width="113"/>
     </Grid>
 </Window>

@@ -15,22 +15,40 @@ namespace Lab8.BLL
 
         public int StudentNo { get; set; }
 
+        public List<double> Grades { get; set; }
+
         public Student()
         {
             FirstName = string.Empty;
             SurName = string.Empty;
             Faculty = string.Empty;
+            Grades = new List<double>();
             StudentNo = 0;
         }
-        public Student(string firstName, string surName, string faculty, int studentNo)
+        public Student(string firstName, string surName, string faculty, int studentNo, List<double> grades)
         {
             FirstName = firstName;
             SurName = surName;
             Faculty = faculty;
             StudentNo = studentNo;
+            Grades = grades;
+
         }
 
+        public void AddGrade(double grade)
+        {
+            Grades.Add(grade);
+        }
 
+        public string GradesAsString
+        {
+            get
+            {
+                if (Grades != null)
+                    return string.Join(", ", Grades);
+                return "No grades";
+            }
+        }
 
     }
 }

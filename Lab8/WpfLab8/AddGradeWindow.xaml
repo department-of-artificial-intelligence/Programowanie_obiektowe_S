@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfLab8.APP.AddGradeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLab8.APP"
+        mc:Ignorable="d"
+        Title="AddGradeWindow" Height="250" Width="250">
+    <Grid>
+        <Label Content="Grade:" HorizontalAlignment="Left" Margin="28,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.041,-0.602"/>
+        <TextBox Name="TextBoxGrade" HorizontalAlignment="Left" Margin="89,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Name="AddGrade" Content="Add Grade" Margin="54,136,54,48" Click="AddGrade_Click"/>
+    </Grid>
+</Window>

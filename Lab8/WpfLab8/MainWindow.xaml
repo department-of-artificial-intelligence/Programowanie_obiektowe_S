@@ -8,7 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Name="ButtonAdd" Content="Add Student" HorizontalAlignment="Left" Margin="63,51,0,0" VerticalAlignment="Top" Height="65" Width="144" Click="ButtonAdd_Click"/>
-        <Button Name="ButtonDel" Content="Delete Student" HorizontalAlignment="Left" Margin="256,51,0,0" VerticalAlignment="Top" Height="65" Width="144" Click="ButtonDel_Click"/>
+        <Button Name="ButtonDel" Content="Delete Student" HorizontalAlignment="Left" Margin="218,51,0,0" VerticalAlignment="Top" Height="65" Width="144" Click="ButtonDel_Click"/>
+        <Button Name="ButtonAddGrade" Content="Add Grade" HorizontalAlignment="Left" Margin="372,51,0,0" VerticalAlignment="Top" Height="65" Width="144" Click="ButtonGrade_Click"/>
         <DataGrid Name="DataGridStudents" Margin="63,152,284,48"/>
     </Grid>
 </Window>

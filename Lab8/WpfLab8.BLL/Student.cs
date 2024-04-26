@@ -19,7 +19,6 @@ namespace WpfLab8.BLL
             {
                 if (Grades != null)
                     return string.Join(", ", Grades);
-
                 return "No Grades";
             }
         }

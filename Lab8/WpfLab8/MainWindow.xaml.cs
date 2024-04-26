@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfLab8.APP;
 using WpfLab8.BLL;
+using System.IO;
 
 namespace WpfLab8
 {
@@ -74,6 +75,26 @@ namespace WpfLab8
                 std.Grades.Add(addGrade.Value);
                 DataGridStudents.Items.Refresh();
             }
+        }
+
+        private void ButtonSaveTXT_Click(object sender, RoutedEventArgs e)
+        {
+            FileStream fs=new FileStream("data.txt",FileMode.Create);
+            StreamWriter sw=new StreamWriter(fs);
+            foreach(Student student in Students)
+            {
+                sw.WriteLine("[[Student]]");
+                sw.WriteLine("[FirstName]");
+                sw.WriteLine(student.FirstName);
+                sw.WriteLine("[SurName]");
+                sw.WriteLine(student.LastName);
+                sw.WriteLine("[StudentNo]");
+                sw.WriteLine(student.StudentNo);
+                sw.WriteLine("[Faculty]");
+                sw.WriteLine(student.Faculty);
+                sw.WriteLine("[[]]");
+            }
+            sw.Close();
         }
     }
 }

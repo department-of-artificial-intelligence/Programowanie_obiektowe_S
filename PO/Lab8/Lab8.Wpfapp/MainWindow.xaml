@@ -5,11 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab8.Wpfapp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500">
+        Title="MainWindow" Height="450" Width="550">
     <Grid>
         <Button x:Name="AddStudentButton" Content="Add student" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="40" Width="80" Click="AddStudentButton_Click"/>
-        <Button x:Name="ViewGradesButton" Content="View grades" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="40" Width="80" Click="AddStudentButton_Click"/>
-        <Button Name="DeleteStudentButton" Content="Delete student" HorizontalAlignment="Left" Margin="400,10,0,0" VerticalAlignment="Top" Height="40" Width="80" Click="DeleteStudentButton_Click"/>
+        <Button x:Name="ViewGradesButton" Content="View grades" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Height="40" Width="80" Click="AddStudentButton_Click"/>
+        <Button Name="DeleteStudentButton" Content="Delete student" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Height="40" Width="84" Click="DeleteStudentButton_Click"/>
         <DataGrid Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,66,0,0" Width="480"/>
+        <Button Content="SaveTxt" HorizontalAlignment="Left" Margin="284,10,0,0" VerticalAlignment="Top"/>
+        <Button Name="SaveTxtButton" Width="60" Content="SaveTXT" HorizontalAlignment="Left" Margin="264,10,0,0" VerticalAlignment="Top" Click="SaveTxtButton_Click"/>
+        <Button Name="SaveXmlButton" Width="60" Content="SaveXML" HorizontalAlignment="Left" Margin="324,10,0,0" VerticalAlignment="Top" Click="SaveXmlButton_Click"/>
+        <Button Name="SaveJsonButton" Width="60" Content="SaveJSON" HorizontalAlignment="Left" Margin="384,10,0,0" VerticalAlignment="Top" Click="SaveJsonButton_Click"/>
+        <Button x:Name="LoadTxtButton" Width="60" Content="LoadTXT" HorizontalAlignment="Left" Margin="264,30,0,0" VerticalAlignment="Top" Click="LoadTxtButton_Click"/>
+        <Button Name="LoadXmlButton" Width="60" Content="LoadXML" HorizontalAlignment="Left" Margin="324,30,0,0" VerticalAlignment="Top" Click="LoadXmlButton_Click"/>
+        <Button Name="LoadJsonButton" Width="60" Content="LoadJSON" HorizontalAlignment="Left" Margin="384,30,0,0" VerticalAlignment="Top" Click="LoadJsonButton_Click"/>
+
     </Grid>
 </Window>

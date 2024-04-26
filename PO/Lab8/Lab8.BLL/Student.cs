@@ -7,7 +7,7 @@ namespace Lab8.BLL
         public string LastName { get; set; } = string.Empty;
         public ulong StudentNo {  get; set; }
         public string Faculty { get; set; } = string.Empty;
-        public IList<Grade> Grades { get; set; }
+        public List<Grade> Grades { get; set; }
         public string GradesText { get =>GetGradesText();}
 
         public Student() { }

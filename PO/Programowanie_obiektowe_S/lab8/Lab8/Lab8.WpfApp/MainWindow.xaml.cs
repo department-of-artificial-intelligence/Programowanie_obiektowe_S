@@ -75,6 +75,7 @@ namespace Lab8.WpfApp
                 sw.WriteLine("[Faculty]");
                 sw.WriteLine(student.Faculty);
                 sw.WriteLine("[[]]");
+                sw.WriteLine();
 
 
             }

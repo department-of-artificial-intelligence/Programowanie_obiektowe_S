@@ -5,12 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="650" Background="#233142">
+        Title="MainWindow" Height="600" Width="950" Background="#233142">
     <Grid>
-        <Button x:Name="Button_Add" Content="Add student" HorizontalAlignment="Left" Margin="50,30,0,0" VerticalAlignment="Top" Height="70" Width="150" Click="Add_Student" FontSize="20" Background="#455d7a" Cursor="Hand"/>
-        <Button x:Name="Button_Delete" Content="Delete student" HorizontalAlignment="Right" Margin="0,30,50,0" VerticalAlignment="Top" Height="70" Width="150" Click="Delete_Student" FontSize="20" Background="#f95959" Cursor="Hand"/>
-        <Button x:Name="Button_AddGrade" Content="Add grade" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="70" Width="150" Click="AddGrade_Student" FontSize="20" Background="#e3e3e3" Cursor="Hand"/>
-        <DataGrid x:Name="Student_Grid" Margin="0,130,0,0" Background="Gray" AutoGenerateColumns="False" FontSize="15">
+        <Button x:Name="Button_Add" Content="Add student" HorizontalAlignment="Left" Margin="30,110,0,0" VerticalAlignment="Top" Height="70" Width="150" Click="Add_Student" FontSize="20" Background="#455d7a" Cursor="Hand"/>
+        <Button x:Name="Button_Delete" Content="Delete student" HorizontalAlignment="Left" Margin="370,110,50,0" VerticalAlignment="Top" Height="70" Width="150" Click="Delete_Student" FontSize="20" Background="#f95959" Cursor="Hand"/>
+        <Button x:Name="Button_AddGrade" Content="Add grade" HorizontalAlignment="Left" Margin="200,110,0,0" VerticalAlignment="Top" Height="70" Width="150" Click="AddGrade_Student" FontSize="20" Background="#e3e3e3" Cursor="Hand"/>
+        <Button x:Name="SaveToTxt_Button" Content="Save to txt file" HorizontalAlignment="Right" Margin="0,110,290,0" VerticalAlignment="Top" Height="30" Width="120" Click="SaveToTxt_Click"/>
+        <Button Content="Load from txt file" HorizontalAlignment="Right" Margin="0,150,290,0" VerticalAlignment="Top" Height="30" Width="120"/>
+        <Button Content="Save to XML file" HorizontalAlignment="Right" Margin="0,110,160,0" VerticalAlignment="Top" Height="30" Width="120"/>
+        <Button Content="Load from XML file" HorizontalAlignment="Right" Margin="0,150,160,0" VerticalAlignment="Top" Height="30" Width="120"/>
+        <Button Content="Save to JSON file" HorizontalAlignment="Right" Margin="0,110,30,0" VerticalAlignment="Top" Height="30" Width="120"/>
+        <Button Content="Load from JSON file" HorizontalAlignment="Right" Margin="0,150,30,0" VerticalAlignment="Top" Height="30" Width="120"/>
+        <Button Content="Load another student" HorizontalAlignment="Right" Margin="0,70,30,0" VerticalAlignment="Top" Height="30" Width="185"/>
+        <Button Content="Load from txt file(stream)" HorizontalAlignment="Right" Margin="0,70,225,0" VerticalAlignment="Top" Height="30" Width="185"/>
+        <Button Content="Close stream" HorizontalAlignment="Right" Margin="0,30,225,0" VerticalAlignment="Top" Height="30" Width="185"/>
+        <DataGrid x:Name="Student_Grid" Margin="0,210,0,0" Background="Gray" AutoGenerateColumns="False" FontSize="20">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding SurName}"/>

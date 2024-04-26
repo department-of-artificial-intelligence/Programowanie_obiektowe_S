@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Lab8.WpfApp
 {
@@ -65,5 +66,33 @@ namespace Lab8.WpfApp
 			}
 		}
 
-	}
+        private void SaveToTxt_Click(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("data.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            foreach(Student student in Students)
+            {
+                sw.WriteLine("[[Student]]");
+                sw.WriteLine("[[FirstName]]");
+                sw.WriteLine(student.FirstName);
+                sw.WriteLine("[[LastName]]");
+                sw.WriteLine(student.SurName);
+                sw.WriteLine("[[StudentNo]]");
+                sw.WriteLine(student.StudentNo);
+                sw.WriteLine("[[Faculty]]");
+                sw.WriteLine(student.Faculty);
+                sw.WriteLine("[[Grades]]");
+                foreach (Grade grade in student.Grades)
+                {
+                    sw.WriteLine("[[" + grade.Lesson + "]]");
+                    sw.WriteLine(grade.Date);
+                    sw.WriteLine(grade.Value);
+                }
+                sw.WriteLine("[[]]");
+            }
+            if (fs.CanWrite)
+                MessageBox.Show("Txt file was succesfully saved");
+            sw.Close();
+        }
+    }
 }

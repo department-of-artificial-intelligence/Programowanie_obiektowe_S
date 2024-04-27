@@ -110,8 +110,7 @@ namespace Lab8.WpfApp
                 {
                     MessageBox.Show(s.ToString());
                 }
-                //Grades1.Add(new Grade(a.grades.NameSubject, a.grades.GradeS, a.grades.Weight));
-                //b= new ShowGradeWindow(student.Grades);
+                
                 DataGridStudents.Items.Refresh();
             }
             

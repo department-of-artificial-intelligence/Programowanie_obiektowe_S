@@ -24,7 +24,7 @@ namespace Lab8.WpfApp
         {
             InitializeComponent();
             MainWindow s = new MainWindow();
-            MessageBox.Show(grade.ToString());
+            
             DataGridShowsGrade.Columns.Add(new DataGridTextColumn()
             { Header = "Name Subject", Binding = new Binding("NameSubject") });
             

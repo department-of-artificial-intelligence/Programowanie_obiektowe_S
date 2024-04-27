@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Claims;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,15 +23,18 @@ namespace Lab8.WpfApp
         public MainWindow()
         {
             InitializeComponent();
+            Grades1 = new List<Grade> { new Grade() { NameSubject = "Polski", GradeS = 3.5, Weight = 1 } };
             Students = new List<Student> {
-                new Student(){ FirstName="Jan", SurName="Kowalski",Faculty="WIMII",StudentNo=1010, 
-                    Grades = new List<Grade> { new Grade() { NameSubject="Polski",GradeS=3.5,Weight=1 } } },
-                new Student(){ FirstName="Michał", SurName="Nowak",Faculty="WIMII",StudentNo=1011},
-                new Student(){ FirstName="Jacek", SurName="Makieta",Faculty="WIMII",StudentNo=1012}
+                new Student() {FirstName="Jan", SurName="Kowalski",Faculty="WIMII",StudentNo=1010,Grades=new List<Grade>() },
+                new Student() {FirstName="Michał", SurName="Nowak",Faculty="WIMII",StudentNo=1011,Grades=new List<Grade>() },
+                new Student() {FirstName="Jacek", SurName="Makieta",Faculty="WIMII",StudentNo=1012,Grades=new List<Grade>()},
+                //new Student("Jan", "Kowalski","WIMII",1022,new List<Grade>()),
+                //new Student("Michał","Nowak","WIMII",1011, new List<Grade>()),
+                //new Student("Jacek", "Makieta","WIMII",1012,new List<Grade>())
             };
             DataGridStudents.Columns.Add(new DataGridTextColumn()
             { Header = "First Name", Binding = new Binding("FirstName") });
-
+            
             DataGridStudents.Columns.Add(new DataGridTextColumn()
             { Header = "Sur Name", Binding = new Binding("SurName") });
 
@@ -41,24 +45,38 @@ namespace Lab8.WpfApp
             { Header = "Student No.", Binding = new Binding("StudentNo") });
 
             DataGridStudents.Columns.Add(new DataGridTextColumn()
-            { Header = "Name Subject", Binding = new Binding("NameSubject") });
-
-            DataGridStudents.Columns.Add(new DataGridTextColumn()
-            { Header = "Weight", Binding = new Binding("Weight") });
+            { Header = "Name Subject", Binding = new Binding("Grades.NameSubject") });
             
             DataGridStudents.Columns.Add(new DataGridTextColumn()
-            { Header = "Grade", Binding = new Binding("GradeS") });
+            { Header = "Weight", Binding = new Binding("Grades.Weight") });
+            
+            DataGridStudents.Columns.Add(new DataGridTextColumn()
+            { Header = "Grade", Binding = new Binding("Grades.GradeS") });
+
+
+            ShowGrade.IsEnabled = false;
 
             DataGridStudents.AutoGenerateColumns = false;
+            //DataGridStudents.ItemsSource = Grades1;
             DataGridStudents.ItemsSource = Students;
+            //ShowGradeWindow j = new ShowGradeWindow();
+            //j.DataGridShowsGrade.ItemsSource = Students;
+
             
-           // DataGridStudents.ItemsSource = Grades;
-            
+
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            ShowGradeWindow a;
+            if (DataGridStudents.SelectedItem is Student student)
+            {
+                if (student != null)
+                {
+                    
+                    ShowGrade.IsEnabled = true;
+                }
+            }
         }
 
         private void AddStudent_Click(object sender, RoutedEventArgs e)
@@ -83,18 +101,32 @@ namespace Lab8.WpfApp
         private void AddGrade_Click(object sender, RoutedEventArgs e)
         {
             AddGradeWindow a = new AddGradeWindow();
+            //ShowGradeWindow b;
             a.ShowDialog();
             if (DataGridStudents.SelectedItem is Student student)
             {
-                student.Grades.Add(new Grade(a.grades.NameSubject, a.grades.GradeS, a.grades.Weight));
-                Grades1.Add(new Grade(a.grades.NameSubject, a.grades.GradeS, a.grades.Weight));
-                
+                student.Grades.Add(a.grades);
+                foreach (Student s in Students)
+                {
+                    MessageBox.Show(s.ToString());
+                }
+                //Grades1.Add(new Grade(a.grades.NameSubject, a.grades.GradeS, a.grades.Weight));
+                //b= new ShowGradeWindow(student.Grades);
                 DataGridStudents.Items.Refresh();
             }
-            //else MessageBox.Show("Choose student");
             
+        }
+
+        private void ShowGrade_Click(object sender, RoutedEventArgs e)
+        {
+            ShowGradeWindow a;
+            //ShowGradeWindow a1 = new ShowGradeWindow();
+            if (DataGridStudents.SelectedItem is Student student)
+            {
+                    a = new ShowGradeWindow(student.Grades);
+                    a.ShowDialog();
+            }
             
-            //var gr = Students.FirstOrDefault(a => a.Grades);
         }
     }
 }

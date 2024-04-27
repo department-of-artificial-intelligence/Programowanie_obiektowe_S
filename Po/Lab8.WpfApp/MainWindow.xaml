@@ -20,6 +20,7 @@
             </DataGrid.RenderTransform>
         </DataGrid>
         <Button x:Name="AddGrade" Content="Add Grade" HorizontalAlignment="Left" Margin="460,40,0,0" VerticalAlignment="Top" Height="61" Width="209" RenderTransformOrigin="0.178,0.497" Click="AddGrade_Click" />
+        <Button x:Name="ShowGrade" Content="Show Grade" HorizontalAlignment="Left" Margin="698,40,0,0" VerticalAlignment="Top" Height="61" Width="92" Click="ShowGrade_Click"/>
 
     </Grid>
 </Window>

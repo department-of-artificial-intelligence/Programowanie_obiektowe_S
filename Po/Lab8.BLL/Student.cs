@@ -37,5 +37,10 @@ namespace Lab8.BLL
             StudentNo = 0;
 
         }
+        public override string ToString()
+        {
+            string g = string.Join(", ", Grades.Select(a=>a.ToString()));
+            return $"First Name {FirstName}, Sur Name {SurName}, Faculty {Faculty}, Grades {g}";
+        }
     }
 }

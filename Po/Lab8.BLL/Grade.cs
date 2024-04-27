@@ -23,5 +23,9 @@ namespace Lab8.BLL
             GradeS = gradeS;
             Weight = weight;
         }
+        public override string ToString()
+        {
+            return $"Name Subject {NameSubject}, Weight {Weight}, Grade {GradeS}";
+        }
     }
 }

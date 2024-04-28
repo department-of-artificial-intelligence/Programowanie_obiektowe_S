@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid x:Name="GridStudents">
-        <Button x:Name="AddStudent" Content="AddStudent" HorizontalAlignment="Left" Margin="113,66,0,0" VerticalAlignment="Top" Height="67" Width="175"/>
-        <Button x:Name="DeleteStudent" Content="DeleteStudent" HorizontalAlignment="Left" Margin="514,66,0,0" VerticalAlignment="Top" Height="67" Width="175"/>
-        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5" Margin="51,180,54,61" SelectionChanged="DataGrid_SelectionChanged">
+        <Button x:Name="AddStudent" Content="AddStudent" HorizontalAlignment="Left" Margin="45,66,0,0" VerticalAlignment="Top" Height="67" Width="175" Click="AddStudent_Click"/>
+        <Button x:Name="DeleteStudent" Content="DeleteStudent" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" Height="67" Width="175" Click="DeleteStudent_Click"/>
+        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5" Margin="157,204,161,57" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -19,6 +19,7 @@
                 </TransformGroup>
             </DataGrid.RenderTransform>
         </DataGrid>
+        <Button x:Name="ButtonAddGrade" Content="Add Grade" HorizontalAlignment="Left" Margin="583,66,0,0" VerticalAlignment="Top" Height="67" Width="175" Click="ButtonAddGrade_Click"/>
 
     </Grid>
 </Window>

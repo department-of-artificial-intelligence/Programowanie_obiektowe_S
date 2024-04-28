@@ -12,6 +12,7 @@ namespace Lab8.BLL
         public string SurName { get; set; }
         public string Faculty { get; set; }
         public int StudentNo { get; set; }
+        public List<Grade> Grades { get; set; }
 
         public Student(string firstName, string surName, string faculty, int studentNo)
         {
@@ -19,6 +20,7 @@ namespace Lab8.BLL
             SurName = surName;
             Faculty = faculty;
             StudentNo = studentNo;
+            Grades = new List<Grade>();
         }
 
         public Student() 
@@ -27,11 +29,13 @@ namespace Lab8.BLL
             SurName = "No sur name";
             Faculty = "No faculty";
             StudentNo = 0;
+            Grades = new List<Grade>();
         }
         public override string ToString()
         {
             var str = $"First name: {FirstName}, sur name: {SurName}" +
                 $", faculty: {Faculty}, student number: {StudentNo} ";
+            str += string.Join<Grade>('\n', Grades);
             return str;
         }
     }

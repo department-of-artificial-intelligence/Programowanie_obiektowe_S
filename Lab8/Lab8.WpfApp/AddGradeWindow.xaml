@@ -1,0 +1,17 @@
+﻿<Window x:Class="Lab8.WpfApp.AddGradeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8.WpfApp"
+        mc:Ignorable="d"
+        Title="AddGradeWindow" Height="450" Width="400">
+    <Grid>
+        <TextBlock x:Name="TextBlock_value" HorizontalAlignment="Left" Margin="95,143,0,0" TextWrapping="Wrap" Text="Value:" VerticalAlignment="Top" Width="82" Height="22"/>
+        <TextBlock x:Name="TextBlock_subject" HorizontalAlignment="Left" Margin="95,180,0,0" TextWrapping="Wrap" Text="Subject:" VerticalAlignment="Top"/>
+        <TextBox x:Name="outbox_value" HorizontalAlignment="Left" Margin="212,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="outbox_subject" HorizontalAlignment="Left" Margin="212,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="ButtonAddGrade" Content="Add Grade" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Height="33" Width="198" Click="ButtonAddGrade_Click"/>
+
+    </Grid>
+</Window>

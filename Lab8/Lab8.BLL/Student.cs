@@ -23,7 +23,7 @@ namespace Lab8.BLL
 
 				return Math.Round(average, 2);
 			} set { } }
-        public IList<Grade> Grades { get; set; }
+        public List<Grade> Grades { get; set; }
         public Student()
         {
             StudentNo = 0;
@@ -33,7 +33,7 @@ namespace Lab8.BLL
             Grades = new List<Grade>();
         }
 
-        public Student(string firstName, string surName, string faculty, int studentNo, IList<Grade> grades)
+        public Student(string firstName, string surName, string faculty, int studentNo, List<Grade> grades)
         {
             FirstName = firstName;
             SurName = surName;

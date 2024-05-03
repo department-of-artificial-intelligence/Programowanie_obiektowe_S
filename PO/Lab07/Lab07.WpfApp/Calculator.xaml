@@ -17,13 +17,14 @@
         <Button x:Name="Btn1" Content="1" HorizontalAlignment="Left" Height="49" Margin="10,222,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click"/>
         <Button x:Name="Btn2" Content="2" HorizontalAlignment="Left" Height="49" Margin="70,222,0,0" VerticalAlignment="Top" Width="49" Click="Button_Click"/>
         <Button x:Name="Btn3" Content="3" HorizontalAlignment="Left" Height="49" Margin="131,222,0,0" VerticalAlignment="Top" Width="48" Click="Button_Click"/>
-        <Button x:Name="Btn0" Content="0" HorizontalAlignment="Left" Height="49" Margin="70,278,0,0" VerticalAlignment="Top" Width="49" Click="Button_Click"/>
+        <Button x:Name="Btn0" Content="0" HorizontalAlignment="Left" Height="49" Margin="10,278,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click"/>
         <Button x:Name="BtnAdd" Content="+" HorizontalAlignment="Left" Height="90" Margin="205,131,0,0" VerticalAlignment="Top" Width="40" Click="Button_Add"/>
         <Button x:Name="BtnCle" Content="C" HorizontalAlignment="Left" Height="40" Margin="250,131,0,0" VerticalAlignment="Top" Width="40" Click="Button_Clear"/>
-        <Button x:Name="BtnMul" Content="*" HorizontalAlignment="Left" Height="40" Margin="250,181,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button x:Name="BtnMul" Content="*" HorizontalAlignment="Left" Height="40" Margin="250,181,0,0" VerticalAlignment="Top" Width="40" Click="Button_Mul"/>
         <Button x:Name="BtnMin" Content="-" HorizontalAlignment="Left" Height="40" Margin="205,226,0,0" VerticalAlignment="Top" Width="40" Click="Button_Sub"/>
-        <Button x:Name="BtnDiv" Content="/" HorizontalAlignment="Left" Height="40" Margin="250,226,0,0" VerticalAlignment="Top" Width="40"/>
+        <Button x:Name="BtnDiv" Content="/" HorizontalAlignment="Left" Height="40" Margin="250,226,0,0" VerticalAlignment="Top" Width="40" Click="Button_Div"/>
         <Button x:Name="BtnSol" Content="=" HorizontalAlignment="Left" Height="40" Margin="205,271,0,0" VerticalAlignment="Top" Width="85" Click="Button_Solve"/>
+        <Button x:Name="BtnDot" Content="," HorizontalAlignment="Left" Height="49" Margin="130,278,0,0" VerticalAlignment="Top" Width="49" Click="Button_Click"/>
 
     </Grid>
 </Window>

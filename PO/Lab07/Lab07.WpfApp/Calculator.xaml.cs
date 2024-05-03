@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Lab07.WpfApp
 {
@@ -20,7 +9,7 @@ namespace Lab07.WpfApp
     public partial class Calculator : Window
     {
         public double value1;
-        public double value2;
+        public double result;
         public char op;
 
         public Calculator()
@@ -34,16 +23,11 @@ namespace Lab07.WpfApp
                 PropText.Text += Btn.Content;
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Clear(object sender, RoutedEventArgs e)
         {
             if (sender is Button Btn)
                 PropText.Text = "";
-            value2 = 0;
+            result = 0;
             value1 = 0;
         }
 
@@ -59,18 +43,43 @@ namespace Lab07.WpfApp
             PropText.Text = "";
             op = 's';
         }
+
+        private void Button_Mul(object sender, RoutedEventArgs e)
+        {
+            value1 = double.Parse(PropText.Text);
+            PropText.Text = "";
+            op = 'm';
+        }
+
+        private void Button_Div(object sender, RoutedEventArgs e)
+        {
+            value1 = double.Parse(PropText.Text);
+            PropText.Text = "";
+            op = 'd';
+        }
+
         private void Button_Solve(object sender, RoutedEventArgs e)
         {
-            value2 = double.Parse(PropText.Text);
-            if (op == 'a')
+            switch (op)
             {
-                PropText.Text = (value1 + value2).ToString();
+                case 'a':
+                    result = value1 + double.Parse(PropText.Text);
+                    PropText.Text = result.ToString();
+                    break;
+
+                case 's':
+                    result = value1 - double.Parse(PropText.Text);
+                    PropText.Text = result.ToString();
+                    break;
+                case 'm':
+                    result = value1 * double.Parse(PropText.Text);
+                    PropText.Text = result.ToString();
+                    break;
+                case 'd':
+                    result = value1 / double.Parse(PropText.Text);
+                    PropText.Text = result.ToString();
+                    break;
             }
-            if (op == 's')
-            {
-                PropText.Text = (value1 - value2).ToString();
-            }
-            
         }
     }
 }

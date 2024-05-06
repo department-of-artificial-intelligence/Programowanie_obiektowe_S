@@ -7,22 +7,15 @@
         mc:Ignorable="d"
         Title="Calculator" Height="400" Width="300">
     <Grid Margin="0,0,0,0">
-        <Button x:Name="Button_1" Content="1" HorizontalAlignment="Left" Margin="19,90,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_Click" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_2" Content="2" HorizontalAlignment="Left" Margin="74,90,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_Click" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_3" Content="3" HorizontalAlignment="Left" Margin="129,90,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_Click" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_4" Content="4" HorizontalAlignment="Left" Margin="19,145,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_Click" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_5" Content="5" HorizontalAlignment="Left" Margin="74,145,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_Click" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_6" Content="6" HorizontalAlignment="Left" Margin="129,145,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_Click" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_7" Content="7" HorizontalAlignment="Left" Margin="19,200,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_Click" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_8" Content="8" HorizontalAlignment="Left" Margin="74,200,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_Click" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_9" Content="9" HorizontalAlignment="Left" Margin="129,200,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_Click" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_0" Content="0" HorizontalAlignment="Left" Margin="74,255,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_Click" RenderTransformOrigin="-0.556,0.389"/>
-        <TextBox x:Name="Result" HorizontalAlignment="Left" Height="40" Margin="19,25,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="252" FontSize="25" Background="#FFE0E0E0" IsEnabled="False" TextChanged="Result_TextChanged"/>
-        <Button x:Name="Button_sum" Content="+" HorizontalAlignment="Left" Margin="221,90,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_math" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_difference" Content="-" HorizontalAlignment="Left" Margin="221,145,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_math" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_product" Content="X" HorizontalAlignment="Left" Margin="221,200,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_math" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_quotient" Content="/" HorizontalAlignment="Left" Margin="221,255,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_math" RenderTransformOrigin="-0.556,0.389"/>
-        <Button x:Name="Button_equal" Content="=" HorizontalAlignment="Left" Margin="221,310,0,0" VerticalAlignment="Top" FontSize="20" Background="Gray" Width="50" Height="50" Click="Button_equal" RenderTransformOrigin="-0.556,0.389"/>
-
+        <TextBox x:Name="ResultBox" HorizontalAlignment="Left" Margin="25,20,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="250" Height="50" FontSize="25"/>
+        <Button x:Name="Button1" Content="1" HorizontalAlignment="Left" Margin="25,90,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="ButtonNoClick"/>
+        <Button x:Name="Button2" Content="2" HorizontalAlignment="Left" Margin="85,90,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="ButtonNoClick"/>
+        <Button x:Name="Button3" Content="3" HorizontalAlignment="Left" Margin="145,90,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="ButtonNoClick"/>
+        <Button x:Name="Button4" Content="4" HorizontalAlignment="Left" Margin="25,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="ButtonNoClick"/>
+        <Button x:Name="Button5" Content="5" HorizontalAlignment="Left" Margin="85,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="ButtonNoClick"/>
+        <Button x:Name="Button6" Content="6" HorizontalAlignment="Left" Margin="145,150,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="ButtonNoClick"/>
+        <Button x:Name="Button7" Content="7" HorizontalAlignment="Left" Margin="25,210,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="ButtonNoClick"/>
+        <Button x:Name="Button8" Content="8" HorizontalAlignment="Left" Margin="85,210,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="ButtonNoClick"/>
+        <Button x:Name="Button9" Content="9" HorizontalAlignment="Left" Margin="145,210,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="ButtonNoClick"/>
     </Grid>
 </Window>

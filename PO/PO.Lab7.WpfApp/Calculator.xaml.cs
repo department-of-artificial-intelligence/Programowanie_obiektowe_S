@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-
 namespace PO.Lab7.WpfApp
 {
     /// <summary>
@@ -12,19 +11,9 @@ namespace PO.Lab7.WpfApp
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonNoClick(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Button_math(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_equal(object sender, RoutedEventArgs e)
-        {
-
+            ResultBox.Text = sender.ToString();
         }
     }
 }

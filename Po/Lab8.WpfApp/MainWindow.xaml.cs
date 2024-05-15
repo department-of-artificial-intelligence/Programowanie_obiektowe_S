@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Lab8.BLL;
+using System.IO;
 namespace Lab8.WpfApp
 {
     /// <summary>
@@ -126,6 +127,14 @@ namespace Lab8.WpfApp
                     a.ShowDialog();
             }
             
+        }
+
+        private void SaveToTxtFile_Click(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("baza.txt",FileMode.Create);
+            StreamWriter sw =new StreamWriter(fs);
+            sw.WriteLine("[[Student]]");
+            sw.Close();
         }
     }
 }

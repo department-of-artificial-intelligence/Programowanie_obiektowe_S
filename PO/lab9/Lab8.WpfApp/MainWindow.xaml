@@ -1,0 +1,28 @@
+﻿<Window x:Class="Lab8.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8.WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="462" Width="647">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="288*"/>
+            <ColumnDefinition Width="359*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,181,0,10" Grid.ColumnSpan="2"/>
+        <Button x:Name="AddStudentButtonn" Content="AddStudent" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Height="62" Width="109" Click="AddStudentButton_Click"/>
+        <Button x:Name="ButtonRemoveStudent" Content="Delete student" HorizontalAlignment="Left" Margin="124,19,0,0" VerticalAlignment="Top" Height="62" Width="109" Click="ButtonRemoveStudent_Click"/>
+        <Button x:Name="ButtonCloseStream" Content="Close Stream" HorizontalAlignment="Left" Margin="64,24,0,0" VerticalAlignment="Top" Click="Close_Stream" Width="151" Grid.Column="1"/>
+        <Button x:Name="Load_Another_Student" Content="Load Another Student" HorizontalAlignment="Left" Margin="64,49,0,0" VerticalAlignment="Top" Width="151" Grid.Column="1"/>
+        <Button Content="Load from txt file (stream)&#xD;&#xA;" HorizontalAlignment="Left" Margin="64,74,0,0" VerticalAlignment="Top" Click="Load_from_txt_stream" Height="22" Width="151" Grid.Column="1"/>
+        <Button x:Name="Save_To_Txt" Content="Save to txt file" HorizontalAlignment="Left" Margin="247,106,0,0" VerticalAlignment="Top" Width="114" Click="SaveToTxt" Grid.ColumnSpan="2"/>
+        <Button Content="Load from txt file" HorizontalAlignment="Left" Margin="247,131,0,0" VerticalAlignment="Top" Width="114" Grid.ColumnSpan="2"/>
+        <Button Content="Save to XML file" HorizontalAlignment="Left" Margin="78,106,0,0" VerticalAlignment="Top" Click="Save_to_XML" Width="114" Grid.Column="1"/>
+        <Button Content="Load from XML file" HorizontalAlignment="Left" Margin="78,131,0,0" VerticalAlignment="Top" Width="114" Grid.Column="1"/>
+        <Button Content="Save to JSON file" HorizontalAlignment="Left" Margin="197,106,0,0" VerticalAlignment="Top" Width="115" Grid.Column="1"/>
+        <Button Content="Load to JSON file" HorizontalAlignment="Left" Margin="195,131,0,0" VerticalAlignment="Top" Width="117" Grid.Column="1"/>
+
+    </Grid>
+</Window>

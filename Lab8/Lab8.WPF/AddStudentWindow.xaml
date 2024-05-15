@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="AddStudent" Height="363" Width="297">
     <Grid Margin="10,10,10,10">
-        <TextBox x:Name="TextBoxFirstname" HorizontalAlignment="Left" Margin="69,91,0,0" TextWrapping="Wrap" Text="Firstname:" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TextBoxSurname" HorizontalAlignment="Left" Margin="69,114,0,0" TextWrapping="Wrap" Text="Surname:" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TextBoxFaculty" HorizontalAlignment="Left" Margin="69,137,0,0" TextWrapping="Wrap" Text="Faculty:" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TextBoxStudentNo" HorizontalAlignment="Left" Margin="69,0,0,0" TextWrapping="Wrap" Text="Student No.:" VerticalAlignment="Center" Width="120"/>
-        <Button x:Name="ButtonConfirm" Content="Add Student" HorizontalAlignment="Center" Height="63" Margin="0,242,0,0" VerticalAlignment="Top" Width="236"/>
+        <TextBox x:Name="TextBoxFirstname" HorizontalAlignment="Left" Margin="69,91,0,0" TextWrapping="Wrap" Text="Firstname: " VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBoxSurname" HorizontalAlignment="Left" Margin="69,114,0,0" TextWrapping="Wrap" Text="Surname: " VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBoxFaculty" HorizontalAlignment="Left" Margin="69,137,0,0" TextWrapping="Wrap" Text="Faculty: " VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBoxStudentNo" HorizontalAlignment="Left" Margin="69,160,0,0" TextWrapping="Wrap" Text="Student No.: " VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="ButtonConfirm" Content="Add Student" HorizontalAlignment="Center" Height="63" Margin="0,242,0,0" VerticalAlignment="Top" Width="236" Click="ButtonConfirm_Click"/>
 
     </Grid>
 </Window>

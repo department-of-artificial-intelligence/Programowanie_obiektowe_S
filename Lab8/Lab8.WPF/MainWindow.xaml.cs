@@ -42,5 +42,14 @@ namespace Lab8.WPF
             AddStudentWindow addStudentWindow = new AddStudentWindow();
             addStudentWindow.ShowDialog();
         }
+
+        private void ButtonDeleteStudent_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataGridStudents.SelectedItems is Student studentToRemove)
+            {
+                Students.Remove(studentToRemove);
+                DataGridStudents.Items.Refresh();
+            }
+        }
     }
 }

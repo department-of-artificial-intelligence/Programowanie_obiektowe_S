@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="ButtonAddStudent" Content="AddStudent" HorizontalAlignment="Left" Height="52" Margin="31,38,0,0" VerticalAlignment="Top" Width="85" Click="ButtonAddStudent_Click"/>
-        <Button x:Name="ButtonDeleteStudent" Content="Delete Student" HorizontalAlignment="Left" Height="52" Margin="156,38,0,0" VerticalAlignment="Top" Width="85"/>
+        <Button x:Name="ButtonDeleteStudent" Content="Delete Student" HorizontalAlignment="Left" Height="52" Margin="156,38,0,0" VerticalAlignment="Top" Width="85" Click="ButtonDeleteStudent_Click"/>
         <DataGrid x:Name="DataGridStudents" HorizontalAlignment="Left" Height="240" Margin="31,131,0,0" VerticalAlignment="Top" Width="733" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
     </Grid>

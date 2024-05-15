@@ -35,7 +35,7 @@ namespace Student.WpfApp
         }
 
 
-        private void REMOVE (object sender, RoutedEventArgs e)
+        private void REMOVE(object sender, RoutedEventArgs e)
         {
 
         }

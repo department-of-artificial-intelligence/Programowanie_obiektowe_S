@@ -8,8 +8,17 @@
         Title="StudentMainWindow" Height="450" Width="800">
     <Grid Margin="0,0,0,10">
         <Button Content="Button" HorizontalAlignment="Left" Margin="703,154,0,0" VerticalAlignment="Top" Width="0"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,201,0,79" SelectionChanged="DataGrid_SelectionChanged_1"/>
-        <Button Content="AddStudent" HorizontalAlignment="Left" Margin="43,51,0,0" VerticalAlignment="Top" Height="83" Width="145" Click="Button_Click_1"/>
-        <Button Content="RemovStudent&#xD;&#xA;" HorizontalAlignment="Left" Margin="255,51,0,0" VerticalAlignment="Top" Height="83" Width="145" Click="Button_Click"/>
+        <Button Content="Close stream" HorizontalAlignment="Left" Margin="378,10,0,0" VerticalAlignment="Top" Height="28" Width="131"/>
+        <Button Content="Load another student" HorizontalAlignment="Left" Margin="514,10,0,0" VerticalAlignment="Top" Height="28" Width="131"/>
+        <Button Content="Load from txt file(Stream)" HorizontalAlignment="Left" Margin="650,10,0,0" VerticalAlignment="Top" Height="28" Width="140"/>
+        <Button Content="Save to txt file" HorizontalAlignment="Left" Margin="378,43,0,0" VerticalAlignment="Top" Height="28" Width="131"/>
+        <Button Content="Save to XML file" HorizontalAlignment="Left" Margin="514,43,0,0" VerticalAlignment="Top" Height="28" Width="131"/>
+        <Button Content="Save to JSON file" HorizontalAlignment="Left" Margin="650,43,0,0" VerticalAlignment="Top" Height="28" Width="131"/>
+        <Button Content="Load from txt file" HorizontalAlignment="Left" Margin="378,75,0,0" VerticalAlignment="Top" Height="28" Width="131"/>
+        <Button Content="Load from XML file" HorizontalAlignment="Left" Margin="514,76,0,0" VerticalAlignment="Top" Height="28" Width="131"/>
+        <Button Content="Load from JSON FILE" HorizontalAlignment="Left" Margin="650,77,0,0" VerticalAlignment="Top" Height="28" Width="131"/>
+        <Button Content="Add student" HorizontalAlignment="Left" Margin="25,41,0,0" VerticalAlignment="Top" Height="50" Width="101"/>
+        <Button Content="Delete Student" HorizontalAlignment="Left" Margin="149,41,0,0" VerticalAlignment="Top" Height="50" Width="101"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,185,267,115"/>
     </Grid>
 </Window>

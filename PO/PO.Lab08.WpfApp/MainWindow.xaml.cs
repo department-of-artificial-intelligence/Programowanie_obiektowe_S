@@ -26,9 +26,7 @@ namespace PO.Lab08.WpfApp
 
         }
     }
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         public IList<Student> Students { get; set; }
@@ -49,12 +47,22 @@ namespace PO.Lab08.WpfApp
             DataStudents.ItemsSource = Students;
         }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private void Click(object sender, RoutedEventArgs e)
         {
+            Button button = (Button)sender;
+            if (button == AddButton)
+                AddStudent();
+            if (button == DeleteButton)
+                DeleteStudent();
+        }
+
+        private void AddStudent()
+        {
+            ShowDialog();
 
         }
 
-        private void Delete_Click(object sender, RoutedEventArgs e)
+        private void DeleteStudent()
         {
 
         }

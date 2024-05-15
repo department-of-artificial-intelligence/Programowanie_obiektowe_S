@@ -1,0 +1,21 @@
+﻿<Window x:Class="PO.Lab08.WpfApp.AddStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PO.Lab08.WpfApp"
+        mc:Ignorable="d"
+        Title="Add Student" Height="350" Width="250">
+    <Grid>
+        <TextBox x:Name="FirstNameGet" HorizontalAlignment="Left" Margin="30,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="LastNameGet" HorizontalAlignment="Left" Margin="30,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="IdNumberGet" HorizontalAlignment="Left" Margin="30,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DepartmentGet" HorizontalAlignment="Left" Margin="30,290,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="180,270,0,0" VerticalAlignment="Top" Height="30" Width="60"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="180,230,0,0" VerticalAlignment="Top" Height="30" Width="60"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,30,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top" Width="61"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,110,0,0" TextWrapping="Wrap" Text="LastName:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,194,0,0" TextWrapping="Wrap" Text="ID Number: " VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

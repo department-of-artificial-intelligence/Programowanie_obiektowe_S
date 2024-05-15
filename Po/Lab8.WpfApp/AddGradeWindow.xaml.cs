@@ -48,9 +48,9 @@ namespace Lab8.WpfApp
             if (!int.TryParse(TextBoxWeight.Text, out int w1))
                 MessageBox.Show("Student is not a number");
             grades.Weight = w1;
-            if ((!double.TryParse(TextBoxGradae.Text, out double grade1)))
-                MessageBox.Show("Student is not a number");
-            grades.GradeS = grade1;
+            //if ((!double.TryParse(TextBoxGradae.Text, out double grade1)))
+            //    MessageBox.Show("Student is not a number");
+            grades.GradeS = TextBoxGradae.Text;
 
 
             DialogResult = true;

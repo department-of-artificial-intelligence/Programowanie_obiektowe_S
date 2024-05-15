@@ -9,20 +9,23 @@ namespace Lab8.BLL
     public class Grade
     {
         public string NameSubject { get; set; }
-        public double GradeS { get; set; }
+        public string GradeS { get; set;  }
         public int Weight { get; set; }
         public Grade()
         {
             NameSubject = "";
-            GradeS = 0;
+            GradeS = "";
             Weight = 0;
         }
-        public Grade(string nameSubject, double gradeS,int weight)
+        public Grade(string nameSubject, string gradeS,int weight)
         {
             NameSubject = nameSubject;
             GradeS = gradeS;
             Weight = weight;
         }
+
+
+
         public override string ToString()
         {
             return $"Name Subject {NameSubject}, Weight {Weight}, Grade {GradeS}";

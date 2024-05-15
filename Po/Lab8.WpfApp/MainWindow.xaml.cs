@@ -19,16 +19,27 @@ namespace Lab8.WpfApp
     public partial class MainWindow : Window
     {
         public IList<Student> Students { get; set; }
+        public IList<Student> StudentsWithoutGrades { get; set; }
         public IList<Grade> Grades1 { get; set; }
        
         public MainWindow()
         {
             InitializeComponent();
-            Grades1 = new List<Grade> { new Grade() { NameSubject = "Polski", GradeS = 3.5, Weight = 1 } };
+            Grades1 = new List<Grade> { new Grade() { NameSubject = "Polski", GradeS = "3.5", Weight = 1 } };
             Students = new List<Student> {
-                new Student() {FirstName="Jan", SurName="Kowalski",Faculty="WIMII",StudentNo=1010,Grades=new List<Grade>() },
+                new Student() {FirstName="Jan", SurName="Kowalski",Faculty="WIMII",StudentNo=1010,/*Grades=new List<Grade>()*/
+                    Grades=new List<Grade> { new Grade() { NameSubject = "Polski", GradeS = "3.5", Weight = 1 } } },
                 new Student() {FirstName="Michał", SurName="Nowak",Faculty="WIMII",StudentNo=1011,Grades=new List<Grade>() },
                 new Student() {FirstName="Jacek", SurName="Makieta",Faculty="WIMII",StudentNo=1012,Grades=new List<Grade>()},
+                //new Student("Jan", "Kowalski","WIMII",1022,new List<Grade>()),
+                //new Student("Michał","Nowak","WIMII",1011, new List<Grade>()),
+                //new Student("Jacek", "Makieta","WIMII",1012,new List<Grade>())
+            };
+            StudentsWithoutGrades = new List<Student> {
+                new Student() {FirstName="Jan", SurName="Kowalski",Faculty="WIMII",StudentNo=1010,/*Grades=new List<Grade>()*/
+                    },
+                new Student() {FirstName="Michał", SurName="Nowak",Faculty="WIMII",StudentNo=1011},
+                new Student() {FirstName="Jacek", SurName="Makieta",Faculty="WIMII",StudentNo=1012},
                 //new Student("Jan", "Kowalski","WIMII",1022,new List<Grade>()),
                 //new Student("Michał","Nowak","WIMII",1011, new List<Grade>()),
                 //new Student("Jacek", "Makieta","WIMII",1012,new List<Grade>())
@@ -45,21 +56,17 @@ namespace Lab8.WpfApp
             DataGridStudents.Columns.Add(new DataGridTextColumn()
             { Header = "Student No.", Binding = new Binding("StudentNo") });
 
-            DataGridStudents.Columns.Add(new DataGridTextColumn()
-            { Header = "Name Subject", Binding = new Binding("Grades.NameSubject") });
             
             DataGridStudents.Columns.Add(new DataGridTextColumn()
-            { Header = "Weight", Binding = new Binding("Grades.Weight") });
-            
-            DataGridStudents.Columns.Add(new DataGridTextColumn()
-            { Header = "Grade", Binding = new Binding("Grades.GradeS") });
+            { Header = "Grade", Binding = new Binding("GradesString") });
 
 
-            ShowGrade.IsEnabled = false;
+            //ShowGrade.IsEnabled = false;
 
             DataGridStudents.AutoGenerateColumns = false;
             //DataGridStudents.ItemsSource = Grades1;
             DataGridStudents.ItemsSource = Students;
+            //DataGridStudents.ItemsSource = (System.Collections.IEnumerable)Students.FirstOrDefault(a=>a.Grades==Grades1);
             //ShowGradeWindow j = new ShowGradeWindow();
             //j.DataGridShowsGrade.ItemsSource = Students;
 
@@ -74,8 +81,8 @@ namespace Lab8.WpfApp
             {
                 if (student != null)
                 {
+                    //ShowGrade.IsEnabled = true;
                     
-                    ShowGrade.IsEnabled = true;
                 }
             }
         }
@@ -84,8 +91,13 @@ namespace Lab8.WpfApp
         {
             AddStudentWindow addStudentWindow = new AddStudentWindow();
             addStudentWindow.ShowDialog();
-            Students.Add(new Student(addStudentWindow.Student1.FirstName, addStudentWindow.Student1.SurName, addStudentWindow.Student1.Faculty, addStudentWindow.Student1.StudentNo));
+            if (addStudentWindow.Student1.FirstName != null)
+            { 
+                Students.Add(new Student(addStudentWindow.Student1.FirstName, addStudentWindow.Student1.SurName, addStudentWindow.Student1.Faculty, addStudentWindow.Student1.StudentNo));
+                StudentsWithoutGrades.Add(new Student(addStudentWindow.Student1.FirstName, addStudentWindow.Student1.SurName, addStudentWindow.Student1.Faculty, addStudentWindow.Student1.StudentNo));
+                
             DataGridStudents.Items.Refresh();
+            }
 
             //addStudentWindow.DialogResult = true;
         }
@@ -94,6 +106,7 @@ namespace Lab8.WpfApp
         {
             if (DataGridStudents.SelectedItem is Student studentToRemove)
             {
+                Students.Remove(studentToRemove);
                 Students.Remove(studentToRemove);
                 DataGridStudents.Items.Refresh();
             }
@@ -107,34 +120,139 @@ namespace Lab8.WpfApp
             if (DataGridStudents.SelectedItem is Student student)
             {
                 student.Grades.Add(a.grades);
-                foreach (Student s in Students)
-                {
-                    MessageBox.Show(s.ToString());
-                }
                 
-                DataGridStudents.Items.Refresh();
+                //foreach (Student s in Students)
+                //{
+                //    MessageBox.Show(s.ToString());
+                //}
+                
             }
+            DataGridStudents.Items.Refresh();
+            
             
         }
 
-        private void ShowGrade_Click(object sender, RoutedEventArgs e)
+        //private void ShowGrade_Click(object sender, RoutedEventArgs e)
+        //{
+        //    ShowGradeWindow a;
+        //    //ShowGradeWindow a1 = new ShowGradeWindow();
+        //    if (DataGridStudents.SelectedItem is Student student)
+        //    {
+        //            a = new ShowGradeWindow(student.Grades);
+        //            a.ShowDialog();
+        //    }
+        //    
+        //}
+
+        private async void SaveToTxtFile_Click(object sender, RoutedEventArgs e)
         {
-            ShowGradeWindow a;
-            //ShowGradeWindow a1 = new ShowGradeWindow();
-            if (DataGridStudents.SelectedItem is Student student)
+            try
             {
-                    a = new ShowGradeWindow(student.Grades);
-                    a.ShowDialog();
+                using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.txt"))
+
+                    foreach (var student in StudentsWithoutGrades)
+                    {
+                        await streamWriter.Save(student);
+                    }
+                MessageBox.Show("File saved successfully!");
             }
-            
+            catch (Exception ex)
+            { 
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void SaveToTxtFile_Click(object sender, RoutedEventArgs e)
+        private void SaveToXMLFile_Click(object sender, RoutedEventArgs e)
         {
-            FileStream fs = new FileStream("baza.txt",FileMode.Create);
-            StreamWriter sw =new StreamWriter(fs);
-            sw.WriteLine("[[Student]]");
-            sw.Close();
+            try
+            {
+                using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.xml"))
+                    
+                         streamWriter.Save(StudentsWithoutGrades);
+                MessageBox.Show("File saved successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SaveToJSONFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.json"))
+                   
+                         streamWriter.Save(StudentsWithoutGrades);
+                MessageBox.Show("File saved successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void LoadFromTxtFile_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                using (StreamReader streamReader = new StreamReader("C:\\Users\\Admin\\Documents\\baza.txt"))
+                {
+                    IList<Student> students = await streamReader.Load<List<Student>>();
+                    if (students != null)
+                        StudentsWithoutGrades = students;
+                }
+                DataGridStudents.ItemsSource = StudentsWithoutGrades;
+                DataGridStudents.Items.Refresh();
+                MessageBox.Show("File loaded successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading file: " + ex.Message);
+            }
+
+
+        }
+
+        private async void LoadFromXMLFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (StreamReader streamReader = new StreamReader("C:\\Users\\Admin\\Documents\\baza.xml"))
+                {
+                    IList<Student> students = await streamReader.Load<List<Student>>();
+                    if (students != null)
+                        StudentsWithoutGrades = students;
+                }
+                DataGridStudents.ItemsSource = StudentsWithoutGrades;
+                DataGridStudents.Items.Refresh();
+                MessageBox.Show("File loaded successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading file: " + ex.Message);
+            }
+        }
+
+        private async void LoadFromJSONFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (StreamReader streamReader = new StreamReader("C:\\Users\\Admin\\Documents\\baza.json"))
+                {
+                    IList<Student> students = await streamReader.Load<List<Student>>();
+                    if (students != null)
+                        StudentsWithoutGrades = students;
+                }
+                DataGridStudents.ItemsSource = StudentsWithoutGrades;
+                DataGridStudents.Items.Refresh();
+                MessageBox.Show("File loaded successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading file: " + ex.Message);
+            }
         }
     }
 }

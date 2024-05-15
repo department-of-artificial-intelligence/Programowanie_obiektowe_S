@@ -20,6 +20,7 @@ namespace Lab08.WpfApp
     /// Interaction logic for AddStudentWindow.xaml
     /// </summary>
     /// 
+
     public partial class AddStudentWindow : Window
     {
         public Student Student { get; set; }

@@ -10,8 +10,10 @@
         <Button x:Name="AddBtn" Content="Add Student" HorizontalAlignment="Left" Margin="42,34,0,0" VerticalAlignment="Top" Height="53" Width="152" Click="AddStudentWindow_click"/>
         <Button x:Name="DelBtn" Content="Delete Student" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Height="53" Width="152" Click="DelStudent_click"/>
 
-        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="42,131,42,22"/>
+        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="42,131,184,22"/>
         <Button x:Name="GradeBtn" Content="Add Grade" HorizontalAlignment="Left" Margin="406,34,0,0" VerticalAlignment="Top" Height="53" Width="152"/>
+        <Button Content="Save to TXT" HorizontalAlignment="Left" Height="30" Margin="466,131,0,0" VerticalAlignment="Top" Width="108" Click="Btn_SaveTxt_Click"/>
+        <Button Content="Load from TXT" HorizontalAlignment="Left" Height="30" Margin="466,166,0,0" VerticalAlignment="Top" Width="108" Click="Btn_LoadTxt_Click"/>
 
     </Grid>
 </Window>

@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Lab08.DLL;
+using System.IO;
 
 namespace Lab08.WpfApp
 {
@@ -59,6 +60,47 @@ namespace Lab08.WpfApp
                 Students.Remove(studentToDel);
                 DataGridStudents.Items.Refresh();
             }
+        }
+
+        private void Btn_SaveTxt_Click(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("data.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+
+            foreach (Student student in Students)
+            {
+                sw.WriteLine("[[Student]]");
+
+                sw.WriteLine("[Firstname]");
+                sw.WriteLine(student.FirstName);
+                sw.WriteLine("[Surname]");
+                sw.WriteLine(student.SurName);
+                sw.WriteLine("[Fauclty]");
+                sw.WriteLine(student.Fauclty);
+                sw.WriteLine("[ID Number]");
+                sw.WriteLine(student.StudentNo);
+            }
+
+
+
+            sw.Close();
+        }
+
+
+        private void Btn_LoadTxt_Click(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("data.txt", FileMode.Create);
+            StreamReader sr = new StreamReader(fs);
+
+
+            while (!sr.EndOfStream)
+            {
+                var ln = sr.ReadLine();
+            }
+            
+            DataGridStudents.Items.Refresh();
+
+            sr.Close();
         }
     }
 }

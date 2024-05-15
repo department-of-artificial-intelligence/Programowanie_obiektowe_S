@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Lab8.WpfApp
 {
@@ -54,6 +55,15 @@ namespace Lab8.WpfApp
                 Students.Remove(studentToRemove);
                 DataGridStudents.Items.Refresh();
             }
+        }
+
+        private void saveTXT_Click(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("data.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine("[[Student]]");
+            
+            sw.Close();
         }
     }
 }

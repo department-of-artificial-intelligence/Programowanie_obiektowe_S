@@ -5,10 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
-        Title="Students" Height="450" Width="600">
+        Title="Students" Height="450" Width="800">
     <Grid>
-        <Button Content="Add Student" Margin="10,10,406,357" Click="MainButtonAddStudent_Click"/>
-        <Button Content="Delete Student" Margin="208,10,208,357" Click="MainButtonRemoveStudent_Click"/>
+        <Button Content="Add Student" Margin="11,10,0,0" Click="MainButtonAddStudent_Click" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="70"/>
+        <Button Content="Delete Student" Margin="116,10,0,0" Click="MainButtonRemoveStudent_Click" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="70"/>
         <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,97,10,10"/>
+        <Button Content="Close Stream" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button Content="Load another Student" HorizontalAlignment="Left" Margin="250,35,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button Content="Load from TXT (Stream)" HorizontalAlignment="Left" Margin="250,60,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="saveTXT" Content="Save to TXT" HorizontalAlignment="Left" Margin="431,10,0,0" VerticalAlignment="Top" Width="110" Click="saveTXT_Click"/>
+        <Button Content="Load from TXT" HorizontalAlignment="Left" Margin="431,35,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button Content="Save to XML" HorizontalAlignment="Left" Margin="546,10,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button Content="Load from XML" HorizontalAlignment="Left" Margin="546,35,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button Content="Save to JSON" HorizontalAlignment="Left" Margin="661,10,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button Content="Load from JSON" HorizontalAlignment="Left" Margin="661,35,0,0" VerticalAlignment="Top" Width="110"/>
     </Grid>
 </Window>

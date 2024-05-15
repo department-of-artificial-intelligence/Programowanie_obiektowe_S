@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Lab8.BLL;
+using System.IO;
 
 namespace Lab8.WpfApp
 {
@@ -92,6 +93,31 @@ namespace Lab8.WpfApp
                     DataGridStudents.Items.Refresh();
                 }
             }
+            else
+            {
+                MessageBox.Show(messageBoxText: "Blad");
+            }
+        }
+
+        private void SaveToTxtFile_Click(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("data.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine("[[Student]]");
+            foreach(var student in Students)
+            {
+                sw.WriteLine("[FirstName]");
+                sw.WriteLine(student.FirstName);
+                sw.WriteLine("[SurName]");
+                sw.WriteLine(student.SurName);
+                sw.WriteLine("[StudentNo]");
+                sw.WriteLine(student.StudentNo);
+                sw.WriteLine("[Faculty]");
+                sw.WriteLine(student.Faculty);
+                sw.WriteLine("[[]]");
+            }
+            sw.Close();
+
         }
     }
 }

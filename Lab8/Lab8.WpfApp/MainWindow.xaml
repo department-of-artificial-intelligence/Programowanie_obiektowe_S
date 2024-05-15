@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid x:Name="GridStudents">
-        <Button x:Name="AddStudent" Content="AddStudent" HorizontalAlignment="Left" Margin="45,66,0,0" VerticalAlignment="Top" Height="67" Width="175" Click="AddStudent_Click"/>
-        <Button x:Name="DeleteStudent" Content="DeleteStudent" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" Height="67" Width="175" Click="DeleteStudent_Click"/>
+        <Button x:Name="AddStudent" Content="AddStudent" HorizontalAlignment="Left" Margin="33,127,0,0" VerticalAlignment="Top" Height="67" Width="175" Click="AddStudent_Click"/>
+        <Button x:Name="DeleteStudent" Content="DeleteStudent" HorizontalAlignment="Left" Margin="225,127,0,0" VerticalAlignment="Top" Height="67" Width="175" Click="DeleteStudent_Click"/>
         <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5" Margin="157,204,161,57" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.RenderTransform>
                 <TransformGroup>
@@ -19,7 +19,16 @@
                 </TransformGroup>
             </DataGrid.RenderTransform>
         </DataGrid>
-        <Button x:Name="ButtonAddGrade" Content="Add Grade" HorizontalAlignment="Left" Margin="583,66,0,0" VerticalAlignment="Top" Height="67" Width="175" Click="ButtonAddGrade_Click"/>
+        <Button x:Name="ButtonAddGrade" Content="Add Grade" HorizontalAlignment="Left" Margin="419,127,0,0" VerticalAlignment="Top" Height="67" Width="175" Click="ButtonAddGrade_Click"/>
+        <Button x:Name="CloseStreamButton" Content="Close stream" HorizontalAlignment="Left" Margin="33,31,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="LoadAnotherStudentButton" Content="Load another student" HorizontalAlignment="Left" Margin="122,31,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="LoadFromTxtFileStreamButton" Content="Load from txt file(stream)" HorizontalAlignment="Left" Margin="259,31,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="SaveToTxtFile" Content="Save to txt file" HorizontalAlignment="Left" Margin="33,56,0,0" VerticalAlignment="Top" Click="SaveToTxtFile_Click"/>
+        <Button x:Name="LoadFromTxtFileButton" Content="Load from txt file" HorizontalAlignment="Left" Margin="33,81,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="SaveToXmlFileButton" Content="Save to XML file" HorizontalAlignment="Left" Margin="181,58,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="LoadFromXmlButton" Content="Load from XML file" HorizontalAlignment="Left" Margin="181,83,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="LoadFromJsonButton" Content="Load from JSON file" HorizontalAlignment="Center" Margin="0,83,0,0" VerticalAlignment="Top" Click="LoadFromJsonButton_Click"/>
+        <Button x:Name="SaveToJsonButton" Content="Save to JSON file" HorizontalAlignment="Left" Margin="345,56,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

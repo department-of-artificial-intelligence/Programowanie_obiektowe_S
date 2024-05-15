@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Lab08.BLL;
 using Lab08.WpfApp;
+using System.IO;
 
 namespace Lab08
 {
@@ -63,10 +64,30 @@ namespace Lab08
             if (DataGridStudents.SelectedItem is Student studentToAddGrade)
             {
                 AddGradesWindow addGrade = new AddGradesWindow();
-                addGrade.ShowDialog();
-                studentToAddGrade.Grades.Add()
-                DataGridStudents.Items.Refresh();
+                //addGrade.ShowDialog();
+                //studentToAddGrade.Grades.Add();
+                //DataGridStudents.Items.Refresh();
             }
+        }
+
+        private void SavetxtButton_Click(object sender, RoutedEventArgs e)
+        {
+            StreamWriter sw = new StreamWriter("D:\\LocalAccounts\\Student\\Documents\\AleksanderOleksiak\\PO\\lab8\\Lab08\\dokument.txt");
+            foreach (Student student in Students)
+            {
+                sw.WriteLine("[[Student]]");
+                sw.WriteLine("[[FirstName]]");
+                sw.WriteLine(student.FirstName);
+                sw.WriteLine("[[SurName]]");
+                sw.WriteLine(student.LastName);
+                sw.WriteLine("[[StudentNo]]");
+                sw.WriteLine(student.StudentNumber);
+                sw.WriteLine("[[Faculty]]");
+                sw.WriteLine(student.Faculty);
+                sw.WriteLine("[[]]");
+
+            }
+            sw.Close();
         }
     }
 }

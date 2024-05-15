@@ -36,8 +36,8 @@ namespace Lab08.WpfApp
 
         private void AddGradeButton_Click(object sender, RoutedEventArgs e)
         {
-            Grade.Subject = SubjectBox.Text;
-            Grade.Value = float.TryParse(GradeBox.Text);
+            //Grade.Subject = SubjectBox.Text;
+            //Grade.Value = float.TryParse(GradeBox.Text);
             //Student.Faculty = FacultyBox.Text;
             //if (!int.TryParse(NumberBox.Text, out int StudentNumber))
             //    MessageBox.Show(messageBoxText: "Student is not a number");

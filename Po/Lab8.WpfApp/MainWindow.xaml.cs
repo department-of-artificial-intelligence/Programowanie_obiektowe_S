@@ -11,6 +11,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Lab8.BLL;
 using System.IO;
+using Microsoft.Win32;
+using System.Xml.Serialization;
+using System.Text.Json;
 namespace Lab8.WpfApp
 {
     /// <summary>
@@ -146,113 +149,178 @@ namespace Lab8.WpfApp
 
         private async void SaveToTxtFile_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.txt"))
 
-                    foreach (var student in StudentsWithoutGrades)
-                    {
-                        await streamWriter.Save(student);
-                    }
-                MessageBox.Show("File saved successfully!");
-            }
-            catch (Exception ex)
+            FileStream fs = new FileStream("C:\\Users\\Admin\\Documents\\baza.txt",FileMode.Open);
+            StreamWriter ws = new StreamWriter(fs);
+            foreach (Student s in Students)
             { 
-                MessageBox.Show(ex.Message);
+                ws.WriteLine("[[Student]]");
+                ws.WriteLine("[Firstname]");
+                ws.WriteLine(s.FirstName);
+                ws.WriteLine("[Surname]");
+                ws.WriteLine(s.SurName);
+                ws.WriteLine("[StudentNo]");
+                ws.WriteLine(s.StudentNo);
+                ws.WriteLine("[Faculty]");
+                ws.WriteLine(s.Faculty);
+                ws.WriteLine("[[]]");
             }
+            ws.Close();
+           // try
+           // {
+           //     using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.txt"))
+           //
+           //         foreach (var student in StudentsWithoutGrades)
+           //         {
+           //             await streamWriter.Save(student);
+           //         }
+           //     MessageBox.Show("File saved successfully!");
+           // }
+           // catch (Exception ex)
+           // { 
+           //     MessageBox.Show(ex.Message);
+           // }
         }
 
         private void SaveToXMLFile_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.xml"))
-                    
-                         streamWriter.Save(StudentsWithoutGrades);
-                MessageBox.Show("File saved successfully!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            using var fileStream = new FileStream("C:\\Users\\Admin\\Documents\\baza.xml", FileMode.OpenOrCreate);
+            var xmlSerializer = new XmlSerializer(typeof(List<Student>));
+            xmlSerializer.Serialize(fileStream, Students);
+            //try
+            //{
+            //    using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.xml"))
+            //        
+            //             streamWriter.Save(StudentsWithoutGrades);
+            //    MessageBox.Show("File saved successfully!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void SaveToJSONFile_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.json"))
-                   
-                         streamWriter.Save(StudentsWithoutGrades);
-                MessageBox.Show("File saved successfully!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            string jsonStr = JsonSerializer.Serialize(Students, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText("C:\\Users\\Admin\\Documents\\baza.json", jsonStr);
+            //try
+            //{
+            //    using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.json"))
+            //       
+            //             streamWriter.Save(StudentsWithoutGrades);
+            //    MessageBox.Show("File saved successfully!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private async void LoadFromTxtFile_Click(object sender, RoutedEventArgs e)
         {
-
-            try
-            {
-                using (StreamReader streamReader = new StreamReader("C:\\Users\\Admin\\Documents\\baza.txt"))
+            FileStream fs = new FileStream("C:\\Users\\Admin\\Documents\\baza.txt", FileMode.Open);
+            StreamReader sr = new StreamReader(fs);
+            List<Student> students = new List<Student>();
+            while (!sr.EndOfStream)
+            { 
+                var line = sr.ReadLine();
+                if (line == "[[Student]]")
                 {
-                    IList<Student> students = await streamReader.Load<List<Student>>();
-                    if (students != null)
-                        StudentsWithoutGrades = students;
+                    Student student = new Student();
+                    sr.ReadLine();
+                    student.FirstName = sr.ReadLine();
+                    sr.ReadLine();
+                    student.SurName = sr.ReadLine();
+                    sr.ReadLine();
+                    int stN;
+                    int.TryParse(sr.ReadLine(), out stN);
+                    student.StudentNo = stN;
+                    sr.ReadLine();
+                    student.Faculty = sr.ReadLine();
+                    sr.ReadLine();
+                    students.Add(student);
                 }
-                DataGridStudents.ItemsSource = StudentsWithoutGrades;
-                DataGridStudents.Items.Refresh();
-                MessageBox.Show("File loaded successfully!");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading file: " + ex.Message);
-            }
+            Students = students;
+            DataGridStudents.ItemsSource = Students;
+            DataGridStudents.Items.Refresh();
+            MessageBox.Show("File loaded successfully!");
+
+            sr.Close();
+            //try
+            //{
+            //    using (StreamReader streamReader = new StreamReader("C:\\Users\\Admin\\Documents\\baza.txt"))
+            //    {
+            //        IList<Student> students = await streamReader.Load<List<Student>>();
+            //        if (students != null)
+            //            StudentsWithoutGrades = students;
+            //    }
+            //    DataGridStudents.ItemsSource = StudentsWithoutGrades;
+            //    DataGridStudents.Items.Refresh();
+            //    MessageBox.Show("File loaded successfully!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error loading file: " + ex.Message);
+            //}
 
 
         }
 
         private async void LoadFromXMLFile_Click(object sender, RoutedEventArgs e)
         {
-            try
+
+            using var fileStream = new FileStream("C:\\Users\\Admin\\Documents\\baza.xml", FileMode.OpenOrCreate);
+            var xmlSerializer = new XmlSerializer(typeof(List<Student>));
+            if (xmlSerializer.Deserialize(fileStream) is List<Student> students && students.Count > 0)
             {
-                using (StreamReader streamReader = new StreamReader("C:\\Users\\Admin\\Documents\\baza.xml"))
-                {
-                    IList<Student> students = await streamReader.Load<List<Student>>();
-                    if (students != null)
-                        StudentsWithoutGrades = students;
-                }
-                DataGridStudents.ItemsSource = StudentsWithoutGrades;
+                Students = students;
+                DataGridStudents.ItemsSource = Students;
                 DataGridStudents.Items.Refresh();
-                MessageBox.Show("File loaded successfully!");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading file: " + ex.Message);
-            }
+            //try
+            //{
+            //    using (StreamReader streamReader = new StreamReader("C:\\Users\\Admin\\Documents\\baza.xml"))
+            //    {
+            //        IList<Student> students = await streamReader.Load<List<Student>>();
+            //        if (students != null)
+            //            StudentsWithoutGrades = students;
+            //    }
+            //    DataGridStudents.ItemsSource = StudentsWithoutGrades;
+            //    DataGridStudents.Items.Refresh();
+            //    MessageBox.Show("File loaded successfully!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error loading file: " + ex.Message);
+            //}
         }
 
         private async void LoadFromJSONFile_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                using (StreamReader streamReader = new StreamReader("C:\\Users\\Admin\\Documents\\baza.json"))
-                {
-                    IList<Student> students = await streamReader.Load<List<Student>>();
-                    if (students != null)
-                        StudentsWithoutGrades = students;
-                }
-                DataGridStudents.ItemsSource = StudentsWithoutGrades;
-                DataGridStudents.Items.Refresh();
-                MessageBox.Show("File loaded successfully!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading file: " + ex.Message);
-            }
+            string jsonStr = File.ReadAllText("C:\\Users\\Admin\\Documents\\baza.json");
+            Students = JsonSerializer.Deserialize<List<Student>>(jsonStr);
+            DataGridStudents.ItemsSource = Students;
+            DataGridStudents.Items.Refresh();
+
+            //try
+            //{
+            //    using (StreamReader streamReader = new StreamReader("C:\\Users\\Admin\\Documents\\baza.json"))
+            //    {
+            //        IList<Student> students = await streamReader.Load<List<Student>>();
+            //        if (students != null)
+            //            StudentsWithoutGrades = students;
+            //    }
+            //    DataGridStudents.ItemsSource = StudentsWithoutGrades;
+            //    DataGridStudents.Items.Refresh();
+            //    MessageBox.Show("File loaded successfully!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error loading file: " + ex.Message);
+            //}
         }
     }
 }

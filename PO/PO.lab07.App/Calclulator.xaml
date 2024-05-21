@@ -1,0 +1,41 @@
+﻿<Window x:Class="PO.lab07.App.Calclulator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PO.lab07.App"
+        mc:Ignorable="d"
+        Title="Calclulator" Height="450" Width="801">
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1">
+            <Button x:Name="bt_1" Content="1&#xD;&#xA;" Margin="67,125,667,249" Click="bt_1_Click"/>
+        </Border>
+        <Button x:Name="bt_2" Content="2&#xD;&#xA;" Margin="137,125,599,251" Click="Button_Click_1"/>
+        <Button x:Name="bt_3" Content="3" Margin="0,188,736,188"/>
+        <Button x:Name="bt_0" Content="0&#xD;&#xA;" Margin="0,127,736,249" Click="bt_0_Click"/>
+        <Button x:Name="bt_5" Content="5&#xD;&#xA;" Margin="137,188,599,188"/>
+        <Button x:Name="bt_4" Content="4" Margin="68,188,668,188" Click="Button_Click"/>
+        <Button x:Name="bt_6" Content="6" Margin="0,251,736,125" Click="Button_Click_2"/>
+        <Button x:Name="bt_9" Content="9" Margin="0,314,736,62"/>
+        <Button x:Name="bt_8" Content="8" Margin="137,251,599,125" Click="bt_8_Click"/>
+        <Button x:Name="bt_7" Content="7&#xD;&#xA;" Margin="69,251,667,125"/>
+        <TextBox x:Name="textbox_wpisz" TextWrapping="Wrap" RenderTransformOrigin="0.336,-6.333" Margin="129,46,123,355" TextChanged="TextBox_TextChanged">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.117"/>
+                    <TranslateTransform X="1.578" Y="-0.036"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Button x:Name="bt_plus" Content="+" Margin="618,127,118,186"/>
+        <Button x:Name="bt_rowna" Content="=" Margin="618,316,48,60"/>
+        <Button x:Name="bt_dzielenie" Content="/" Margin="688,253,48,123"/>
+        <Button x:Name="bt_mnozenie" Content="*" Margin="688,190,48,186"/>
+        <Button x:Name="bt_odejmowanie" Content="-" Margin="618,253,118,123" RenderTransformOrigin="1.891,1.861"/>
+        <Button x:Name="bt_clear" Content="C" Margin="688,127,48,249"/>
+        <Button x:Name="bt_kropka" Content="." Margin="189,356,547,20" RenderTransformOrigin="1.891,1.861"/>
+
+    </Grid>
+</Window>

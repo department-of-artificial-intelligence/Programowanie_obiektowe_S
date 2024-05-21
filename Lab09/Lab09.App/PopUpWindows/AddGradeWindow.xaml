@@ -1,0 +1,27 @@
+﻿<Window x:Class="Lab09.App.PopUpWindows.AddGradeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab09.App.PopUpWindows"
+        mc:Ignorable="d"
+        Title="AddGradeWindow" Height="300" Width="200">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">Value :</Label>
+            <TextBox x:Name="ValueTextBox" Margin="10,0" Grid.Column="1" Grid.Row="1" Height="20"></TextBox>
+            <Button Grid.Row="4" Grid.ColumnSpan="2" Click="Button_Click">Add Grade</Button>
+        </Grid>
+    </Grid>
+</Window>

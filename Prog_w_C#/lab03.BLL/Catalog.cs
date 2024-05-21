@@ -37,11 +37,8 @@ namespace lab03.BLL
         }
         public Item FindItemBy(int id)
         {
-            foreach (var item in Items)
-            {
-                if (item.Id == id) return item;
-            }
-            return default;
+            var itemfound = Items.FirstOrDefault(x => x.Id == id);
+            return itemfound;
         }
         public Item FindItemBy(string title)
         {
@@ -52,10 +49,8 @@ namespace lab03.BLL
         }
         public Item FindItem(Expression<Func<Item, bool>> predicate)
         {
-            foreach (Item i in Items)
-                if (predicate.Compile()(i))
-                    return i;
-            return default;
+            var itemfound = Items.FirstOrDefault(predicate.Compile());
+            return itemfound;
         }
 
     }

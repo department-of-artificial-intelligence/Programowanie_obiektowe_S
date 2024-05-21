@@ -61,3 +61,19 @@ var foundedByLambda = library.FindItem(x => x.Publisher == "Springer");
 Console.WriteLine(foundedById);
 Console.WriteLine(foundedByTitle);
 Console.WriteLine(foundedByLambda);
+
+
+public TCar AddCar (string registrationNumber) 
+{
+    foreach (var item in Cars)
+    { 
+    Car adam= item as Car;
+        if (adam.RegistrationNumber==registrationNumber)
+        { Cars.remove(adam);
+            return default;
+        }
+        
+    }
+    return default;
+
+}

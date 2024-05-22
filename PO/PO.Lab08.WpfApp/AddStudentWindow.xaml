@@ -15,7 +15,7 @@
         <Button Content="Save" HorizontalAlignment="Left" Margin="180,230,0,0" VerticalAlignment="Top" Height="30" Width="60"/>
         <TextBlock HorizontalAlignment="Left" Margin="30,30,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top" Width="61"/>
         <TextBlock HorizontalAlignment="Left" Margin="30,110,0,0" TextWrapping="Wrap" Text="LastName:" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="30,194,0,0" TextWrapping="Wrap" Text="ID Number: " VerticalAlignment="Top"/>
-
+        <TextBlock HorizontalAlignment="Left" Margin="30,190,0,0" TextWrapping="Wrap" Text="ID Number: " VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,270,0,0" TextWrapping="Wrap" Text="Department:  " VerticalAlignment="Top"/>
     </Grid>
 </Window>

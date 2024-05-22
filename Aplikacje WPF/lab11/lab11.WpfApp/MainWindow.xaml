@@ -1,0 +1,17 @@
+﻿<Window x:Class="lab11.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab11.WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="35,41,0,0" VerticalAlignment="Top" Height="61" Width="116"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="156,41,0,0" VerticalAlignment="Top" Height="61" Width="116"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="277,41,0,0" VerticalAlignment="Top" Height="61" Width="116"/>
+        <DatePicker HorizontalAlignment="Left" Margin="35,120,0,0" VerticalAlignment="Top" Width="358" Height="34"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,173,0,57"/>
+
+    </Grid>
+</Window>

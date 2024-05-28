@@ -35,7 +35,7 @@
         <Button x:Name="AddGrade" Content="Add Grade" HorizontalAlignment="Left" Margin="138,40,0,0" VerticalAlignment="Top" Height="61" Width="209" RenderTransformOrigin="0.178,0.497" Click="AddGrade_Click" Grid.Column="1" />
         <!--<Button x:Name="ShowGrade" Content="Show Grade" HorizontalAlignment="Left" Margin="376,40,0,0" VerticalAlignment="Top" Height="61" Width="92" Click="ShowGrade_Click" Grid.Column="1"/>-->
         <Button x:Name="CloseStream" Grid.Column="1" Content="Close stream" HorizontalAlignment="Left" Margin="488,-76,0,0" VerticalAlignment="Top" Height="32" Width="150"/>
-        <Button x:Name="LoadAnotherStudent" Grid.Column="1" Content="Load another student" HorizontalAlignment="Left" Margin="488,-40,0,0" VerticalAlignment="Top" Height="32" Width="150"/>
+        <Button x:Name="LoadAnotherStudent" Grid.Column="1" Content="Load another student" HorizontalAlignment="Left" Margin="488,-40,0,0" VerticalAlignment="Top" Height="32" Width="150" Click="LoadAnotherStudent_Click"/>
         <Button x:Name="LoadFromTxt" Grid.Column="1" Content="Load from txt file (Stream)" HorizontalAlignment="Left" Margin="487,-4,0,0" VerticalAlignment="Top" Height="32" Width="151"/>
         <Button x:Name="SaveToTxtFile" Grid.Column="1" Content="Save to txt file" HorizontalAlignment="Left" Margin="488,32,0,0" VerticalAlignment="Top" Height="32" Width="123" Click="SaveToTxtFile_Click"/>
         <Button x:Name="LoadFromTxtFile" Grid.Column="1" Content="Load from txt file" HorizontalAlignment="Left" Margin="488,69,0,0" VerticalAlignment="Top" Height="32" Width="123" Click="LoadFromTxtFile_Click"/>

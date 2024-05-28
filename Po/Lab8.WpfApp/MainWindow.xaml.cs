@@ -14,6 +14,7 @@ using System.IO;
 using Microsoft.Win32;
 using System.Xml.Serialization;
 using System.Text.Json;
+using System.IO.Pipes;
 namespace Lab8.WpfApp
 {
     /// <summary>
@@ -149,23 +150,36 @@ namespace Lab8.WpfApp
 
         private async void SaveToTxtFile_Click(object sender, RoutedEventArgs e)
         {
+            
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog.FilterIndex = 2;
+            saveFileDialog.RestoreDirectory = true;
+            
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                using (FileStream fs = new FileStream(saveFileDialog.FileName, FileMode.OpenOrCreate))
+                using (StreamWriter ws = new StreamWriter(fs))
+                {
 
-            FileStream fs = new FileStream("C:\\Users\\Admin\\Documents\\baza.txt",FileMode.Open);
-            StreamWriter ws = new StreamWriter(fs);
-            foreach (Student s in Students)
-            { 
-                ws.WriteLine("[[Student]]");
-                ws.WriteLine("[Firstname]");
-                ws.WriteLine(s.FirstName);
-                ws.WriteLine("[Surname]");
-                ws.WriteLine(s.SurName);
-                ws.WriteLine("[StudentNo]");
-                ws.WriteLine(s.StudentNo);
-                ws.WriteLine("[Faculty]");
-                ws.WriteLine(s.Faculty);
-                ws.WriteLine("[[]]");
+                    foreach (Student s in Students)
+                    {
+                        ws.WriteLine("[[Student]]");
+                        ws.WriteLine("[Firstname]");
+                        ws.WriteLine(s.FirstName);
+                        ws.WriteLine("[Surname]");
+                        ws.WriteLine(s.SurName);
+                        ws.WriteLine("[StudentNo]");
+                        ws.WriteLine(s.StudentNo);
+                        ws.WriteLine("[Faculty]");
+                        ws.WriteLine(s.Faculty);
+                        ws.WriteLine("[[]]");
+                    }
+                    
+                }
             }
-            ws.Close();
+            
+            
            // try
            // {
            //     using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.txt"))
@@ -184,10 +198,20 @@ namespace Lab8.WpfApp
 
         private void SaveToXMLFile_Click(object sender, RoutedEventArgs e)
         {
-
-            using var fileStream = new FileStream("C:\\Users\\Admin\\Documents\\baza.xml", FileMode.OpenOrCreate);
-            var xmlSerializer = new XmlSerializer(typeof(List<Student>));
-            xmlSerializer.Serialize(fileStream, Students);
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+            saveFileDialog.FilterIndex = 1;
+            saveFileDialog.RestoreDirectory = true;
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                using (FileStream fs = new FileStream(saveFileDialog.FileName, FileMode.OpenOrCreate))
+                {
+                    var xmlSerializer = new XmlSerializer(typeof(List<Student>));
+                    xmlSerializer.Serialize(fs, Students);
+                }
+            }
+            
+            
             //try
             //{
             //    using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.xml"))
@@ -203,8 +227,16 @@ namespace Lab8.WpfApp
 
         private void SaveToJSONFile_Click(object sender, RoutedEventArgs e)
         {
-            string jsonStr = JsonSerializer.Serialize(Students, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText("C:\\Users\\Admin\\Documents\\baza.json", jsonStr);
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+            saveFileDialog.FilterIndex = 1;
+            saveFileDialog.RestoreDirectory = true;
+            if(saveFileDialog.ShowDialog() == true)
+            {
+                string jsonStr = JsonSerializer.Serialize(Students, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText("C:\\Users\\Admin\\Documents\\baza.json", jsonStr);
+            }
+            
             //try
             //{
             //    using (StreamWriter streamWriter = new StreamWriter("C:\\Users\\Admin\\Documents\\baza.json"))
@@ -220,35 +252,51 @@ namespace Lab8.WpfApp
 
         private async void LoadFromTxtFile_Click(object sender, RoutedEventArgs e)
         {
-            FileStream fs = new FileStream("C:\\Users\\Admin\\Documents\\baza.txt", FileMode.Open);
-            StreamReader sr = new StreamReader(fs);
-            List<Student> students = new List<Student>();
-            while (!sr.EndOfStream)
-            { 
-                var line = sr.ReadLine();
-                if (line == "[[Student]]")
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == true)
                 {
-                    Student student = new Student();
-                    sr.ReadLine();
-                    student.FirstName = sr.ReadLine();
-                    sr.ReadLine();
-                    student.SurName = sr.ReadLine();
-                    sr.ReadLine();
-                    int stN;
-                    int.TryParse(sr.ReadLine(), out stN);
-                    student.StudentNo = stN;
-                    sr.ReadLine();
-                    student.Faculty = sr.ReadLine();
-                    sr.ReadLine();
-                    students.Add(student);
-                }
-            }
-            Students = students;
-            DataGridStudents.ItemsSource = Students;
-            DataGridStudents.Items.Refresh();
-            MessageBox.Show("File loaded successfully!");
+                using (FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open))
+                using (StreamReader sr = new StreamReader(fs))
+                {
 
-            sr.Close();
+                    List<Student> students = new List<Student>();
+                    while (!sr.EndOfStream)
+                    {
+                        var line = sr.ReadLine();
+                        if (line == "[[Student]]")
+                        {
+                            Student student = new Student();
+                            sr.ReadLine();
+                            student.FirstName = sr.ReadLine();
+                            sr.ReadLine();
+                            student.SurName = sr.ReadLine();
+                            sr.ReadLine();
+                            int stN;
+                            int.TryParse(sr.ReadLine(), out stN);
+                            student.StudentNo = stN;
+                            sr.ReadLine();
+                            student.Faculty = sr.ReadLine();
+                            sr.ReadLine();
+                            students.Add(student);
+                        }
+                    }
+                    Students = students;
+                    DataGridStudents.ItemsSource = Students;
+                    DataGridStudents.Items.Refresh();
+                    MessageBox.Show("File loaded successfully!");
+
+                }
+                
+            }
+            
+                
+           
+
+            
             //try
             //{
             //    using (StreamReader streamReader = new StreamReader("C:\\Users\\Admin\\Documents\\baza.txt"))
@@ -271,15 +319,32 @@ namespace Lab8.WpfApp
 
         private async void LoadFromXMLFile_Click(object sender, RoutedEventArgs e)
         {
-
-            using var fileStream = new FileStream("C:\\Users\\Admin\\Documents\\baza.xml", FileMode.OpenOrCreate);
-            var xmlSerializer = new XmlSerializer(typeof(List<Student>));
-            if (xmlSerializer.Deserialize(fileStream) is List<Student> students && students.Count > 0)
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == true)
             {
-                Students = students;
-                DataGridStudents.ItemsSource = Students;
-                DataGridStudents.Items.Refresh();
+                using (FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open))
+                using (StreamReader sr = new StreamReader(fs))
+                {
+
+                    var xmlSerializer = new XmlSerializer(typeof(List<Student>));
+                    if (xmlSerializer.Deserialize(fs) is List<Student> students && students.Count > 0)
+                    {
+                        Students = students;
+                        DataGridStudents.ItemsSource = Students;
+                        DataGridStudents.Items.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("error");
+                    }
+                }
             }
+            
+            
             //try
             //{
             //    using (StreamReader streamReader = new StreamReader("C:\\Users\\Admin\\Documents\\baza.xml"))
@@ -300,10 +365,41 @@ namespace Lab8.WpfApp
 
         private async void LoadFromJSONFile_Click(object sender, RoutedEventArgs e)
         {
-            string jsonStr = File.ReadAllText("C:\\Users\\Admin\\Documents\\baza.json");
-            Students = JsonSerializer.Deserialize<List<Student>>(jsonStr);
-            DataGridStudents.ItemsSource = Students;
-            DataGridStudents.Items.Refresh();
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    using (FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read)) 
+                    using (StreamReader rs = new StreamReader(fs))
+                    {
+                        var studentEnumerable = new StreamEnumerable<Student>(rs);
+                        using var enumerator = studentEnumerable.GetEnumerator();
+                        if (enumerator.MoveNext())
+                        {
+                            Students.Add(enumerator.Current);
+                           // DataGridStudents.ItemsSource = null;
+                            DataGridStudents.ItemsSource = Students;
+                            DataGridStudents.Items.Refresh();
+                        }
+                        else { 
+                        MessageBox.Show("error"); }
+                        }
+                    
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading files: " + ex.Message);
+                }
+                
+            }
+            
 
             //try
             //{
@@ -321,6 +417,11 @@ namespace Lab8.WpfApp
             //{
             //    MessageBox.Show("Error loading file: " + ex.Message);
             //}
+        }
+
+        private void LoadAnotherStudent_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

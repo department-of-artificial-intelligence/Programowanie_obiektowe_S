@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using System.Data.SqlTypes;
 
 namespace Lab8.WpfApp
 {
@@ -50,6 +52,36 @@ namespace Lab8.WpfApp
             WindowStudent windowStudent = new WindowStudent();
             windowStudent.ShowDialog();
             DataGridStudents.Items.Refresh();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("data.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            foreach (Student student in Students)
+            {
+                sw.WriteLine("[[Student]]");
+                sw.WriteLine("[FirstName]");
+                sw.WriteLine(student.FirstName);
+                sw.WriteLine("[SurName]");
+                sw.WriteLine(student.SurName);
+                sw.WriteLine("[StudentNo]");
+                sw.WriteLine(student.StudentNo);
+                sw.WriteLine("[Faculty]");
+                sw.WriteLine(student.Faculty);
+                sw.WriteLine("[[]]");
+                sw.WriteLine();
+
+
+            }
+            sw.WriteLine("");
+            sw.Close();
+            
         }
     }
 }

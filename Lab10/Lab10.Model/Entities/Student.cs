@@ -1,0 +1,15 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Lab10.Model.Entities;
+public class Student
+{
+    [Key]
+    public int Id { get; set; }
+    public long StudentIndex { get; set; }
+    public string FirstName { get; set; } = null!;
+    public string SurName { get; set; } = null!;
+    public string Faculty { get; set; } = null!;
+    public DateTime DateOfBirth { get; set; }
+    public IList<Grade> Grades { get; set; } = null!;
+    public string AllGrades => Grades.Count > 0 ? string.Join(", ", Grades) : "";
+}

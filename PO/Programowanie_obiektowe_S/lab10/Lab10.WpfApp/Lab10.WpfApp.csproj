@@ -19,6 +19,11 @@
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
   </ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\Lab10.Model\Lab10.Model.csproj" />
+		<ProjectReference Include="..\Lab10.DAL\Lab10.DAL.csproj" />
+	</ItemGroup>
+	
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

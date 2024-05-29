@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab10.APP"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid Margin="0,0,-32,-17">
+        <Button Width="100" Height="75" Margin="-550,-360,0,0" Click="ButtonAddEditStudentWindowShow_Click">Add/edit student</Button>
+        <Button Width="100" Height="75" Margin="-325,-360,0,0" Click="ButtonRemoveStudentWindowShow_Click">Remove student</Button>
+        <Button Width="100" Height="75" Margin="-100,-360,0,0" Click="ButtonAddGradeWindowShow_Click">Add grade</Button>
+        <DataGrid Margin="90" Name="DataGridStudents" AutoGenerateColumns="False" SelectionMode="Single">
+        </DataGrid>
     </Grid>
 </Window>

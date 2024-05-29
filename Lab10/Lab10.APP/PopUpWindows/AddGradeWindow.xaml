@@ -1,0 +1,31 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab10.APP.PopUpWindows"
+        xmlns:Entities="clr-namespace:Lab10.Model.Entities;assembly=Lab10.Model" x:Class="Lab10.APP.PopUpWindows.AddGradeWindow"
+        mc:Ignorable="d"
+        Title="AddGradeWindow" Height="400" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ComboBox Margin="0,40" Grid.Row="1" Grid.Column="1" x:Name="ComboBoxGrades">
+            <Entities:Grade Value="2"/>
+            <Entities:Grade Value="3"/>
+            <Entities:Grade Value="4"/>
+            <Entities:Grade Value="5"/>
+        </ComboBox>
+        <TextBox Name="TextBoxSubject" Grid.Column="1" Margin="0,40"></TextBox>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0">Subject :</Label>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">Grade :</Label>
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Click="ButtonAddGrade_Click">Add grade</Button>
+    </Grid>
+</Window>

@@ -20,5 +20,10 @@ namespace Lab11.WpfApp
         {
             InitializeComponent();
         }
+
+        private void DeleteStudent_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

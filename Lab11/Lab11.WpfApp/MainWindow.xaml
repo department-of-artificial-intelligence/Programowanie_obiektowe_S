@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Lab11.WpfApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="0,0,0,-16">
+        <Button x:Name="AddStudent_Button" Content="Add Student or Edit" HorizontalAlignment="Left" Margin="91,81,0,0" VerticalAlignment="Top" Height="52" Width="161"/>
+        <Button x:Name="DeleteStudent_Button" Content="Delete Student" HorizontalAlignment="Left" Margin="297,81,0,0" VerticalAlignment="Top" Click="DeleteStudent_Button_Click" Height="52" Width="161"/>
+        <Button x:Name="AddGrade_Button" Content="Add Grade" HorizontalAlignment="Left" Margin="529,81,0,0" VerticalAlignment="Top" Height="52" Width="175"/>
 
     </Grid>
 </Window>

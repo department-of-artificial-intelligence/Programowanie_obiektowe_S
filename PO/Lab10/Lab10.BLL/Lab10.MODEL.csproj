@@ -7,4 +7,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Lab10.DAL\Lab10.DAL.csproj" />
+  </ItemGroup>
+
 </Project>

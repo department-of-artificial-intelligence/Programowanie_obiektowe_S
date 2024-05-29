@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button Content="Add or Edit student" HorizontalAlignment="Left" Height="60" Margin="32,36,0,0" VerticalAlignment="Top" Width="142"/>
+        <Button Content="Delete student" HorizontalAlignment="Left" Height="60" Margin="192,36,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button Content="AddGrade" HorizontalAlignment="Left" Height="60" Margin="350,36,0,0" VerticalAlignment="Top" Width="133"/>
 
     </Grid>
 </Window>

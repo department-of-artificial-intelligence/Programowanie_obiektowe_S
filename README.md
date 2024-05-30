@@ -37,32 +37,20 @@
 ### Umieszenie rozwiązania w archiwum
 1)  Po zakończeniu czasu przeznaczonego na kolokwium, proszę klinąć PPM w `Solution Explorerze` na Solucji `Kolokwium` a następnie wybrać `Clean Solution`.
     ![Alt text](Img/clean_solution.png?raw=true)
-2) Następnie proszę uruchomić `Terminal (View -> Terminal)`.
-     ![Alt text](Img/open_terminal2.png?raw=true)
-3) Znajdując sie w folderze `Kolokwium` proszę wykonać w nim poniższe polecenia.
-    ```powershell
-   Remove-Item Kolokwium.WpfApp/bin -Recurse -Force
-   Remove-Item Kolokwium.WpfApp/obj -Recurse -Force
-   Remove-Item Kolokwium.DAL/bin -Recurse -Force
-   Remove-Item Kolokwium.DAL/obj -Recurse -Force
-   Remove-Item Kolokwium.Model/bin -Recurse -Force
-   Remove-Item Kolokwium.Model/obj -Recurse -Force
+2)  Proszę usunąc foldery `bin` i `obj` ze wszystkich projektów.
     
-    ```
+    <img src="Img/del_folders.png" width=600 height=300></img>
  
- 4) Następnie proszę spakować całą solucję do pliku `Rozwiazanie_Kolokwium.zip`. Proces ten można wykonać przy pomocy programu `7-zip` lub przy pomocy poniższego polecenia:
-    ```
-    cd ..
-    tar caf Rozwiazanie_Kolokwium.zip --exclude=./Rozwiazanie_Kolokwium.zip Kolokwium
-    cd Kolokwium 
+3)  Następnie proszę spakować całą solucję do pliku `*.zip` (nazwa dowolna). 
+ 
+    <img src="Img/zip.png" width=600 height=300></img>
 
-    ```
 5)  Proszę przejść pod adres [Archiver](http://ik2a.kik.pcz.czest.pl/archiver/TestArchive/Index)
 6)  Następnie proszę wybrać Państwa test i kilknąć przycisk `Link`
 
     ![Alt text](Img/ArchiverUpload1.png?raw=true)
     
-7)  Proszę wypełnić formularz podając swoje dane, wskazać plik `Rozwiazanie_Kolokwium.zip`, a następnie nacisnąc przycisk `Upload`
+7)  Proszę wypełnić formularz podając swoje dane, wskazać plik `*.zip` (można równeż przeciągnąć), a następnie nacisnąc przycisk `Upload`
 
     ![Alt text](Img/ArchiverUpload2.png?raw=true)
     

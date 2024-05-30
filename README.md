@@ -45,7 +45,6 @@
  
     <img src="Img/zip.png" width=700 height=200></img>
 
-    ```
 5)  Proszę przejść pod adres [Archiver](https://ik2a.kik.pcz.pl/archiver/TestArchive/Index)
 6)  Następnie proszę wybrać Państwa test i kilknąć przycisk `Link`
 

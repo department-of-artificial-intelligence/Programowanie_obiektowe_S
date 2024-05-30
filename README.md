@@ -43,7 +43,7 @@
  
 3)  Następnie proszę spakować całą solucję do pliku `*.zip` (nazwa dowolna). 
  
-    <img src="Img/zip.png" width=600 height=300></img>
+    <img src="Img/zip.png" width=300 height=500></img>
 
     ```
 5)  Proszę przejść pod adres [Archiver](https://ik2a.kik.pcz.pl/archiver/TestArchive/Index)

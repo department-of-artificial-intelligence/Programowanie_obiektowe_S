@@ -45,12 +45,12 @@
  
     <img src="Img/zip.png" width=700 height=200></img>
 
-5)  Proszę przejść pod adres [Archiver](https://ik2a.kik.pcz.pl/archiver/TestArchive/Index)
-6)  Następnie proszę wybrać Państwa test i kilknąć przycisk `Link`
+4)  Proszę przejść pod adres [Archiver](https://ik2a.kik.pcz.pl/archiver/TestArchive/Index)
+5)  Następnie proszę wybrać Państwa test i kilknąć przycisk `Link`
 
     ![Alt text](Img/ArchiverUpload1.png?raw=true)
     
-7)  Proszę wypełnić formularz podając swoje dane, wskazać plik `*.zip` (można równeż przeciągnąć), a następnie nacisnąc przycisk `Upload`
+6)  Proszę wypełnić formularz podając swoje dane, wskazać plik `*.zip` (można równeż przeciągnąć), a następnie nacisnąc przycisk `Upload`
 
     ![Alt text](Img/ArchiverUpload2.png?raw=true)
     

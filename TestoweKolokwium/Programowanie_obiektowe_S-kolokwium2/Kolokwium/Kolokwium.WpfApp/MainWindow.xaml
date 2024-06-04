@@ -1,0 +1,16 @@
+﻿<Window x:Class="Kolokwium.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kolokwium.WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded=" WindowLoaded">
+    <Grid>
+        <Button x:Name="AddEditLibraryButton" Content="Add or Edit library" HorizontalAlignment="Left" Margin="105,78,0,0" VerticalAlignment="Top" Height="61" Width="134" Click="AddEditLibraryButton_Click"/>
+        <Button x:Name="DeleteLibraryButton" Content="Delete library" HorizontalAlignment="Center" Margin="0,78,0,0" VerticalAlignment="Top" Height="61" Width="134" Click="DeleteLibraryButton_Click"/>
+        <DataGrid x:Name="DataGridLibrary" Margin="0,189,0,0"/>
+        <Button x:Name="AddBookButton" Content="Add book" HorizontalAlignment="Left" Margin="529,78,0,0" VerticalAlignment="Top" Height="61" Width="149" Click="AddBookButton_Click"/>
+
+    </Grid>
+</Window>

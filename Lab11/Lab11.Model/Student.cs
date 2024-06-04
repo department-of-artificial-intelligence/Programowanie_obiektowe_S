@@ -12,12 +12,12 @@ namespace Lab11.Model.Entities
     {
         public int Id { get; set; }
         public long StudentIndex { get; set; }
-        public string FirstName { get; set; }
-        public string SurName { get; set; }
-        public string Faculty { get; set; }
+        public string FirstName { get; set; } = null!;
+        public string SurName { get; set; } = null!;
+        public string Faculty { get; set; } = null!;
         public DateTime DateOfBirth { get; set; }
 
-        public IList<Grade>Grades { get; set; }
+        public IList<Grade> Grades { get; set; } = null!;
         public string AllGrades => Grades.Count > 0 ? string.Join(", ", Grades) : "";
 
     }

@@ -1,0 +1,32 @@
+﻿<Window x:Class="Lab11.WpfApp.AddEditStudentWindow"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:local="clr-namespace:Lab11.WpfApp"
+mc:Ignorable="d"
+Title="Add Student" Height="280" Width="245.6">
+    <Grid>
+        <TextBox x:Name="TextBoxFirstName" Text="{Binding Path = FirstName, Mode=TwoWay}" HorizontalAlignment="Left" Height="23"
+Margin="102,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.495,0.431"/>
+        <TextBox x:Name="TextBoxSurName" Text="{Binding Path = SurName, Mode=TwoWay}" HorizontalAlignment="Left" Height="23"
+Margin="102,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.49,0.396"/>
+        <TextBox x:Name="TextBoxStudentIndex" Text="{Binding Path = StudentIndex, Mode=TwoWay}" HorizontalAlignment="Left" Height="23"
+Margin="102,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBoxFaculty" Text="{Binding Path = Faculty, Mode=TwoWay}" HorizontalAlignment="Left" Height="23"
+Margin="102,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="First name:" HorizontalAlignment="Left" Margin="30,44,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sur name:" HorizontalAlignment="Left" Margin="35,69,0,0" VerticalAlignment="Top"
+RenderTransformOrigin="0.367,0.875"/>
+        <Label Content="Faculty:" HorizontalAlignment="Left" Margin="48,128,0,0" VerticalAlignment="Top" Height="29"
+RenderTransformOrigin="0.456,0.515"/>
+        <Button x:Name="ButtonSaveStudent" Content="Save" HorizontalAlignment="Left" Margin="27,195,0,0" VerticalAlignment="Top"
+Width="195" Click="ButtonSaveStudent_Click" Height="34"/>
+        <Label Content="Student Index:" HorizontalAlignment="Left" Margin="14,95,0,0" VerticalAlignment="Top"
+RenderTransformOrigin="0.367,0.875"/>
+        <DatePicker x:Name="DatePickerDateOfBirth" SelectedDate="{Binding Path = DateOfBirth, Mode=TwoWay}" HorizontalAlignment="Left"
+Margin="102,159,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Date of birth:" HorizontalAlignment="Left" Margin="20,156,0,0" VerticalAlignment="Top" Height="30"
+RenderTransformOrigin="0.456,0.515"/>
+    </Grid>
+</Window>

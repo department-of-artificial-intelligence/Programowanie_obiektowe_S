@@ -14,29 +14,21 @@ using System.IO;
 
 namespace Lab8.WpfApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public IList<Student> Students { get; set; }
+        public object DataGridStudents { get; private set; }
+
         public MainWindow()
         {
             InitializeComponent();
-            Students = new List<Student>
-            {
-                new Student(){FirstName = "Jan", SurName = "Kowalski", Faculty = "WIMII", StudentNo = 123456},
-                new Student(){FirstName = "Mikołaj", SurName = "Szczot", Faculty = "WIMII", StudentNo = 136660},
-                new Student(){FirstName = "Bartłomiej", SurName = "Nowak", Faculty = "WZ", StudentNo = 365427},
-                new Student(){FirstName = "Piotr", SurName = "Kowal", Faculty = "WE", StudentNo = 389438},
-            };
+            Students = new List<Student>();
 
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "First name", Binding = new Binding(path: "FirstName") });
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Sur name", Binding = new Binding(path: "SurName") });
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Faculty", Binding = new Binding(path: "Faculty") });
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Student No.", Binding = new Binding(path: "StudentNo") });
-            DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Subject", Binding = new Binding(path: "Grades.Subject") });
-            DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Value", Binding = new Binding(path: "Grades.Value") });
+            DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Grades", Binding = new Binding(path: "GradesString") });
 
             DataGridStudents.AutoGenerateColumns = false;
             DataGridStudents.ItemsSource = Students;
@@ -55,7 +47,7 @@ namespace Lab8.WpfApp
         {
             AddStudentWindow addStudentWindow = new AddStudentWindow();
             addStudentWindow.ShowDialog();
-            if(addStudentWindow.DialogResult == true)
+            if (addStudentWindow.DialogResult == true)
             {
                 Student student = addStudentWindow.Student;
                 AddStudentToList(student);
@@ -69,7 +61,7 @@ namespace Lab8.WpfApp
 
         private void DeleteStudent_Click(object sender, RoutedEventArgs e)
         {
-            if(DataGridStudents.SelectedItem is Student studentToRemove)
+            if (DataGridStudents.SelectedItem is Student studentToRemove)
             {
                 Students.Remove(studentToRemove);
                 DataGridStudents.Items.Refresh();
@@ -78,7 +70,7 @@ namespace Lab8.WpfApp
 
         private void ButtonAddGrade_Click(object sender, RoutedEventArgs e)
         {
-            if(DataGridStudents.SelectedItem != null)
+            if (DataGridStudents.SelectedItem != null)
             {
                 Student selectedStudent = (Student)DataGridStudents.SelectedItem;
                 AddGradeWindow addGradeWindow = new AddGradeWindow();
@@ -95,7 +87,7 @@ namespace Lab8.WpfApp
             }
             else
             {
-                MessageBox.Show(messageBoxText: "Blad");
+                MessageBox.Show(messageBoxText: "Error");
             }
         }
 
@@ -104,7 +96,7 @@ namespace Lab8.WpfApp
             FileStream fs = new FileStream("data.txt", FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
             sw.WriteLine("[[Student]]");
-            foreach(var student in Students)
+            foreach (var student in Students)
             {
                 sw.WriteLine("[FirstName]");
                 sw.WriteLine(student.FirstName);
@@ -118,6 +110,96 @@ namespace Lab8.WpfApp
             }
             sw.Close();
 
+        }
+
+        private void LoadFromTxtFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader("data.txt"))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        if (line == "[[Student]]")
+                        {
+                            string firstName = "";
+                            string surName = "";
+                            string faculty = "";
+                            int studentNo = 0;
+                            List<Grade> grades = new List<Grade>();
+
+                            while (true)
+                            {
+                                line = sr.ReadLine();
+                                if (line == null || line == "[FirstName]") // Koniec pliku lub nowy student
+                                {
+                                    // Tworzymy nowego studenta i dodajemy go do listy Students
+                                    Student newStudent = new Student(firstName, surName, faculty, studentNo);
+                                    newStudent.Grades.AddRange(grades);
+                                    Students.Add(newStudent);
+                                    // Zerujemy zmienne dla nowego studenta
+                                    firstName = "";
+                                    surName = "";
+                                    faculty = "";
+                                    studentNo = 0;
+                                    grades.Clear();
+
+                                    if (line == null) // Koniec pliku
+                                        break;
+                                }
+                                switch (line)
+                                {
+                                    case "[FirstName]":
+                                        firstName = sr.ReadLine();
+                                        break;
+                                    case "[SurName]":
+                                        surName = sr.ReadLine();
+                                        break;
+                                    case "[Faculty]":
+                                        faculty = sr.ReadLine();
+                                        break;
+                                    case "[StudentNo]":
+                                        int.TryParse(sr.ReadLine(), out studentNo);
+                                        break;
+                                    case "[[Grade]]":
+                                        string subject = "";
+                                        int value = 0;
+                                        while ((line = sr.ReadLine()) != "[[]]")
+                                        {
+                                            switch (line)
+                                            {
+                                                case "[Subject]":
+                                                    subject = sr.ReadLine();
+                                                    break;
+                                                case "[Value]":
+                                                    int.TryParse(sr.ReadLine(), out value);
+                                                    break;
+                                            }
+                                        }
+                                        grades.Add(new Grade(value, subject));
+                                        break;
+                                }
+                            }
+
+
+                        }
+                    }
+                }
+
+                // Odświeżamy widok DataGridStudents
+                DataGridStudents.Items.Refresh();
+
+                MessageBox.Show("Dane zostały wczytane poprawnie.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Plik nie został znaleziony.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd podczas wczytywania danych: {ex.Message}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

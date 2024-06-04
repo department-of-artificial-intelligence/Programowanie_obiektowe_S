@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 
 namespace Lab8.BLL
 {
@@ -13,6 +14,15 @@ namespace Lab8.BLL
         public string Faculty { get; set; }
         public int StudentNo { get; set; }
         public List<Grade> Grades { get; set; }
+
+        public string GradesString
+        {
+            get
+            {
+                string gs = string.Join("", Grades);
+                return gs;
+            }
+        }
 
         public Student(string firstName, string surName, string faculty, int studentNo)
         {

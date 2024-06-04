@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:Lab10.WpfApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="0,168,0,0">
+        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button x:Name="AddOrEditStudent" Content="Add or Edit Student" HorizontalAlignment="Left" Margin="32,-140,0,0" VerticalAlignment="Top" Width="124" Height="40" Click="AddOrEditStudent_Click"/>
+        <Button x:Name="DeleteStudent" Content="Delete Student" HorizontalAlignment="Left" Margin="161,-140,0,0" VerticalAlignment="Top" Width="124" Height="40" Click="DeleteStudent_Click"/>
+        <Button x:Name="AddGrade" Content="Add Grade" HorizontalAlignment="Left" Margin="290,-140,0,0" VerticalAlignment="Top" Width="124" Height="40" Click="AddGrade_Click"/>
+        <DatePicker HorizontalAlignment="Left" Margin="32,-68,0,0" VerticalAlignment="Top" Width="382" Height="37"/>
 
     </Grid>
 </Window>

@@ -5,11 +5,11 @@ using System.Windows.Data;
 using Lab10.DAL.EF;
 using Lab10.Model.Entities;
 using Lab10.DAL.EF;
-using Lab10.Model.Attributes;
+//using Lab10.Model.Attributes;
 using Lab10.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
-namespace Lab11.WpfApp;
+namespace Lab10.WpfApp;
 public partial class MainWindow : Window
 {
     private readonly ApplicationDbContext _dbContext;
@@ -50,7 +50,7 @@ public partial class MainWindow : Window
     {
         if (DataGridStudents.SelectedItem != null && DataGridStudents.SelectedItem is Student selectedStudent)
         {
-            var addGradeWindow = new AddGradeWindow(_dbContext, selectedStudent);
+            var addGradeWindow = new AddGradeWindow (_dbContext, selectedStudent);
             if (addGradeWindow.ShowDialog() == true)
                 SetGrid(DataGridStudents, _dbContext.Students
                 .Include(stud => stud.Grades));
@@ -63,7 +63,7 @@ public partial class MainWindow : Window
         dataGrid.Columns.Clear();
         var type = typeof(T);
         foreach (var prop in type.GetProperties())
-            if (prop.GetCustomAttribute<HideAttribute>() == null)
+           // if (prop.GetCustomAttribute<HideAttribute>() == null)
                 dataGrid.Columns.Add(new DataGridTextColumn()
                 {
                     Header = prop.Name,

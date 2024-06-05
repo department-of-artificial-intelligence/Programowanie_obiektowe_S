@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kolokwium1.WpfApp"
+        xmlns:Entities="clr-namespace:Kolokwium1.MODEL.Entities;assembly=Kolokwium1.MODEL" x:Class="Kolokwium1.WpfApp.AddBookWindow"
+        mc:Ignorable="d"
+        Title="AddBookWindow" Height="540" Width="413">
+    <Grid>
+        <ComboBox Text="{Binding Client.Id, Mode=TwoWay}" x:Name="ComboBoxBook" HorizontalAlignment="Center" Margin="0,45,0,0" VerticalAlignment="Top" Width="393" Height="54" SelectionChanged="ComboBoxBook_SelectionChanged"/>
+        <Label Content="Tytuł: " HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="130" Height="36" FontSize="14"/>
+        <Label Content="Autor: " HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Width="130" Height="36" FontSize="14"/>
+        <Label Content="DataWydania: " HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top" Width="130" Height="36" FontSize="14"/>
+        <Label Content="Cena: " HorizontalAlignment="Left" Margin="10,284,0,0" VerticalAlignment="Top" Width="130" Height="36" FontSize="14"/>
+        <TextBox x:Name="TitleTextBox" HorizontalAlignment="Left" Margin="162,113,0,0" TextWrapping="Wrap" Text="{Binding Path=Title,Mode=TwoWay}" VerticalAlignment="Top" Width="241" Height="36"/>
+        <TextBox x:Name="AuthorTextBox" HorizontalAlignment="Left" Margin="162,172,0,0" TextWrapping="Wrap" Text="{Binding Path=Author,Mode=TwoWay}" VerticalAlignment="Top" Width="241" Height="36"/>
+        <TextBox x:Name="CostTextBox" HorizontalAlignment="Left" Margin="162,284,0,0" TextWrapping="Wrap" Text="{Binding Path=Cost,Mode=TwoWay}" VerticalAlignment="Top" Width="241" Height="36"/>
+        <DatePicker x:Name="DataWydaniaDatePicker" HorizontalAlignment="Left" Margin="162,226,0,0" VerticalAlignment="Top" Height="36" Width="241"/>
+        <Button x:Name="AddBookButton" Content="Dodaj" HorizontalAlignment="Center" Margin="0,360,0,0" VerticalAlignment="Top" Width="393" Height="45" Click="AddBookButton_Click"/>
+
+    </Grid>
+</Window>

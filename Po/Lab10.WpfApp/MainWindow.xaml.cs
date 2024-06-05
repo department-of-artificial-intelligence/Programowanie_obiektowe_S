@@ -1,5 +1,4 @@
-﻿using Lab10.DAL;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using System.Text;
 using System.Windows;
@@ -13,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Lab10.Model;
 using Microsoft.VisualBasic;
+using Lab10.DAL.EF;
 namespace Lab10.WpfApp
 {
     /// <summary>
@@ -77,7 +77,7 @@ namespace Lab10.WpfApp
 
         private void DeleteStudent_Click(object sender, RoutedEventArgs e)
         {
-            if (DataGridStudents.SelectedItems is Student student)
+            if (DataGridStudents.SelectedItem is Student student)
             { 
                 _dbContext.Students.Remove(student);
                 _dbContext.SaveChanges();

@@ -7,12 +7,17 @@
         mc:Ignorable="d"
         Title="AddOrEditStudent" Height="498" Width="404">
     <Grid OpacityMask="Black">
-        <Label Content="Indeks Studenta: " HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.56,-0.732" FontSize="14"/>
-        <TextBlock x:Name="ImieTextBlock" HorizontalAlignment="Left" Margin="133,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="29" Width="261" FontSize="14" OpacityMask="Black"/>
-        <Label Content="Imię: " HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.56,-0.732" FontSize="14"/>
-        <TextBlock x:Name="ImieTextBlock_Copy" HorizontalAlignment="Left" Margin="128,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="29" Width="261" FontSize="14"/>
-        <Label Content="Nazwisko: " HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.56,-0.732" FontSize="14"/>
-        <TextBlock x:Name="ImieTextBlock_Copy1" HorizontalAlignment="Left" Margin="128,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="29" Width="261" FontSize="14"/>
+        <Label Content="Indeks Studenta: " HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.56,-0.732" FontSize="14"/>
+        <TextBox x:Name="IndeksTextBlock" HorizontalAlignment="Left" Margin="133,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="261" Text="{Binding Path= StudentIndex, Mode=TwoWay}" FontSize="14"/>
+        <Label Content="Imię: " HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.56,-0.732" FontSize="14"/>
+        <TextBox x:Name="ImieTextBlock" Text="{Binding Path= FirstName, Mode=TwoWay}" HorizontalAlignment="Left" Margin="133,124,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="29" Width="261" FontSize="14" />
+        <Label Content="Nazwisko: " HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.56,-0.732" FontSize="14"/>
+        <TextBox x:Name="NazwiskoTextBlock" Text="{Binding Path= SurName, Mode=TwoWay}" HorizontalAlignment="Left" Margin="134,168,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="29" Width="260" FontSize="14" />
+        <Label Content="Faculty: " HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.56,-0.732" FontSize="14"/>
+        <TextBox x:Name="FacultyTextBlock" HorizontalAlignment="Left" Margin="136,212,0,0" TextWrapping="Wrap" Text="{Binding Path= Faculty, Mode=TwoWay}" VerticalAlignment="Top" Height="29" Width="261" FontSize="14" />
+        <DatePicker x:Name="DataPickerDateOfBirth" HorizontalAlignment="Left" SelectedDate="{Binding Path = DateOfBirth, Mode=TwoWay}" Margin="136,257,0,0" VerticalAlignment="Top" Height="28" Width="256"/>
+        <Label Content="Data urodzenia: " HorizontalAlignment="Left" Margin="10,257,0,0" VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.56,-0.732" FontSize="14"/>
+        <Button x:Name="AddStudent" Content="Dodaj" HorizontalAlignment="Center" Margin="0,310,0,0" VerticalAlignment="Top" Width="384" Height="48" Click="AddStudent_Click"/>
 
     </Grid>
 </Window>

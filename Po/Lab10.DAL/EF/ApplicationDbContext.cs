@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab10.DAL
+namespace Lab10.DAL.EF
 {
     public class ApplicationDbContext : DbContext
     {
-        
+
         public virtual DbSet<Grade> Grades { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

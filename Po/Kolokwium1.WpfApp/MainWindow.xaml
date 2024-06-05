@@ -1,0 +1,16 @@
+﻿<Window x:Class="Kolokwium1.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kolokwium1.WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <DataGrid x:Name="DataGridClient" AutoGenerateColumns="False" SelectionMode="Single" DockPanel.Dock="Bottom" VerticalAlignment="Top" Margin="0,158,0,0"/>
+        <Button x:Name="AddOrEditClient" Content="Add Or Edit Client" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="119" Height="36" Click="AddOrEditClient_Click"/>
+        <Button x:Name="DeleteClient" Content="Delete Client" HorizontalAlignment="Left" Margin="134,49,0,0" VerticalAlignment="Top" Width="119" Height="36" Click="DeleteClient_Click"/>
+        <Button x:Name="AddBook" Content="Add Book" HorizontalAlignment="Left" Margin="258,49,0,0" VerticalAlignment="Top" Width="119" Height="36" Click="AddBook_Click"/>
+
+    </Grid>
+</Window>

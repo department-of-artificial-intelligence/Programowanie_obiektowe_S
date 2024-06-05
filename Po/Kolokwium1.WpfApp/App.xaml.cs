@@ -1,14 +1,13 @@
-﻿using FluentAssertions.Common;
+﻿using Kolokwium1.DAL.EF;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Configuration;
 using System.Data;
-using System.Runtime.InteropServices.JavaScript;
 using System.Windows;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Lab10.DAL.EF;
-namespace Lab10.WpfApp
+
+namespace Kolokwium1.WpfApp
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -16,14 +15,14 @@ namespace Lab10.WpfApp
     public partial class App : Application
     {
         private readonly IHost _host;
-        public App()
+        public App() 
         {
-            _host = Host.CreateDefaultBuilder().ConfigureServices((context, services) =>
+            _host = Host.CreateDefaultBuilder().ConfigureServices((context, services) => 
             {
                 var cns = context.Configuration.GetConnectionString("DefaultConnection");
                 services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(cns));
                 services.AddTransient<MainWindow>();
-            }).Build();
+            }).Build();  
         }
         protected override void OnStartup(StartupEventArgs e)
         {

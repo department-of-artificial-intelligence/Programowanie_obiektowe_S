@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kolokwium.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-
+        <DockPanel>
+            <Grid Margin="10" DockPanel.Dock="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Click="Button_Create_Click">Create/Edit</Button>
+                <Button Grid.Column="1" Click="Button_Product_Click">Create Product</Button>
+                <Button Grid.Column="2" Click="Button_Delete_Click">Delete</Button>
+            </Grid>
+            <DataGrid x:Name="ShopDataGrid" Margin="10" DockPanel.Dock="Bottom" AutoGenerateColumns="False" IsReadOnly="True"/>
+        </DockPanel>
     </Grid>
 </Window>

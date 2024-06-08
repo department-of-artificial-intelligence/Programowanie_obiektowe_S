@@ -1,0 +1,40 @@
+﻿<Window x:Class="Kolokwium.WpfApp.Windows.CreateProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kolokwium.WpfApp.Windows"
+        mc:Ignorable="d"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="CreateProductWindow" Height="600" Width="400">
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="popka_slavika">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="TextBox" x:Key="popka_maksima">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="10,0"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="Gridik">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="3" Grid.ColumnSpan="2" Click="Button_Click">Save/Create</Button>
+        <Label Style="{DynamicResource popka_slavika}">Name :</Label>
+        <Label Style="{DynamicResource popka_slavika}" Grid.Row="1">Description :</Label>
+        <Label Style="{DynamicResource popka_slavika}" Grid.Row="2">Price :</Label>
+        <TextBox Style="{DynamicResource popka_maksima}" Name="NameTextBox" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Name}"></TextBox>
+        <TextBox Style="{DynamicResource popka_maksima}" Name="DescriptionTextBox" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Description}"></TextBox>
+        <TextBox Style="{DynamicResource popka_maksima}" Name="PriceTextBox" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Price}"></TextBox>
+    </Grid>
+</Window>

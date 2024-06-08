@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,11 +30,27 @@ namespace Kolokwium.WpfApp.Windows
             _dbContext = dbContext;
             InitializeComponent();
             this.shop = shop;
+            ShopComboBox.DataContext = dbContext.Shops;
+            ShopComboBox.SelectedItem = shop;
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SetGrid(ShopComboBox, _dbContext.Shops
+                .Include(stud => stud.Products));
+        }
+        private static void SetGrid<T>(ComboBox dataGrid, IEnumerable<T> list) where T : new()
+        {
+            dataGrid.Items.Clear();
+            var type = typeof(T);
+            foreach (var prop in list)
+                    dataGrid.Items.Add(prop);
+            dataGrid.Items.Refresh();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             double price = 0;
+            this.shop = (Shop)ShopComboBox.SelectedItem;
             if (!String.IsNullOrEmpty(NameTextBox.Text) &&
                 !String.IsNullOrEmpty(DescriptionTextBox.Text) &&
                 !String.IsNullOrEmpty(PriceTextBox.Text)&&
@@ -43,8 +60,13 @@ namespace Kolokwium.WpfApp.Windows
                     p.Name = NameTextBox.Text;
                     p.Description = DescriptionTextBox.Text;
                     p.Price = price;
+                    //p.Shop = shop;
                     shop.Products.Add(p);
                     _dbContext.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("WRONG DATA!!");
             }
             DialogResult = true;
         }

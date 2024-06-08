@@ -57,6 +57,10 @@ namespace Kolokwium.WpfApp.Windows
                     _dbContext.SaveChanges();
                 }
             }
+            else
+            {
+                MessageBox.Show("WRONG DATA!!");
+            }
             DialogResult = true;
         }
     }

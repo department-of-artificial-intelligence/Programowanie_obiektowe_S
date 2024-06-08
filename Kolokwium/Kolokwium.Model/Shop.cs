@@ -15,5 +15,9 @@ namespace Kolokwium.Model
         [Hide]
         public IList<Product> Products { get; set; }
         public string ProductsString => Products.Count > 0 ? string.Join(", ", Products) : "";
+        public override string ToString()
+        {
+            return $"{Id} {Name}";
+        }
     }
 }

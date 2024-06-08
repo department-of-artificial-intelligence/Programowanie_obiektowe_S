@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Kolokwium.WpfApp.Windows"
         mc:Ignorable="d"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        Title="CreateProductWindow" Height="600" Width="400">
+        Title="CreateProductWindow" Height="600" Width="400" Loaded="Window_Loaded">
     <Window.Resources>
         <Style TargetType="Label" x:Key="popka_slavika">
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
@@ -28,13 +28,16 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Grid.Row="3" Grid.ColumnSpan="2" Click="Button_Click">Save/Create</Button>
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Click="Button_Click">Save/Create</Button>
         <Label Style="{DynamicResource popka_slavika}">Name :</Label>
         <Label Style="{DynamicResource popka_slavika}" Grid.Row="1">Description :</Label>
         <Label Style="{DynamicResource popka_slavika}" Grid.Row="2">Price :</Label>
+        <Label Style="{DynamicResource popka_slavika}" Grid.Row="3">Shop :</Label>
         <TextBox Style="{DynamicResource popka_maksima}" Name="NameTextBox" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Name}"></TextBox>
         <TextBox Style="{DynamicResource popka_maksima}" Name="DescriptionTextBox" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Description}"></TextBox>
         <TextBox Style="{DynamicResource popka_maksima}" Name="PriceTextBox" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Price}"></TextBox>
+        <ComboBox Name="ShopComboBox" Grid.Row="3" Grid.Column="1" Margin="10,30"></ComboBox>
     </Grid>
 </Window>

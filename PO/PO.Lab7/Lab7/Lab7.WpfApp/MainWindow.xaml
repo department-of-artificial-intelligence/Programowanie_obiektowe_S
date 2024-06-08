@@ -1,0 +1,44 @@
+﻿<Window x:Class="Lab7.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab7.WpfApp"
+        mc:Ignorable="d"
+        Title="Calculator228" Height="350" Width="500">
+    <Grid Margin="0,0,0,1" x:Name="MainGrid" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="textLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" FontSize="36" RenderTransformOrigin="0.5,0.5" TextAlignment="Right" />
+        <Button x:Name="BTN_1" Grid.Row="1" Grid.Column="0" FontSize="24">1</Button>
+        <Button x:Name="BTN_2" Grid.Row="1" Grid.Column="1" FontSize="24">2</Button>
+        <Button x:Name="BTN_3" Grid.Row="1" Grid.Column="2" FontSize="24">3</Button>
+        <Button x:Name="BTN_4" Grid.Row="2" Grid.Column="0" FontSize="24">4</Button>
+        <Button x:Name="BTN_5" Grid.Row="2" Grid.Column="1" FontSize="24">5</Button>
+        <Button x:Name="BTN_6" Grid.Row="2" Grid.Column="2" FontSize="24">6</Button>
+        <Button x:Name="BTN_7" Grid.Row="3" Grid.Column="0" FontSize="24">7</Button>
+        <Button x:Name="BTN_8" Grid.Row="3" Grid.Column="1" FontSize="24">8</Button>
+        <Button x:Name="BTN_9" Grid.Row="3" Grid.Column="2" FontSize="24">9</Button>
+        <Button x:Name="BTN_0" Grid.Row="4" Grid.Column="1" FontSize="24">0</Button>
+        <Button x:Name="BTN_Sum" Grid.Row="1" Grid.Column="3" FontSize="24">+</Button>
+        <Button x:Name="BTN_Sub" Grid.Row="2" Grid.Column="3" FontSize="24">-</Button>
+        <Button x:Name="BTN_Mul" Grid.Row="3" Grid.Column="3" FontSize="24">*</Button>
+        <Button x:Name="BTN_Div" Grid.Row="4" Grid.Column="3" FontSize="24">/</Button>
+        <Button x:Name="BTN_Equals" Grid.Row="5" Grid.Column="3" FontSize="24">=</Button>
+        <Button x:Name="BTN_AC" Grid.Row="5" Grid.Column="1" FontSize="24">AC</Button>
+        <Button x:Name="BTN_Point" Grid.Row="4" Grid.Column="2" FontSize="24">.</Button>
+        <Button x:Name="BTN_BACK" Grid.Row="5" Grid.Column="2" FontSize="24">C</Button>
+    </Grid>
+</Window>

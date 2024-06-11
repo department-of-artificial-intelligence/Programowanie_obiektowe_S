@@ -4,7 +4,6 @@ using Kolokwium.DAL.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
 namespace Kolokwium.WpfApp
 {
     /// <summary>

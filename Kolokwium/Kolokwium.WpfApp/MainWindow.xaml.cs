@@ -1,5 +1,6 @@
 ﻿using Kolokwium.DAL.EF;
 using Kolokwium.Model;
+using Kolokwium.WpfApp.Commands;
 using Kolokwium.WpfApp.Windows;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
@@ -18,15 +19,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kolokwium.WpfApp.Extensions;
 
 namespace Kolokwium.WpfApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private readonly ApplicationDbContext _dbContext;
+        public ICommand DeleteShopCommand { get; }
+        public ICommand AddEditShopCommand { get; }
+        public ICommand AddProductCommand { get; }
 
         public MainWindow(ApplicationDbContext dbContext)
         {
@@ -34,67 +36,17 @@ namespace Kolokwium.WpfApp
             _dbContext = dbContext;
             InitializeComponent();
             ShopDataGrid.DataContext = _dbContext.Shops;
+
+            //Commands
+            ButtonsGrid.DataContext = this;
+            DeleteShopCommand = new DeleteShopCommand(_dbContext, ShopDataGrid);
+            AddEditShopCommand = new AddEditShopCommand(_dbContext, ShopDataGrid,this.Hide,this.Show);
+            AddProductCommand = new AddProductCommand(_dbContext, ShopDataGrid, this.Hide, this.Show);
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SetGrid(ShopDataGrid, _dbContext.Shops
+            GridExtensions.SetGrid(ShopDataGrid, _dbContext.Shops
                 .Include(stud => stud.Products));
-        }
-        private static void SetGrid<T>(DataGrid dataGrid, IEnumerable<T> list) where T : new()
-        {
-            dataGrid.Columns.Clear();
-            var type = typeof(T);
-            foreach (var prop in type.GetProperties())
-                if (prop.GetCustomAttribute<HideAttribute>() == null)
-                    dataGrid.Columns.Add(new DataGridTextColumn()
-                    {
-                        Header = prop.Name,
-                        Binding = new Binding(prop.Name)
-                    });
-            dataGrid.AutoGenerateColumns = false;
-            dataGrid.ItemsSource = list;
-            dataGrid.Items.Refresh();
-        }
-
-        private void Button_Delete_Click(object sender, RoutedEventArgs e)
-        {
-            if (ShopDataGrid.SelectedItem != null)
-                if (ShopDataGrid.SelectedItem is Shop s)
-                {
-                    _dbContext.Shops.Remove(s);
-                    _dbContext.SaveChanges();
-                    SetGrid(ShopDataGrid, _dbContext.Shops.Include(stud => stud.Products));
-                }
-        }
-
-        private void Button_Create_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            if (ShopDataGrid.SelectedItem != null && ShopDataGrid.SelectedItem is Shop s)
-            {
-                CreateWindow createWindow = new CreateWindow(_dbContext, s);
-                if (createWindow.ShowDialog() ?? false)
-                    SetGrid(ShopDataGrid, _dbContext.Shops.Include(stud => stud.Products));
-            }
-            else
-            {
-                CreateWindow createWindow = new CreateWindow(_dbContext, null);
-                if (createWindow.ShowDialog() ?? false)
-                    SetGrid(ShopDataGrid, _dbContext.Shops.Include(stud => stud.Products));
-            }
-            this.Show();
-        }
-
-        private void Button_Product_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            if (ShopDataGrid.SelectedItem != null && ShopDataGrid.SelectedItem is Shop s)
-            {
-                CreateProductWindow createWindow = new CreateProductWindow(_dbContext, s);
-                if (createWindow.ShowDialog() ?? false)
-                    SetGrid(ShopDataGrid, _dbContext.Shops.Include(stud => stud.Products));
-            }
-            this.Show();
         }
     }
 }

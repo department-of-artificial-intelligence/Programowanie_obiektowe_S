@@ -11,7 +11,7 @@
         <Label Content="FirstName:" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="88"/>
         <Label Content="LastName:" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="88"/>
         <Label Content="Email:" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="88"/>
-        <TextBox x:Name="TextBoxFirstName" HorizontalAlignment="Left" Margin="98,54,0,0" TextWrapping="Wrap" Text="{Binding FirsName}" VerticalAlignment="Top" Height="21" Width="151"/>
+        <TextBox x:Name="TextBoxFirstName" HorizontalAlignment="Left" Margin="98,54,0,0" TextWrapping="Wrap" Text="{Binding FirstName}" VerticalAlignment="Top" Height="21" Width="151"/>
         <TextBox x:Name="TextBoxEmail" HorizontalAlignment="Left" Margin="98,149,0,0" TextWrapping="Wrap" Text="{Binding LastName}" VerticalAlignment="Top" Width="150" Height="21"/>
         <TextBox x:Name="TextBoxLastName" HorizontalAlignment="Left" Margin="98,100,0,0" TextWrapping="Wrap" Text="{Binding Email}" VerticalAlignment="Top" Height="19" Width="150"/>
         <DatePicker x:Name="DatePickerDateOfBirth" HorizontalAlignment="Center" Margin="0,193,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.031,-1.405" Width="130"/>

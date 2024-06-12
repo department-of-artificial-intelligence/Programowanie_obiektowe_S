@@ -29,7 +29,8 @@ namespace Kolokwium.WpfApp
         {
             _dbContext = dbContext;
             InitializeComponent();
-            _author = author;
+            DataContext = _author = author;
+            
         }
 
         private void SaveAuthorButton_Click(object sender, RoutedEventArgs e)

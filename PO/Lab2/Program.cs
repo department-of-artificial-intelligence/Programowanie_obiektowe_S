@@ -244,6 +244,7 @@ namespace Lab2.App
 
 class Program
 {
+    
     static void Main(string[] args)
     {
         Person person1 = new Person("Adam", "Miś", new DateTime(1990, 3, 20, 12, 30, 10));
@@ -286,3 +287,4 @@ class Program
 
     }
 }
+

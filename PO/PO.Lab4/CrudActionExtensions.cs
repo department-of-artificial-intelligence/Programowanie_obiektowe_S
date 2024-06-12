@@ -1,11 +1,15 @@
-﻿namespace Lab4.App
+﻿using System.Reflection;
+
+namespace Lab4.App
 {
     public static class CrudActionExtensions
     {
         public static IList<TObjectType> Set<TObjectType>(this IContainer containerObject)
         {
-            var containerObjectType = containerObject.GetType();
-            var propertyInfo = containerObjectType.GetProperties().FirstOrDefault(p => p.PropertyType == typeof(IList<TObjectType>));
+            
+            Type containerObjectType = containerObject.GetType();
+            PropertyInfo propertyInfo = containerObjectType.
+                GetProperties().FirstOrDefault(p => p.PropertyType == typeof(IList<TObjectType>));
             var value = propertyInfo?.GetValue(containerObject);
             return value as IList<TObjectType>;
         }

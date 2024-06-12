@@ -20,7 +20,7 @@ namespace PO.Lab4.Classes
         {
             string res = $"{Name} , {Address} , Lecturers : ";
             foreach (var item in Lectures)
-                res += "\t" + item + "\n";
+                res += "\n" + item + "\n";
             return res;
         }
     }

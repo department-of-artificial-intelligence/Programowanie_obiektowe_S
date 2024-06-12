@@ -1,0 +1,19 @@
+﻿<Window x:Class="Kolokwium.WpfApp.AddEditBookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kolokwium.WpfApp"
+        mc:Ignorable="d"
+        Title="AddEditBookWindow" Height="450" Width="400
+        ">
+    <Grid>
+        <Label Content="Title:" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="88"/>
+        <Label Content="Genre:" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="88"/>
+        <TextBox x:Name="TextBoxTitle" HorizontalAlignment="Left" Margin="98,54,0,0" TextWrapping="Wrap" Text="{Binding Title }" VerticalAlignment="Top" Height="21" Width="151"/>
+        <TextBox x:Name="TextBoxGenre" HorizontalAlignment="Left" Margin="98,100,0,0" TextWrapping="Wrap" Text="{Binding Genre}" VerticalAlignment="Top" Height="19" Width="150"/>
+        <DatePicker x:Name="DatePickerDateOfCreate" HorizontalAlignment="Left" Margin="98,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.031,-1.405" Width="130"/>
+        <Button x:Name="SaveBookButton" Content="Save" HorizontalAlignment="Left" Margin="125,276,0,0" VerticalAlignment="Top" Height="55" Width="176" Click="SaveAuthorButton_Click"/>
+
+    </Grid>
+</Window>

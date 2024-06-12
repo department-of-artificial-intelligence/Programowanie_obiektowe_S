@@ -34,7 +34,7 @@ namespace Kolokwium.WpfApp.Commands
             {
                 CreateProductWindow createWindow = new CreateProductWindow(dbContext, s);
                 if (createWindow.ShowDialog() ?? false)
-                    GridExtensions.SetGrid(shopDataGrid, dbContext.Shops.Include(stud => stud.Products));
+                    shopDataGrid.SetGrid(dbContext.Shops.Include(stud => stud.Products));
             }
             show();
         }

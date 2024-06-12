@@ -45,7 +45,7 @@ namespace Kolokwium.WpfApp
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GridExtensions.SetGrid(ShopDataGrid, _dbContext.Shops
+            ShopDataGrid.SetGrid(_dbContext.Shops
                 .Include(stud => stud.Products));
         }
     }

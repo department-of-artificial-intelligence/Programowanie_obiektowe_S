@@ -29,7 +29,7 @@ namespace Kolokwium.WpfApp.Commands
                 {
                     dbContext.Shops.Remove(s);
                     dbContext.SaveChanges();
-                    GridExtensions.SetGrid(shopDataGrid, dbContext.Shops.Include(stud => stud.Products));
+                    shopDataGrid.SetGrid(dbContext.Shops.Include(stud => stud.Products));
                 }
         }
     }

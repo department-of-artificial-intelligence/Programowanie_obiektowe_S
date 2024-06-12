@@ -33,13 +33,13 @@ namespace Kolokwium.WpfApp.Commands
             {
                 CreateWindow createWindow = new CreateWindow(dbContext, s);
                 if (createWindow.ShowDialog() ?? false)
-                    GridExtensions.SetGrid(dataGrid, dbContext.Shops.Include(stud => stud.Products));
+                    dataGrid.SetGrid(dbContext.Shops.Include(stud => stud.Products));
             }
             else
             {
                 CreateWindow createWindow = new CreateWindow(dbContext, null);
                 if (createWindow.ShowDialog() ?? false)
-                    GridExtensions.SetGrid(dataGrid, dbContext.Shops.Include(stud => stud.Products));
+                    dataGrid.SetGrid(dbContext.Shops.Include(stud => stud.Products));
             }
             show();
         }

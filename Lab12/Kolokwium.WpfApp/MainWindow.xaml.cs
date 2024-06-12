@@ -35,7 +35,7 @@ namespace Kolokwium.WpfApp
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SetGrid(ParkDataGrid, _dbContext.Parks.Include(park => park.Trees));
+            SetGrid(ParkDataGrid, _dbContext.Parks.Include(tree=>tree.Trees));
         }
         private void Add_Edit_Park_Button_Click(object sender, RoutedEventArgs e)
         {

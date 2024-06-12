@@ -11,7 +11,7 @@ namespace Kolokwium.Model
         public int Id { get; set; }
         public string Name { get; set; }
         public string City { get; set; }
-        public int Area { get; set; }
+        public int Area { get; set; } 
         public IList<Tree> Trees { get; set; } = null!;
         public string AllTrees => Trees.Count > 0 ? string.Join(", ", Trees) : "";
     }

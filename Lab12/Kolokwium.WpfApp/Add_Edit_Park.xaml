@@ -8,11 +8,11 @@
         Title="Add_Edit_Park" Height="450" Width="350">
     <Grid>
         <Label Content="Name" HorizontalAlignment="Left" Margin="54,134,0,0" VerticalAlignment="Top" Height="25" Width="43"/>
-        <TextBox Name="TextBoxName" HorizontalAlignment="Left" Margin="132,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="TextBoxName" HorizontalAlignment="Left" Margin="132,141,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="120"/>
         <Label Content="City" HorizontalAlignment="Left" Margin="54,172,0,0" VerticalAlignment="Top" Height="25" Width="43"/>
-        <TextBox Name="TextBoxCity" HorizontalAlignment="Left" Margin="132,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="TextBoxCity" HorizontalAlignment="Left" Margin="132,179,0,0" TextWrapping="Wrap" Text="{Binding City}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Area" HorizontalAlignment="Left" Margin="54,208,0,0" VerticalAlignment="Top" Height="25" Width="43"/>
-        <TextBox Name="TextBoxArea" HorizontalAlignment="Left" Margin="132,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="TextBoxArea" HorizontalAlignment="Left" Margin="132,215,0,0" TextWrapping="Wrap" Text="{Binding Area}" VerticalAlignment="Top" Width="120"/>
         <Button Name="ButtonSave" Content="Save" HorizontalAlignment="Center" Margin="0,279,0,0" VerticalAlignment="Top" Height="80" Width="142" Click="ButtonSave_Click"/>
     </Grid>
 </Window>

@@ -7,6 +7,7 @@ public class Car
     private int _doorCount;
     private double _engineVolume;
     private double _avgConsump;
+    private string _registrationNumber;
 
     private static int _carCount = 0;
 
@@ -17,16 +18,18 @@ public class Car
         _doorCount = 0;
         _engineVolume = 0.0;
         _avgConsump = 0.0;
+        _registrationNumber = "Unknown";
         _carCount++;
     }
 
-    public Car(string brand, string model, int doorCount, double engineVolume, double avgConsump)
+    public Car(string brand, string model, int doorCount, double engineVolume, double avgConsump, string registrationNumber)
     {
         _brand = brand;
         _model = model;
         _doorCount = doorCount;
         _engineVolume = engineVolume;
         _avgConsump = avgConsump;
+        _registrationNumber = registrationNumber;
         _carCount++;
     }
 
@@ -60,6 +63,11 @@ public class Car
         set { _avgConsump = value; }
     }
 
+    public string RegistrationNumber
+    {
+        get { return _registrationNumber; }
+        set { _registrationNumber = value; }
+    }
     public double CalculateConsump(double distance)
     {
         return (_avgConsump * distance) / 100;
@@ -71,13 +79,19 @@ public class Car
         return consumption * fuelPricePerLiter;
     }
 
-    public void DisplayCarInfo()
+    public void Details()
     {
         Console.WriteLine($"Brand: {_brand}");
         Console.WriteLine($"Model: {_model}");
         Console.WriteLine($"Door Count: {_doorCount}");
         Console.WriteLine($"Engine Volume: {_engineVolume}L");
         Console.WriteLine($"Average Consumption: {_avgConsump}L/100km");
+        Console.WriteLine($"Registration Number: {_registrationNumber}");
+    }
+
+    public override string ToString()
+    {
+        return $"Car: {_brand} {_model}, Doors: {_doorCount}, Engine: {_engineVolume}L, Consumption: {_avgConsump}L/100km, Registration: {_registrationNumber}";
     }
 
     public static void DisplayCarCount()

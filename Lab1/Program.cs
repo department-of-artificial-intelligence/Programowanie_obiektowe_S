@@ -1,26 +1,29 @@
-﻿using System;
-class Program
+﻿class Lab1
 {
     static void Main(string[] args)
     {
-        Car car1 = new Car("Toyota", "Corolla", 4, 1.8, 6.5);
-        Car car2 = new Car("Ford", "Mustang", 2, 5.0, 12.0);
+        Car car1 = new Car();
+        car1.Details();
+        car1.Brand = "Fiat";
+        car1.Model = "126p";
+        car1.DoorCount = 2;
+        car1.EngineVolume = 650;
+        car1.AvgConsump = 6.0;
+        car1.RegistrationNumber = "KR12345";
+        car1.Details();
 
-        car1.DisplayCarInfo();
-        Console.WriteLine();
-        car2.DisplayCarInfo();
-        Console.WriteLine();
+        Car car2 = new Car("Syrena", "105", 2, 0.8, 7.6, "WE1234");
+        car2.Details();
 
-        double distance = 300;
-        double fuelPricePerLiter = 5.5;
+        Console.WriteLine(car1);
 
-        double consumption = car1.CalculateConsump(distance);
-        double cost = car1.CalculateCost(distance, fuelPricePerLiter);
+        double routeConsumption = car2.CalculateConsump(500);
+        Console.WriteLine($"Route consumption: {routeConsumption} l");
 
-        Console.WriteLine($"Car 1 consumption for {distance}km: {consumption}L");
-        Console.WriteLine($"Car 1 fuel cost for {distance}km: {cost} zł");
-        Console.WriteLine();
+        double routeCost = car2.CalculateCost(500, 5);
+        Console.WriteLine($"Route cost: {routeCost}");
 
         Car.DisplayCarCount();
+        Console.WriteLine("\r\n=========================================\r\n");
     }
 }

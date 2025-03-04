@@ -10,6 +10,7 @@ namespace Lab1
 	{
 		private static int _carCount = 0;
 		private string _brand;
+		private string _model;
 		private int _doorCount;
 		private double _engineVolume;
 		private double _avgConsump;

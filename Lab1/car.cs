@@ -25,5 +25,5 @@ namespace Lab1
             set { _brand = value; }
         }
     public string _model { get; set; }
-    public int 
+    public int ;
     }

@@ -2,7 +2,7 @@
 
 namespace Lab1 {
 
-	internal class Program {
+	internal class Car {
 
 		static void Main(string[] args) {
 

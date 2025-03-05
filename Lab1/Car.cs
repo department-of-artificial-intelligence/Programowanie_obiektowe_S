@@ -44,7 +44,7 @@ namespace Lab1
 
         public override string ToString()
         {
-            return "todo :3";
+            return $"{_brand} {_model}";
         }
     }
 }

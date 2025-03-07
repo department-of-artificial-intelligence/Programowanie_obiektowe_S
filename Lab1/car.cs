@@ -13,13 +13,30 @@ namespace Lab1
         private int _doorCount;
         private float _engineVolume;
         private double _avgComsump;
-        private static int _carCount;
+        private static int _carCount = 0;
 
-        public string Brand { get; set;}
-        public string Model { get; set;}
-        public int DoorCount { get; set;}
-        public float EngineVolume { get; set;}
-        public double AverageComsump { get; set; }
+        public string Brand {
+            get { return _brand; }
+            set { _brand = value; }
+        }
+        public string Model {
+            get { return _model; }
+            set { _model = value; }
+        }
+        public int DoorCount {
+            get { return _doorCount; }
+            set { _doorCount = value; }
+        }
+        public float EngineVolume {
+            get { return _engineVolume; }
+            set { _engineVolume = value; }
+        }
+        public double AvgComsump {
+            get { return _avgComsump; }
+            set { _avgComsump = value; }
+        }
+
+        
     }
 
 }

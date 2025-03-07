@@ -62,12 +62,12 @@ namespace Lab1
 
         public Car(string? brand, string? model, int doorCount, float engineVolume, double avgConsump, string? registrationNumber)
         {
-            Brand = brand;
-            Model = model;
-            DoorCount = doorCount;
-            EngineVolume = engineVolume;
-            AvgConsump = avgConsump;
-            RegistrationNumber = registrationNumber;
+            _brand = brand;
+            _model = model;
+            _doorCount = doorCount;
+            _engineVolume = engineVolume;
+            _avgConsump = avgConsump;
+            _registrationNumber = registrationNumber;
             ++_carCount;
         }
 
@@ -95,28 +95,6 @@ namespace Lab1
         public static void DisplayCarCount()
         {
             Console.WriteLine($"There are {_carCount} cars.");
-        }
-
-        static void Main()
-        {
-            Car car1 = new Car();
-            car1.Details();
-            car1.Brand = "Fiat";
-            car1.Model = "126p";
-            car1.DoorCount = 2;
-            car1.EngineVolume = 650;
-            car1.AvgConsump = 6.0;
-            car1.RegistrationNumber = "KR12345";
-            car1.Details();
-            Car car2 = new Car("Syrena", "105", 2, 0.8f, 7.6d, "WE1234");
-            car2.Details();
-            Console.WriteLine(car1);
-            double routeConsumption = car2.CalculateConsump(500);
-            Console.WriteLine($"Route consumption: {routeConsumption} l");
-            double routeCost = car2.CalculateCost(500, 5);
-            Console.WriteLine($"Route cost: {routeCost}");
-            Car.DisplayCarCount();
-            Console.WriteLine("\r\n=========================================\r\n");
         }
     }
 }

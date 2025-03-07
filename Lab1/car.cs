@@ -64,7 +64,8 @@ namespace Lab1
         
         public override string ToString()
         {
-            return $"Car | Brand: {_brand}, Model: {_model}, NumOfDoors: { _doorCount}, EngineVol: { _engineVolume}, AvgConsump: { _avgConsump}";
+            return $"Car | Brand: {_brand}, Model: {_model}, " +
+                $"NumOfDoors: { _doorCount}, EngineVol: { _engineVolume}, AvgConsump: { _avgConsump}\n";
         }
         //, RegistrationNumber: { _registrationNumber}
         public void Details()
@@ -73,7 +74,7 @@ namespace Lab1
         }
         public static void DisplayCarCount()
         {
-            Console.WriteLine(_carCount);
+            Console.WriteLine(_carCount + " cars");
         }
     }
 

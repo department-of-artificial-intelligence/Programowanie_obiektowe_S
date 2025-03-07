@@ -12,7 +12,7 @@ namespace Lab1
         private string _model;
         private int _doorCount;
         private float _engineVolume;
-        private double _avgComsump;
+        private double _avgConsump;
         private static int _carCount = 0;
 
         public string Brand {
@@ -31,12 +31,50 @@ namespace Lab1
             get { return _engineVolume; }
             set { _engineVolume = value; }
         }
-        public double AvgComsump {
-            get { return _avgComsump; }
-            set { _avgComsump = value; }
+        public double AvgConsump {
+            get { return _avgConsump; }
+            set { _avgConsump = value; }
         }
 
+        public Car() {
+            _brand = "nieznana";
+            _model = "nieznany";
+            _doorCount = 0;
+            _engineVolume = 0;
+            _avgConsump = 0;
+            _carCount++;
+            }
+        public Car (string brand, string model, int doorCount, float engineVolume, double avgConsump )
+        {
+            _brand = brand;
+            _model = model;
+            _doorCount = doorCount;
+            _engineVolume = engineVolume;
+            _avgConsump = avgConsump;
+            _carCount++;
+        }
+        public double CalculateConsump(double roadLength)
+        {
+            return (_avgConsump * roadLength) / 100.0;
+        }
+        public double CalculateCost(double roadLength, double petrolCost)
+        {
+            return CalculateConsump(roadLength) * petrolCost;
+        }
         
+        public override string ToString()
+        {
+            return $"Car | Brand: {_brand}, Model: {_model}, NumOfDoors: { _doorCount}, EngineVol: { _engineVolume}, AvgConsump: { _avgConsump}";
+        }
+        //, RegistrationNumber: { _registrationNumber}
+        public void Details()
+        {
+            Console.WriteLine(this);
+        }
+        public static void DisplayCarCount()
+        {
+            Console.WriteLine(_carCount);
+        }
     }
 
 }

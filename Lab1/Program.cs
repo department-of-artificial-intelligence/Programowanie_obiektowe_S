@@ -10,7 +10,7 @@ namespace Lab1
     {
         static void Main()
         {
-            //Car.cs testing
+            //Testing Car class
             Car car1 = new Car();
             car1.Details();
             car1.Brand = "Fiat";
@@ -30,7 +30,7 @@ namespace Lab1
             Car.DisplayCarCount();
             Console.WriteLine("\r\n=========================================\r\n");
 
-            //Garage.cs testing
+            //Testing Garage class
             Garage garage1 = new Garage();
             garage1.Address = "ul. Garażowa 1";
             garage1.Capacity = 1;
@@ -50,6 +50,34 @@ namespace Lab1
             garage2.Details();
             garage1.Details();
             Console.WriteLine("\r\n=========================================\r\n");
+
+            // Testing Person class
+            Person person1 = new Person("Jan", "Kowalski", "ul. Polna 3");
+            person1.Details();
+
+            person1.AddCarRegistrationNumber("KR12345");
+            person1.AddCarRegistrationNumber("WE1234");
+            person1.AddCarRegistrationNumber("WA9876");
+
+            Console.WriteLine(person1);
+
+            person1.AddCarRegistrationNumber("PO1234");
+
+            person1.RemoveCarRegistrationNumber("WE1234");
+
+            person1.Details();
+
+            person1.AddCarRegistrationNumber("PO1234");
+            person1.Details();
+
+            Console.WriteLine("\r\n=========================================\r\n");
+
+            Car car3 = new Car("Toyota", "Corolla", 4, 1.8f, 6.0, "GD12345");
+            Car car4 = new Car("Honda", "Civic", 4, 1.6f, 7.0, "LR9876");
+
+            Person person2 = new Person("Anna", "Nowak", "ul. Wrzosowa 5", new Car[] { car3, car4 });
+            person2.Details();
+            Console.WriteLine(person2);
         }
     }
 }

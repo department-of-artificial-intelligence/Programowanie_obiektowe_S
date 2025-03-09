@@ -1,19 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Lab1
 {
-    internal class Car
+    class Car
     {
         private string _brand;
         private string _model;
         private int _doorCount;
         private float _engineVolume;
         private double _avgConsump;
-        private static int carCount = 0;
+        private string _registrationNumber;
+        private static int _carCount = 0;
+
+        public string RegistrationNumber
+        {
+            get { return _registrationNumber; }
+            set { _registrationNumber = value; }
+        }
 
         public string Brand
         {
@@ -45,15 +53,52 @@ namespace Lab1
             set { _avgConsump = value; }
         }
 
-        Car()
+        public Car()
         {
             _brand = "nieznana";
             _model = "nieznany";
             _doorCount = 0;
             _engineVolume = 0;
             _avgConsump = 0.0;
-            carCount++;
+            _registrationNumber = "nieznany";
+            _carCount++;
 
+        }
+
+        public Car(string brand, string model, int doorCount, float engineVolume, double avgConsump, string registrationNumber)
+        {
+            _brand = brand;
+            _model = model;
+            _doorCount = doorCount;
+            _engineVolume = engineVolume;
+            _avgConsump = avgConsump;
+            _registrationNumber = registrationNumber;
+            _carCount++;
+        }
+
+        public override string ToString()
+        {
+            return $"Car | Brand: {_brand}, Model: {_model}, NumOfDoors: {_doorCount}, EngineVol: {_engineVolume}, AvgConsump: {_avgConsump}, RegistrationNumber: {_registrationNumber}";
+        }
+
+        public double CalculateConsump(double roadLenght)
+        {
+            return (_avgConsump * roadLenght) / 100.0;
+        }
+
+        public double CalculateCost(double roadLenght, double petrolCost)
+        {
+            return CalculateConsump(roadLenght) * petrolCost;
+        }
+
+        public void Details()
+        {
+            Console.WriteLine(this.ToString());
+        }
+
+        public static void DisplayCarCount()
+        {
+            Console.WriteLine($"{_carCount}");
         }
     }
 }

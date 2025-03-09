@@ -4,7 +4,8 @@
     internal class Program
     {
         static void Main(string[] args)
-        {
+        {    
+            //Zad.1
             Car car1 = new Car();
             car1.Details();
             car1.Brand = "Fiat";
@@ -23,6 +24,28 @@
             Console.WriteLine($"Route cost: {routeCost}");
             Car.DisplayCarCount();
             Console.WriteLine("\r\n=========================================\r\n");
+
+            //Zad. 2
+            Garage garage1 = new Garage();
+            garage1.Address = "ul. Garażowa 1";
+            garage1.Capacity = 1;
+            Garage garage2 = new Garage("ul. Garażowa 2", 2);
+            garage1.CarIn(car1);
+            garage1.Details();
+            garage1.CarIn(car2);
+            garage2.CarIn(car2);
+            var movedCar = garage1.CarOut();
+            garage2.CarIn(movedCar);
+            garage2.Details();
+            garage1.Details();
+            garage2.CarOut();
+            garage2.Details();
+            garage2.CarOut();
+            garage2.CarOut();
+            garage2.Details();
+            garage1.Details();
+            Console.WriteLine("\r\n=========================================\r\n");
+
         }
     }
 }

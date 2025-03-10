@@ -5,6 +5,7 @@
     {
         static void Main(string[] args)
         {
+
             Car car1 = new Car();
             car1.Details();
             car1.Brand = "Fiat";
@@ -43,6 +44,21 @@
             garage2.Details();
             garage1.Details();
             Console.WriteLine("\r\n=========================================\r\n");
+
+            Person person1 = new Person();
+            person1.Details();
+            Person person2 = new Person("Michal", "Kowalski", "Dabrowskiego 69");
+            person2.Details();
+            person2.AddCarRegistrationNumber("SCZ 1734U");
+            person2.AddCarRegistrationNumber("WE 12312");
+            person2.AddCarRegistrationNumber("SKL 55555");
+            person2.AddCarRegistrationNumber("KR 12312");
+            person2.Details();
+            person2.RemoveCarRegistrationNumber("SCZ 1734U");
+            person2.RemoveCarRegistrationNumber("KR 12312");
+            person2.Details();
+            Person person3 = new Person("Szymon", "Nowak", "Wolnosci 12", [car1, car2]);
+            person3.Details();
 
         }
     }

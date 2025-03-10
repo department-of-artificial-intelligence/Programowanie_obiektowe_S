@@ -101,7 +101,7 @@ namespace Lab1
 
         public void Details()
         {
-            Console.WriteLine(ToString());
+            Console.WriteLine(this);
         }
     }
 }

@@ -50,10 +50,16 @@ namespace Lab1;
         Car car5 = new Car("Fajne", "Szybkie", 5, 5, 5, "AB7777");
         Car car6 = new Car("Fajne", "Szybkie", 5, 5, 5, "AB8888");
         Car[] samochody = new Car[3];
+        Car[] samochody1 = new Car[4];
         samochody[0] = car1;
         samochody[1] = car2;
         samochody[2] = car3;
+        samochody1[0] = car1;
+        samochody1[1] = car2;   
+        samochody1[2] = car3;
+        samochody1[3] = car4;
         Person person3 = new Person("Andrew", "Kolanko", "New Street", samochody);
+        Person person4 = new Person("Ala", "Kota", "Juhowo", samochody1);
         person3.Details();
         person3.RemoveCarRegistrationNumber("AB9999");
         person1.AddCarRegistrationNumber("XDDDD");
@@ -65,6 +71,10 @@ namespace Lab1;
         person1.Details();
         person2.Details();
         person3.Details();
+        person1.RemoveCarRegistrationNumber("XDDDD");
+        person1.RemoveCarRegistrationNumber("1XDDDD");
+        person1.RemoveCarRegistrationNumber("2XDDDD");
+        person1.Details();
     }
     }
 

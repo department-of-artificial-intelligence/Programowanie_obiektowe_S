@@ -41,7 +41,7 @@ namespace Lab1
             CarsCount=cars.Length;
             if (cars.Length > MaxCarCount)
             {
-                Console.WriteLine("za duzo samochodow !");
+                Console.WriteLine(" Za duzo samochodow !\n");
             }
             else
             {

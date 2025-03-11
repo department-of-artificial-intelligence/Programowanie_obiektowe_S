@@ -53,12 +53,48 @@ namespace Lab1
 			_brand = "nieznana";
 			_model = "nieznany";
 			_doorCount = 0;
-			_engineVolume = 0;
+			_engineVolume = 0.0;
 			_avgConsump = 0.0;
+			_carCount++;
 
+        }
+
+        public Car(string brand, string model, int doorCount, float engineVolume, double avgConsump)
+        {
+            _brand = brand;
+            _model = model;
+			_doorCount = doorCount;
+            _engineVolume = engineVolume;
+            _avgConsump = avgConsump;
+            _carCount++;
+
+        }
+
+		public double CalculateConsump(double roadLength)
+		{
+			return (_avgConsump * roadLength) /100;
 		}
 
-	}
+		public double CalculateCost(double roadLength, double petrolCost)
+		{
+			return CalculateConsump(roadLength) * petrolCost;
+		}
+
+		public override string ToString()
+		{
+			return $"Car | Brand: {_brand}, Model: {_model}, NumOfDoors: {_doorCount}, EngineVol: {_engineVolume}, AvgConsump: {_avgConsump}"; // Brak w klasie pola _registrationNumber
+        }
+
+		public void Details()
+		{
+			Console.WriteLine(this.ToString()); //lepszy sposób na zapis?
+		}
+
+		public void DisplayCarCount()
+		{
+			Console.WriteLine(_carCount);
+		}
+    }
 }
 
 //Zmieniamy internal class na public class

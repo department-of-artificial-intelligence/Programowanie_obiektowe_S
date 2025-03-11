@@ -13,6 +13,7 @@ namespace Lab1
         private int _doorCount;
         private float _engineVolume;
         private double _avgConsump;
+        private string _registrationNumber;
         private static int _carCount = 0;
 
         public string Brand
@@ -41,6 +42,11 @@ namespace Lab1
             get { return _avgConsump; }
             set { _avgConsump = value; }
         }
+        public string RegistrationNumber
+        {
+            get { return _registrationNumber; }
+            set { _registrationNumber = value; }
+        }
 
         public Car()
         {
@@ -49,35 +55,44 @@ namespace Lab1
             _doorCount = 0;
             _engineVolume = 0;
             _avgConsump = 0;
+            _registrationNumber = "nieznany";
             _carCount += 1;
         }
-        public Car(string brand, string model, int doorCount, float engineVolume, double avgConsump)
+        public Car(string brand, string model, int doorCount, float engineVolume, double avgConsump, string registrationNumber)
         {
             _brand = brand;
             _model = model;
             _doorCount = doorCount;
             _engineVolume = engineVolume;
             _avgConsump = avgConsump;
+            _registrationNumber = registrationNumber;
+            _carCount += 1;
         }
 
-        public double CalculateConsump(double roadLength) => 
-            (_avgConsump * roadLength) / 100.0;
-
-        public double CalculateCost(double roadLength, double petrolCost) => 
-            CalculateConsump(roadLength) * petrolCost;
+        public double CalculateConsump(double roadLength)
+        {
+            return _avgConsump * roadLength / 100.0;
+        }
+        public double CalculateCost(double roadLength, double petrolCost)
+        {
+            return CalculateConsump(roadLength) * petrolCost;
+        }
 
         public override string ToString()
-        {  {
-                return $"Car | Brand: {_brand}, Model: {_model}, NumOfDoors: " +
-                    $"{_doorCount}, EngineVol: {_engineVolume}, AvgConsump: " +
-                    $"{_avgConsump}, RegistrationNumber: {_registrationNumber}";
-            }
+        {
+            return $"Car | Brand: {_brand}, Model: {_model}, NumOfDoors: " +
+                 $"{_doorCount}, EngineVol: {_engineVolume}, AvgConsump: " +
+                 $"{_avgConsump}, RegistrationNumber: {_registrationNumber}";
         }
-        public void Details() => 
-            Console.WriteLine(this);
-        public static void DisplayCarCount() => 
-            Console.WriteLine($"Number of cars created: {_carCount}");
+
+        public void Details()
+        {
+            Console.WriteLine(this.ToString());
+        }
+
+        public static void DisplayCarCount()
+        {
+            Console.WriteLine($"Number of cars = {_carCount}");
+        }
     }
 }
-
-       

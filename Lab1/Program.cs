@@ -22,6 +22,40 @@
 			Console.WriteLine($"Route cost: {routeCost}");
 			Car.DisplayCarCount();
 			Console.WriteLine("\r\n=========================================\r\n");
+
+
+			Garage garage1 = new Garage();
+			garage1.Address = "ul. Garażowa 1";
+			garage1.Capacity = 1;
+			Garage garage2 = new Garage("ul. Garażowa 2", 2);
+			garage1.CarIn(car1);
+			garage1.Details();
+			garage1.CarIn(car2);
+			garage2.CarIn(car2);
+			var movedCar = garage1.CarOut();
+			garage2.CarIn(movedCar);
+			garage2.Details();
+			garage1.Details();
+			garage2.CarOut();
+			garage2.Details();
+			garage2.CarOut();
+			garage2.CarOut();
+			garage2.Details();
+			garage1.Details();
+			Console.WriteLine("\r\n=========================================\r\n");
+
+			Person person = new Person("John", "Doe", "123 Main Street");
+			person.Details();
+			person.AddCarRegistrationNumber(car1.RegistrationNumber);
+			person.AddCarRegistrationNumber(car2.RegistrationNumber);
+
+			Console.WriteLine("\nPerson after adding cars:");
+			person.Details();
+
+			person.RemoveCarRegistrationNumber(car2.RegistrationNumber);
+			Console.WriteLine("\nPerson after removing a car:");
+			person.Details();
+
 		}
-    }
+	}
 }

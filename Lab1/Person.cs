@@ -8,7 +8,7 @@ namespace Lab1
 {
     class Person
     {
-        private string[] _registrationNumbers;
+        private string?[] _registrationNumbers;
         //private int _carCount
 
         public static int MaxCarCount { get; set; } = 3;

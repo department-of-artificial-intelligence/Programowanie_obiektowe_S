@@ -6,7 +6,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab1
+namespace zad2
 {
     public class Car
     {
@@ -82,4 +82,5 @@ namespace Lab1
         }
     }
 }
+
 

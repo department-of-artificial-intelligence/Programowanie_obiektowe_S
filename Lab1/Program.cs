@@ -1,10 +1,7 @@
 ﻿using System.Xml.Linq;
 
-namespace Lab1;
-
-
-
-
+namespace Lab1
+{
 
 
     internal class Program
@@ -14,4 +11,4 @@ namespace Lab1;
             Console.WriteLine("Hello, World!");
         }
     }
-
+}

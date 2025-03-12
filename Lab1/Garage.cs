@@ -27,7 +27,6 @@ namespace Lab1
         {
             _address = "nieznany";
             _capacity = 0;
-            _cars = null;
 
         }
         public Garage(string address, int capacity)

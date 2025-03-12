@@ -15,8 +15,15 @@ namespace Lab1
 		private float _engineVolume;
 		private double _avgConsump;
 		private static int _carCount=0;
+		private string _registrationNumber;
 
-		public string Brand
+        public string RegistrationNumber
+        {
+            get { return _registrationNumber; }
+            set { _registrationNumber = value; }
+        }
+
+        public string Brand
 		{
 			get { return _brand; }
 			set { _brand = value; }
@@ -55,7 +62,8 @@ namespace Lab1
 			_doorCount = 0;
 			_engineVolume = 0.0f;
 			_avgConsump = 0.0;
-			_carCount++;
+			_registrationNumber = "nieznany";
+            _carCount++;
 
         }
 
@@ -67,10 +75,23 @@ namespace Lab1
             _engineVolume = engineVolume;
             _avgConsump = avgConsump;
             _carCount++;
+			_registrationNumber = "nieznany";
+
+        }
+        public Car(string brand, string model, int doorCount, float engineVolume, double avgConsump, string RegistrationNumber)
+        {
+            _brand = brand;
+            _model = model;
+            _doorCount = doorCount;
+            _engineVolume = engineVolume;
+            _avgConsump = avgConsump;
+            _carCount++;
+            _registrationNumber = RegistrationNumber;
 
         }
 
-		public double CalculateConsump(double roadLength)
+
+        public double CalculateConsump(double roadLength)
 		{
 			return (_avgConsump * roadLength) /100;
 		}
@@ -82,7 +103,7 @@ namespace Lab1
 
 		public override string ToString()
 		{
-			return $"Car | Brand: {_brand}, Model: {_model}, NumOfDoors: {_doorCount}, EngineVol: {_engineVolume}, AvgConsump: {_avgConsump}"; // Brak w klasie pola _registrationNumber
+			return $"Car | Brand: {_brand}, Model: {_model}, NumOfDoors: {_doorCount}, EngineVol: {_engineVolume}, AvgConsump: {_avgConsump}, RegistrationNumber: {_registrationNumber}"; // Brak w klasie pola _registrationNumber
         }
 
 		public void Details()

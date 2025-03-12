@@ -9,9 +9,9 @@ namespace Lab2
 {
     public class Person
     {
-        protected required string _firstName;
-        protected required string _lastName;
-        protected required DateTime _dateOfBirth;
+        protected string _firstName;
+        protected string _lastName;
+        protected DateTime _dateOfBirth;
 
         public string FirstName { 
             get => _firstName; set => _firstName = value;
@@ -39,6 +39,9 @@ namespace Lab2
 
         public override string ToString() => $"{FirstName} {LastName} {DateOfBirth}";
 
-
+        public virtual void Details()
+        {
+            Console.WriteLine(this);
+        }
     }
 }

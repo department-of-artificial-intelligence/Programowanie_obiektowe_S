@@ -43,17 +43,17 @@ namespace Lab1
 			get { return _avgConsump; }
 			set { _avgConsump = value; }
 		}
-		public int CarCount
+		static public int CarCount
 		{
-			get { return _carCount; }
+			get { return Car._carCount; }
 		}
 
 		public Car()
 		{
-			_brand = "nieznana";
+			_brand = "nieznany";
 			_model = "nieznany";
 			_doorCount = 0;
-			_engineVolume = 0.0;
+			_engineVolume = 0.0f;
 			_avgConsump = 0.0;
 			_carCount++;
 
@@ -87,12 +87,12 @@ namespace Lab1
 
 		public void Details()
 		{
-			Console.WriteLine(this.ToString()); //lepszy sposób na zapis?
+			Console.WriteLine(this); //lepszy sposób na zapis?
 		}
 
-		public void DisplayCarCount()
+		static public void DisplayCarCount()
 		{
-			Console.WriteLine(_carCount);
+			Console.WriteLine(CarCount);
 		}
     }
 }

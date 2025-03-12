@@ -1,12 +1,13 @@
-﻿namespace Lab1
+﻿namespace Lab02
 {
-    public class Car
+    class Car
     {
         private string _brand;
         private string _model;
         private int _doorCount;
         private float _engineVolume;
-        private float _avgConsump;
+        private double _avgConsump;
+        private string _registrationNumber;
         private static int _carCount = 0;
         public string Brand
         {
@@ -28,12 +29,57 @@
             get => _engineVolume;
             set => _engineVolume = value;
         }
-        public float AvgConsump
+        public double AvgConsump
         {
             get => _avgConsump;
             set => _avgConsump = value;
         }
+        public string RegistrationNumber
+        {
+            get => _registrationNumber;
+            set => _registrationNumber = value;
+        }
+        public Car()
+        {
+            _brand = "none";
+            _model = "none";
+            _doorCount = 0;
+            _engineVolume = 0.0f;
+            _avgConsump = 0.0;
+            _registrationNumber = "none";
+            _carCount++;
+        }
+        public Car(string brand_, string model_, int doorCount_, float engineVolume_, double avgConsump_, string registrationNumber_)
+        {
+            _brand = brand_;
+            _model = model_;
+            _doorCount = doorCount_;
+            _engineVolume = engineVolume_;
+            _avgConsump = avgConsump_;
+            _registrationNumber = registrationNumber_;
+            _carCount++;
+        }
+        public double CalculateConsump(double roadLenght)
+        {
+            return (roadLenght * _avgConsump) / 100.0;
+        }
+        public double CalculateCost(double roadLenght, double petrolCost)
+        {
+            return CalculateConsump(roadLenght) * petrolCost;
+        }
+        public override string ToString()
+        {
+            return $"Car | Brand: {_brand}, Model: {_model}, DoorCount: {_doorCount}, EngineVolume: {_engineVolume}, " +
+            $"AvgConsump: {_avgConsump}, RegistrationNumber: {_registrationNumber}";
+        }
+        public void Details()
+        {
+            Console.WriteLine(this.ToString());
+        }
 
-
+        public static void DisplayCarCount()
+        {
+            Console.WriteLine($"Liczba samochodów: {_carCount}");
+        }
     }
 }

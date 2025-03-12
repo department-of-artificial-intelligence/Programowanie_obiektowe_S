@@ -47,7 +47,7 @@ namespace Lab2
             _scoredGoals = scoredGoals;
         }
 
-        public override string ToString() => base.ToString() + $"{Position} {Club} {ScoredGoals}";
+        public override string ToString() => base.ToString() + $" {Position} {Club} {ScoredGoals}";
 
         public void ScoreGoal()
         {

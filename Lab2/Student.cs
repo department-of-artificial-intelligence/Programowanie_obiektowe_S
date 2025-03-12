@@ -32,6 +32,6 @@ namespace Lab2
             _indexId = indexId;
         }
 
-        public override string ToString() => base.ToString() + $"{Year} {Group} {IndexId}";
+        public override string ToString() => base.ToString() + $" {Year} {Group} {IndexId}";
     }
 }

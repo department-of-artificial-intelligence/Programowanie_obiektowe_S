@@ -13,13 +13,13 @@ namespace Lab2
         protected string _lastName;
         protected DateTime _dateOfBirth;
 
-        public required string FirstName { 
+        public string FirstName { 
             get => _firstName; set => _firstName = value;
         } 
-        public required string LastName {
+        public string LastName {
             get => _lastName; set => _lastName = value;
         }
-        public required DateTime DateOfBirth { 
+        public DateTime DateOfBirth { 
             get => _dateOfBirth; set => _dateOfBirth = value;
         }
 

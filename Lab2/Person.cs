@@ -9,17 +9,17 @@ namespace Lab2
 {
     public class Person
     {
-        protected required string _firstName;
-        protected required string _lastName;
-        protected required DateTime _dateOfBirth;
+        protected string _firstName;
+        protected string _lastName;
+        protected DateTime _dateOfBirth;
 
-        public string FirstName { 
+        public required string FirstName { 
             get => _firstName; set => _firstName = value;
         } 
-        public string LastName {
+        public required string LastName {
             get => _lastName; set => _lastName = value;
         }
-        public DateTime DateOfBirth { 
+        public required DateTime DateOfBirth { 
             get => _dateOfBirth; set => _dateOfBirth = value;
         }
 

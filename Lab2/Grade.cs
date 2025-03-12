@@ -37,7 +37,7 @@ namespace Lab2
             _value = 0;
         }
 
-        public Grade(string subjectName, DateTime date, double value)
+        public Grade(string subjectName, double value, DateTime date)
         {
             SubjectName = subjectName;
             Date = date;
@@ -46,7 +46,7 @@ namespace Lab2
 
         public override string ToString()
         {
-            return $"Grades | SubjectName: {SubjectName}, Date: {Date}, Value: {Value}";
+            return $"Grade | SubjectName: {SubjectName}, Date: {Date}, Value: {Value}";
         }
 
         public void Details()

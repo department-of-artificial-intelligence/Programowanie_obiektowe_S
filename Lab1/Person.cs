@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab1
 {
-    class Person
+    public class Person
     {
         private static int _maxCarCount = 3;
         private string[] _registrationNumber;
-        private string _firstName;
         private string _lastName;
         private string _address;
         private int _carsCount = 0;
@@ -21,8 +20,7 @@ namespace Lab1
         }
         public string FirstName
         {
-            get { return _firstName; }
-            set { _firstName = value; }
+            get; set; //W momencie kompilacji kompilator utworzy pole
         }
         public string LastName
         {

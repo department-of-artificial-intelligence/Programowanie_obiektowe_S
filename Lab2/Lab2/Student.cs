@@ -30,7 +30,7 @@ namespace Lab2
         }
         public override string ToString()
         {
-            return $"Student | {base.ToString()} rst name: {_firstName} | Last name: {_lastName} | Date of birth: {_dateOfBirth} | Year: {_year} | Group: {_group} | Index: {_indexId}";
+            return $"Student | {base.ToString()} First name: {_firstName} | Last name: {_lastName} | Date of birth: {_dateOfBirth} | Year: {_year} | Group: {_group} | Index: {_indexId}";
         }
     }
 }

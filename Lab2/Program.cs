@@ -1,6 +1,6 @@
 ﻿namespace Lab2
 {
-	internal class Program
+	public class Program
 	{
 		static void Main(string[] args)
 		{
@@ -19,6 +19,16 @@
 
 			((Player)person3).ScoreGoal();
 			person3.Details();
+
+
+
+			///zadanie domowe
+			Person footballPlayer =
+ new FootballPlayer("Mateusz", "Żbik", new DateTime(1986, 8, 10), "striker", "FC Barcelona", 10);
+			footballPlayer.Details();
+			Person handballPlayer =
+ new HandballPlayer("Piotr", "Kos", new DateTime(1984, 9, 14), "striker", "FC Bayern"); //domyślna wartość dla scored goals
+			handballPlayer.Details();
 
 		}
 	}

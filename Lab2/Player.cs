@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab2
 {
-	internal class Player: Person
+	public class Player: Person
 	{
 		private string _position;
 		private string _club;
@@ -47,7 +47,7 @@ namespace Lab2
 			return $"Player | {base.ToString()}, Position: {_position}, Club: {_club}, ScoredGoals: {_scoredGoals}" ;
 		}
 
-		public void ScoreGoal()
+		public virtual void ScoreGoal() //virtual dla handball i football
 		{
 			_scoredGoals++;
 		}

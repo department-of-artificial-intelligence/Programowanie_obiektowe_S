@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab2
 {
-	internal class Student: Person
+	public class Student: Person
 	{
 		private int _year;
 		private int _group;

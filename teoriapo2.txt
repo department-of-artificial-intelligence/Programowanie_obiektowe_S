@@ -1,0 +1,8 @@
+dziedziczenie: rozszerzanie funkcjonalnosci klasy; mozemy dziedziczyć jedna klase i wiele interfejsów (po przecinku);
+polimorfizm;
+czym jest typ generyczny;
+lista moze byc pusta ale bedzie miala przypisana pamiec(chyba ze uzyjemmy null);
+(11.var foundedBuilding = buildingList.FirstOrDefault(b => b.Address == "Tulipanowa 15");
+12. // wyszukiwanie wielu elementów pasujących do predykatu lambda.
+13. var foundedBuildings = buildingList.Where(b => b.Address.Contains("owa"));) <- !trzeba znać i rozumieć!
+

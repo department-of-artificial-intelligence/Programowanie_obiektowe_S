@@ -1,9 +1,6 @@
 ﻿/*
 
-
-using System;
-
-namespace Lab1
+namespace lab2
 {
     internal class Program
     {

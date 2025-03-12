@@ -12,6 +12,8 @@ namespace Lab2
 		protected string _lastName;
 		protected DateTime _dateOfBirth;
 
+		
+		
 		public string FirstName
 		{
 			get {return _firstName; }
@@ -31,9 +33,28 @@ namespace Lab2
 
 		public Person()
 		{
-
+			_firstName = "pusty";
+			_lastName = "pusty";
+			_dateOfBirth = default(DateTime);
 		}
 
-		public Person(string firstName, string lastName, )
+		public Person(string firstName, string lastName, DateTime dateOfBirth)
+		{
+			_firstName=firstName;
+			_lastName=lastName;
+			_dateOfBirth=dateOfBirth;
+		}
+
+		public override string ToString()
+		{
+			return $"Person | FirstName: {_firstName}, LastName: {_lastName}, DateTime: {_dateOfBirth}" ;
+		}
+
+		virtual public void Details() //Powinna być wirtualna
+		{
+			Console.WriteLine(this);
+		}
 	}
+
 }
+

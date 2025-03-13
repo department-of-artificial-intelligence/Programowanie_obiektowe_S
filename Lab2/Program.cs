@@ -1,7 +1,7 @@
 ﻿using System;
 using Lab2;
 
-
+//sprawdzanie_czy_moge_commitowac
 class Program
 {
     static void Main()

@@ -49,12 +49,39 @@ namespace lab2 {
 			this.Grades.Add(new Grade(grade.SubjectName, grade.Value, grade.Date));
 		}
 
+		public void DisplayGrades() {
+			this.Grades.ForEach(grade => Console.WriteLine(grade));
+		}
+
+		public void DisplayGrades(string subjectName) {
+			this.Grades.FindAll(grade => grade.SubjectName
+										.Equals(subjectName))
+										.ForEach(grade => Console.WriteLine(grade));
+
+		}
+
+		public void DeleteGrade(string subjectName, double value, DateTime date) {
+			this.Grades.Remove(new Grade(subjectName, value, date));
+		}
+
+		public void DeleteGrade(Grade grade) {
+			this.Grades.Remove(grade);
+		}
+
+		public void DeleteGrades(string subjectName) {
+			this.Grades.RemoveAll(grade => grade.SubjectName.Equals(subjectName));
+		}
+
+		public void DeleteGrades() {
+			this.Grades.Clear();
+		}
+
 		public override string ToString() {
 			string napis = base.ToString() + " " +
 				   $"rok: {this.Year}, " +
 				   $"grupa: {this.Group}, " +
-				   $"index id: {this.IndexId} " +
-				   $"oceny: ";
+				   $"index id: {this.IndexId}, " +
+				   $"oceny:\n";
 
 			this.Grades.ForEach(grade => napis = napis + grade.ToString() + '\n');
 

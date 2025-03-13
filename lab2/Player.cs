@@ -42,7 +42,7 @@ namespace lab2 {
 				   $"zdobyte punkty {this.ScoredGoals}";
 		}
 
-		public void ScoreGoal() {
+		public virtual void ScoreGoal() {
 			this.ScoredGoals += 1;
 		}
 

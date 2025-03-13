@@ -53,10 +53,7 @@ namespace Lab2
             Console.WriteLine("Player | " + ToString());
         }
 
-        public void ScoreGoal()
-        {
-            _scoredGoals++;
-        }
+        public virtual void ScoreGoal(){}
     }
 
 

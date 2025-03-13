@@ -13,6 +13,7 @@ namespace Lab2
         protected string _lastName;
         protected DateTime _dateOfBirth;
 
+
         public string FirstName
         {
             get { return _firstName; }
@@ -46,7 +47,7 @@ namespace Lab2
         }
         public override string ToString()
         {
-            return $", firstName: {_firstName}, lastName: {_lastName}, dateOfBirth: {_dateOfBirth}";
+            return $"firstName: {_firstName}, lastName: {_lastName}, dateOfBirth: {_dateOfBirth}";
         }
 
         public virtual void Details()

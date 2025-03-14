@@ -14,7 +14,7 @@ namespace Lab1
         private string _address;
         private int _carsCount = 0;
         private static int _maxCarCount = 3;
-        private string[] _registrationNumbers = new string[3];
+        private string[]? _registrationNumbers = null;
 
         public static int MaxCarCount
         {
@@ -51,9 +51,7 @@ namespace Lab1
                     _carsCount = _maxCarCount;
                 }
                 else
-                {
                     _carsCount = value;
-                }
             }
         }
 
@@ -77,60 +75,61 @@ namespace Lab1
             _firstName = firstName;
             _lastName = lastName;
             _address = address;
-            foreach (Car i in cars)
+            if (cars != null)
             {
-                _registrationNumbers[_carsCount] = i.RegistrationNumber;
-                _carsCount++;
-                if (_carsCount == _maxCarCount)
+                if (cars.Length > 3)
+                    _registrationNumbers = new string[3];
+                else
+                    _registrationNumbers = new string[cars.Length];
+                foreach (Car i in cars)
                 {
-                    Console.WriteLine("Przekroczono limit posiadanych pojazdów. Więcej pojazdów nie zostanie przypisanych.");
-                    break;
+                    _registrationNumbers[_carsCount] = i.RegistrationNumber;
+                    ++_carsCount;
+                    if (_carsCount == _maxCarCount)
+                    {
+                        Console.WriteLine("Przekroczono limit posiadanych pojazdów. Więcej pojazdów nie zostanie przypisanych.");
+                        break;
+                    }
                 }
             }
+            else
+                Console.WriteLine("Brak pojazdów w podanej tablicy.");
         }
 
         public void AddCarRegistrationNumber(string registrationNumber)
         {
             if(_carsCount == _maxCarCount)
-            {
                 Console.WriteLine("Nie możesz posiadać więcej samochodów.");
-            }
             else
             {
-                _registrationNumbers[_carsCount] = registrationNumber;
-                _carsCount++;
+                ++_carsCount;
+                if (_registrationNumbers == null)
+                    _registrationNumbers = new string[CarsCount];
+                else
+                    _registrationNumbers = new string[CarsCount];
+                int indexHelp = CarsCount;
+                _registrationNumbers[--indexHelp] = registrationNumber;
             }
         }
 
         public void RemoveCarRegistrationNumber(string registrationNumber)
         {
             bool check = false;
-            for(int i = 0; i < _carsCount; i++)
+            if (_registrationNumbers != null)
             {
-                if(registrationNumber == _registrationNumbers[i])
+                for (int i = 0; i < _carsCount; i++)
                 {
-                    _registrationNumbers[i] = null;
-                    check = true;
-                }
-                if (_registrationNumbers[i] == null)
-                {
-                    int j = i;
-                    j++;
-                    if(j != _carsCount)
+                    if (registrationNumber == _registrationNumbers[i])
                     {
-                        _registrationNumbers[i] = _registrationNumbers[j];
-                        _registrationNumbers[j] = null;
+                        _registrationNumbers[i] = null!;
+                        check = true;
                     }
                 }
             }
             if(check == false)
-            {
                 Console.WriteLine("Podano nieprawidłowy numer rejestracyjny.");
-            }
             else
-            {
-                _carsCount--;
-            }
+                --_carsCount;
         }
 
         public override string ToString()
@@ -151,7 +150,7 @@ namespace Lab1
 
         public void Details()
         {
-            Console.WriteLine($"Person | FirstName: {_firstName}, LastName: {_lastName}, Address: {_address}, CarsCount: {_carsCount}, " + this.ToString());
+            Console.WriteLine(this.ToString() + $"Person | FirstName: {_firstName}, LastName: {_lastName}, Address: {_address}, CarsCount: {_carsCount}");
         }
     }
 }

@@ -53,18 +53,23 @@
             Console.WriteLine(Person.MaxCarCount);
             Person person2 = new Person("Adam", "Nowak", "ul. Nowa 13");
             person2.Details();
-            person2.CarsCount = 2;
-            person2.Details();
-            person2.CarsCount = 0;
             Car[] cars = [car1, car2];
             Person person3 = new Person("Piotr", "Musik", "ul. Nowa 13a", cars);
             person3.Details();
-            person2.AddCarRegistrationNumber("WE4321");
-            person2.Details();
+            Car[] cars2 = [car1, car2, new Car("Audi", "A3", 4, 1.8f, 6.652d, "SC1234"), new Car("Fiat", "Punto", 2, 1.2f, 4.1d, "SC4321")];
+            Person person4 = new Person("Michał", "Motyl", "ul. Nowa 13b", cars2);
+            person4.Details();
+            Car[] cars3 = null!;
+            Person person5 = new Person("Marcin", "Bratek", "ul. Nowa 13c", cars3);
+            person5.Details();
+            person5.AddCarRegistrationNumber("WE4321");
+            person5.Details();
+            person4.AddCarRegistrationNumber("SC4321");
+            person4.Details();
             person2.RemoveCarRegistrationNumber("WE1234");
             person2.Details();
-            person2.RemoveCarRegistrationNumber("WE4321");
-            person2.Details();
+            person4.RemoveCarRegistrationNumber("SC1234");
+            person4.Details();
             Console.WriteLine("\r\n=========================================\r\n");
         }
     }

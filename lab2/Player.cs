@@ -9,16 +9,16 @@ namespace lab2
 {
     internal class Player : Person
     {
-        private string _position;
-        private string _club;
+        private string? _position;
+        private string? _club;
         private int _scoreGoals;
         
-        public string Position
+        public string? Position
         {
             get { return _position; }
             set { _position = value; }
         }
-        public string Club
+        public string?Club
         {
             get { return _club; }
             set { _club = value; }
@@ -35,7 +35,7 @@ namespace lab2
             _club = string.Empty;
             _scoreGoals = 0;
         }
-        public Player(string firstName, string lastName, DateTime dateTime, string position, string club, int scoreGoals) 
+        public Player(string? firstName, string? lastName, DateTime dateTime, string? position, string? club, int scoreGoals) 
             :base(firstName, lastName, dateTime)
         {
             _position = position;

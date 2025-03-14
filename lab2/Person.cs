@@ -8,15 +8,15 @@ namespace lab2
 {
     internal class Person
     {
-        private string _firstName;
-        private string _lastName;
+        private string? _firstName;
+        private string? _lastName;
         private DateTime _dateOfBirth;
 
-        public string FirstName { 
+        public string? FirstName { 
             get { return _firstName; }
             set { _firstName = value; }
         }
-        public string LastName
+        public string? LastName
         {
             get { return _lastName; }
             set { _lastName = value; }
@@ -32,7 +32,7 @@ namespace lab2
             _lastName = string.Empty;
             _dateOfBirth = DateTime.MinValue;
         }
-        public Person(string firstName, string lastName, DateTime dateTime)
+        public Person(string? firstName, string? lastName, DateTime dateTime)
         {
             _firstName = firstName;
             _lastName = lastName;

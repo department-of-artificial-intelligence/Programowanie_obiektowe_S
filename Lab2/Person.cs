@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab2
+﻿namespace Lab2
 {
     internal class Person
     {
@@ -40,8 +34,7 @@ namespace Lab2
         }
         public override string ToString()
         {
-            return $"Imie: {_firstName}, nazwisko: {_lastName}," +
-                $"urodzony: {_dateOfBirth}";
+            return $"\nPerson | Imie: {_firstName}, nazwisko: {_lastName}, urodzony: {_dateOfBirth}";
         }
         public virtual void Details()
         {

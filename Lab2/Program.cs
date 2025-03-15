@@ -1,4 +1,13 @@
-﻿namespace Lab2
+﻿using System;
+using System.Diagnostics;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Lab2
 {
     internal class Program
     {
@@ -15,6 +24,21 @@
             ((Player)person3).ScoreGoal();
             person3.Details();
 
+            ((Student) person2).AddGrade("PO", 5.0D, new DateTime(2011, 2, 20));
+            ((Student) person2).AddGrade("Bazy Danych", 5.0D, new DateTime(2011, 2, 13));
+            person2.Details();
+            Grade grade = new Grade("Bazy Danych", 5.0D, new DateTime(2011, 5, 1));
+            student.AddGrade(grade);
+            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 5, 11));
+            student.AddGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
+            student.Details();
+            student.DeleteGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
+            student.Details();
+            student.DeleteGrades("AWWW");
+            student.Details();
+            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 4, 3));
+            student.DeleteGrades();
+            student.Details();
         }
     }
 }

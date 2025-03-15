@@ -33,6 +33,10 @@ namespace lab2
             get { return _indexId; }
             set { _indexId = value; }
         }
+        public IList<Grade> Grades
+        {
+            get { return _grades; }
+        }
         public Student()
             :base()
         {

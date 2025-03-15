@@ -56,9 +56,7 @@ namespace Lab2
             if(_grades != null)
             {
                 foreach (Grade i in _grades)
-                {
                     details += i.ToString();
-                }
             }
             details += base.ToString();
             return details;
@@ -77,63 +75,59 @@ namespace Lab2
 
         public void DisplayGrades()
         {
-            Console.WriteLine("Grades |");
-            foreach (Grade i in _grades)
+            if (_grades != null)
             {
-                i.ToString();
+                Console.WriteLine("Grades |");
+                foreach (Grade i in _grades)
+                    Console.WriteLine(i.ToString());
             }
+            else
+                Console.WriteLine("Brak ocen.");
         }
 
         public void DisplayGrades(string subjectName)
         {
-            Console.WriteLine("Grades |");
-            foreach (Grade i in _grades.Where(f => f.SubjectName == subjectName))
+            if (_grades != null)
             {
-                i.ToString();
+                var grades = _grades.Where(f => f.SubjectName == subjectName);
+                if (grades != null)
+                {
+                    Console.WriteLine("Grades |");
+                    foreach (Grade i in grades)
+                        Console.WriteLine(i.ToString());
+                }
+                else
+                    Console.WriteLine("Brak ocen.");
             }
+            else
+                Console.WriteLine("Brak ocen.");
         }
 
         public void DeleteGrade(string subjectName, double value, DateTime date)
         {
-            int j = 0;
-            bool check = false;
-            foreach (Grade i in _grades)
-            {
-                if (subjectName == i.SubjectName && value == i.Value && date == i.Date)
-                {
-                    check = true;
-                    break;
-                }
-                j++;
-            }
-            if (check)
-                _grades.RemoveAt(j);
+            Grade? grade = _grades.FirstOrDefault(f => (f.SubjectName == subjectName && f.Value == value && f.Date == date));
+            if (grade != null)
+                _grades.Remove(grade);
+            else
+                Console.WriteLine("Nie odnaleziono szukanej oceny.");
         }
 
         public void DeleteGrade(Grade grade)
         {
             if(!(_grades.Remove(grade)))
-            {
                 Console.WriteLine("Nie odnaleziono szukanej oceny.");
-            }
         }
 
         public void DeleteGrades(string subjectName)
         {
-            IList<int> indexes = new List<int>();
-            int j = 0;
-            foreach (Grade i in _grades)
+            var grades = _grades.Where(f => f.SubjectName == subjectName);
+            if (grades != null)
             {
-                if(i.SubjectName == subjectName)
-                {
-                    indexes.Add(j--);
-                }
-                ++j;
+                foreach (Grade i in grades.ToList())
+                    _grades.Remove(i);
             }
-            foreach (int i in indexes)
-            {
-                _grades.RemoveAt(i);
-            }
+            else
+                Console.WriteLine($"Nie odnaleziono ocen dla {subjectName}.");
         }
 
         public void DeleteGrades()

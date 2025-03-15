@@ -25,18 +25,14 @@ namespace Lab2
             set => _club = value;
         }
 
-        public int ScoredGoals
-        {
-            get => _scoredGoals;
-            set => _scoredGoals = value;
-        }
+        public int ScoredGoals { get; set; }
 
         public Player() 
             : base()
         {
             _position = "none";
             _club = "none";
-            _scoredGoals= 0;
+            _scoredGoals = 0;
         }
 
         public Player(string firstName, string lastName, DateTime dateOfBirth, string position, string club, int scoredGoals)
@@ -49,7 +45,7 @@ namespace Lab2
 
         public override string ToString() => base.ToString() + $" {Position} {Club} {ScoredGoals}";
 
-        public void ScoreGoal()
+        public virtual void ScoreGoal()
         {
             _scoredGoals += 1;
         }

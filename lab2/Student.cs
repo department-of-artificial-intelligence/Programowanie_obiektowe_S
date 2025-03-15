@@ -71,6 +71,27 @@ namespace lab2
             return res;
         }
 
+
+        public void DisplayGrades()
+        {
+            foreach (var g in _grades)
+            {
+                //g.Details();
+                Console.WriteLine(g);
+            }
+        }
+
+        public void DisplayGrades(string subjectName)
+        {
+            //Console.WriteLine(_grades.Where(grade => grade.SubjectName == subjectName;
+            foreach (var g in _grades)
+            {
+                if(g.SubjectName == subjectName)
+                    Console.WriteLine(g);
+                
+            }
+        }
+
         public void DeleteGrade(string? subjectName, double value, DateTime date)
         {
             _grades.Remove(new Grade(subjectName, value, date));

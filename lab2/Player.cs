@@ -46,7 +46,7 @@ namespace lab2
         { 
             return base.ToString() + $" Player | Position: {_position}, Club: {_club}, ScoreGoals: {_scoreGoals}"; 
         }
-        public void ScoreGoal()
+        public virtual void ScoreGoal()
         {
             ++_scoreGoals;
         }

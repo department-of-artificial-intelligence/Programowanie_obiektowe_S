@@ -36,6 +36,23 @@
             student.DeleteGrades();
             student.Details();
 
+            Console.WriteLine("\nDisplayGrades ");
+            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 5, 11));
+            student.AddGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
+            student.DisplayGrades();
+            student.AddGrade("Bazy Danych", 5.0D, new DateTime(2011, 2, 13));
+            student.DisplayGrades("Bazy Danych");
+
+            Console.WriteLine("\nZadanie domowe ");
+
+            Person footballPlayer = new FootballPlayer("Mateusz", "Żbik", new DateTime(1986, 8, 10), "striker", "FC Barcelona", 10);
+            Person handballPlayer = new HandballPlayer("Piotr", "Kos", new DateTime(1984, 9, 14), "striker", "FC Bayern", 10);
+            footballPlayer.Details();
+            handballPlayer.Details();
+            ((Player)handballPlayer).ScoreGoal(); // rzutowanie bezpośrednie
+            (footballPlayer as Player).ScoreGoal(); // rzutowanie referencyjne
+            footballPlayer.Details();
+            handballPlayer.Details();
         }
     }
 }

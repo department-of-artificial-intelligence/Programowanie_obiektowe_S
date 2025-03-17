@@ -34,7 +34,7 @@ namespace Lab2
             _date = new DateTime(0, 0, 0);
             _value = 0;
         }
-        public Grade(string subjectName, DateTime date, double value)
+        public Grade(string subjectName, double value,DateTime date)
         {
             _subjectName = subjectName;
             _date = date;

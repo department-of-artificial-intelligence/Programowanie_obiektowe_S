@@ -1,6 +1,6 @@
 ﻿namespace Lab2
 {
-    class Grade : Student
+    class Grade 
     {
         private string? _subjectName;
         private DateTime _date;
@@ -19,17 +19,17 @@
 
         public Grade(string subjectName, DateTime date, double value)
         {
-            _subjectName = subjectName;
-            _date = date;
-            _value = value;
-        }
+			SubjectName = subjectName;
+			Date = date;
+			Value = value;
+		}
 
         public override string ToString()
         {
             return $"Subject name: {_subjectName}, Date: {_date}, Value: {_value}\n";
         }
 
-        public override void Details()
+        public void Details()
         {
             Console.WriteLine(ToString());
         }

@@ -1,100 +1,15 @@
-﻿namespace lab2
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab2
 {
-    internal class Program
+    class Program
     {
-        public class Person
-        {
-            protected string _firstName;
-            protected string _lastName;
-            protected DateTime _dateOfBirth;
-
-            public string FirstName { get => _firstName; set => _firstName = value; }
-
-            public string LastName { get => _lastName; set => _lastName = value; }
-
-            public DateTime DateOfBirth { get => _dateOfBirth; set => _dateOfBirth = value; }
-
-            public Person()
-            {
-                _firstName = "No defined";
-                _lastName = "No defined";
-                _dateOfBirth = DateTime.Now;
-            }
-
-            public Person(string firstName, string lastName, DateTime dateOfBirth)
-            {
-                _firstName = firstName;
-                _lastName = lastName;
-                _dateOfBirth = dateOfBirth;
-            }
-
-            public virtual void Details()
-            {
-                Console.WriteLine(ToString());
-            }
-
-            public override string ToString()
-            {
-                return $"Person: {FirstName} {LastName}, Date of birth: {DateOfBirth}";
-            }
-
-        }
-
-        public class Student : Person
-        {
-            private int _year;
-            private int _group;
-            private int _indexId;
-
-            public int Year { get => _year; set => _year = value; }
-            public int Group { get => _group; set => _group = value; }
-            public int IndexId { get => _indexId; set => _indexId = value; }
-
-            public Student() : base()
-            {
-                _year = 0;
-                _group = 0;
-                _indexId = 0;
-            }
-
-            public Student(int year, int group, int indexId) : base(firstName, lastName, dateOfBirth)
-            {
-                _year = year;
-                _group = group;
-                _indexId = indexId;
-            }
-
-            public override string ToString()
-            {
-                return base.ToString() + $"Year: {Year}, Group: {Group}, Index ID: {IndexId}";
-            }
-        }
-
-        public class Player : Person
-        {
-            private string _position;
-            private string _club;
-            private int _scoredGoals;
-
-            public string Position { get => _position; set => _position = value; }
-            public string Club { get => _club; set => _club = value; }
-            public int ScoredGoals { get => _scoredGoals; set => _scoredGoals = value; }
-
-            public Player() : base()
-            {
-                _position = "No defined";
-                _club = "No defined";
-                _scoredGoals = 0;
-            }
-
-            public Player(string position, string club, int scoredGoals) : base(firstName, lastName, dateOfBirth)
-            {
-                _position = position;
-                _club = club;
-                _scoredGoals = scoredGoals;
-            }
-
-        }
         static void Main()
         {
             Person person1 = new Person("Adam", "Miś", new DateTime(1990, 3, 20, 12, 30, 10));
@@ -107,6 +22,34 @@
             student.Details();
             ((Player)person3).ScoreGoal();
             person3.Details();
+
+            //zad2
+            ((Student)person2).AddGrade("PO", 5.0D, new DateTime(2011, 2, 20));
+            ((Student)person2).AddGrade("Bazy Danych", 5.0D, new DateTime(2011, 2, 13));
+            person2.Details();
+            Grade grade = new Grade("Bazy Danych", 5.0D, new DateTime(2011, 5, 1));
+            student.AddGrade(grade);
+            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 5, 11));
+            student.AddGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
+            student.Details();
+            student.DeleteGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
+            student.Details();
+            student.DeleteGrades("AWWW");
+            student.Details();
+            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 4, 3));
+            student.DeleteGrades();
+            student.Details();
+
+            //zad3
+            Person footballPlayer = new FootballPlayer("Mateusz", "Żbik", new DateTime(1986, 8, 10), "striker", "FC Barcelona", 10);
+            Person handballPlayer = new HandballPlayer("Piotr", "Kos", new DateTime(1984, 9, 14), "striker", "FC Bayern", 1);
+            footballPlayer.Details();
+            handballPlayer.Details();
+            ((Player)handballPlayer).ScoreGoal(); // rzutowanie bezpośrednie
+            (footballPlayer as Player).ScoreGoal(); // rzutowanie referencyjne
+            footballPlayer.Details();
+            // handballPlayer.Details();
+
         }
     }
 }

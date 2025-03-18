@@ -11,6 +11,7 @@ namespace Lab2
             Person person3 = new Player("Robert", "Lewandowski", new DateTime(1988, 10, 3), "Striker", "Bayern", 41);
             person1.Details();
             person2.Details();
+            Console.WriteLine(); //ta jedna linijka generuje sie bez line-breaka
             person3.Details();
             Student student = new Student("Krzysztof", "Jeż", new DateTime(1990, 12, 29), 2, 5, 54321);
             student.Details();

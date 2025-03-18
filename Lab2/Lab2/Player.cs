@@ -34,7 +34,7 @@ namespace Lab2
             _club = "brakKlub";
             _scoredGoals= 0;
         }
-        public Player(string firstname, string lastname, DateTime dateofbirth, string position, string club, int scoredgoals) : base(firstname, lastname, dateofbirth)
+        public Player(string firstname, string lastname, DateTime dateofbirth, string position, string club, int scoredgoals=0) : base(firstname, lastname, dateofbirth)
         {
             _position= position;
             _club= club;
@@ -47,10 +47,10 @@ namespace Lab2
             return base.ToString() + $"Pozycja: {_position} Klub: {_club} Liczba Goli: {_scoredGoals} ";
         }
 
-        public void ScoreGoal()
+        public virtual void ScoreGoal()
         {
             _scoredGoals++;
-            Console.WriteLine($"Goool obecna liczba goli: {_scoredGoals}");
+            Console.WriteLine($"Goool gracza obecna liczba goli: {_scoredGoals}");
         }
 
 

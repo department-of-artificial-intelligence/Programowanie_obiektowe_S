@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Data;
 
 namespace Lab2
 {
@@ -41,7 +43,7 @@ namespace Lab2
         }
         public void AddGrade(string sn,double v,DateTime d)
         {
-            Grade grade = new Grade(sn,d,v);
+            Grade grade = new Grade(sn,v,d);
             _grades.Add(grade);
         }
 
@@ -58,12 +60,37 @@ namespace Lab2
         }
         public void DisplayGrades(string sn)
         {
-            Console.WriteLine(_grades.ToString());
+            var grade = _grades.Where(k => k.SubjectName == sn);
+            Console.WriteLine(sn.ToString());
 
         }
-        public void DeleteGrades(string sn,double v,DateTime d)
+        public void DeleteGrade(string sn,double v,DateTime d)
         {
+            var gradeToDelete = _grades.FirstOrDefault(g => g.SubjectName == sn && g.Value == v && g.Date == d);
+            if (gradeToDelete != null)
+            {
+                _grades.Remove(gradeToDelete);
+            }
         }
+        public void DeleteGrade(Grade grade)
+        {
+            _grades.Remove(grade);
+
+        }
+        public void DeleteGrades(string sn)
+        {
+            var itemsToRemove = _grades.Where(c => c.SubjectName == sn).ToList();
+
+            foreach (var item in itemsToRemove)
+            {
+                _grades.Remove(item);
+            }
+        }
+        public void DeleteGrades()
+        {
+            _grades.Clear();
+        }
+
 
     }
 }

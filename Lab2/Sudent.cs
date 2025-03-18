@@ -76,8 +76,8 @@
         }
         public void DeleteGrades(string subjectName)
         {
-            if (_grades is List<Grade> gradesList)
-                gradesList.RemoveAll(grade => grade.SubjectName == subjectName);
+            var gradeToRemove = _grades.FirstOrDefault(grade => grade.SubjectName == subjectName);
+            if (gradeToRemove != null) DeleteGrade(gradeToRemove);
         }
         public void DeleteGrades() 
         {

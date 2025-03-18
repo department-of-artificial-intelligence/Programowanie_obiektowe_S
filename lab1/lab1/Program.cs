@@ -29,6 +29,7 @@ namespace lab1_1
             double routeCost = car2.CalculateCost(500, 5);
             Console.WriteLine($"Route cost: {routeCost}");
             Car.DisplayCarCount();
+            Console.WriteLine("\r\n=========================================\r\n");
             //z2
             Garage garage1 = new Garage();
             garage1.Address = "ul. Garażowa 1";

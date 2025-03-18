@@ -24,16 +24,16 @@ namespace Lab2
             ((Student)person2).AddGrade("Bazy Danych", 5.0D, new DateTime(2011, 2, 13));
             person2.Details();
             Grade grade = new Grade("Bazy Danych", 5.0D, new DateTime(2011, 5, 1));
-            student.AddGrade(grade);
-            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 5, 11));
-            student.AddGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
+            //student.AddGrade(grade);
+            //student.AddGrade("AWWW", 5.0D, new DateTime(2011, 5, 11));
+            //student.AddGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
             student.Details();
-            student.DeleteGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
+           // student.DeleteGrade("AWWW", 4.5D, new DateTime(2011, 4, 2));
             student.Details();
-            student.DeleteGrades("AWWW");
+            //student.DeleteGrades("AWWW");
             student.Details();
-            student.AddGrade("AWWW", 5.0D, new DateTime(2011, 4, 3));
-            student.DeleteGrades();
+            //student.AddGrade("AWWW", 5.0D, new DateTime(2011, 4, 3));
+            //student.DeleteGrades();
             student.Details();
 
             Console.WriteLine("\r\n-----------------------------------\r\n");

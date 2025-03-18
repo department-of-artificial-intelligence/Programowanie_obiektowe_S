@@ -30,9 +30,8 @@ namespace Lab2
             return $"{_subject}: {_value} ({_date.ToShortDateString()})";
         }
 
-        public override void Details() 
+        public virtual void Details() 
         {
-            base.Details();
             Console.WriteLine($"Subject: {_subject}, Value: {_value}, Date: {_date}");
         }
 

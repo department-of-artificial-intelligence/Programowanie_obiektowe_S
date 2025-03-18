@@ -8,7 +8,7 @@ namespace Lab1
 {
     class Garage
     {
-        private Car[] _cars;
+        private Car[]? _cars;
         private string _address;
         private int _carsCount = 0;
         private int _capacity;
@@ -26,7 +26,7 @@ namespace Lab1
         public string Address
         {
             get { return _address; }
-            set { _address = value;  }
+            set { _address = value; }
         }
 
         public Garage()
@@ -38,20 +38,21 @@ namespace Lab1
 
         public Garage(string address, int capacity)
         {
-            Address = address;
+            _address = address;
             Capacity = capacity;
         }
 
         public void CarIn(Car car)
         {
             if(_carsCount == Capacity)
-            {
                 Console.WriteLine("Garaż jest zapełniony.");
-            }
             else
             {
-                _cars[_carsCount] = car;
-                _carsCount++;
+                ++_carsCount;
+                if (_cars == null)
+                    _cars = new Car[_carsCount];
+                int indexHelp = _carsCount;
+                _cars[--indexHelp] = car;
             }
         }
 
@@ -60,15 +61,17 @@ namespace Lab1
             if(_carsCount == 0)
             {
                 Console.WriteLine("Garaż jest pusty.");
-                return null;
+                return new Car();
             }
             else
             {
-                int lastCar = _carsCount;
-                lastCar--;
-                Car COut = _cars[lastCar];
-                _cars[lastCar] = null;
-                _carsCount--;
+                --_carsCount;
+                Car COut = new Car();
+                if (_cars != null)
+                {
+                    COut = _cars[_carsCount];
+                    _cars[_carsCount] = null!;
+                }
                 return COut;
             }
         }
@@ -76,11 +79,12 @@ namespace Lab1
         public override string ToString()
         {
             string details = "Garage | Cars:\n";
-            foreach (Car i in _cars)
+            if(_cars != null)
             {
-                if(i != null)
+                foreach (Car i in _cars)
                 {
-                    details += i.ToString() + ",\n";
+                    if (i != null)
+                        details += i.ToString() + ",\n";
                 }
             }
             details += $"Address: {_address}, CarsCount: {_carsCount}, Capacity: {_capacity}";

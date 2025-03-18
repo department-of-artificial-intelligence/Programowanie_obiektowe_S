@@ -40,9 +40,9 @@ namespace Lab2
 
         public Person(string firstName, string lastName, DateTime dateOfBirth)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            DateOfBirth = dateOfBirth;
+            _firstName = firstName;
+            _lastName = lastName;
+            _dateOfBirth = dateOfBirth;
         }
 
         public override string ToString()

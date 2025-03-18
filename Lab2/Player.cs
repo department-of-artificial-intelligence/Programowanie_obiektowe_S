@@ -32,27 +32,27 @@ namespace Lab2
 
         public Player() : base()
         {
-            Position = "nieznana";
-            Club = "nieznany";
+            _position = "nieznana";
+            _club = "nieznany";
             ScoredGoals = 0;
         }
 
         public Player(string firstName, string lastName, DateTime dateOfBirth, string position, string club, int scoredGoals) : base(firstName, lastName, dateOfBirth)
         {
-            Position = position;
-            Club = club;
+            _position = position;
+            _club = club;
             ScoredGoals = scoredGoals;
         }
 
         public override string ToString()
         {
-            string details = $"Player | Position: {Position}, Club: {Club}, ScoredGoals: {ScoredGoals} " + base.ToString();
+            string details = $"Player | Position: {Position}, Club: {Club}, ScoredGoals: {ScoredGoals},\n" + base.ToString();
             return details;
         }
 
-        public void ScoreGoal()
+        public virtual void ScoreGoal()
         {
-            _scoredGoals++;
+            ++_scoredGoals;
         }
     }
 }

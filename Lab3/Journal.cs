@@ -10,7 +10,7 @@ public class Journal : Item {
         Number = number;
     }
 
-    public override void Detailed() {
+    public override void Details() {
         Console.WriteLine($"Journal: {Title}, Number: {Number}, Publisher: {Publisher}, Date of Issue: {DateOfIssue.ToShortDateString()}");
     }
 

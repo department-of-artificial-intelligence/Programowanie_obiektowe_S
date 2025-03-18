@@ -15,7 +15,7 @@ public class Book : Item {
         Authors.Add(author);
     }
 
-    public override void Detailed() {
+    public override void Details() {
         Console.WriteLine($"Book: {Title}, Page Count: {PageCount}, Publisher: {Publisher}, Date of Issue: {DateOfIssue.ToShortDateString()}");
         Console.WriteLine("Authors:");
         foreach (var author in Authors) {

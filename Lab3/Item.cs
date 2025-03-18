@@ -19,6 +19,6 @@ public abstract class Item {
         return $"ID: {Id}, Title: {Title}, Publisher: {Publisher}, Date of Issue: {DateOfIssue.ToShortDateString()}";
     }
 
-    public abstract void Detailed();
+    public abstract void Details();
     public abstract string GenerateBarCode();
 }

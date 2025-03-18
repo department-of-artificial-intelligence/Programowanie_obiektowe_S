@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-class Lab3 
-{
+
+class Lab3 {
     static void Main() {
-        //Zadanie 1
         Item item1 = new Journal("JAISCR", 1, "Springer", new DateTime(2000, 1, 1), 1);
         Author author = new Author("Robert", "Cook", "Polish");
-        Item item2 = new Book("Agile C#", 2, "SPRINGER", new DateTime(2015, 1, 1), 500,
-        new List<Author>() { author });
+        Item item2 = new Book("Agile C#", 2, "SPRINGER", new DateTime(2015, 1, 1), 500, new List<Author>() { author });
         ((Book)item2).AddAuthor(author);
+
         var bookBarCode = ((Book)item2).GenerateBarCode();
         var journalBarCode = ((Journal)item1).GenerateBarCode();
+
         Console.WriteLine($"{item1} \r\n Barcode {journalBarCode}");
         Console.WriteLine($"{item2} \r\n Barcode {bookBarCode}");
+
         IList<Item> items = new List<Item>();
         items.Add(item1);
         items.Add(item2);
+
         Catalog catalog = new Catalog("IT C# development", items);
-        catalog.AddItem(new Journal("Neurocomputing", 1, "IEEE", new DateTime(2020, 1, 1), 1));
-        Console.WriteLine(catalog);
-        catalog.ShowAllItems();
-        //Zadanie 2
-        /*
+        catalog.AddItem(new Journal("Neurocomputing", 3, "IEEE", new DateTime(2020, 1, 1), 1));
+
         //--- find position
         string searchedValue = "Agile C#";
         Item foundedItemById = catalog.FindItem(item => item.Id == 1);
@@ -38,15 +37,19 @@ class Lab3
         Console.WriteLine(foundedItemByIdOld);
         Console.WriteLine(foundedItemByTitleOld);
         Console.WriteLine("++++++++++++++++++++++++++++++++++");
+
         Person librarian = new Librarian("John", "Kowalsky", DateTime.Now.Date, 2000);
         Library library = new Library("Czestochowa, Armii Krajowej 36", new List<Librarian>(), new List<Catalog>());
         library.AddLibrarian((Librarian)librarian);
         library.ShowAllLibrarians();
+
         Catalog catalog2 = new Catalog("Novels", new List<Item>());
         library.AddCatalog(catalog2);
         library.AddCatalog(catalog);
+
         Item newItem = new Book("Song of Ice and Fire", 4, "Publisher", new DateTime(2011, 1, 1), 800, new List<Author>() { author });
         library.AddItem(newItem, "Novels");
+
         Console.WriteLine(library);
         Console.WriteLine("===========================All Items=======================\r\n");
         library.ShowAllItems();
@@ -57,6 +60,5 @@ class Lab3
         Console.WriteLine(foundedById);
         Console.WriteLine(foundedByTitle);
         Console.WriteLine(foundedByLambda);
-        */
     }
 }

@@ -63,7 +63,7 @@ namespace lab2
 
             public string ToString()
             {
-                return FirstName;
+                return base.ToString();
             }
         }
 
@@ -92,7 +92,7 @@ namespace lab2
 
             public string ToString()
             {
-                return FirstName;
+                return base.ToString();
             }
 
             public void ScoreGoal()
@@ -104,7 +104,7 @@ namespace lab2
     
         static void Main(string[] args)
         {
-            
+            Person.Details();
             Console.WriteLine("Hello, World!");
         }
     }

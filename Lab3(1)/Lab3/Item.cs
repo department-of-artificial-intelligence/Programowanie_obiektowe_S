@@ -35,7 +35,7 @@ namespace Lab3
 
         public override string ToString()
         {
-            return $"Id: {_id}, title: {_title}, publisher: {_publisher}, date of issue: {_dateOfIssue}";
+            return $"Id: {_id}, Title: {_title}, Publisher: {_publisher}, Date of issue: {_dateOfIssue}";
         }
 
         public void Details()

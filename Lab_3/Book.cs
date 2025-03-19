@@ -3,14 +3,14 @@
     public class Book : Item
     {
         public int PageCount { get; set; }
-        public IList<Autor> Autors { get; set; } = new List<Autor>();
-        public Book(string title, int id, string publisher, DateTime dateOfIssue, int pageCount, IList<Autor> autors)
+        public IList<Author> Autors { get; set; } = new List<Author>();
+        public Book(string title, int id, string publisher, DateTime dateOfIssue, int pageCount, IList<Author> autors)
             : base(id, title, publisher, dateOfIssue)
         {
             PageCount = pageCount;
             Autors = autors;
         }
-        public void AddAuthor(Autor autor)
+        public void AddAuthor(Author autor)
         {
             Autors.Add(autor);
         }
@@ -31,7 +31,13 @@
 
         public override string GenerateBarCode()
         {
-            return "test"; //póżniej zrób generator
+            Random rand = new Random();
+            string result = "";
+            for (int i = 0;i < 13; i++)
+            {
+                result += rand.Next(10);
+            }
+            return result; //póżniej zrób generator
         }
     }
 }

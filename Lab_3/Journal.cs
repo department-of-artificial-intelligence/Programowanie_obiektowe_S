@@ -14,12 +14,18 @@
         }
         public override string ToString()
         {
-            return $"Item | {base.ToString()},Number{Number}";
+            return $"Jornal | {base.ToString()},Number{Number}";
         }
 
         public override string GenerateBarCode()
         {
-            return "test"; //póżniej zrób generator
+            Random rand = new Random();
+            string result = "";
+            for (int i = 0; i < 8; i++)
+            {
+                result += rand.Next(10);
+            }
+            return result; //póżniej zrób generator
         }
     }
 }

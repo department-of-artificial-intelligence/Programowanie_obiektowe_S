@@ -1,12 +1,12 @@
 ﻿namespace Lab_3
 {
-    public class Autor
+    public class Author
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Nationality { get; set; }
-        Autor() { }
-        Autor(string firstName, string lastName, string nationality)
+        public Author() { }
+        public Author(string firstName, string lastName, string nationality)
         {
             FirstName = firstName;
             LastName = lastName;

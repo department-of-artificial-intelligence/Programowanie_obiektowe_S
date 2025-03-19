@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    public class Catalog : Item
+    public class Catalog
     {
         public IList<Item> Items { get; set; }
 
@@ -15,6 +15,7 @@ namespace Lab3
         public Catalog(IList<Item> items)
         {
             Items = items ?? new List<Item>();
+            ThematicDepartment = "Unknown";
         }
 
         public Catalog(string thematicDepartment, IList<Item> items)
@@ -28,26 +29,18 @@ namespace Lab3
            Items.Add(item);
         }
 
-        public string GenerateBarCode()
+        public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Thematic Department: {ThematicDepartment}");
-            sb.AppendLine("Items in Catalog:");
+            sb.AppendLine($"Catalog: {ThematicDepartment}");
+            sb.AppendLine("Items:");
 
-            foreach (var item in Items)
+            foreach(var item in Items)
             {
                 sb.AppendLine(item.ToString());
             }
 
             return sb.ToString();
-        }
-
-        public override string ToString()
-        {
-            foreach(var item in Items)
-            {
-                return base.ToString();
-            }
         }
 
         public void ShowAllItems()

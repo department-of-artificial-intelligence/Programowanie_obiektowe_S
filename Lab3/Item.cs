@@ -9,8 +9,8 @@ namespace Lab3
     public abstract class Item
     {
         protected int _id;
-        protected string _title;
-        protected string _publisher;
+        protected string? _title;
+        protected string? _publisher;
         protected DateTime _dateOfIssue;
 
         public int Id
@@ -19,16 +19,16 @@ namespace Lab3
             set => _id = value;
         }
 
-        public string Title
+        public string? Title
         {
             get => _title;
-            set => _title = value;
+            set => _title = value ?? "No Title";
         }
 
-        public string Publisher
+        public string? Publisher
         {
             get => _publisher;
-            set => _publisher = value;
+            set => _publisher = value ?? "No Publisher";
         }
 
         public DateTime DateOfIssue
@@ -39,21 +39,21 @@ namespace Lab3
 
         public Item()
         {
-            _id = 0;
-            _title = "none";
-            _publisher = "none";
-            _dateOfIssue = default;
+            Id = 0;
+            Title = "No Title";
+            Publisher = "No Publisher";
+            DateOfIssue = default;
         }
 
         public Item(string title, int id, string publisher, DateTime dateOfIssue)
         {
             Id = id;
-            Title = title;
-            Publisher = publisher;
+            Title = title ?? "No Title";  
+            Publisher = publisher ?? "No Publisher";
             DateOfIssue = dateOfIssue;
         }
 
-        public override string ToString() => $"{Id} {Title} {Publisher} {DateOfIssue}";
+        public override string ToString() => $"{Id} {Title} {Publisher} {DateOfIssue.ToShortDateString()}";
 
         public virtual void Details()
         {

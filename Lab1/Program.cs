@@ -10,7 +10,7 @@
                 car1.Brand = "Fiat";
                 car1.Model = "126p";
                 car1.DoorCount = 2;
-                car1.EngineCount = 650;
+                car1.EngineVolume = 650;
                 car1.AvgConsump = 6.0;
                 car1.RegistrationNumber = "KR12345";
                 car1.Details();

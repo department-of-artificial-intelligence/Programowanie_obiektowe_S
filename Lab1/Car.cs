@@ -8,34 +8,64 @@ namespace Lab1
 {
     public class Car
     {
-        private string? _brand;
-        private string? _model;
+        private string _brand;
+        private string _model;
         private int _doorCount;
-        private float _engineCount;
+        private float _engineVolume;
         private double _avgConsump;
-        private string? _registrationNumber;
-        private static int _carCount=0;
+        private string _registrationNumber;
+        private static int _carCount = 0;
+        public string Brand
+        {
+            get { return _brand; }
+            set { _brand = value; }
+        }
+        public string Model
+        {
+            get { return _model; }
+            set { _model = value; }
+        }
+        public int DoorCount
+        {
+            get { return _doorCount; }
+            set { _doorCount = value; }
+        }
+        public float EngineVolume
+        {
+            get { return _engineVolume; }
+            set { _engineVolume = value; }
+        }
+        public double AvgConsump
+        {
+            get { return _avgConsump; }
+            set { _avgConsump = value; }
+        }
+        public string RegistrationNumber
+        {
+            get { return _registrationNumber; }
+            set { _registrationNumber = value; }
+        }
 
 
         //konstruktor domyslny
-        public Car() 
+        public Car()
         {
-            _brand = null;
-            _model = null;
+            _brand = "none";
+            _model = "none";
             _doorCount = 0;
-            _engineCount = 0;
+            _engineVolume = 0;
             _avgConsump = 0.0;
-            _registrationNumber = null;
+            _registrationNumber = "none";
             _carCount++;
 
         }
         //konstruktor parametryczny
-        public Car(string brand, string model, int doorCount, float engineCount, double avgConsump, string registrationNumber)
+        public Car(string brand, string model, int doorCount, float engineVolume, double avgConsump, string registrationNumber)
         {
             _brand = brand;
             _model = model;
             _doorCount = doorCount;
-            _engineCount = engineCount;
+            _engineVolume = engineVolume;
             _avgConsump = avgConsump;
             _registrationNumber = registrationNumber;
             _carCount++;
@@ -53,7 +83,7 @@ namespace Lab1
 
         public override string ToString()
         {
-            return $"Car | Brand: {_brand}, Model: {_model}, NumOfDoors: {_doorCount}, EngineVol: {_engineCount}, AvgConsump: {_avgConsump}, RegistrationNumber: {_registrationNumber}";
+            return $"Car | Brand: {_brand}, Model: {_model}, NumOfDoors: {_doorCount}, EngineVol: {_engineVolume}, AvgConsump: {_avgConsump}, RegistrationNumber: {_registrationNumber}";
         }
 
         public void Details()
@@ -66,39 +96,6 @@ namespace Lab1
             Console.WriteLine(_carCount);
         }
 
-        public string RegistrationNumber
-        {
-            get { return _registrationNumber; }
-            set { _registrationNumber = value; }
-        }
-
-        public string Brand
-        {
-            get { return _brand; }
-            set { _brand = value; }
-        }
-        public string Model
-        {
-            get { return _model; }
-            set { _model = value; }
-        }
-        public int DoorCount
-        {
-            get { return _doorCount; }
-            set { _doorCount = value; }
-        }
-        public float EngineCount
-        {
-            get { return _engineCount; }
-            set { _engineCount = value; }
-        }
-        public double AvgConsump
-        {
-            get { return _avgConsump; }
-            set { _avgConsump = value; }
-        }
-       
     }
-   
 }
 

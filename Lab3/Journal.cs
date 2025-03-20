@@ -27,7 +27,10 @@ namespace Lab3
 
         public override string GenerateBarCode()
         {
-            return "|||||||||";
+            string temp = "";
+            var rand = new Random();
+            for (int i = 0; i < 13; i++) temp += rand.Next(10);
+            return temp;
         }
     }
 }

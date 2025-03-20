@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection.Metadata.Ecma335;
@@ -33,10 +34,13 @@ namespace Lab3
         public override string ToString()
         {
             string temp = $"ThematicDepartment:{  ThematicDepartment }";
-            if (Items != null) temp += ", Items:";
-            foreach(Item item in Items)
+            if (Items != null)
             {
-                temp += $"\n\t{item}";
+                temp += ", Items:";
+                foreach (Item item in Items)
+                {
+                    temp += $"\n\t{item}";
+                }
             }
             return temp;
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab1
+namespace Laboratorium1
 {
     public class Car
     {
@@ -20,7 +20,7 @@ namespace Lab1
 
         public string Model { get { return _model; } set { _model = value; } }
 
-        public int DoorCount { get { return _doorCount} set { _doorCount = value; } }
+        public int DoorCount { get { return _doorCount; } set { _doorCount = value; } }
 
         public float EngineVolume { get { return _engineVolume; } set { _engineVolume = value; } }
 
@@ -60,7 +60,7 @@ namespace Lab1
         }
         public static void DisplayCarCount()
         {
-            Console.WriteLine($"Liczba utworzonych samochodów: {_carCount}");
+            Console.WriteLine($"Liczba utworzonych samochodow: {_carCount}");
         }
 
     }

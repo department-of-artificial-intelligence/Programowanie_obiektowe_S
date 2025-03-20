@@ -31,6 +31,10 @@ namespace lab2
             return $"{base.ToString()}, position = {_position}, club = {_club}, scored goals = {_scoredGoals} ";
         }
 
+        public void ScoreGoal()
+        {
+            _scoredGoals += 1;
+        }
 
     }
 }

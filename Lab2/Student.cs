@@ -12,7 +12,7 @@ namespace Lab2
         private int _year;
         private int _group;
         private int _indexId;
-        private List<Grade> _grades;
+        private List<Grade> _grades = new List<Grade>();
 
         public int Year
         {
@@ -29,19 +29,11 @@ namespace Lab2
             get { return _indexId; }
             set { _indexId = value; }
         }
-
-        public List<Grade> Grades
-        {
-            get { return _grades; }
-            set { _grades = value; }
-        }
-        public Student()
-            : base()
+        public Student()  : base()
         {
             _year = 0;
             _group = 0;
             _indexId = 0;
-            _grades = new List<Grade>();
         }
 
         public Student(string firstName, string lastName, DateTime dateOfBirth, int year, int group, int indexId)
@@ -50,7 +42,6 @@ namespace Lab2
             _year = year;
             _group = group;
             _indexId = indexId;
-            _grades = new List<Grade> ();
         } 
         public void AddGrade(Grade grade)
         {
@@ -75,12 +66,12 @@ namespace Lab2
 
         public void DeleteGrade(string subjectName, double value, DateTime date)
         {
-            _grades.RemoveAll(g => g.SubjectName == subjectName && g.Value == value && g.Date == date);
+            _grades.Remove(new Grade(subjectName, value, date));
         }
 
         public void DeleteGrades(string subjectName)
         {
-            _grades.RemoveAll(g => g.SubjectName == subjectName);
+            _grades.RemoveAll(grade => grade.SubjectName == subjectName);
         }
 
         public void DeleteGrade(Grade grade)
@@ -91,6 +82,25 @@ namespace Lab2
         public void DeleteGrades()
         {
             _grades.Clear();
+        }
+
+        public void DisplayGrades()
+        {
+            foreach (Grade grade in _grades)
+            {
+                grade.Details();
+            }
+        }
+
+        public void DisplayGrades(string subjectName)
+        {
+            foreach(Grade grade in _grades)
+            {
+                if(grade.SubjectName == subjectName)
+                {
+                    grade.Details();
+                }
+            }
         }
 
 

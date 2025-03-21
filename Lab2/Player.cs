@@ -29,29 +29,20 @@ namespace Lab2
         }
 
         public Player()
+            :base()
         {
             Position = "none";
             Club = "none";
             ScoredGoals = 0;
         }
-        public Player(string FirstName, string LastName, DateTime dateOfBirth, string position, string club, int scoredGoals)
-            : base(firstname), base(lastname),
+        public Player(string firstName, string lastName, DateTime dateOfBirth, string position, string club, int scoredGoals)
+            : base(firstName, lastName, dateOfBirth)
             {
                 _position = position;
                 _club = club;
                 _scoredGoals = scoredGoals;
             }
-
-            public override string ToString()
-        {
-            base.ToString();
-            return $"Player: Position:{_position}, Club : {_club}, ScoredGoals : {_scoredGoals}";
-        }
-
-        public void ScoreGoal()
-        {
-            _scoredGoals++;
-        }
+        public override string ToString() => base.ToString() + $"Player: Position:{_position}, Club : {_club}, ScoredGoals : {_scoredGoals} \n";
+        public virtual void ScoreGoal() =>  _scoredGoals++;
     }
-
 }

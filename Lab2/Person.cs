@@ -45,7 +45,7 @@ namespace Lab2
 
         public override string ToString()
         {
-            return $"Person | First Name: {_firstName}, Last Name: {_lastName}, Date Of Birth: {_dateOfBirth}";
+            return $"Person | First Name: {_firstName}, Last Name: {_lastName}, Date Of Birth: {_dateOfBirth} \n";
         }
 
         public virtual void Details()

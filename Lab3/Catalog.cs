@@ -31,21 +31,15 @@ namespace Lab3
 
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Catalog: {ThematicDepartment}");
-            sb.AppendLine("Items:");
-
-            foreach(var item in Items)
-            {
-                sb.AppendLine(item.ToString());
-            }
-
-            return sb.ToString();
+            return $"Catalog {ThematicDepartment}, Items count: {Items.Count}";
         }
 
         public void ShowAllItems()
         {
-            Console.WriteLine(this);
+            foreach(var item in Items)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

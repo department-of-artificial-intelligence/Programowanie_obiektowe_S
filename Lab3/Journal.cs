@@ -10,7 +10,9 @@ namespace Lab3
     {
         public int Number { get; set; }
 
-        public Journal() : base() { }
+        public Journal() : base() {
+            Number = 0;
+        }
 
         public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number)
         {
@@ -23,22 +25,22 @@ namespace Lab3
 
         public override string ToString()
         {
-            return base.ToString();
+            return base.ToString() + $", Number: {Number}";
         }
 
-        public string GenerateBarCode()
+        public override string GenerateBarCode()
         {
             Random random = new Random();
             char[] dostepneZnaki = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=<>?".ToCharArray();
-            char[] wynik = new char[9];
+            char[] wynik = new char[8];
 
-            for (int i = 0; i < 9; ++i)
+            for (int i = 0; i < 8; ++i)
             {
                 wynik[i] = dostepneZnaki[random.Next(dostepneZnaki.Length)];
             }
 
             string wynikString = new string(wynik);
-            Console.WriteLine(wynikString);
+            return wynikString;
         }
     }
 }

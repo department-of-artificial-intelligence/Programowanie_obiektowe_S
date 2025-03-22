@@ -45,7 +45,7 @@ namespace Lab3
             DateOfIssue = default;
         }
 
-        public Item(string title, int id, string publisher, DateTime dateOfIssue)
+        public Item(string? title, int id, string? publisher, DateTime dateOfIssue)
         {
             Id = id;
             Title = title ?? "No Title";  
@@ -53,7 +53,7 @@ namespace Lab3
             DateOfIssue = dateOfIssue;
         }
 
-        public override string ToString() => $"{Id} {Title} {Publisher} {DateOfIssue.ToShortDateString()}";
+        public override string ToString() => $"Id: {Id}, Title: {Title}, Publisher: {Publisher}, DateOfIssue: {DateOfIssue.ToShortDateString()}";
 
         public virtual void Details()
         {

@@ -6,24 +6,26 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    public class Author
+    public class Author : Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        //public string FirstName { get; set; }
+        //public string LastName { get; set; }
 
         public string Nationality { get; set; }
 
         public Author()
+            : base()
         {
-            FirstName = "Unknown";
-            LastName = "Unknown";
+            //FirstName = "Unknown";
+            //LastName = "Unknown";
             Nationality = "Unknown";
         }
 
         public Author(string firstName, string lastName, string nationality)
+            : base(firstName, lastName)
         {
-            FirstName = firstName ?? "Unknown";
-            LastName = lastName ?? "Unknown";
+            //FirstName = firstName ?? "Unknown";
+            //LastName = lastName ?? "Unknown";
             Nationality = nationality ?? "Unknown";
         }
 

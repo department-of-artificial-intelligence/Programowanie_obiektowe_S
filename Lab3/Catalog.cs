@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Lab3
 {
-    public class Catalog
+    public class Catalog : IItemManagement
     {
         public IList<Item> Items { get; set; }
 
@@ -22,6 +23,31 @@ namespace Lab3
         {
             ThematicDepartment = thematicDepartment;
             Items = items ?? new List<Item>();
+        }
+
+        public Item FindItem(Predicate<Item> predicate)
+        {
+            //return Items.FirstOrDefault(item => predicate(item));
+
+            foreach (var item in Items)
+            {
+                if (predicate(item))
+                {
+                    return item;
+                }
+            }
+
+            return null;
+        }
+
+        public Item FindItemBy(string title)
+        {
+            return Items.FirstOrDefault(item => item.Title.Equals(title));
+        }
+
+        public Item FindItemBy(int id)
+        {
+            return Items.FirstOrDefault(item => item.Id.Equals(id));
         }
 
         public void AddItem(Item item)

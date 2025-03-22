@@ -10,7 +10,7 @@ namespace lab2
 {
     internal class Student : Person
     {
-        private List<Grade> _grades ;
+        private List<Grade> _grades;
         private int _year;
         private int _group;
         private int _indexId;
@@ -38,14 +38,14 @@ namespace lab2
             get { return _grades; }
         }
         public Student()
-            :base()
+            : base()
         {
             _year = 0;
             _group = 0;
             _indexId = 0;
             _grades = new List<Grade>();
         }
-        public Student(string? firstName, string? lastName, DateTime dateTime, int year, int group, int indexId):
+        public Student(string? firstName, string? lastName, DateTime dateTime, int year, int group, int indexId) :
             base(firstName, lastName, dateTime)
         {
             _year = year;
@@ -90,9 +90,9 @@ namespace lab2
             //Console.WriteLine(_grades.Where(grade => grade.SubjectName == subjectName;
             foreach (var g in _grades)
             {
-                if(g.SubjectName == subjectName)
+                if (g.SubjectName == subjectName)
                     Console.WriteLine(g);
-                
+
             }
         }
 
@@ -110,7 +110,7 @@ namespace lab2
             //_grades.RemoveAll(delegate (Grade g) {
             //    return g.SubjectName == subjectName;
             //});
-            
+
             _grades.RemoveAll(grade => grade.SubjectName == subjectName);
         }
         public void DeleteGrades()
@@ -118,4 +118,5 @@ namespace lab2
             _grades.Clear();
         }
     }
+
 }

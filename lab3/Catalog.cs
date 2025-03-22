@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,15 +46,15 @@ namespace lab3 {
         }
 
         public Item FindItemBy(int id) {
-            return Items.FirstOrDefault(item => item.Id.Equals(id));
+            return this.Items.FirstOrDefault(item => item.Id.Equals(id));
         }
 
         public Item FindItemBy(string name) {
-            return Items.FirstOrDefault(item => item.Title.Equals(name));
+            return this.Items.FirstOrDefault(item => item.Title.Equals(name));
         }
 
-        public Item FindItem(Predicate<Item> predicate) {
-            return Items.FirstOrDefault(predicate.Invoke); ;
-        }   
-    }
+		public Item FindItem(Expression<Func<Item, bool>> predicate) {
+			return Items.FirstOrDefault(predicate.Compile());
+		}
+	}
 }

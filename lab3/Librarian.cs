@@ -18,8 +18,8 @@ namespace lab3 {
 
         public override string ToString() {
             return base.ToString() +
-                   $" , Hire Date: {this.HireDate.ToString("dd-MM-yyyy")}" +
-                   $" , Salary: {this.Salary}";
+                   $", Hire Date: {this.HireDate.ToString("dd-MM-yyyy")}" +
+                   $", Salary: {this.Salary}";
         }
 
     }

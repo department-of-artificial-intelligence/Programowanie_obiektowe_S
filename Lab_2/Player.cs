@@ -37,7 +37,7 @@
         {
             return $"Student | {base.ToString()},Position:{_position},Club:{_club},SroredGoals{_scoredGoals}";
         }
-        public void ScoreGoal()
+        public virtual void ScoreGoal()
         {
             _scoredGoals++;
         }

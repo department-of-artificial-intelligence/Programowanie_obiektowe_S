@@ -26,12 +26,21 @@ namespace Lab3
 
         public override string ToString()
         {
-            return "Journal: | " + base.ToString() + $" {Number}";
+            return "Journal: | " + base.ToString() + $" {Number}\n";
         }
 
         public override string GenerateBarCode()
         {
-            return $"{Id}{Number}";
+            int charLeft = 13; //chars in Bar code
+            string charNumber = Id.ToString();
+            charLeft -= charNumber.Length;
+            charNumber = Number.ToString();
+            charLeft -= charNumber.Length;
+            charNumber = $"{Id}{Number}"; // using var. charNumber as return
+            Random random = new Random();
+            for (int i = 0; i < charLeft; ++i)
+                charNumber += $"{random.Next(0, 9)}";
+            return charNumber;
         }
     }
 }

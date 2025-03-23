@@ -51,6 +51,7 @@
             person1.CarsCount = 0;
             Person.MaxCarCount = 4;
             Console.WriteLine(Person.MaxCarCount);
+            Person.MaxCarCount = 0;
             Person person2 = new Person("Adam", "Nowak", "ul. Nowa 13");
             person2.Details();
             Car[] cars = [car1, car2];
@@ -70,6 +71,7 @@
             person2.Details();
             person4.RemoveCarRegistrationNumber("SC1234");
             person4.Details();
+            Console.WriteLine(Person.MaxCarCount);
             Console.WriteLine("\r\n=========================================\r\n");
         }
     }

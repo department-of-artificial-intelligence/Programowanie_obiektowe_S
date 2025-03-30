@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-    internal class Book : Item
+    public class Book : Item
     {
 
 
@@ -18,13 +20,14 @@ namespace lab3
             set;
         }
 
-        public Ilist<Author> Authors {
+        public IList<Author> Authors 
+        {
             get;
             set;
 
         }
         
-        public Book(int id, string title, string publisher, DateTime dateOfIssue, int pageCount, IList<Author> authors): base(id, title, publisher, dateOfIssue)
+        public Book(string title, int id, string publisher, DateTime dateOfIssue, int pageCount, IList<Author> authors): base(title, id, publisher, dateOfIssue)
         {
             PageCount = pageCount;
             Authors = authors;

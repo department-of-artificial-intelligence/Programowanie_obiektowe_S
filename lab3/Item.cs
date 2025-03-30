@@ -12,7 +12,7 @@ namespace lab3
         protected string _title;
         protected string _publisher;
         protected DateTime _dateOfIssue;
-
+        
 
 
 

@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    public class Author
+    public class Author:Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+
         public string Nationality { get; set; }
-        public Author()
+        public Author():base()
         { 
             FirstName = "brakimienia";
             LastName = "braknazwiska";
@@ -19,7 +18,7 @@ namespace Lab3
 
         }
 
-        public Author(string firstName, string lastName,string nationality)
+        public Author(string firstName, string lastName,string nationality):base(firstName,lastName)
         {
             FirstName=firstName;
             LastName=lastName;
@@ -27,7 +26,7 @@ namespace Lab3
         }
         public override string ToString()
         {
-            return $"Imie: {FirstName} Nazwisko: {LastName} Panstwo: {Nationality} ";
+            return base.ToString()+$" Panstwo: {Nationality} ";
         }
 
     }

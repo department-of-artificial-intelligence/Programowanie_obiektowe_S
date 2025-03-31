@@ -20,11 +20,13 @@ namespace Lab3
 
         public override string ToString()
         {
-            return base.ToString()+$"NUMBER: {Number} ";
+            return $"Journal: "+base.ToString()+$"NUMBER: {Number} ";
         }
         public override string GenerateBarCode()
         {
-            return $" Journal:  ID: {Id} Number: {Number}";
+            Random random = new Random();
+            int liczba=random.Next(10000000,100000000);
+            return $" Journal:  ID: {Id} Number: {Number} Kod:{liczba}";
         }
 
 

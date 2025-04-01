@@ -27,12 +27,14 @@ namespace Lab3
             {
                 autorzy += author.ToString();
             }
-            return base.ToString() + $"PAGECOUNT: {PageCount} {autorzy} ";
+            return $"Book: " + base.ToString() + $"PAGECOUNT: {PageCount} {autorzy} ";
 
         }
         public override string GenerateBarCode()
         {
-            return $"Book:  ID: {Id}";
+            Random random = new Random();
+            int liczba = random.Next(10000000, 100000000);
+            return $"Book: ID: {Id} Kod: {liczba}";
         }
         public void AddAuthor(Author author)
         {

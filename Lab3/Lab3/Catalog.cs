@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Lab3
 {
-    public class Catalog
+    public class Catalog:IItemManagement
     {
         public IList<Item> Items=new List<Item>();
         public string ThematicDepartment {  get; set; }
@@ -33,10 +34,33 @@ namespace Lab3
         {
             foreach (var item in Items)
             {
-                string Lista = "Lista: ";
-                Console.WriteLine(Lista+item.ToString());
+                Console.WriteLine(item);
             }
         }
+        public Item FindItemBy(int id)
+        {
+            var item = Items.FirstOrDefault(b => b.Id == id);
+            if (item == null)
+                throw new Exception($"Nie znaleziono przedmiotu o ID: {id}");
+            return item;
+        }
+
+        public Item FindItemBy(string title)
+        {
+            var item = Items.FirstOrDefault(b => b.Title == title);
+            if (item == null)
+                throw new Exception($"Nie znaleziono przedmiotu o tytule: \"{title}\"");
+            return item;
+        }
+
+        public Item FindItem(Expression<Func<Item, bool>> predicate)
+        {
+            var item = Items.AsQueryable().FirstOrDefault(predicate);
+            if (item == null)
+                throw new Exception("Nie znaleziono przedmiotu spełniającego podany warunek.");
+            return item;
+        }
+
 
 
     }

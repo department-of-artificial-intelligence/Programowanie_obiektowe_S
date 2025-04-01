@@ -13,7 +13,15 @@ namespace Lab1
         int _carsCount;
         int _capacity;
 
-        public int Capacity { get { return _capacity; } set { _capacity = value; } }
+        public int Capacity
+        {
+            get { return _capacity; }
+            set
+            {
+                _capacity = value;
+                _cars = new Car[value];
+            }
+        }
 
         public string Address { get { return _address; } set { _address = value; } }
 

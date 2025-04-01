@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace lab4
+﻿namespace lab4
 {
-    internal class Lecturer:Person
+    internal class Lecturer : Person
     {
         private string _academicTitle;
         private string _position;
@@ -28,6 +22,11 @@ namespace lab4
         {
             AcademicTitle = academicTitle;
             Position = position;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" AcademicTitle: {AcademicTitle}, Position: {Position}";
         }
     }
 }

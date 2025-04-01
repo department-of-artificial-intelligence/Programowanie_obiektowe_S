@@ -35,7 +35,7 @@ namespace Lab4
         public IContainer AddRange(IContainer container, IList<TObjectType> listOfElements)
         {
 
-        }
+        //sadas
 
     }
 }

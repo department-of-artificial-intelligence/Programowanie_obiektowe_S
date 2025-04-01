@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -21,7 +22,7 @@ namespace Lab3
         public override string ToString()
         {
             string temp = base.ToString() + $", PageCount: {PageCount}";
-            if (Authors != null) temp += ", Authors:";
+            if (Authors.Count > 0) temp += ", Authors:";
             foreach(Author author in Authors)
             {
                 temp += $"\n\t{author}";
@@ -31,7 +32,10 @@ namespace Lab3
 
         public override string GenerateBarCode()
         {
-            return "|||||||||||||||||||||";
+            string temp = "";
+            var rand = new Random();
+            for (int i = 0; i < 13; i++) temp += rand.Next(10);
+            return temp;
         }
 
         public void AddAuthor(Author author)

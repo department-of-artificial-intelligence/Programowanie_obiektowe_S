@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace lab03
 {
-    public class Journal : Item
+    internal class Journal : Item
     {
         public int Number { get; set;  }
 
-        Journal() : base()
+        public Journal() : base()
         {
             Number = 0;
         }
 
-        Journal(string title, int id, string publisher, DateTime dateOfIssue, int number) : 
+         public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number) : 
                 base (title, id, publisher, dateOfIssue)
         {
             Number = number;

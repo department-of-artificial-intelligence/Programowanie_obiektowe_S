@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab03
 {
-    public abstract class Item
+    internal abstract class Item
     {
         protected int _id;
         protected string _title;

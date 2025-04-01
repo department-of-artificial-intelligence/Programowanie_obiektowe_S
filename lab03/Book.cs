@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace lab03
 {
-    public class Book : Item
+    internal class Book : Item
     {
         public int PageCount { get; set; }
 
-        public IList<Author> Authors { get; set; } = null!;
+        public IList<Author> Authors { get; set; }
 
-        public Book(string title, int id, string publisher, DateTime dateOfIssue, 
-            int pageCount,IList<Author> authoers) : 
+        public Book(string title, int id, string publisher, DateTime dateOfIssue, int pageCount,IList<Author> authoers) : 
             base (title, id, publisher, dateOfIssue)
         {
             PageCount = pageCount;
@@ -31,7 +30,7 @@ namespace lab03
                 $"Book | PageCount: {PageCount}" + authoers;
         }
 
-        public void AddAuthoer(Author author)
+        public void AddAuthor(Author author)
         {
             Authors.Add(author);
         }

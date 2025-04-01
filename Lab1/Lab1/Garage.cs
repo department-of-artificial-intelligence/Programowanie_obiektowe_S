@@ -8,7 +8,7 @@ namespace Lab1
 {
     public class Garage
     {
-        private Car[]? _cars;
+        private Car[] _cars;
         string _address;
         int _carsCount;
         int _capacity;

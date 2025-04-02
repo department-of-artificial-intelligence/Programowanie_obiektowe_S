@@ -19,7 +19,7 @@ namespace Lab4
         }
         public override string ToString()
         {
-            return $"Subject: {Subject}\nValue: {Value}\nDate: {Date}";
+            return $"Subject: {Subject}\nDate: {Date}\nValue: {Value}";
         }
     }
 }

@@ -14,13 +14,6 @@ namespace Lab4
         public IList<OrganizationUnit> OrganizationUnits { get; set; }
         public IList<Subject> Subjects {  get; set; }
         public IList<Student> Students { get; set; }
-        public Department()
-        {
-            Name = null;
-            Dean = null;
-            Subjects = null;
-
-        }
         public Department(string name, Person dean, IList<Subject> subjects, IList<Student> students)
         {
             Name = name;
@@ -30,7 +23,24 @@ namespace Lab4
         }
         public override string ToString()
         {
-            return $"Name: {Name}\nDean: {Dean}\nSubjects: {Subjects}\nStudents: {Students}";
+            string wynik = $"Name: {Name}\nDean: {Dean}";
+
+            foreach(var organizationUnit in OrganizationUnits)
+            {
+                wynik = wynik + organizationUnit.ToString() + '\n';
+            }
+
+            foreach(var subject in Subjects)
+            {
+                wynik = wynik + subject.ToString() + "\n";
+            }
+
+            foreach (var student in Students)
+            {
+                wynik = wynik + student.ToString() + "\n";
+            }
+
+            return wynik;
         }
     }
 }

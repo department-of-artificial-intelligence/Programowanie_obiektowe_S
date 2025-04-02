@@ -19,7 +19,14 @@ namespace Lab4
         }
         public override string ToString()
         {
-            return $"Name: {Name}\nAddress: {Address}\nLecturers: {Lecturers}";
+            string wynik = $"Name: {Name}\nAddress: {Address}";
+            wynik += $"\nLecturers:\n";
+            
+            foreach(var lecturer in Lecturers) {
+                wynik = wynik + lecturer.ToString() + '\n';
+            }
+
+            return wynik;
         }
     }
 }

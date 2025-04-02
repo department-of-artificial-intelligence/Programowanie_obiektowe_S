@@ -8,8 +8,8 @@ namespace Lab4
 {
     public class OrganizationUnit
     {
-        public string? Name { get; set; }
-        public string? Address { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
         public IList<Lecturer> Lecturers { get; set; }
         public OrganizationUnit(string name, string address, IList<Lecturer> lecturers)
         {
@@ -19,14 +19,14 @@ namespace Lab4
         }
         public override string ToString()
         {
-            string wynik = $"Name: {Name}\nAddress: {Address}";
-            wynik += $"\nLecturers:\n";
+            string outcome = $"Name: {Name}, Address: {Address}, ";
+            outcome += "Lecturers:\n";
             
             foreach(var lecturer in Lecturers) {
-                wynik = wynik + lecturer.ToString() + '\n';
+                outcome = outcome + lecturer + "\n";
             }
 
-            return wynik;
+            return outcome;
         }
     }
 }

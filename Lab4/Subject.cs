@@ -8,8 +8,8 @@ namespace Lab4
 {
     public class Subject
     {
-        public string? Name {  get; set; }
-        public string? Specialization { get; set; }
+        public string Name {  get; set; }
+        public string Specialization { get; set; }
         public int Semester { get; set; }
         public int HoursCount { get; set; }
         public Subject(string name, string specialization, int semester, int hoursCount) {
@@ -20,7 +20,7 @@ namespace Lab4
         }
         public override string ToString()
         {
-            return $"Name: {Name}\nSpecialization: {Specialization}\nSemester: {Semester}\nHours count: {HoursCount}";
+            return $"Name: {Name}, Specialization: {Specialization}, Semester: {Semester}, Hours count: {HoursCount}";
         }
     }
 }

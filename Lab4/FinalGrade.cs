@@ -14,12 +14,12 @@ namespace Lab4
         public FinalGrade(Subject subject, double value, DateTime date)
         {
             Subject = subject;
-            Value = value;
             Date = date;
+            Value = value;
         }
         public override string ToString()
         {
-            return $"Subject: {Subject}\nDate: {Date}\nValue: {Value}";
+            return $"Subject: {Subject}, Date: {Date}, Value: {Value}";
         }
     }
 }

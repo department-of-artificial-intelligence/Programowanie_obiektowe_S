@@ -9,7 +9,7 @@ namespace Lab4
 {
     public class Department
     {
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public Person Dean { get; set; }
         public IList<OrganizationUnit> OrganizationUnits { get; set; }
         public IList<Subject> Subjects {  get; set; }
@@ -23,24 +23,36 @@ namespace Lab4
         }
         public override string ToString()
         {
-            string wynik = $"Name: {Name}\nDean: {Dean}";
+            string outcome = $"Name: {Name}, Dean: {Dean}";
 
-            foreach(var organizationUnit in OrganizationUnits)
+            outcome += "\nOrganization units:\n";
+            if(OrganizationUnits != null)
             {
-                wynik = wynik + organizationUnit.ToString() + '\n';
+                foreach(var organiationUnit in OrganizationUnits)
+                {
+                    outcome += organiationUnit + "\n";
+                }
             }
 
-            foreach(var subject in Subjects)
+            outcome += "\nSubjects:\n";
+            if (Subjects != null)
             {
-                wynik = wynik + subject.ToString() + "\n";
+                foreach (var subject in Subjects)
+                {
+                    outcome = outcome + subject + "\n";
+                }
             }
 
-            foreach (var student in Students)
+            outcome += "\nStudents:\n";
+            if (Students != null)
             {
-                wynik = wynik + student.ToString() + "\n";
+                foreach (var student in Students)
+                {
+                    outcome = outcome + student + "\n";
+                }
             }
 
-            return wynik;
+            return outcome;
         }
     }
 }

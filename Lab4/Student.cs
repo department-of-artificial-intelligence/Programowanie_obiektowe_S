@@ -9,24 +9,29 @@ namespace Lab4
 {
     public class Student : Person
     {
-        private static readonly int id;
+        private static int id = 1;
 
         public IList<FinalGrade> Grades { get; set; }
         public int Semester {  get; set; }
         public int Group {  get; set; }
         public int IndexId { get; set; }
-        public string? Specialization { get; set; }
+        public string Specialization { get; set; }
         public double AverageGrades {
             get
             {
                 double sum = 0.0;
 
-                foreach(var grade in Grades)
+                if (Grades != null)
                 {
-                    sum += grade.Value;
+                    foreach (var grade in Grades)
+                    {
+                        sum += grade.Value;
+                    }
+
+                    return sum / Grades.Count;
                 }
 
-                return sum / Grades.Count;
+                return 0.0;
             }
         }
         public Student(string firstName, string lastName, DateTime dateOfBirth, string specialization, int group, int semester = 1)
@@ -35,21 +40,25 @@ namespace Lab4
             Specialization = specialization;
             Group = group;
             Semester = semester;
+            IndexId = id;
+            ++id;
         }
         public override string ToString()
         {
             string wynik = base.ToString();
 
-            wynik += $"\nSemester: {Semester}\nGroup: {Group}\nIndex id: {IndexId}\nSpecialization: {Specialization}\nGroup: {Group}\nSemester: {Semester}";
+            wynik += $", Specialization: {Specialization}, Group: {Group}, Semester: {Semester}, Index id: {IndexId}";
 
-            wynik = wynik + "\nGrades:\n";
-
-            foreach(var grade in Grades)
+            wynik = wynik + "\nGrades:";
+            if (Grades != null)
             {
-                wynik += grade.ToString() + '\n';
+                foreach (var grade in Grades)
+                {
+                    wynik += " " + grade;
+                }
             }
 
-            wynik += $"Average of grades: {AverageGrades}";
+            wynik += $"\nAverage of grades: {AverageGrades}";
 
             return wynik;
         }

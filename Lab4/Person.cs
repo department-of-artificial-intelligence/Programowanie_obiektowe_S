@@ -8,8 +8,8 @@ namespace Lab4
 {
     public abstract class Person
     {
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Person(string firstName, string lastName, DateTime dateOfBirth) {
             FirstName = firstName;
@@ -18,7 +18,7 @@ namespace Lab4
         }
         public override string ToString()
         {
-            return $"First name: {FirstName}\nLast name: {LastName}\nDate of birth: {DateOfBirth}";
+            return $"First name: {FirstName}, Last name: {LastName}, Date of birth: {DateOfBirth.ToShortDateString()}";
         }
     }
 }

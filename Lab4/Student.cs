@@ -15,7 +15,7 @@
             return Grades.Average(grade => grade.Value);
         }
 
-        public Student(string firstName, string lastName, DateTime dateOfBirth, string specialization, int semester = 1, int group)
+        public Student(string firstName, string lastName, DateTime dateOfBirth, string specialization, int group, int semester = 1)
             : base(firstName, lastName, dateOfBirth)
         {
             Specialization = specialization;

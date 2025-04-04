@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    class Department  
+    public class Department 
     {
+        
         public string Name { get; set; }
         public Person Dean { get; set; }
-        public IList<OrganizationUnit> OrganizationUnits{ get; set; }
-        public IList<Subject> Subjects { get; set; }
-        public IList<Student> Students { get; set; }
+        public IList<OrganizationUnit> OrganizationUnits { get; set; } = new List<OrganizationUnit>();
+        public IList<Subject> Subjects { get; set; } = new List<Subject>();
+        public IList<Student> Students { get; set; } = new List<Student>();
         public Department(string name, Person dean, IList<Subject> subjects, IList<Student> students)
         {
             Name = name;
@@ -55,7 +56,7 @@ namespace Lab4
                 result += "Students:\n";
                 foreach(var Student in Students)
                 {
-                    result += Student.ToString();
+                    result += Student?.ToString();
                 }
             }
             else
@@ -67,4 +68,7 @@ namespace Lab4
             return result;
         }
     }
+
+    
+
 }

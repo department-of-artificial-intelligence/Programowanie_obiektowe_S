@@ -6,9 +6,31 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    public class DisplayActionExtensions<TObjectType>:IDisplayable
+    static public class DisplayActionExtensions
     {
-        public void Print(TObjectType obj) { }
-        public void Print(IList<TObjectType> list) { }
+        public static void Print<TObjectType>(this TObjectType obj)
+        {
+            PrintInternal(obj);  // Przekazanie obiektu do jednej wspólnej metody
+        }
+
+        // Metoda wyświetlająca listę obiektów
+        public static void Print<TObjectType>(this IList<TObjectType> list)
+        {
+            foreach (var item in list)
+            {
+                PrintInternal(item);  // Przekazanie każdego elementu listy do wspólnej metody
+            }
+        }
+        private static void PrintInternal<TObjectType>(TObjectType obj)
+        {
+            if (obj != null)
+            {
+                Console.WriteLine(obj.ToString());  // Wywołanie ToString na obiekcie
+            }
+            else
+            {
+                Console.WriteLine("Null object");
+            }
+        }
     }
 }

@@ -100,7 +100,7 @@ class Program
         Department2.GetList<OrganizationUnit>(ou => ou.Name == "SKL")
            .Print();
     }
-    //test
+    //tests
     
 }
 

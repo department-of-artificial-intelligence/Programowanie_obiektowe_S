@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    public class OrganizationUnit
+    public class OrganizationUnit : IContainer, IDisplayable
     {
         public string Name { get; set; }
         public string Address { get; set; }
-        public IList<Lecturer> Lecturers { get; set; }
+        public IList<Lecturer> Lecturers { get; set; } = new List<Lecturer>();
         public OrganizationUnit(string name, string address, IList<Lecturer> lecturers)
         {
             Name = name;

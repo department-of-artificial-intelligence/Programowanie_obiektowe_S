@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    public class Department
+    public class Department : IContainer, IDisplayable
     {
         public string Name { get; set; }
         public Person Dean { get; set; }
-        public IList<OrganizationUnit> OrganizationUnits { get; set; }
+        public IList<OrganizationUnit> OrganizationUnits { get; set; } = new List<OrganizationUnit>();
         public IList<Subject> Subjects {  get; set; }
         public IList<Student> Students { get; set; }
         public Department(string name, Person dean, IList<Subject> subjects, IList<Student> students)

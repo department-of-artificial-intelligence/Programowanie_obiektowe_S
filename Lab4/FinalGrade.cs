@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    public class FinalGrade
+    public class FinalGrade : IDisplayable
     {
         public Subject Subject { get; set; }
         public DateTime Date {  get; set; }

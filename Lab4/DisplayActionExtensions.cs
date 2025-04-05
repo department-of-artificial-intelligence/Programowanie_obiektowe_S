@@ -6,21 +6,29 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    public class DisplayActionExtensions
+    public static class DisplayActionExtensions
     {
-        public static void Print(object obj)
+        public static void Print<TObjectType>(this TObjectType obj) where TObjectType : IDisplayable  
         {
             Console.WriteLine(obj.ToString());
         }
 
-        public static void Print(IList<object> list)
+        //public static void Print<TObjectType>(this IList<TObjectType> list) where TObjectType : IDisplayable
+        //{
+        //    if (list != null)
+        //    {
+        //        foreach(var item in list)
+        //        {
+        //            item.Print();
+        //        }
+        //    }
+        //}
+
+        public static void Print<TObjectType>(this IEnumerable<TObjectType> list) where TObjectType : IDisplayable
         {
-            if (list != null)
+            foreach (var item in list)
             {
-                foreach (object obj in list)
-                {
-                    Print(obj);
-                }
+                Console.WriteLine(item.ToString());
             }
         }
     }

@@ -47,6 +47,60 @@ class Program
             new List<Subject>() { subject1, subject2 },
             new List<Student>() { student1, student2, (Student)student3 });
         Console.WriteLine(department);
+
+
+
+        Console.WriteLine("--------------------");
+        student1.Add(grade1);
+        student2.AddRange(new List<FinalGrade> { grade2, grade3 });
+        ((Student)student3).AddRange(new List<FinalGrade> { grade4 });
+
+        Department Department2 = new Department("WE",
+            new Lecturer("Jan", "Nowak", DateTime.Now.AddYears(-56), "dr hab.", "dziekan"),
+            new List<Subject>() { subject3, subject4 },
+            new List<Student>() { student1, student2, (Student)student3 }
+        );
+
+        Department2.AddRange(new List<OrganizationUnit>
+            {
+                new OrganizationUnit("IOO", "Rolnicza 2", new List<Lecturer>{lecturer5}),
+                new OrganizationUnit("SKL", "Miedziana 13", new List<Lecturer>{lecturer6})
+            });
+
+        Department2.Add(new Student("Jacek", "Bednarski", new DateTime(1989, 2, 12), "Matematyka", 1)
+                        .AddRange(new List<FinalGrade> { grade7, grade8 }) as Student);
+        Department2.Add(new Student("Marek", "Wiśniewski", new DateTime(2001, 12, 1), "Matematyka", 1)
+                        .AddRange(new List<FinalGrade> { grade5, grade6 }) as Student);
+        Department2.Print();
+
+        var obtainedStudent = Department2.Get<Student>(x => x.Group == 1);
+        obtainedStudent.Print();
+
+        Console.WriteLine("---------------");
+
+        Department2.Get<Student>()
+           .GetList<FinalGrade>(g => g.Subject.Name == "Informatyka")
+           .Print();
+        Console.WriteLine("---------------");
+        Department2.Add(new Subject("Paradygmaty programowania", "Informatyka", 2, 10));
+        Department2.Add(new Subject("Podstawy sieci komputerowych", "Informatyka", 2, 30));
+
+        Console.WriteLine("---testremove------------");
+        Department2.Get<OrganizationUnit>(x => x.Name == "SKL")
+            .Print();
+            
+
+        Department2.Get<OrganizationUnit>(x => x.Name == "SKL")
+            .Remove<Lecturer>(l => l.FirstName == "Dariusz");
+
+        Department2.Get<OrganizationUnit>(x => x.Name == "SKL")
+            .Print();
+        Console.WriteLine("---testremove------------");
+
+        Department2.GetList<OrganizationUnit>(ou => ou.Name == "SKL")
+           .Print();
     }
+    //tests
+    
 }
 

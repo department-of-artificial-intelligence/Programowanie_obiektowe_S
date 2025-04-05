@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    class Subject
+    public class Subject
     {
         public string Name { get; set; }
         public string Specialization { get; set; }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    interface IDisplayable
+    internal interface IDisplayable
     {
-        void Print<T>(T obj);
-        void PrintList<T>(IList<T> list);
+        
     }
 }

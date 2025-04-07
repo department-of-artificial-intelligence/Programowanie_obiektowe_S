@@ -6,21 +6,38 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    public class DisplayActionExtensions:IDisplayable
+    public static class DisplayActionExtensions
     {
-        public void Print<T>(T obj)
+        public static void Print<T>(this T obj) where T:IDisplayable
         {
-            Console.WriteLine(obj);
-        }
-
-
-        public void Print<T>(IList<T> list)
-        {
-            foreach (var item in list)
+            if (obj == null)
             {
-                Console.WriteLine(item);
+                Console.WriteLine("null"); 
+            }
+            else
+            {
+                Console.WriteLine(obj.ToString());
             }
         }
+        public static void Print<T>(this IList<T> list) where T:IDisplayable
+        {
+            if (list == null) { Console.WriteLine("null"); }
+            else
+            {
+                foreach (var item in list)
+                {
+                    if (item == null)
+                    {
+                        Console.WriteLine("null");
+                            } 
+                    else 
+                    {
+                        Console.WriteLine($"{item.ToString()}");
+                    }
+                }
+            }
+        }
+
 
     }
 }

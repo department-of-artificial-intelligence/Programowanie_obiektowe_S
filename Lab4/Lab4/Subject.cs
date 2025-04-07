@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    public class Subject
+    public class Subject 
     {
         public string Name {  get; set; }
         public string Specialization { get; set; }
@@ -21,7 +21,7 @@ namespace Lab4
         }
         public override string ToString()
         {
-            return $" Przedmiot Nazwa: {Name} Specjalizacja: {Specialization} Semester: {Semester} Liczba godzin : {HoursCount}";
+            return $" Przedmiot Nazwa: {Name} Specjalizacja: {Specialization} Semester: {Semester} Liczba godzin : {HoursCount}" + "\n";
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    public abstract class Person
+    public abstract class Person:IDisplayable,IContainer
     {
         public string FirstName {  get; set; }
         public string LastName { get; set; }
@@ -19,7 +19,7 @@ namespace Lab4
         }
         public override string ToString()
         {
-            return $"Imie: {FirstName} Nazwisko: {LastName} Data Urodzenia: {DateOfBirth}";
+            return $"Imie: {FirstName} Nazwisko: {LastName} Data Urodzenia: {DateOfBirth}" + "\n";
 
         }
     }

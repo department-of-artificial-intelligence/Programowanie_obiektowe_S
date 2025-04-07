@@ -24,7 +24,9 @@ namespace Lab4
         }
         public override string ToString()
         {
-            return $"Student: "+base.ToString()+$"Specjalizacja: {Specialization} Grupa: {Group} Semester: {Semester}";
+            string oceny = "";
+            foreach(var grade in Grades) { oceny += grade.ToString(); }
+            return $"Student: "+base.ToString()+$"Specjalizacja: {Specialization} Grupa: {Group} Semester: {Semester}"+oceny + "\n"; ;
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Lab4
     public class Student : Person, IContainer, IDisplayable
     {
         private static int id;
+
         public IList<FinalGrade> Grades { get; set; }
         public int Semester { get; set; }
         public int Group { get; set; }

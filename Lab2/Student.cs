@@ -5,14 +5,14 @@
         private int _year;
         private int _group;
         private int _IndexId;
-        private IList<Grade>? _grades;
+        private List<Grade> _grades;
 
         public int Year { get; set; }
         public int Group { get; set; }
         public int IndexId { get; set; }
-        public IList<Grade>? Grades { get; }
+		public List<Grade> Grades => _grades;
 
-        public Student()
+		public Student()
         {
             _year = 0;
             _group = 0;
@@ -25,7 +25,8 @@
             _year = year;
             _group = group;
             _IndexId = indexId;
-        }
+			_grades = new List<Grade>();
+		}
 
         public override string ToString()
         {
@@ -38,13 +39,13 @@
 
         public void AddGrade(string subjectName, double value, DateTime date)
         {
-            Grade newGrade = new Grade(subjectName, date, value);
-            _grades?.Add(newGrade);
+			Grade newGrade = new Grade(subjectName, date, value);
+            _grades.Add(newGrade);
         }
 
         public void AddGrade(Grade grade)
         {
-            _grades?.Add(grade);
+			_grades.Add(grade);
         }
 
         public void DisplayGrades()
@@ -64,26 +65,22 @@
 
         public void DeleteGrade(string subjectName, double value, DateTime date)
         {
-            Grade newGrade = new Grade(subjectName, date, value);
-            _grades?.Remove(newGrade);
-        }
+            _grades.RemoveAll(g => g.SubjectName == subjectName && g.Value == value && g.Date.Date == date.Date);
+		}
 
         public void DeleteGrade(Grade grade)
         {
-            _grades?.Remove(grade);
+			_grades.Remove(grade);
         }
 
         public void DeleteGrades(string subjectName)
         {
-            if (_grades != null)
-                foreach (var grade in _grades)
-                    if (grade.SubjectName == subjectName)
-                        DeleteGrade(grade);
-        }
+			_grades.RemoveAll(g => g.SubjectName == subjectName);
+		}
 
         public void DeleteGrades()
         {
-            _grades?.Clear();
+			_grades?.Clear();
         }
     }
 }

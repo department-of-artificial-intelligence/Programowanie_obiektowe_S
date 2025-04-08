@@ -24,7 +24,7 @@
             _scoredGoals = scoredGoals;
         }
 
-        public void ScoreGoal()
+        public virtual void ScoreGoal()
         {
             _scoredGoals++;
         }

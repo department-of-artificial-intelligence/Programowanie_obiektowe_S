@@ -76,7 +76,7 @@ class Program
                 new OrganizationUnit("SKL", "Miedziana 13", new List<Lecturer>{lecturer6})
             });
 
-        Console.WriteLine("-----------DO_SPRAWDZENIA (ADD)-----------");
+        Console.WriteLine("-----------DO_SPRAWDZENIA (ADD) (null object)-----------");
         Department2.Add(new Student("Jacek", "Bednarski", new DateTime(1989, 2, 12), "Informatyka", 1)
                         .AddRange(new List<FinalGrade> { grade7, grade8 }) as Student)
                         .Print();
@@ -99,7 +99,7 @@ class Program
            .Print();
         Console.WriteLine("---------------");
 
-        Console.WriteLine("-----------DO_SPRAWDZENIA (ADD)-----------");
+        Console.WriteLine("-----------DO_SPRAWDZENIA (ADD) (null object)-----------");
         Department2.Add(new Subject("Paradygmaty programowania", "Informatyka", 2, 10)).Print();
         Department2.Add(new Subject("Podstawy sieci komputerowych", "Informatyka", 2, 30)).Print();
         Console.WriteLine("-----------DO_SPRAWDZENIA (ADD)-----------");
@@ -112,12 +112,12 @@ class Program
         Department2.Get<OrganizationUnit>(x => x.Name == "SKL")
             .Remove<Lecturer>(l => l.FirstName == "Dariusz");
 
-
+        Console.WriteLine("-----------DO_SPRAWDZENIA (REMOVE) (mam ten sam wynik co przed usunieciem)-----------");
         Console.WriteLine("5. Print");
         Department2.Get<OrganizationUnit>(x => x.Name == "SKL")
             .Print();
-        
 
+        Console.WriteLine("-----------DO_SPRAWDZENIA (GetList) (nic mi nie daje)-----------");
         Console.WriteLine("6. Print");
         Department2.GetList<OrganizationUnit>(ou => ou.Name == "SKL")
            .Print();

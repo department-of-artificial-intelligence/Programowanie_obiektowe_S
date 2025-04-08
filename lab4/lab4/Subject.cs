@@ -22,7 +22,7 @@ namespace lab4
         }
         public override string ToString()
         {
-            return $"Name: {Name}, Secialization: {Specialization}, Semester: {Semester}, Hours count: {HoursCount}";
+            return $" Subject: {Name}, {Specialization}, {Semester}, {HoursCount}";
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lab4;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,8 @@ namespace lab4
     {
         public string AcademicTitle { get; set; }
         public string Position { get; set; }
-        public Lecturer(string firstName, string lastName, DateTime dateOfBirth, string academicTitle, string position) 
-            :base(firstName, lastName, dateOfBirth)
+        public Lecturer(string firstName, string lastName, DateTime dateOfBirth, string academicTitle, string position)
+            : base(firstName, lastName, dateOfBirth)
         {
             AcademicTitle = academicTitle;
             Position = position;
@@ -19,7 +20,7 @@ namespace lab4
 
         public override string ToString()
         {
-            return $"Lecturer | "+base.ToString()+$"Academic title: {AcademicTitle}, Position {Position}";
+            return $" Lecturer: " + base.ToString() + $" {AcademicTitle}, {Position}";
         }
     }
 }

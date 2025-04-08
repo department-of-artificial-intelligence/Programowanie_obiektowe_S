@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lab4;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,28 +7,43 @@ using System.Threading.Tasks;
 
 namespace lab4
 {
-    public class Student : Person
+    public class Student : Person, IContainer, IDisplayable
     {
-        public int Id =1;
-        public List<FinalGrade> Grades { get; set; }
-        public int Semestr {  get; set; }
+        public int Id = 1;
+        public IList<FinalGrade> Grades { get; set; } = new List<FinalGrade>();
+        public int Semester { get; set; }
         public int Group { get; set; }
         public int IndexId { get; set; }
         public string Specialization { get; set; }
-        public double AverageGrades { get;}
-
-        public Student(int id, string firstName, string lastName, DateTime dateOfBirth, string specialization, int group, int semestr ) 
-            :base(firstName, lastName, dateOfBirth)
+        public double AverageGrades
         {
-            Id = id;
+            get
+            {
+                double sum = 0.0;
+                if (Grades != null)
+                {
+                    foreach (var grade in Grades)
+                        sum += grade.Value;
+                    return sum / Grades.Count;
+                }
+                return sum;
+            }
+        }
+
+        public Student(string firstName, string lastName, DateTime dateOfBirth, string specialization, int group, int semester = 1)
+            : base(firstName, lastName, dateOfBirth)
+        {
             Specialization = specialization;
             Group = group;
-            Semestr = semestr;
+            Semester = semester;
         }
 
         public override string ToString()
         {
-            return $"Student: | " + base.ToString() + $"Specialization: {Specialization}, Group: {Group}, Semestr: {Semestr}";
+            string gradesStr = Grades != null && Grades.Count > 0
+                ? "\n  " + string.Join("\n  ", Grades)
+                : "Brak ocen";
+            return $" Student: " + base.ToString() + $" {Specialization}, {Group}, {Semester}, \n  Grades: {gradesStr}";
         }
     }
 }

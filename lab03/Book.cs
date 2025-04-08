@@ -31,17 +31,17 @@ namespace lab03
 
         public override string GenerateBarCode()
         {
-
             string barcode = "";
 
-            Random random= new Random();
-            string number=random.Next(1,9).ToString();
-            for(int i = 0; i < 12; i++)
-            {
-                number += random.Next(0,9);
-            }
+            Random rand = new Random();
 
-            number = barcode;
+            for (int i = 0; i < 13; i++)
+            {
+                long liczba = rand.Next(0, 10);
+                string liczba2 = liczba.ToString();
+                barcode = barcode + liczba2;
+
+            }
 
             return barcode;
         }

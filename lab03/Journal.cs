@@ -29,7 +29,19 @@ namespace lab03
 
         public override string GenerateBarCode() {
 
-            return "Tak";
+            string barcode = "";
+
+            Random rand = new Random();
+
+            for (int i = 0; i < 13; i++)
+            {
+                long liczba = rand.Next(0, 10);
+                string liczba2 = liczba.ToString();
+                barcode = barcode + liczba2;
+
+            }
+
+            return barcode;
         }
 
     }

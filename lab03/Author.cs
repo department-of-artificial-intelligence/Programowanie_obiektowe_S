@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace lab03
 {
-    public class Author
+    public class Author:Person
     {
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
+        
         public string Nationality { get; set; }
 
-        public Author() { }
+        public Author():base() { }
 
-        public Author(string firstname, string lastname, string nationality)
+        public Author(string firstname, string lastname, string nationality):base(firstname,lastname)
         {
             FirstName = firstname;
             LastName = lastname;

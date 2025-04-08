@@ -14,7 +14,7 @@ namespace lab03
         protected DateTime _dateOfIssue;
 
 
-        public int ID 
+        public int Id 
         { 
             get { return _id; } 
             set { _id = value; } 

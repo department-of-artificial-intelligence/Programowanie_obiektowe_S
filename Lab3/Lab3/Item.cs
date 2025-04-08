@@ -54,6 +54,5 @@ namespace Lab3
         }
 
         public abstract string GenerateBarCode();
-
     }
 }

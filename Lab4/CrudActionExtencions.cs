@@ -13,26 +13,57 @@ namespace Lab4
     public static class CrudActionExtencions
     {
 
+        //public static IList<TObjectType> Set<TObjectType>(this IContainer containerObject)
+        //{
+        //    var containerObjectType = containerObject.GetType();
+        //    var propertyInfo = containerObjectType.GetProperties().FirstOrDefault(p => p.PropertyType == typeof(IList<TObjectType>));
+
+        //    if (propertyInfo != null)
+        //    {
+        //        var value = propertyInfo.GetValue(containerObject);
+        //        return value as IList<TObjectType>;
+        //    }
+        //    return null;
+        //}
+
         public static IContainer Add<TObjectType, TItem>(this TObjectType containerObject, TItem obj)
         {
-            
-            var propertyInfo = containerObject?.GetType().GetProperties()
-                .FirstOrDefault(p => p.PropertyType == typeof(IList<TItem>));
-
-          
-            if (propertyInfo != null)
+            // Sprawdzamy, czy containerObject nie jest null
+            if (containerObject == null)
             {
-                var value = propertyInfo.GetValue(containerObject);
-
-                
-                if (value is IList<TItem> list)
-                {
-                    list.Add(obj);  
-                }
+                throw new ArgumentNullException(nameof(containerObject), "Container object cannot be null.");
             }
 
-            return containerObject as IContainer; 
+            // Szukamy właściwości typu IList<TItem>
+            var propertyInfo = containerObject.GetType().GetProperties()
+                .FirstOrDefault(p => p.PropertyType == typeof(IList<TItem>));
+
+            // Jeśli nie ma odpowiedniej właściwości, zwracamy null
+            if (propertyInfo == null)
+            {
+                return null;
+            }
+
+            // Pobieramy wartość tej właściwości (czyli listę)
+            var value = propertyInfo.GetValue(containerObject);
+
+            // Jeśli wartość jest typu IList<TItem>, dodajemy obiekt
+            if (value is IList<TItem> list)
+            {
+                list.Add(obj);
+            }
+            else
+            {
+                // Jeśli lista jest null, możemy ją zainicjować
+                value = new List<TItem>();
+                propertyInfo.SetValue(containerObject, value);
+                ((IList<TItem>)value).Add(obj);
+            }
+
+            // Zwracamy obiekt typu IContainer, jeśli jest
+            return containerObject as IContainer;
         }
+
 
         public static IContainer AddRange<TObjectType, TItem>(this TObjectType containerObject, IList<TItem> items)
         {

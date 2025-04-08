@@ -6,7 +6,7 @@ class Program
     static void Main()
     {
         Student student1 = new Student("Jan", "Kowalski", new DateTime(1995, 1, 1), "Informatyka", 1);
-        Student student2 = new Student("Piotr", "Nowak", new DateTime(1990, 1, 1), "Matematyka", 3, 2);
+        Student student2 = new Student("Piotr", "Nowak", new DateTime(1990, 1, 1), "Matematyka", 1);
         Person student3 = new Student("Adam", "Bedrnarski", new DateTime(1993, 1, 1), "Informatyka", 1, 2);
         Subject subject1 = new Subject("Programowanie obiektowe", "Informatyka", 4, 30);
         Subject subject2 = new Subject("Bazy danych", "Informatyka", 4, 30);
@@ -50,7 +50,16 @@ class Program
 
 
 
-        Console.WriteLine("--------------------");
+
+
+
+
+
+
+
+
+
+        Console.WriteLine("----------ZADANIE2----------");
         student1.Add(grade1);
         student2.AddRange(new List<FinalGrade> { grade2, grade3 });
         ((Student)student3).AddRange(new List<FinalGrade> { grade4 });
@@ -67,25 +76,35 @@ class Program
                 new OrganizationUnit("SKL", "Miedziana 13", new List<Lecturer>{lecturer6})
             });
 
-        Department2.Add(new Student("Jacek", "Bednarski", new DateTime(1989, 2, 12), "Matematyka", 1)
-                        .AddRange(new List<FinalGrade> { grade7, grade8 }) as Student);
-        Department2.Add(new Student("Marek", "Wiśniewski", new DateTime(2001, 12, 1), "Matematyka", 1)
-                        .AddRange(new List<FinalGrade> { grade5, grade6 }) as Student);
+        Console.WriteLine("-----------DO_SPRAWDZENIA (ADD)-----------");
+        Department2.Add(new Student("Jacek", "Bednarski", new DateTime(1989, 2, 12), "Informatyka", 1)
+                        .AddRange(new List<FinalGrade> { grade7, grade8 }) as Student)
+                        .Print();
+        Department2.Add(new Student("Marek", "Wiśniewski", new DateTime(2001, 12, 1), "Informatyka", 1)
+                        .AddRange(new List<FinalGrade> { grade5, grade6 }) as Student)
+                        .Print();
+        Console.WriteLine("-----------DO_SPRAWDZENIA (ADD)-----------");
+
+        Console.WriteLine("1. Print");
         Department2.Print();
 
         var obtainedStudent = Department2.Get<Student>(x => x.Group == 1);
+        Console.WriteLine("2. Print");
         obtainedStudent.Print();
 
+        Console.WriteLine("3. Print");
         Console.WriteLine("---------------");
-
         Department2.Get<Student>()
            .GetList<FinalGrade>(g => g.Subject.Name == "Informatyka")
            .Print();
         Console.WriteLine("---------------");
-        Department2.Add(new Subject("Paradygmaty programowania", "Informatyka", 2, 10));
-        Department2.Add(new Subject("Podstawy sieci komputerowych", "Informatyka", 2, 30));
 
-        Console.WriteLine("---testremove------------");
+        Console.WriteLine("-----------DO_SPRAWDZENIA (ADD)-----------");
+        Department2.Add(new Subject("Paradygmaty programowania", "Informatyka", 2, 10)).Print();
+        Department2.Add(new Subject("Podstawy sieci komputerowych", "Informatyka", 2, 30)).Print();
+        Console.WriteLine("-----------DO_SPRAWDZENIA (ADD)-----------");
+
+        Console.WriteLine("4. Print");
         Department2.Get<OrganizationUnit>(x => x.Name == "SKL")
             .Print();
             
@@ -93,14 +112,15 @@ class Program
         Department2.Get<OrganizationUnit>(x => x.Name == "SKL")
             .Remove<Lecturer>(l => l.FirstName == "Dariusz");
 
+
+        Console.WriteLine("5. Print");
         Department2.Get<OrganizationUnit>(x => x.Name == "SKL")
             .Print();
-        Console.WriteLine("---testremove------------");
+        
 
+        Console.WriteLine("6. Print");
         Department2.GetList<OrganizationUnit>(ou => ou.Name == "SKL")
            .Print();
     }
-    //tests
-    
 }
 

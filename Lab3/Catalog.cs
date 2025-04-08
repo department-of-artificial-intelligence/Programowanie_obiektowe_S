@@ -17,10 +17,8 @@ namespace Lab3
         }
         public Catalog(string thematicDepartment, IList<Item> items)
         {
-
-        }
-        {
-
+            ThematicDepartment=thematicDepartment;
+            Items = items;
         }
 
         public void AddItem(Item item)
@@ -28,6 +26,15 @@ namespace Lab3
             Items.Add(item);
         }
 
-        public string ToString() => $""
+        public string ToString() => $"Catalog {ThematicDepartment}, Items count: {Items.Count}";
+
+        public void ShowAllItems()
+        {
+            foreach (var item in Items)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
     }
 }

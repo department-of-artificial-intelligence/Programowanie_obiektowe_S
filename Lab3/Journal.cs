@@ -25,7 +25,15 @@ namespace Lab3
 
         public override string GenerateBarCode()
         {
-
+            Random znak = new Random();
+            char[] mozliwe = "abcdefghijklmnop0123456789".ToCharArray();
+            char[] kod = new char[10];
+            for (int i = 0; i < 10; i++)
+            {
+                kod[i] = mozliwe[znak.Next(mozliwe.Length)];
+            }
+            string wynik = new string(kod);
+            return wynik;
         }
 
     }

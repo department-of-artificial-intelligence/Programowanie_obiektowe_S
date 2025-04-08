@@ -10,7 +10,10 @@ namespace Lab3
     {
         public int Number {  get; set; }
 
-        public Journal() : base() { }
+        public Journal() : base()
+        {
+            Number = 0; 
+        }
 
         public Journal(string title, int id, string publisher, DateTime dateOfIssue, int number) 
             : base( title, id, publisher, dateOfIssue)
@@ -18,11 +21,11 @@ namespace Lab3
             Number = number;
         }
 
-        public override string ToString() => base.ToString();
-        
-        public string GenerateBarCode()
+        public override string ToString() => base.ToString() + $", Number: {Number}";
+
+        public override string GenerateBarCode()
         {
-            return;
+
         }
 
     }

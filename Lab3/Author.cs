@@ -12,6 +12,7 @@ namespace Lab3
         public string LastName { get; set; }
         public string Nationality { get; set; }
         public Author()
+            : base()
         {
             FirstName = "none";
             LastName = "none";
@@ -27,7 +28,7 @@ namespace Lab3
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"{FirstName} {LastName} {Nationality}";
         }
     }
 }

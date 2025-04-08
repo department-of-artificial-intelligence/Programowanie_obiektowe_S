@@ -59,9 +59,7 @@ namespace Lab3
             Console.WriteLine(this);
         }
 
-        public string GenerateBarCode()
-        {
-            return;
-        }
+        public abstract string GenerateBarCode();
+        
     }
 }

@@ -13,18 +13,20 @@ namespace Lab4
     public static class CrudActionExtencions
     {
 
-        //public static IList<TObjectType> Set<TObjectType>(this IContainer containerObject)
-        //{
-        //    var containerObjectType = containerObject.GetType();
-        //    var propertyInfo = containerObjectType.GetProperties().FirstOrDefault(p => p.PropertyType == typeof(IList<TObjectType>));
+        public static IList<TObjectType> Set<TObjectType>(this IContainer containerObject)
+        {
+            var containerObjectType = containerObject.GetType();
+            var propertyInfo = containerObjectType.GetProperties().FirstOrDefault(p => p.PropertyType == typeof(IList<TObjectType>));
 
-        //    if (propertyInfo != null)
-        //    {
-        //        var value = propertyInfo.GetValue(containerObject);
-        //        return value as IList<TObjectType>;
-        //    }
-        //    return null;
-        //}
+            var value = propertyInfo?.GetValue(containerObject) as IList<TObjectType>;
+            return value;
+        }
+
+        public static void ForEach<TObjectType>(this IList<TObjectType> list, Action<TObjectType> action)
+        {
+            foreach (var item in list) action(item);
+        }
+
 
         public static IContainer Add<TObjectType, TItem>(this TObjectType containerObject, TItem obj)
         {

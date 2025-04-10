@@ -25,7 +25,7 @@ namespace Lab4
         {
             if (obj != null)
             {
-                Console.WriteLine(obj.ToString()); 
+                Console.WriteLine(obj.ToString());
             }
             else
             {

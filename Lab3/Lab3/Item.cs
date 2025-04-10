@@ -1,7 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices.Marshalling;
-
-namespace Lab3
+﻿namespace Lab3
 {
         public abstract class Item
     {
@@ -46,13 +43,12 @@ namespace Lab3
         }
         public override string ToString()
         {
-            return $"Item: | id: {_id}, title: {_title}, publisher: {_publisher}, date of issue: {_dateOfIssue} ";
+            return $"Item: | id: {_id}, tytuł: {_title}, wydawca: {_publisher}, data wydania: {_dateOfIssue} ";
         }
         public virtual void Details()
         {
             Console.WriteLine(this);
         }
-
         public abstract string GenerateBarCode();
     }
 }

@@ -2,24 +2,20 @@
 
 namespace Lab3
 {
-    internal class Journal : Item
+    class Journal : Item
     {
-        public int Number
-        {
-            get;
-            set;
-        }
+        public int Number { get; set; }
         public Journal() : base()
         {
             Number = 0;
         }
-        public Journal(int id, string title, string publisher, DateTime dateOfIssue ,int number) : base(id, title, publisher, dateOfIssue)
+        public Journal(string title, int id, string publisher, DateTime dateOfIssue ,int number) : base(id, title, publisher, dateOfIssue)
         {
-            number = Number;
+            Number = number;
         }
         public override string ToString()
         {
-            return $"Journal | {base.ToString()}, number: {Number}";
+            return $"Journal | {base.ToString()}, numer: {Number}";
         }
         public override string GenerateBarCode()
         {

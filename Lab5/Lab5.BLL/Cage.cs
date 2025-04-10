@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Cage
+    public class Cage : Generic.Extensions.IContainer
     {
         private static int _nextId = 1;
 

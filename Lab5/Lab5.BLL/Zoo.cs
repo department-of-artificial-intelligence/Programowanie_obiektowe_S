@@ -1,11 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Zoo
+    public static class ZooExtensions
+    {
+        // Extension method for Zoo to hire an Employee
+        public static Employee HireEmployee(this Zoo obj, string name, string lastName, DateTime dateOfHire)
+        {
+            Employee employee = new Employee(name, lastName, dateOfHire);
+
+            // Get the list of employees using reflection
+            var propertyInfo = obj.GetType().GetProperties()
+                .FirstOrDefault(p => p.PropertyType == typeof(IList<Employee>));
+
+            if (propertyInfo != null)
+            {
+                var list = propertyInfo.GetValue(obj) as IList<Employee>;
+
+                if (list != null)
+                {
+                    list.Add(employee);
+                }
+            }
+            return employee;
+        }
+    }
+    public class Zoo : Generic.Extensions.IContainer
     {
         private string _name;
         private IList<Employee> _employees;
@@ -41,6 +66,5 @@ namespace Lab5.BLL
         }
 
 
-        
     }
 }

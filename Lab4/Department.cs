@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab4
 {
-    public class Department 
+    public class Department : IDisplayable, IContainer
     {
         
         public string Name { get; set; }

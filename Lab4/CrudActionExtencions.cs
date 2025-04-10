@@ -16,7 +16,8 @@ namespace Lab4
         public static IList<TObjectType> Set<TObjectType>(this IContainer containerObject)
         {
             var containerObjectType = containerObject.GetType();
-            var propertyInfo = containerObjectType.GetProperties().FirstOrDefault(p => p.PropertyType == typeof(IList<TObjectType>));
+            var propertyInfo = containerObjectType.GetProperties()
+                .FirstOrDefault(p => p.PropertyType == typeof(IList<TObjectType>));
 
             var value = propertyInfo?.GetValue(containerObject) as IList<TObjectType>;
             return value;
@@ -27,66 +28,120 @@ namespace Lab4
             foreach (var item in list) action(item);
         }
 
-
-        public static IContainer Add<TObjectType, TItem>(this TObjectType containerObject, TItem obj)
+        public static TObjectType? Get<TObjectType>(this IContainer obj, Func<TObjectType, bool>? searchPredicate = null) 
         {
-            // Sprawdzamy, czy containerObject nie jest null
-            if (containerObject == null)
+            var list = obj.Set<TObjectType>();
+            if(list == null || list.Count == 0)
             {
-                throw new ArgumentNullException(nameof(containerObject), "Container object cannot be null.");
+                return default;
             }
 
-            // Szukamy właściwości typu IList<TItem>
-            var propertyInfo = containerObject.GetType().GetProperties()
-                .FirstOrDefault(p => p.PropertyType == typeof(IList<TItem>));
+            return searchPredicate == null ? list.FirstOrDefault() : list.FirstOrDefault(searchPredicate);
+        }
 
-            // Jeśli nie ma odpowiedniej właściwości, zwracamy null
-            if (propertyInfo == null)
+        public static IList<TObjectType> GetList<TObjectType>(this IContainer obj, Func <TObjectType, bool>? searchPredcate = null)
+        {
+            var list = obj.Set<TObjectType>() ?? new List<TObjectType>();
+
+            return searchPredcate == null ? list : list.Where(searchPredcate).ToList();
+        }
+
+        public static IContainer Add<TObjectType> (this IContainer obj, TObjectType objToAdd)
+        {
+            obj.Set<TObjectType>().Add(objToAdd);
+            return obj;
+        }
+
+        public static bool Remove<TObjectType>(this IContainer obj, Predicate<TObjectType> searchPredicate)
+        {
+            var list = obj.Set<TObjectType>();
+            if(list == null || list.Count == 0) return false;
+            
+
+            var itemToRemove = list.Where(item => searchPredicate(item)).ToList();
+
+            if (itemToRemove.Count == 0) return false;
+
+            foreach(var item in itemToRemove)
             {
-                return null;
+                list.Remove(item);
             }
 
-            // Pobieramy wartość tej właściwości (czyli listę)
-            var value = propertyInfo.GetValue(containerObject);
-
-            // Jeśli wartość jest typu IList<TItem>, dodajemy obiekt
-            if (value is IList<TItem> list)
-            {
-                list.Add(obj);
-            }
-            else
-            {
-                // Jeśli lista jest null, możemy ją zainicjować
-                value = new List<TItem>();
-                propertyInfo.SetValue(containerObject, value);
-                ((IList<TItem>)value).Add(obj);
-            }
-
-            // Zwracamy obiekt typu IContainer, jeśli jest
-            return containerObject as IContainer;
+            return true;
         }
 
 
-        public static IContainer AddRange<TObjectType, TItem>(this TObjectType containerObject, IList<TItem> items)
+        public static IContainer AddRange<TObjectType>(this IContainer obj, IList<TObjectType> listOfElements)
         {
-            var propertyInfo = containerObject?.GetType().GetProperties()
-                .FirstOrDefault(p => p.PropertyType == typeof(IList<TItem>));
+            var list = obj.Set<TObjectType>();
 
-            if (propertyInfo != null)
+            if (list == null) return obj;
+
+            foreach(var item in listOfElements)
             {
-                var value = propertyInfo.GetValue(containerObject);
-
-                if (value is IList<TItem> list)
-                {
-                    foreach(var item in items)
-                    {
-                        list.Add(item);
-                    }
-                }
+                list.Add(item);
             }
 
-            return containerObject as IContainer;
+            return obj;
         }
+
+
+
+        //public static IContainer Add<TObjectType, TItem>(this TObjectType containerObject, TItem obj)
+        //{
+        //    if (containerObject == null)
+        //    {
+        //        throw new ArgumentNullException(nameof(containerObject), "Container object cannot be null.");
+        //    }
+
+        //    var propertyInfo = containerObject.GetType().GetProperties()
+        //        .FirstOrDefault(p => p.PropertyType == typeof(IList<TItem>));
+
+        //    if (propertyInfo == null)
+        //    {
+        //        return null;
+        //    }
+
+        //    var value = propertyInfo.GetValue(containerObject);
+
+        //    // Jeśli wartość jest typu IList<TItem>, dodajemy obiekt
+        //    if (value is IList<TItem> list)
+        //    {
+        //        list.Add(obj);
+        //    }
+        //    else
+        //    {
+        //        // Jeśli lista jest null, możemy ją zainicjować
+        //        value = new List<TItem>();
+        //        propertyInfo.SetValue(containerObject, value);
+        //        ((IList<TItem>)value).Add(obj);
+        //    }
+
+        //    // Zwracamy obiekt typu IContainer, jeśli jest
+        //    return containerObject as IContainer;
+        //}
+
+
+        //public static IContainer AddRange<TObjectType, TItem>(this TObjectType containerObject, IList<TItem> items)
+        //{
+        //    var propertyInfo = containerObject?.GetType().GetProperties()
+        //        .FirstOrDefault(p => p.PropertyType == typeof(IList<TItem>));
+
+        //    if (propertyInfo != null)
+        //    {
+        //        var value = propertyInfo.GetValue(containerObject);
+
+        //        if (value is IList<TItem> list)
+        //        {
+        //            foreach(var item in items)
+        //            {
+        //                list.Add(item);
+        //            }
+        //        }
+        //    }
+
+        //    return containerObject as IContainer;
+        //}
 
         //var obtainedStudent = department2.Get<Student>(x => x.Group == 1); 
 
@@ -105,56 +160,56 @@ namespace Lab4
         //    var list = listProperty.GetValue(container) as IList<TObjectType>;
 
         //    return list.FirstOrDefault(searchPredicate);
+        ////}
+
+        //public static TObjectType Get<TObjectType>(
+        //this Department department,
+        //Func<TObjectType, bool> searchPredicate)
+        //{
+        //    if (department == null) return default;
+
+        //    var containerType = department.GetType();
+
+        //    var listProperty = containerType.GetProperties()
+        //        .FirstOrDefault(p => p.PropertyType == typeof(IList<TObjectType>));
+
+        //    if (listProperty == null) return default;
+
+        //    var list = listProperty.GetValue(department) as IList<TObjectType>;
+
+        //    if (list == null) return default;
+
+        //    return list.FirstOrDefault(searchPredicate);
         //}
 
-        public static TObjectType Get<TObjectType>(
-        this Department department,
-        Func<TObjectType, bool> searchPredicate)
-        {
-            if (department == null) return default;
+        //public static IList<TObjectType> Get<TObjectType>(
+        //this Department department)
+        //{
+        //    if (department == null) return new List<TObjectType>();
 
-            var containerType = department.GetType();
+        //    var containerType = department.GetType();
 
-            var listProperty = containerType.GetProperties()
-                .FirstOrDefault(p => p.PropertyType == typeof(IList<TObjectType>));
+        //    var listProperty = containerType.GetProperties()
+        //        .FirstOrDefault(p => p.PropertyType == typeof(IList<TObjectType>));
 
-            if (listProperty == null) return default;
+        //    if (listProperty == null) return new List<TObjectType>();
 
-            var list = listProperty.GetValue(department) as IList<TObjectType>;
+        //    var list = listProperty.GetValue(department) as IList<TObjectType>;
 
-            if (list == null) return default;
+        //    if (list == null) return new List<TObjectType>();
 
-            return list.FirstOrDefault(searchPredicate);
-        }
+        //    var filteredList = new List<TObjectType>();
 
-        public static IList<TObjectType> Get<TObjectType>(
-        this Department department)
-        {
-            if (department == null) return new List<TObjectType>();
+        //    foreach (var item in list)
+        //    {
+        //        if (item != null) // Ignorujemy wartości null
+        //        {
+        //            filteredList.Add(item);
+        //        }
+        //    }
 
-            var containerType = department.GetType();
-
-            var listProperty = containerType.GetProperties()
-                .FirstOrDefault(p => p.PropertyType == typeof(IList<TObjectType>));
-
-            if (listProperty == null) return new List<TObjectType>();
-
-            var list = listProperty.GetValue(department) as IList<TObjectType>;
-
-            if (list == null) return new List<TObjectType>();
-
-            var filteredList = new List<TObjectType>();
-
-            foreach (var item in list)
-            {
-                if (item != null) // Ignorujemy wartości null
-                {
-                    filteredList.Add(item);
-                }
-            }
-
-            return filteredList;
-        }
+        //    return filteredList;
+        //}
 
         //    public static IList<TObjectType> GetList<TContainer, TObjectType>(
         //this TContainer container,
@@ -193,70 +248,70 @@ namespace Lab4
         //    }
 
 
-        public static IList<TObjectType> GetList<TObjectType>(
-            this object container, 
-            Func<TObjectType, bool> searchPredicate)
-        {
-            var resultList = new List<TObjectType>();
+    //    public static IList<TObjectType> GetList<TObjectType>(
+    //        this object container, 
+    //        Func<TObjectType, bool> searchPredicate)
+    //    {
+    //        var resultList = new List<TObjectType>();
            
-            if (container is IEnumerable enumerable)
-            {
-                foreach (var item in enumerable)
-                {
+    //        if (container is IEnumerable enumerable)
+    //        {
+    //            foreach (var item in enumerable)
+    //            {
                     
-                    if (item is TObjectType typedItem)
-                    {
-                        bool predicateResult = searchPredicate(typedItem);
+    //                if (item is TObjectType typedItem)
+    //                {
+    //                    bool predicateResult = searchPredicate(typedItem);
                         
-                        if (predicateResult)
-                        {
-                            resultList.Add(typedItem);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if (container is TObjectType singleItem)
-                {
+    //                    if (predicateResult)
+    //                    {
+    //                        resultList.Add(typedItem);
+    //                    }
+    //                }
+    //            }
+    //        }
+    //        else
+    //        {
+    //            if (container is TObjectType singleItem)
+    //            {
                     
-                    bool predicateResult = searchPredicate(singleItem);
+    //                bool predicateResult = searchPredicate(singleItem);
 
-                    if (predicateResult)
-                    {
-                        resultList.Add(singleItem);
-                    }
-                }
-            }
+    //                if (predicateResult)
+    //                {
+    //                    resultList.Add(singleItem);
+    //                }
+    //            }
+    //        }
 
-            return resultList;
-        }
+    //        return resultList;
+    //    }
 
-        public static void Remove<T>(this object container, Func<T, bool> removePredicate)
-        {
-            if (container == null)
-                return;
+    //    public static void Remove<T>(this object container, Func<T, bool> removePredicate)
+    //    {
+    //        if (container == null)
+    //            return;
 
-            // Przechodzimy przez wszystkie właściwości obiektu
-            foreach (var property in container.GetType().GetProperties())
-            {
-                // Sprawdzamy, czy właściwość jest typu List<T>
-                if (property.PropertyType.IsGenericType &&
-                    property.PropertyType.GetGenericTypeDefinition() == typeof(List<>))
-                {
-                    var value = property.GetValue(container);
-                    if (value is IList<T> list)
-                    {
-                        // Usuwamy elementy, które pasują do predykatu
-                        var itemsToRemove = list.Where(removePredicate).ToList();
-                        foreach (var item in itemsToRemove)
-                        {
-                            list.Remove(item);
-                        }
-                    }
-                }
-            }
-        }
+    //        // Przechodzimy przez wszystkie właściwości obiektu
+    //        foreach (var property in container.GetType().GetProperties())
+    //        {
+    //            // Sprawdzamy, czy właściwość jest typu List<T>
+    //            if (property.PropertyType.IsGenericType &&
+    //                property.PropertyType.GetGenericTypeDefinition() == typeof(List<>))
+    //            {
+    //                var value = property.GetValue(container);
+    //                if (value is IList<T> list)
+    //                {
+    //                    // Usuwamy elementy, które pasują do predykatu
+    //                    var itemsToRemove = list.Where(removePredicate).ToList();
+    //                    foreach (var item in itemsToRemove)
+    //                    {
+    //                        list.Remove(item);
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
 
 
 

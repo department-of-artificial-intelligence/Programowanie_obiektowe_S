@@ -4,11 +4,46 @@ using System.Text;
 
 namespace Lab5.BLL
 {
-    public class Animal : Zoo, IMovingMethod
+    public class Animal : IMovingMethod
     {
         protected string _foodType;
         protected int _legsCount;
         protected string _origin;
         protected string _species;
+
+        public string FoodType
+        {
+            get => _foodType; set => _foodType = value;
+        }
+
+        public int LegsCount
+        {
+            get => _legsCount; set => _legsCount = value;
+        }
+
+        public string Origin
+        {
+            get => _origin; set => _origin = value;
+        }
+
+        public string Species
+        {
+            get => _species; set => _species = value;
+        }
+
+        public Zoo Zoo { get; set; }
+
+        public Animal(string foodType, int legsCount, string origin, string species)
+        {
+            FoodType = foodType ?? string.Empty;
+            LegsCount = legsCount;
+            Origin = origin ?? string.Empty;
+            Species = species ?? string.Empty;
+        }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name}: {Species} from {Origin}, Diet: {FoodType}, Legs: {LegsCount}";
+        }
     }
 }

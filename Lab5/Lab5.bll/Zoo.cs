@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Lab5;
+using Generic.Extensions;
 namespace Lab5.bll
 {
-    public class Zoo
+    public class Zoo:IContainer,IDisplayable
     {
         public string Name;
         public System.Collections.Generic.IList<Employee> Employess;
@@ -35,6 +36,13 @@ namespace Lab5.bll
             cage.Capacity = newcapacity;
             return cage;
         }
- 
+        public Employee HireEmployee(string firstName, string lastName, DateTime dateOfBirth)
+        {
+            Employee employee = new Employee(firstName, lastName, dateOfBirth);
+            return employee;
+
+        }
+
+
     }
 }

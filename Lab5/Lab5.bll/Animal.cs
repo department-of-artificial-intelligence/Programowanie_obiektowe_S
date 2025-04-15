@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Generic.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Lab5.bll
 {
-    public abstract class Animal
+    public abstract class Animal : IContainer, IDisplayable
     {
         public string FoodType;
         public string Origin;

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Xml.Linq;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class CageSupervisor : Employee
+    public class CageSupervisor : Employee, IDisplayable, IContainer
     {
         protected DateTime _hireDate;
         protected IList<Cage> _cages;

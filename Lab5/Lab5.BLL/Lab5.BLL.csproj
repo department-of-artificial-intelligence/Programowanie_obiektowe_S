@@ -5,4 +5,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Generic.Extensions">
+      <HintPath>E:\Dokumentacja studencka\Semestr IV\Programowanie obiektowe\Generic.Extensions\bin\Release\net8.0\Generic.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

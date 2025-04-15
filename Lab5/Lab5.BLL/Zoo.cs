@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Zoo
+    public class Zoo : IDisplayable, IContainer
     {
         protected string _name;
         protected IList<Employee> _employees;
@@ -50,6 +51,13 @@ namespace Lab5.BLL
         public void ExpandCage(Cage cage, int additionalSpace)
         {
             cage.Capacity += additionalSpace;
+        }
+
+        public Employee HireEmployee(string firstName, string lastName, DateTime dateOfBirth)
+        {
+            var newEmployee = new Employee(firstName, lastName, dateOfBirth);
+            Employees.Add(newEmployee);
+            return newEmployee;
         }
 
         public override string ToString()

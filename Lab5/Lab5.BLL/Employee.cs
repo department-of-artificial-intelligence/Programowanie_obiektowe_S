@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Employee
+    public class Employee : IContainer, IDisplayable
     {
         protected string _firstName;
         protected string _lastName;

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Animal : IMovingMethod
+    public class Animal : IMovingMethod, IDisplayable
     {
         protected string _foodType;
         protected int _legsCount;

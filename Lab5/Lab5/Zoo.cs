@@ -1,4 +1,6 @@
 ﻿
+
+
 namespace Lab5.BLL
 {
     public class Zoo
@@ -29,6 +31,23 @@ namespace Lab5.BLL
         public void ExpandCage(Cage cage, int capacity)
         {
             cage.Capacity += capacity;
+        }
+
+        public List<Cage> AddRange(List<Cage> cages)
+        {
+            _cages.AddRange(cages);
+            return _cages;
+        }
+
+        public List<Employee> AddRange(List<Employee> employees)
+        {
+            _employees.AddRange(employees);
+            return _employees;
+        }
+
+        public Employee HireEmployee(string name, string surname, DateTime birthdayDate)
+        {
+            return new Employee(name, surname, birthdayDate);
         }
     }
 }

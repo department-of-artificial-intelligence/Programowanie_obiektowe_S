@@ -1,4 +1,5 @@
-﻿namespace Lab5.BLL
+﻿
+namespace Lab5.BLL
 {
     public class Animal
     {

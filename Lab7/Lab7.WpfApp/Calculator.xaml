@@ -1,0 +1,39 @@
+﻿<Window x:Class="Lab7.WpfApp.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab7.WpfApp"
+        mc:Ignorable="d"
+        Title="Calculator" Height="450" Width="400
+        ">
+    <Grid>
+        <TextBox x:Name="___NumBox_" HorizontalAlignment="Center" Margin="0,37,0,0" TextWrapping="NoWrap" Text="0" VerticalAlignment="Top" Width="320" Height="33" TextAlignment="Right" FontSize="16"/>
+
+        <Button x:Name="___Btn1_" Content="1" HorizontalAlignment="Left" Margin="22,116,0,0" VerticalAlignment="Top" Width="52" Height="51" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___Btn2_" Content="2" HorizontalAlignment="Left" Margin="74,116,0,0" VerticalAlignment="Top" Width="52" Height="51" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___Btn3" Content="3" HorizontalAlignment="Left" Margin="126,116,0,0" VerticalAlignment="Top" Width="52" Height="51" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___Btn4_" Content="4" HorizontalAlignment="Left" Margin="22,167,0,0" VerticalAlignment="Top" Width="52" Height="52" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___Btn5_" Content="5" HorizontalAlignment="Left" Margin="74,167,0,0" VerticalAlignment="Top" Width="52" Height="52" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___Btn6_" Content="6" HorizontalAlignment="Left" Margin="126,167,0,0" VerticalAlignment="Top" Width="52" Height="52" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___Btn7_" Content="7" HorizontalAlignment="Left" Margin="22,219,0,0" VerticalAlignment="Top" Width="52" Height="51" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___Btn8_" Content="8" HorizontalAlignment="Left" Margin="74,219,0,0" VerticalAlignment="Top" Width="52" Height="51" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___Btn9_" Content="9" HorizontalAlignment="Left" Margin="126,219,0,0" VerticalAlignment="Top" Width="52" Height="51" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___Btn0_" Content="0" HorizontalAlignment="Left" Margin="74,270,0,0" VerticalAlignment="Top" Width="52" Height="52" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+
+        <Button x:Name="___BtnDot_" Content="." HorizontalAlignment="Left" Margin="74,343,0,0" VerticalAlignment="Top" Width="52" Height="51" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+
+        <Button x:Name="___BtnAdd_" Content="+" HorizontalAlignment="Left" Margin="241,111,0,0" VerticalAlignment="Top" Width="57" Height="114" RenderTransformOrigin="0.52,0.581" FontSize="24"/>
+        <Button x:Name="___BtnClr_" Content="C" HorizontalAlignment="Left" Margin="303,112,0,0" VerticalAlignment="Top" Width="57" Height="53" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___BtnMul_" Content="*" HorizontalAlignment="Left" Margin="303,171,0,0" VerticalAlignment="Top" Width="57" Height="54" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___BtnMin_" Content="-" HorizontalAlignment="Left" Margin="241,230,0,0" VerticalAlignment="Top" Width="57" Height="54" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___BtnDiv_" Content="/" HorizontalAlignment="Left" Margin="303,230,0,0" VerticalAlignment="Top" Width="57" Height="54" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+        <Button x:Name="___BtnEqu_" Content="=" HorizontalAlignment="Left" Margin="241,289,0,0" VerticalAlignment="Top" Width="119" Height="54" RenderTransformOrigin="0.55,0.526" FontSize="24"/>
+
+
+
+
+
+
+    </Grid>
+</Window>

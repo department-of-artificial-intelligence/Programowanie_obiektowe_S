@@ -1,0 +1,29 @@
+﻿<Window x:Class="lab07.WpfApp.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab07.WpfApp"
+        mc:Ignorable="d"
+        Title="Calculator" Height="300" Width="250">
+    <Grid>
+        <Button x:Name="Button1" Content="1" HorizontalAlignment="Left" Margin="21,115,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonNuber"/>
+        <Button x:Name="Button2" Content="2" HorizontalAlignment="Left" Margin="51,115,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonNuber"/>
+        <Button x:Name="Button3" Content="3" HorizontalAlignment="Left" Margin="81,115,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonNuber"/>
+        <Button x:Name="Button4" Content="4" HorizontalAlignment="Left" Margin="21,145,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonNuber"/>
+        <Button x:Name="Button5" Content="5" HorizontalAlignment="Left" Margin="51,145,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonNuber"/>
+        <Button x:Name="Button6" Content="6" HorizontalAlignment="Left" Margin="81,145,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonNuber"/>
+        <Button x:Name="Button7" Content="7" HorizontalAlignment="Left" Margin="21,175,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonNuber"/>
+        <Button x:Name="Button8" Content="8" HorizontalAlignment="Left" Margin="51,175,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonNuber"/>
+        <Button x:Name="Button9" Content="9" HorizontalAlignment="Left" Margin="81,175,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonNuber"/>
+        <Button x:Name="Button0" Content="0" HorizontalAlignment="Left" Margin="51,205,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonNuber"/>
+        <Button x:Name="ButtonComa" Content="," HorizontalAlignment="Left" Margin="81,205,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonNuber"/>
+        <Button x:Name="ButtonADD" Content="+" HorizontalAlignment="Left" Margin="157,100,0,0" VerticalAlignment="Top" Width="30" Height="65"/>
+        <Button x:Name="ButtonMultiply" Content="*" HorizontalAlignment="Left" Margin="192,135,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+        <Button x:Name="ButtonSubtract" Content="-" HorizontalAlignment="Left" Margin="157,170,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+        <Button x:Name="ButtonDivide" Content="/" HorizontalAlignment="Left" Margin="192,170,0,0" VerticalAlignment="Top" Width="30" Height="30"/>
+        <Button x:Name="ButtonEqual" Content="=" HorizontalAlignment="Left" Margin="157,205,0,0" VerticalAlignment="Top" Width="65" Height="30"/>
+        <TextBlock x:Name="TextBlock" HorizontalAlignment="Left" Margin="21,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"><Run Language="pl-pl" Text="0"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+        <Button x:Name="ButtonC" Content="C" HorizontalAlignment="Left" Margin="192,100,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="ButtonClear"/>
+    </Grid>
+</Window>

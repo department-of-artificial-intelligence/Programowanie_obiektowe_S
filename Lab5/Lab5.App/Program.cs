@@ -19,7 +19,7 @@ namespace Lab5.App
             Console.WriteLine(cage1);
             Animal horse = new Mammal("Grass", 4, "North America, Europe", "E. ferus", "Europe");
             Animal falcon = new Bird("flesh", 2, "Europe", "Falconidae", 1.2, 125);
-            (falcon as Bird).Fly();
+            (falcon as Bird)?.Fly();
             Cage cage2 = new Cage(3, false, new List<Animal> { horse, falcon });
             Console.WriteLine(cage2);
             Cage cage3 = new Cage(10, false, new List<Animal>());
@@ -32,11 +32,11 @@ namespace Lab5.App
                 {
                     cage1,
                     cage2
-                }).Set<Cage>();
+                });
             var cages2 = zoo.AddRange(new List<Cage>()
                 {
                     cage3
-                }).Set<Cage>();
+                });
             Employee employee1 = new CageSupervisor("Jan", "Kowalski", new DateTime(1990, 1, 1), DateTime.Now, cages1);
             Employee employee2 = new CageSupervisor("Adam", "Nowak", new DateTime(1988, 1, 1), DateTime.Now, cages2);
             var newEmployee = zoo.HireEmployee("Robert", "Kowalczyk", new DateTime(1988, 1, 1));
@@ -44,9 +44,8 @@ namespace Lab5.App
                 {
                 employee1,
                 employee2
-                }).Set<Employee>();
+                });
 
-            /*((CageSupervisor)newEmployee).Add(cage4);
             cage4.Add(cobra);
             zoo.Add(cage4);
             Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");
@@ -54,16 +53,15 @@ namespace Lab5.App
             dog.Print();
             crocodile1.Print();
             falcon.Print();
-            employees.Print();
-            zoo.Remove<Employee>(e => e.FirstName == "Adam" && e.LastName == "Nowak");
-            zoo.GetList<Employee>()
-            .Print();
+			employees.ForEach(e => e.Print());
+			zoo.Remove<Employee>(e => e.Name == "Adam" && e.Surname == "Nowak");
+			zoo.GetList<Employee>()?.ForEach(e => e.Print());
             cage1.Print();
-            cages2.Print();
-            Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");
+            cages2.ForEach(c => c.Print());
+			Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");
             zoo.Print();
             Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");
-            zoo.Print();*/
-        }
+            zoo.Print();
+		}
     }
 }

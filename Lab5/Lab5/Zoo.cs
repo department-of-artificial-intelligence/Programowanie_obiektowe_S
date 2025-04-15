@@ -1,6 +1,9 @@
 ﻿
 
 
+using System.ComponentModel;
+using System.Xml.Linq;
+
 namespace Lab5.BLL
 {
     public class Zoo
@@ -47,7 +50,45 @@ namespace Lab5.BLL
 
         public Employee HireEmployee(string name, string surname, DateTime birthdayDate)
         {
-            return new Employee(name, surname, birthdayDate);
+            Employee newEmployee = new Employee(name, surname, birthdayDate);
+            _employees.Add(newEmployee);
+			return newEmployee;
         }
-    }
+
+		public void Add(Cage cage)
+		{
+            _cages.Add(cage);
+		}
+
+		public void Remove<T>(Func<T, bool> predicate)
+		{
+			_employees.RemoveAll(e => predicate((T)(object)e));
+		}
+
+		public List<T>? GetList<T>()
+		{
+			var type = typeof(T);
+
+			if (type == typeof(Employee))
+				return _employees as List<T>;
+			if (type == typeof(Cage))
+				return _cages as List<T>;
+			if (type == typeof(Animal))
+				return _animals as List<T>;
+
+            throw new InvalidOperationException("Not supported type");
+		}
+
+		public void Print()
+		{
+			Console.WriteLine($"Zoo Name: {_zooName}");
+			Console.WriteLine("\n--- Employees ---");
+			foreach (var employee in _employees)
+				employee.Print();
+
+			Console.WriteLine("\n--- Cages ---");
+			foreach (var cage in _cages)
+                cage.Print(); 
+		}
+	}
 }

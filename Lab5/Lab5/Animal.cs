@@ -1,4 +1,5 @@
 ﻿
+
 namespace Lab5.BLL
 {
     public class Animal
@@ -25,5 +26,10 @@ namespace Lab5.BLL
         {
             return $"Animal food type: {_foodType};\nLegs count: {_legsCount};\nOrigin: {_origin};\nSpecies: {_species};\n";
         }
-    }
+
+		public void Print()
+		{
+            Console.WriteLine(ToString());
+		}
+	}
 }

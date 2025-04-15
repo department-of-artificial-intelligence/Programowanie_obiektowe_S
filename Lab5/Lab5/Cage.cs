@@ -1,4 +1,6 @@
-﻿namespace Lab5.BLL
+﻿
+
+namespace Lab5.BLL
 {
     public class Cage
     {
@@ -31,5 +33,15 @@
                     animalsFromCage += animal.ToString();
             return $"Cage capacity: {_capacity};\nIs cage dirty: {(_isDirty ? "Yes" : "No")};\n\nAnimals in cage:\n\n{animalsFromCage}";
         }
-    }
+
+		public void Add(Animal newAnimal)
+		{
+            _animals.Add(newAnimal);
+		}
+
+		public void Print()
+		{
+            Console.WriteLine(ToString());
+		}
+	}
 }

@@ -13,5 +13,10 @@
             hireDate = _hiredate;
             cagesToSupervise = _cagesToSupervise;
         }
-    }
+
+		public void Add(Cage cage)
+		{
+            cagesToSupervise.Add(cage);
+		}
+	}
 }

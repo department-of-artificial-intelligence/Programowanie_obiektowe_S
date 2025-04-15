@@ -8,11 +8,11 @@ namespace Lab5
 {
     internal class Lecturer : Person
     {
-        public string AcademicTitle {  get; set; }
+        public string AcademicTitle { get; set; }
         public string Position { get; set; }
 
-        public Lecturer(string firstName, string lastName, DateTime dateOfBirth, string academicTitle,string position):
-            base(firstName, lastName, dateOfBirth)
+        public Lecturer(string firstName, string lastName, DateTime dateOfBirth, string academicTitle, string position)
+        : base(firstName, lastName, dateOfBirth)
         {
             AcademicTitle = academicTitle;
             Position = position;
@@ -20,7 +20,7 @@ namespace Lab5
 
         public override string ToString()
         {
-            return base.ToString() + $"Lecurer | AcademicTitle: {AcademicTitle}, Position: {Position}";
+            return base.ToString() + $" AcademicTitle: {AcademicTitle}, Position: {Position}";
         }
     }
 }

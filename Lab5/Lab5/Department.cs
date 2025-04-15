@@ -10,7 +10,7 @@ namespace Lab5
     {
         public string Name { get; set; }
         public Person Dean { get; set; }
-        public IList<OrganizationUnit> OrganizationUnits { get; set; }
+        public IList<OrganizationUnit> OrganizationUnits { get; set; } 
         public IList<Subject> Subjects { get; set; }
         public IList<Student> Students { get; set; }
 
@@ -21,6 +21,7 @@ namespace Lab5
             Subjects = subjects;
             Students = students;
         }
+
         public override string ToString()
         {
             string temp = $"Name: {Name}, Dean: {Dean}";

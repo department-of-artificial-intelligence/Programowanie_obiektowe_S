@@ -11,18 +11,17 @@ namespace Lab5
         public Subject Subject { get; set; }
         public double Value { get; set; }
         public DateTime Date { get; set; }
-        
 
-        public FinalGrade(Subject subject, DateTime date, double value)
+        public FinalGrade(Subject subject, double value, DateTime date)
         {
             Subject = subject;
-            Date = date;
             Value = value;
+            Date = date;
         }
 
         public override string ToString()
         {
-            return $"FinalGrade: Subject: {Subject}, Value: {Value}, Date: {Date}";
+            return $"Subject: {Subject}, Value: {Value}, Date: {Date}";
         }
     }
 }

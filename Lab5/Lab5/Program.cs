@@ -15,6 +15,7 @@ FinalGrade grade5 = new FinalGrade(subject3, 5d, DateTime.Now.AddDays(10));
 FinalGrade grade6 = new FinalGrade(subject3, 4.0d, DateTime.Now.AddDays(10));
 FinalGrade grade7 = new FinalGrade(subject4, 4.0d, DateTime.Now.AddDays(30));
 FinalGrade grade8 = new FinalGrade(subject4, 3.5d, DateTime.Now.AddDays(20));
+
 Lecturer lecturer1 = new Lecturer("Krzysztof", "Nowakowski", new DateTime(1978, 12, 12), "dr inż.",
 "Adiunkt");
 Lecturer lecturer2 = new Lecturer("Jan", "Kowalski", new DateTime(1960, 10, 12), "Prof. dr hab. inż.",
@@ -35,6 +36,7 @@ Console.WriteLine(organizationUnit1);
 Console.WriteLine(organizationUnit2);
 Lecturer dean = new Lecturer("Tadeusz", "Nowak", new DateTime(1955, 1, 12), "Prof. dr hab. inż.",
  "Profesor");
+
 Department department = new Department("Wydział Inżynierii Mechanicznej i Informatyki", dean,
 new List<Subject>() { subject1, subject2 },
 new List<Student>() { student1, student2, (Student)student3 });

@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lab5
 {
-    public class OrganizationUnit
+    internal class OrganizationUnit
     {
-        public string Name {  get; set; }
-        public string Address {  get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
         public IList<Lecturer> Lecturers { get; set; }
+
         public OrganizationUnit(string name, string address, IList<Lecturer> lecturers)
         {
             Name = name;
@@ -20,16 +21,16 @@ namespace Lab5
 
         public override string ToString()
         {
-            string temp = $"OrganizationUnit | Name: {Name}, Address: {Address}";
-            if(Lecturers != null)
+            string temp = $"Name: {Name}, Address: {Address}";
+            if (Lecturers != null)
             {
-                temp += " , Lecturers: \n";
-                foreach(Lecturer lecturer in Lecturers)
+                temp += ", Lecturers: \n";
+                foreach (Lecturer lecturer in Lecturers)
                 {
                     temp += lecturer + "\n";
                 }
             }
-            return temp ;  
+            return temp;
         }
     }
 }

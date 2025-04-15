@@ -8,11 +8,11 @@ namespace Lab5
 {
     public abstract class Person
     {
-        public string FirstName {  get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime DateOfBirth {  get; set; }
+        public DateTime DateOfBirth { get; set; }
 
-        public Person(string firstName, string lastName,DateTime dateOfBirth)
+        public Person(string firstName, string lastName, DateTime dateOfBirth)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -21,9 +21,9 @@ namespace Lab5
 
         public override string ToString()
         {
-            return $"Person | FirstName: {FirstName}, LastName: {LastName}, DateOfBirth: {DateOfBirth}";
+            return $"FirstName: {FirstName}, LastName: {LastName}, DateOfBirth: {DateOfBirth}";
         }
-    
+
 
     }
 }

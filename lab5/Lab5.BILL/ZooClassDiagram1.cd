@@ -15,7 +15,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="gosha.Cage">
-    <Position X="5.25" Y="2" Width="1.5" />
+    <Position X="5.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAgAQAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Klatka.cs</FileName>
@@ -29,7 +29,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="gosha.Zoo">
-    <Position X="5.25" Y="4.5" Width="1.5" />
+    <Position X="5.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAAAAAAAAAQAAQECIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Zoo.cs</FileName>

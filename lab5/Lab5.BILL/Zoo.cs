@@ -5,7 +5,7 @@ using System.Text;
 
 namespace gosha
 {
-    class Zoo
+    public class Zoo
     {
         public string Name { get; set; }
         public List<Employee> Employees { get; set; }

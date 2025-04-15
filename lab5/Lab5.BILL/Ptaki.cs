@@ -9,7 +9,7 @@ namespace gosha
     {
         public double WingSpan { get; set; }
         public double Endurance {  get; set; }
-        public Bird(string diet, int legs, string habitat, string species, string origin, double wingSpan, double endurance) : base(diet, legs, habitat, species, origin)
+        public Bird(string diet, int legs, string habitat, string species, double wingSpan, double endurance) : base(diet, legs, habitat, species)
         {
             
             WingSpan = wingSpan;

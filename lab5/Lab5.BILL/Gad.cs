@@ -8,7 +8,7 @@ namespace gosha
     public class Reptile : Animal
     {
         public bool IsVenomous { get; set; }
-        public Reptile(string diet, int legs, string habitat, string species, string origin, bool isVenomous) : base(diet, legs, habitat, species, origin)
+        public Reptile(string diet, int legs, string habitat, string species, bool isVenomous) : base(diet, legs, habitat, species)
         {
             IsVenomous=isVenomous;
         }

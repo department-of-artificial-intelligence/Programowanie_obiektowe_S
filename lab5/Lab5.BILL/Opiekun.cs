@@ -39,7 +39,6 @@ namespace gosha
                     cage.NeedCleaning = false;
                     Console.WriteLine($"Cage {cage.Capacity} cleaned by {Name}");
                 }
-
             }
         }
         public override string ToString()

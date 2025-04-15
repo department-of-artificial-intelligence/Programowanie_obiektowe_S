@@ -1,6 +1,6 @@
 ﻿namespace Lab3
 {
-    internal class Catalog
+    class Catalog
     {
         public IList<Item> Items { get; set; }
 
@@ -24,7 +24,7 @@
 
         public override string ToString()
         {
-            return $"Catalog {ThematicDepartment}, Items count: {Items.Count}";
+            return $"Catalog: | Katalog: {ThematicDepartment}, ilość: {Items.Count}";
         }
 
         public void ShowAllItems()

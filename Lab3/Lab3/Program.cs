@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            /*
+            
             Item item1 = new Journal("JAISCR", 1, "Springer", new DateTime(2000, 1, 1), 1);
             Author author = new Author("Robert", "Cook", "Polish");
             Item item2 = new Book("Agile C#", 2, "SPRINGER", new DateTime(2015, 1, 1), 500,
@@ -28,11 +28,6 @@ namespace Lab3
             catalog.AddItem(new Journal("Neurocomputing", 1, "IEEE", new DateTime(2020, 1, 1), 1));
             Console.WriteLine(catalog);
             catalog.ShowAllItems();
-            */
         }
     }
 }
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//asocjacja, agregacja i inne z UML na wejściówce wraz z przykładami (wiedzieć co to jest i jak to działa)
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -3,12 +3,13 @@
   <Class Name="Lab5.BLL.Zoo">
     <Position X="3.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAACAIAAAAAAAAAQAAQECIAAAAAAAAAAAAAwAAA=</HashCode>
+      <HashCode>AAAAIAACAIAAAAAEAgAQAAQECIAAAAAAAAAAAAAwAAA=</HashCode>
       <FileName>Zoo.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Animal">
-    <Position X="3.25" Y="4.75" Width="1.5" />
+    <Position X="3.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAQYAAAAAgAAEAAABAAAAAAAAAAIAAAAAAAgAAEA=</HashCode>
       <FileName>Animal.cs</FileName>
@@ -48,6 +49,7 @@
     <ShowAsAssociation>
       <Property Name="Animal" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.Employee">
     <Position X="10.5" Y="5.75" Width="1.5" />
@@ -55,16 +57,18 @@
       <HashCode>AAEAAEAAAAAAAAAEAAEAAAAAAAAQAAAAAAAAAAAQAAg=</HashCode>
       <FileName>Employee.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Lab5.BLL.CageSupervisor">
     <Position X="10.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAA=</HashCode>
+      <HashCode>CACAAAAAAAAAAAAEAAAAAAAAACAAABAAAAAAAAAIAAA=</HashCode>
       <FileName>CageSupervisor.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Cage" />
     </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="Lab5.BLL.IMovingMethod">
     <Position X="5.25" Y="7" Width="1.5" />

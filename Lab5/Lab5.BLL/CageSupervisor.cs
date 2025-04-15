@@ -6,33 +6,33 @@ using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class CageSupervisor : Employee, IDisplayable, IContainer
+    public class CageSupervisor : Employee, IContainer, IDisplayable
     {
         protected DateTime _hireDate;
-        protected IList<Cage> _cages;
+        protected IList<Cage> _assignedCages;
 
         public DateTime HireDate
         {
             get => _hireDate; set => _hireDate = value;
         }
 
-        public IList<Cage> Cages
+        public IList<Cage> AssignedCages
         {
-            get => _cages; set => _cages = value;
+            get => _assignedCages; set => _assignedCages = value;
         }
 
         public Cage Cage { get; set; }
 
-        public CageSupervisor(string firstName, string lastName, DateTime dateOfBirth, DateTime hireDate, IList<Cage> cages)
+        public CageSupervisor(string firstName, string lastName, DateTime dateOfBirth, DateTime hireDate, IList<Cage> assignedCages)
             : base(firstName, lastName, dateOfBirth)
         {
             HireDate = hireDate;
-            Cages = cages ?? new List<Cage>();
+            AssignedCages = assignedCages ?? new List<Cage>();
         }
 
         public override string ToString()
         {
-            var cageIds = Cages.Any() ? string.Join(", ", Cages.Select(c => c.Id)) : "none";
+            var cageIds = AssignedCages.Any() ? string.Join(", ", AssignedCages.Select(c => c.Id)) : "none";
             return base.ToString() + $", Hire date: {HireDate}, Cages: {cageIds}";
         }
     }

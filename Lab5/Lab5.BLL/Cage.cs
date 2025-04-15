@@ -6,7 +6,7 @@ using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Cage : IDisplayable, IContainer
+    public class Cage : IContainer, IDisplayable
     {
         private static int _idCounter = 1;
 

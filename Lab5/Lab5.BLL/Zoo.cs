@@ -55,7 +55,7 @@ namespace Lab5.BLL
 
         public Employee HireEmployee(string firstName, string lastName, DateTime dateOfBirth)
         {
-            var newEmployee = new Employee(firstName, lastName, dateOfBirth);
+            var newEmployee = new CageSupervisor(firstName, lastName, dateOfBirth, DateTime.Now, new List<Cage>());
             Employees.Add(newEmployee);
             return newEmployee;
         }
@@ -64,10 +64,15 @@ namespace Lab5.BLL
         {
             var cageIds = Cages.Any() ? string.Join(", ", Cages.Select(c => c.Id)) : "none";
             var employeeNames = Employees.Any() ? string.Join(", ", Employees.Select(e => $"{e.FirstName} {e.LastName}")) : "none";
-            var animalSpecies = Animals.Any() ? string.Join(", ", Animals.Select(a => a.Species)) : "none";
 
-            return $"Zoo: {Name}, Cages: {Cages.Count} [{cageIds}], Employees: {Employees.Count} [{employeeNames}], Animals: {Animals.Count} [{animalSpecies}]";
+            var animalsFromCages = Cages.SelectMany(c => c.Animals).Distinct().ToList();
+            var animalSpecies = animalsFromCages.Any()
+                ? string.Join(", ", animalsFromCages.Select(a => a.Species))
+                : "none";
+
+            return $"Zoo: {Name}, Cages: {Cages.Count} [{cageIds}], Employees: {Employees.Count} [{employeeNames}], Animals: {animalsFromCages.Count} [{animalSpecies}]";
         }
+
 
     }
 }

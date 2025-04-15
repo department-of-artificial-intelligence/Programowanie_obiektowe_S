@@ -5,7 +5,7 @@ using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Employee : IContainer, IDisplayable
+    public class Employee : IDisplayable
     {
         protected string _firstName;
         protected string _lastName;

@@ -1,0 +1,30 @@
+﻿<Window x:Class="Lab7.WpfApp.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab7.WpfApp"
+        mc:Ignorable="d"
+        Title="Calculator" Height="250" Width="200">
+    <Grid Margin="10,0,10,0">
+        <TextBox x:Name="TextBoxName" HorizontalAlignment="Center" Margin="0,39,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" TextAlignment="Right" Width="148" Height="20"/>
+        <Button Content="0" HorizontalAlignment="Left" Margin="8,96,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Number"/>
+        <Button Content="1" HorizontalAlignment="Left" Margin="28,96,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Number"/>
+        <Button Content="2" HorizontalAlignment="Left" Margin="48,96,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Number"/>
+        <Button Content="3" HorizontalAlignment="Left" Margin="8,116,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Number"/>
+        <Button Content="4" HorizontalAlignment="Left" Margin="28,116,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Number"/>
+        <Button Content="5" HorizontalAlignment="Left" Margin="48,116,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Number"/>
+        <Button Content="6" HorizontalAlignment="Left" Margin="8,136,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Number"/>
+        <Button Content="7" HorizontalAlignment="Left" Margin="28,136,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Number"/>
+        <Button Content="8" HorizontalAlignment="Left" Margin="48,136,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Number"/>
+        <Button Content="9" HorizontalAlignment="Left" Margin="8,156,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Number"/>
+        <Button Content="," HorizontalAlignment="Left" Margin="28,182,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Number"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="109,81,0,0" VerticalAlignment="Top" Width="20" Height="45" Click="Button_Click_Operation"/>
+        <Button Content="C" HorizontalAlignment="Left" Margin="134,81,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Operation"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="109,131,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Operation"/>
+        <Button Content="/" HorizontalAlignment="Left" Margin="134,131,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Operation"/>
+        <Button Content="=" HorizontalAlignment="Left" Margin="109,156,0,0" VerticalAlignment="Top" Width="45" Click="Button_Click_Equals"/>
+        <Button Content="*" HorizontalAlignment="Left" Margin="134,106,0,0" VerticalAlignment="Top" Width="20" Click="Button_Click_Operation"/>
+
+    </Grid>
+</Window>

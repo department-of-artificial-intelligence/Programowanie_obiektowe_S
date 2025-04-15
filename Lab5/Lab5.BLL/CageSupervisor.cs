@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
@@ -31,7 +32,8 @@ namespace Lab5.BLL
 
         public override string ToString()
         {
-            return base.ToString() + $", Hire date: {HireDate}, Cages: {Cages.Count}";
+            var cageIds = Cages.Any() ? string.Join(", ", Cages.Select(c => c.Id)) : "none";
+            return base.ToString() + $", Hire date: {HireDate}, Cages: {cageIds}";
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Lab5.BLL
@@ -53,7 +54,12 @@ namespace Lab5.BLL
 
         public override string ToString()
         {
-            return $"Zoo: {Name}, Cages: {Cages.Count}, Employees: {Employees.Count}, Animals: {Animals.Count}";
+            var cageIds = Cages.Any() ? string.Join(", ", Cages.Select(c => c.Id)) : "none";
+            var employeeNames = Employees.Any() ? string.Join(", ", Employees.Select(e => $"{e.FirstName} {e.LastName}")) : "none";
+            var animalSpecies = Animals.Any() ? string.Join(", ", Animals.Select(a => a.Species)) : "none";
+
+            return $"Zoo: {Name}, Cages: {Cages.Count} [{cageIds}], Employees: {Employees.Count} [{employeeNames}], Animals: {Animals.Count} [{animalSpecies}]";
         }
+
     }
 }

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Lab5.BLL.Animal">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAQoAAAAAAAAAAAAAAAAAEAAAAAAIAAAAAAEAAEA=</HashCode>
+      <FileName>Zwierzeta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab5.BLL.Mammal">
+    <Position X="2" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ssak.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab5.BLL.Bird">
+    <Position X="4.25" Y="3.75" Width="1.5" />
+    <InheritanceLine Type="Lab5.BLL.Animal" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="4.5" Y="3.209" />
+        <Point X="4.5" Y="3.45" />
+        <Point X="4.721" Y="3.45" />
+        <Point X="4.721" Y="3.651" />
+        <Point X="5" Y="3.651" />
+        <Point X="5" Y="3.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAEAAAIAAAAAAAAAAAIBAAAAAAA=</HashCode>
+      <FileName>Ptak.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab5.BLL.Reptile">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <InheritanceLine Type="Lab5.BLL.Animal" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="4.688" Y="3.209" />
+        <Point X="4.688" Y="3.288" />
+        <Point X="5.003" Y="3.288" />
+        <Point X="5.003" Y="3.45" />
+        <Point X="7.25" Y="3.45" />
+        <Point X="7.25" Y="3.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Gad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab5.BLL.Cage">
+    <Position X="2.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAQAAQCBAAAAAhAAAAAAAAAAAA=</HashCode>
+      <FileName>Cage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab5.BLL.Supervisor">
+    <Position X="5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Supervisor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Cage" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Lab5.BLL.Employee">
+    <Position X="7.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Supervisor" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Lab5.BLL.Zoo">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Zoo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

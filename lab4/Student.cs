@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab4
 {
-    internal class Student: Person
+    internal class Student: Person, IContainer, IDisplayable
     {
         private static int id = 1;
         public IList<FinalGrade> Grades { get; set; }

@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab4
+{
+    class Lecturer : Person
+    {
+		public string? AcademicTitle { get; set; }
+        public string? Position { get; set; }
+
+		public Lecturer(string firstName, string lastName, DateTime dateOfBirth, string academicTitle, string positon) : base(firstName, lastName, dateOfBirth)
+		{
+			AcademicTitle = academicTitle;
+			Position = positon;
+		}
+
+		public override string ToString()
+		{
+			return base.ToString() + $"Academic title: {AcademicTitle}\nPosition: {Position}\n\n";
+		}
+	}
+}

@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Lab_5.BLL
+{
+    public class Retiles : Animal
+    {
+        public bool _IsVenom;
+    }
+}

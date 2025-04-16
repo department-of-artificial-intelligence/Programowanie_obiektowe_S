@@ -8,11 +8,6 @@ namespace Lab3
 {
     class Item
     {
-        protected int _id;
-        protected string _title;
-        protected string _publisher;
-        protected DateTime _dateOfIssue;
-
         public int Id { get; set; }
         public string? Title { get; set; }
         public string? Publisher { get; set; }
@@ -20,23 +15,23 @@ namespace Lab3
 
         public Item() 
         {
-            _title = "default title";
-            _id = 0;
-			_publisher = "default publisher";
-            _dateOfIssue = DateTime.Now;
+			Title = "default title";
+			Id = 0;
+			Publisher = "default publisher";
+			DateOfIssue = DateTime.Now;
         }
 
         public Item(string title, int id, string publisher, DateTime dateOfIssue) 
         {
-            _title = title;
-            _id = id;
-            _publisher = publisher;
-            _dateOfIssue = dateOfIssue;
+			Title = title;
+			Id = id;
+			Publisher = publisher;
+			DateOfIssue = dateOfIssue;
         }
 
 		public override string ToString()
 		{
-            return $"Title: {_title}\nId: {_id}\nPublisher: {_publisher}\nDate of issue: {_dateOfIssue}\n\n";
+            return $"Title: {Title}\nId: {Id}\nPublisher: {Publisher}\nDate of issue: {DateOfIssue}\n\n";
 		}
 
         public void Details()

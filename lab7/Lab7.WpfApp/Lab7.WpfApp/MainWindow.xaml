@@ -1,0 +1,17 @@
+﻿<Window x:Class="Lab7.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab7.WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="przycisk1" Content="Przycisk" HorizontalAlignment="Left" Margin="343,178,0,0" VerticalAlignment="Top" Click="przycisk1_Click"/>
+        <Button x:Name="ButtonOk" Content="Ok" HorizontalAlignment="Left" Margin="358,244,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextB" HorizontalAlignment="Left" Margin="313,148,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="Hello world&#xD;&#xA;" HorizontalAlignment="Left" Margin="330,80,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelText" Content="Tekst z textboxa tutaj&#xD;&#xA;" HorizontalAlignment="Left" Margin="307,114,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

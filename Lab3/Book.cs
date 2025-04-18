@@ -11,14 +11,14 @@ namespace lab3
     {
         public int _pageCount;
 
-        public IList<Author> _authors;
+        public IList<Author>? _authors;
 
         public int PageCount {  get { return _pageCount; } set { _pageCount = value; } 
                 }
 
         public IList<Author> Authors
         {
-            get { return _authors; } 
+            get { return _authors!; } 
             set { _authors = value; }
         }
              
@@ -40,12 +40,22 @@ namespace lab3
                 temp+=item;
                 temp += "|";
             }
-            return base.ToString()+$",PageCount={PageCount},Authors={temp}";
+            return $"[{base.ToString()} ,PageCount={PageCount},Authors={temp}]";
         }
 
         public override string GenerateBarCode()
         {
-            return $"B{Id}";
+            Random random = new Random();
+            char[] array= "0123456789".ToCharArray();
+            char[] code = new char[9];
+
+            for (int i = 0; i < 9; ++i)
+            {
+                code[i] = array[random.Next(array.Length)];
+            }
+
+            string codeS = new string(code);
+            return codeS;
         }
 
         public void AddAuthor(Author author)

@@ -2,13 +2,13 @@
 {
     internal class Grade
     {
-        private string _subjectName;
+        private string? _subjectName;
         private DateTime _date;
         private double _value;
 
         public string SubjectName
         {
-            get { return _subjectName; }
+            get { return _subjectName!; }
             set { _subjectName = value; }
         }
         public DateTime Date
@@ -25,12 +25,16 @@
 
         public Grade()
         {
-
+            SubjectName = "none";
+            Date = DateTime.MinValue;
+            Value = 0;
         }
 
         public Grade(string subjectName, double value, DateTime date)
         {
-
+            SubjectName = subjectName;
+            Date = date;
+            Value = value;
         }
 
         public override string ToString()

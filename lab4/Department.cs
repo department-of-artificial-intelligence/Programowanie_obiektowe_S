@@ -6,43 +6,18 @@ using System.Threading.Tasks;
 
 namespace lab4
 {
-    internal class Department
-    {
-        private string _name;
-        private Person _dean;
-        private IList<OrganizationUnit> _organizationUnit;
-        private IList<Subject> _subjects;
-        private IList<Student> _students;
+    public class Department:IContainer, IDisplayable
+    {     
+        public string Name { get; set; }
 
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
+        public Person Dean { get; set; }
 
-        public Person Dean
-        {
-            get => _dean;
-            set => _dean = value;
-        }
+        public IList<OrganizationUnit>? OrganizationUnits { get; set; }=new List<OrganizationUnit>();
 
-        public IList<OrganizationUnit> OrganizationUnit
-        {
-            get => _organizationUnit;
-            set => _organizationUnit = value;
-        }
+        public IList<Subject> Subjects { get; set; }
 
-        public IList<Subject> Subjects
-        {
-            get => _subjects;
-            set => _subjects = value;
-        }
+        public IList<Student> Students { get; set; }
 
-        public IList<Student> Students
-        {
-            get => _students;
-            set => _students = value;
-        }
 
         public Department(string name, Person dean,  IList<Subject> subjects, IList<Student> students)
         {
@@ -54,7 +29,36 @@ namespace lab4
 
         public override string ToString()
         {
-            return $"Name: {Name}, Dean: {Dean}";
+            string outcome = $"Name: {Name}, Dean: {Dean}";
+
+            outcome += "\nOrganization units:\n";
+            if (OrganizationUnits != null)
+            {
+                foreach (var organiationUnit in OrganizationUnits)
+                {
+                    outcome += organiationUnit + "\n";
+                }
+            }
+
+            outcome += "\nSubjects:\n";
+            if (Subjects != null)
+            {
+                foreach (var subject in Subjects)
+                {
+                    outcome = outcome + subject + "\n";
+                }
+            }
+
+            outcome += "\nStudents:\n";
+            if (Students != null)
+            {
+                foreach (var student in Students)
+                {
+                    outcome = outcome + student + "\n";
+                }
+            }
+
+            return outcome;
         }
 
     }

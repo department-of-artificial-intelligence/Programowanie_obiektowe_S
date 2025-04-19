@@ -1,28 +1,16 @@
 ﻿namespace lab4
 {
-    internal class OrganizationUnit
+    public class OrganizationUnit: IContainer, IDisplayable
     {
-        private string _name;
-        private string _address;
-        private IList<Lecturer> _lecturers;
+        
+        public string Name { get; set; }
 
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
 
-        public string Address
-        {
-            get => _address;
-            set => _address = value;
-        }
+        public string Address { get; set; }
 
-        public IList<Lecturer> Lecturers
-        {
-            get => _lecturers;
-            set => _lecturers = value;
-        }
+
+        public IList<Lecturer> Lecturers { get; set; }
+
 
         public OrganizationUnit(string name, string adress, IList<Lecturer> lecturers)
         {
@@ -33,7 +21,12 @@
 
         public override string ToString()
         {
-            return $"Name: {Name}, Adress: {Address}, Lecturers: {Lecturers} ";
+            string temp = "";
+            foreach (var item in Lecturers)
+            {
+                temp += item.ToString()+" || ";
+            }
+            return $"Name: {Name}, Adress: {Address}, Lecturers: {temp} ";
         }
     }
 

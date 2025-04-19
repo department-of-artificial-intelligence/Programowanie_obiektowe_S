@@ -8,36 +8,13 @@ using System.Threading.Tasks;
 
 namespace lab4
 {
-    internal class Subject
-    {
-        private string _name;
-        private string _specalization;
-        private int _semester;
-        private int _hoursCount;
+    public class Subject: IDisplayable, IContainer
+    {    
+        public string Name { get; set; }
+        public string Specalization { get; set; }
+        public int Semester { get; set; }
+        public int HoursCount { get; set; }
 
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
-
-        public string Specalization
-        {
-            get => _specalization;
-            set => _specalization = value;
-        }
-
-        public int Semester
-        {
-            get => _semester;
-            set => _semester = value;
-        }
-
-        public int HoursCount
-        {
-            get => _hoursCount;
-                set => _hoursCount = value;
-        }
 
         public Subject(string name, string specalization, int semester, int hoursCount)
         {

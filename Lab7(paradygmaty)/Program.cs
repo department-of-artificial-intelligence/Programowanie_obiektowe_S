@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Zad1;
 using Zad2;
 using Zad3;
+using Zad5;
 
 class Program
 {
@@ -41,18 +42,37 @@ class Program
         //Console.WriteLine($"Nowa Osoba -> Imię: {nowaOsoba.Imie}, Nazwisko: {nowaOsoba.Nazwisko}");
 
         //ZADANIE 3
-        var osoby = new List<Osoba>
-        {
-            new Osoba("Ala", "Kowalska", 25),
-            new Osoba("Jan", "Nowak", 30),
-            new Osoba("Zosia", "Zielinska", 22),
-            new Osoba("Marek", "Wiśniewski", 28)
-        };
-        osoby.Sort();
+        //var osoby = new List<Osoba>
+        //{
+        //    new Osoba("Ala", "Kowalska", 25),
+        //    new Osoba("Jan", "Nowak", 30),
+        //    new Osoba("Zosia", "Zielinska", 22),
+        //    new Osoba("Marek", "Wiśniewski", 28)
+        //};
+        //osoby.Sort();
 
-        foreach (var osoba in osoby)
-        {
-            Console.WriteLine(osoba);
-        }
+        //foreach (var osoba in osoby)
+        //{
+        //    Console.WriteLine(osoba);
+        //}
+
+
+        //ZADANIE 5
+        //Console.WriteLine("Drzewo liczb całkowitych:");
+        //var treeInt = new BinarySearchTree<int>();
+        //treeInt.Insert(5);
+        //treeInt.Insert(3);
+        //treeInt.Insert(7);
+        //treeInt.Insert(2);
+        //treeInt.Insert(4);
+        //treeInt.InOrderTraversal();
+
+        //Console.WriteLine("\nDrzewo osób (sortowane po wieku):");
+        //var treeOsoba = new BinarySearchTree<Osoba>();
+        //treeOsoba.Insert(new Osoba("Ala", "Kot", 30));
+        //treeOsoba.Insert(new Osoba("Bartek", "Lis", 25));
+        //treeOsoba.Insert(new Osoba("Cezary", "Wilk", 35));
+        //treeOsoba.InOrderTraversal();
+
     }
 }

@@ -1,0 +1,72 @@
+﻿<Window x:Class="Lab7.WpfApp.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab7.WpfApp"
+        mc:Ignorable="d"
+        Title="Calculator" Height="500" Width="400">
+    <Grid Background="#FF2D0D0D" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="169*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="94*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="94*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="94*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="94*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Column="3" Content="CE" Click="ClearEntry_Click" Grid.Row="2" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="1" Content="Floor" Click="UnaryButton_Click" Grid.Row="2" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="5" Content="C" Click="ClearAll_Click" Grid.Row="2" Width="NaN" Height="NaN" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="6" Content="Backspace" Click="Backspace_Click" Grid.Row="1" Margin="5,5,0,0" Grid.RowSpan="2" Width="NaN" Height="NaN" Grid.ColumnSpan="2" Background="Black" Foreground="#FFCC7878"/>
+
+        <Button Grid.Column="3" Content="x^2" Click="UnaryButton_Click" Grid.Row="4" Background="Black" Foreground="#FFCC7878"/>
+        <Button Content="1/x" Click="UnaryButton_Click" Grid.Row="4" Grid.Column="1" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="5" Content="sqrt(x)" Click="UnaryButton_Click" Grid.Row="4" Background="Black" Foreground="#FFCC7878"/>
+
+        <Button Grid.Column="3" Content="8" Click="NumberButton_Click" Grid.Row="6" OpacityMask="Black" Background="Black" Foreground="#FFCC7878"/>
+        <Button Content="7" Click="NumberButton_Click" Grid.Row="6" Grid.Column="1" OpacityMask="Black" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="5" Content="9" Click="NumberButton_Click" Grid.Row="6" OpacityMask="Black" Background="Black" Foreground="#FFCC7878"/>
+
+        <Button Grid.Column="3" Content="5" Click="NumberButton_Click" Grid.Row="8" OpacityMask="Black" Background="Black" Foreground="#FFCC7878"/>
+        <Button Content="4" Click="NumberButton_Click" Grid.Row="8" Grid.Column="1" OpacityMask="Black" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="5" Content="6" Click="NumberButton_Click" Grid.Row="8" OpacityMask="Black" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="7" Content="-" Click="OperationButton_Click" Grid.Row="8" Background="Black" Foreground="#FFCC7878"/>
+
+        <Button Grid.Column="3" Content="2" Click="NumberButton_Click" Grid.Row="10" OpacityMask="Black" Background="Black" Foreground="#FFCC7878"/>
+        <Button Content="1" Click="NumberButton_Click" Grid.Row="10" Grid.Column="1" OpacityMask="Black" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="5" Content="3" Click="NumberButton_Click" Grid.Row="10" OpacityMask="Black" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="7" Content="+" Click="OperationButton_Click" Grid.Row="10" Background="Black" Foreground="#FFCC7878"/>
+
+        <Button Grid.Column="3" Content="0" Click="NumberButton_Click" Grid.Row="12" Background="Black" Foreground="#FFCC7878"/>
+        <Button Content="+/-" Click="UnaryButton_Click" Grid.Row="12" Grid.Column="1" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="5" Content="." Click="NumberButton_Click" Grid.Row="12" Background="Black" Foreground="#FFCC7878"/>
+
+        <Button Grid.Column="6" Content="/" Click="OperationButton_Click" Grid.Row="4" Margin="5,0,0,5" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="7" Content="*" Click="OperationButton_Click" Grid.Row="6" Background="Black" Foreground="#FFCC7878"/>
+        <Button Grid.Column="7" Content="=" Click="EqualButton_Click" Grid.Row="12" Background="Black" Foreground="#FFCC7878"/>
+
+        <TextBox x:Name="CurrentDisplay" TextWrapping="Wrap" Text="0" Width="347" Height="84" Grid.ColumnSpan="7" Margin="14,51,0,0" FontSize="22" FontFamily="Arial" FontWeight="Bold" TextAlignment="Right" Grid.Column="1" Background="#FF846969" SelectionBrush="#FF2075B9"/>
+        <TextBlock x:Name="HistoryDisplay" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="195" Height="40" Grid.ColumnSpan="5" Margin="67,10,0,0" Grid.Column="3" FontFamily="Arial" FontWeight="Bold" TextAlignment="Right"/>
+    </Grid>
+</Window>

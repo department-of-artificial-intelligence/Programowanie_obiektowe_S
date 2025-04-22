@@ -1,25 +1,22 @@
 ﻿namespace Lab3
 {
-    class Author
+    public class Author : Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public string Nationality { get; set; }
-        public Author()
+
+        public Author() : base()
         {
-            FirstName = "nieznane";
-            LastName = "nieznane";
-            Nationality = "nieznana";
+            Nationality = "Nieznana";
         }
-        public Author(string firstName, string lastName, string nationality)
+
+        public Author(string firstName, string lastName, string nationality) : base(firstName, lastName)
         {
-            FirstName = firstName;
-            LastName = lastName;
             Nationality = nationality;
         }
+
         public override string ToString()
         {
-            return  $"Author: | Imie: {FirstName}, Nazwisko: {LastName}, Narodowość: {Nationality}";
+            return base.ToString() + $", Narodowosc: {Nationality}";
         }
     }
 }

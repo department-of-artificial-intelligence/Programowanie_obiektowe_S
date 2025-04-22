@@ -2,7 +2,7 @@
 
 namespace Lab3
 {
-    class Journal : Item
+    public class Journal : Item
     {
         public int Number { get; set; }
         public Journal() : base()

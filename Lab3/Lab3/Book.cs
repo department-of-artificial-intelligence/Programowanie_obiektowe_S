@@ -1,10 +1,9 @@
 ﻿namespace Lab3
 {
-    class Book : Item
+    public class Book : Item
     {
         public int PageCount { get; set; }
-        public IList<Author> Authors
-        { get; set; }
+        public IList<Author> Authors { get; set; }
         public Book(string title, int id, string publisher, DateTime dateOfIssue, int pageCount, IList<Author> authors) : base(id, title, publisher, dateOfIssue)
         {
             PageCount = pageCount;

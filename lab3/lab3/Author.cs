@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-    public class Author
+    public class Author : Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public string Nationality { get; set; }
-
-        public Author (string firstName, string lastName, string nationality)
+        public Author() : base()
         {
-            _firstName = firstName;
-            _lastName = lastName;
-            _nationality = nationality;
+            Nationality = "no nationality";
         }
-
+        public Author(string firstName, string lastName, string nationality)
+            : base(firstName, lastName)
+        {
+            Nationality = nationality;
+        }
         public override string ToString()
         {
-            return $"Author | First Name: {_firstName}, Last name: {_lastName}, Nationality: {_natiobality}";
+            return $"{FirstName}, {LastName}, {Nationality}";
         }
     }
 }

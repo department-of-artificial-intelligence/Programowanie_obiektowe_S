@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Generic.Extensions
+namespace Lab4
 {
     public static class CrudActionExtensions
     {
@@ -24,17 +24,13 @@ namespace Generic.Extensions
         }
         public static void ForEach<TObjectType>(this IList<TObjectType> list, Action<TObjectType> action)
         {
-            if (list != null)
+            foreach (var item in list)
             {
-                foreach (var item in list)
-                {
-                    if(item != null) action(item);
-                }
+                action(item);
             }
         }
         public static TObjectType Get<TObjectType>(this IContainer container, Predicate<TObjectType> searchPredicate)
         {
-            if (container == null) return default;
             var list = container.Set<TObjectType>();
             if (list != null)
                 return list.FirstOrDefault(item => searchPredicate(item));

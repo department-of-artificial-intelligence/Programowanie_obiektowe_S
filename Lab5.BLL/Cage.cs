@@ -1,20 +1,21 @@
-﻿using System;
+﻿using Generic.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Lab5.BLL
 {
-    public class Cage
+    public class Cage : IContainer, IDisplayable
     {
         private int _id;
         private int _size;
         private bool _needsCleaning;
-        private System.Collections.Generic.List<Animal> _animals;
+        private System.Collections.Generic.IList<Animal> _animals;
 
         private static int _nextId = 1;
 
-        public Cage(int size,bool needsCleaning, System.Collections.Generic.List<Animal> animals)
+        public Cage(int size,bool needsCleaning, System.Collections.Generic.IList<Animal> animals)
         {
             _id = _nextId++;
             _size = size;

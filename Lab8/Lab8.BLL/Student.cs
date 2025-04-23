@@ -48,7 +48,7 @@ namespace Lab8.BLL
             Firstname = string.Empty;
             Surname = string.Empty;
             Faculty = string.Empty;
-            StudentNo = 0;
+            StudentNo = 0
         }
     }
 }

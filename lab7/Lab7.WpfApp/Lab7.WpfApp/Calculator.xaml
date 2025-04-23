@@ -9,21 +9,21 @@
     <Grid Margin="0,0,10,-6">
         <Button x:Name="button1" Content="1" HorizontalAlignment="Left" Margin="62,146,0,0" VerticalAlignment="Top" Click="button1_Click"/>
         <Button x:Name="button2" Content="2" HorizontalAlignment="Left" Margin="77,146,0,0" VerticalAlignment="Top" Click="button2_Click"/>
-        <Button x:Name="button3" Content="3" HorizontalAlignment="Left" Margin="91,146,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button4" Content="4" HorizontalAlignment="Left" Margin="62,170,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button5" Content="5" HorizontalAlignment="Left" Margin="77,170,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button6" Content="6" HorizontalAlignment="Left" Margin="91,170,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button7" Content="7" HorizontalAlignment="Left" Margin="62,195,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button8" Content="8" HorizontalAlignment="Left" Margin="77,195,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button9" Content="9" HorizontalAlignment="Left" Margin="91,195,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button0" Content="0" HorizontalAlignment="Left" Margin="77,220,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button3" Content="3" HorizontalAlignment="Left" Margin="91,146,0,0" VerticalAlignment="Top" Click="button3_Click"/>
+        <Button x:Name="button4" Content="4" HorizontalAlignment="Left" Margin="62,170,0,0" VerticalAlignment="Top" Click="button4_Click"/>
+        <Button x:Name="button5" Content="5" HorizontalAlignment="Left" Margin="77,170,0,0" VerticalAlignment="Top" Click="button5_Click"/>
+        <Button x:Name="button6" Content="6" HorizontalAlignment="Left" Margin="91,170,0,0" VerticalAlignment="Top" Click="button6_Click"/>
+        <Button x:Name="button7" Content="7" HorizontalAlignment="Left" Margin="62,195,0,0" VerticalAlignment="Top" Click="button7_Click"/>
+        <Button x:Name="button8" Content="8" HorizontalAlignment="Left" Margin="77,195,0,0" VerticalAlignment="Top" Click="button8_Click"/>
+        <Button x:Name="button9" Content="9" HorizontalAlignment="Left" Margin="91,195,0,0" VerticalAlignment="Top" Click="button9_Click"/>
+        <Button x:Name="button0" Content="0" HorizontalAlignment="Left" Margin="77,220,0,0" VerticalAlignment="Top" Click="button0_Click"/>
         <Button x:Name="buttonPlus" Content="+" HorizontalAlignment="Left" Margin="135,146,0,0" VerticalAlignment="Top" Click="buttonPlus_Click"/>
-        <Button x:Name="buttonMinus" Content="-" HorizontalAlignment="Left" Margin="152,146,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="buttonMul" Content="*" HorizontalAlignment="Left" Margin="135,170,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button x:Name="buttonDiv" Content="/" HorizontalAlignment="Left" Margin="152,170,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button x:Name="buttonEqual" Content="=" HorizontalAlignment="Left" Margin="135,195,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button x:Name="buttonClear" Content="C" HorizontalAlignment="Left" Margin="152,195,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="2.048,3.033"/>
-        <TextBox HorizontalAlignment="Center" Height="29" Margin="0,85,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="116"/>
+        <Button x:Name="buttonMinus" Content="-" HorizontalAlignment="Left" Margin="152,146,0,0" VerticalAlignment="Top" Click="buttonMinus_Click"/>
+        <Button x:Name="buttonMul" Content="*" HorizontalAlignment="Left" Margin="135,170,0,0" VerticalAlignment="Top" Click="buttonMul_Click"/>
+        <Button x:Name="buttonDiv" Content="/" HorizontalAlignment="Left" Margin="152,170,0,0" VerticalAlignment="Top" Click="buttonDiv_Click"/>
+        <Button x:Name="buttonEqual" Content="=" HorizontalAlignment="Left" Margin="135,195,0,0" VerticalAlignment="Top" Click="buttonEqual_Click" />
+        <Button x:Name="buttonClear" Content="C" HorizontalAlignment="Left" Margin="152,195,0,0" VerticalAlignment="Top" Click="buttonClear_Click" />
+        <TextBox x:Name="Display" HorizontalAlignment="Center" Height="29" Margin="0,85,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="116"/>
 
     </Grid>
 </Window>

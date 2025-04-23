@@ -47,7 +47,7 @@ namespace Lab8.WpfApp
 
         private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
         {
-            if (!Regex.IsMatch(TextBoxFirstname.Text)) ;
+            if (!Regex.IsMatch(TextBoxFirstname.Text))
         }
     }
 }

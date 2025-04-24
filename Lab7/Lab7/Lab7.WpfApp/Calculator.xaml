@@ -67,6 +67,6 @@
         <Button Grid.Column="7" Content="=" Click="EqualButton_Click" Grid.Row="12" Background="Black" Foreground="#FFCC7878"/>
 
         <TextBox x:Name="CurrentDisplay" TextWrapping="Wrap" Text="0" Width="347" Height="84" Grid.ColumnSpan="7" Margin="14,51,0,0" FontSize="22" FontFamily="Arial" FontWeight="Bold" TextAlignment="Right" Grid.Column="1" Background="#FF846969" SelectionBrush="#FF2075B9"/>
-        <TextBlock x:Name="HistoryDisplay" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="195" Height="40" Grid.ColumnSpan="5" Margin="67,10,0,0" Grid.Column="3" FontFamily="Arial" FontWeight="Bold" TextAlignment="Right"/>
+        <TextBlock x:Name="HistoryDisplay" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="195" Height="40" Grid.ColumnSpan="5" Margin="67,10,0,0" Grid.Column="3" FontFamily="Arial" FontWeight="Bold" TextAlignment="Right" Foreground="White"/>
     </Grid>
 </Window>

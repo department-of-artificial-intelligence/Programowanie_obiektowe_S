@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Lab5.BLL
 {
-    public class Reptile : Animal
+    public interface IMovingMethod
     {
-        protected bool _venomous;
+        int LegsCount { get; set; }
     }
 }

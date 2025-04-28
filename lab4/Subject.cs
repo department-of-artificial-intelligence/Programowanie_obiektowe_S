@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Crud.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab4 {
-	class Subject {
+namespace lab4.bll {
+	public class Subject : IDisplayable {
 		public string Name { get; set; }
 		public string Specialization { get; set; }
 		public int Semester { get; set; }
@@ -18,11 +19,15 @@ namespace lab4 {
 			HourCount = hourCount;
 		}
 
-		public override string ToString() {
-			return $"Name: {this.Name}, " +
-				   $"Specialization: {this.Specialization}, " +
-				   $"Semester: {this.Semester}, " +
-				   $"HourCount: {this.HourCount}";
+		public override string? ToString() {
+			string napis = "";
+
+			napis += $"Name: {Name} ";
+			napis += $"Specialization: {Specialization} ";
+			napis += $"Semester: {Semester} ";
+			napis += $"HourCount: {HourCount}";
+
+			return napis;
 		}
 	}
 }

@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Crud.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace lab4 {
-	class Department {
+namespace lab4.bll {
+	public class Department : IDisplayable, IContainer {
 		public string Name { get; set; }
 		public Person Dean { get; set; }
 		public IList<OrganizationUnit> OrganizationUnits { get; set; }
@@ -17,23 +19,23 @@ namespace lab4 {
 			Dean = dean;
 			Subjects = subjects;
 			Students = students;
-			this.OrganizationUnits = new List<OrganizationUnit>();
+			this.OrganizationUnits = new List<OrganizationUnit>();	
 		}
 
 		public override string ToString() {
-			string napis = "";
+			string napis = base.ToString() + " ";
 
-			napis += $"Name: {this.Name}\n";
-			napis += $"Dean: {this.Dean}\n";
+			napis += $"Name: {Name} ";
+			napis += $"Dean: {Dean} ";
 
 			napis += "OrganizationUnits:\n";
-			this.OrganizationUnits.ToList().ForEach(organizationUnit => napis += organizationUnit + "\n");
+			this.OrganizationUnits.ToList().ForEach(unit => napis += (unit + "\n"));
 
 			napis += "Subjects:\n";
-			this.Subjects.ToList().ForEach(subject => napis += subject + "\n");
+			this.Subjects.ToList().ForEach(subject => napis += (subject + "\n"));
 
 			napis += "Students:\n";
-			this.Students.ToList().ForEach(student => napis += student + "\n");
+			this.Students.ToList().ForEach(student => napis += (student + "\n"));
 
 			return napis;
 		}

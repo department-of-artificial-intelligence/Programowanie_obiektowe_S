@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Crud.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab4 {
-	class OrganizationUnit {
+namespace lab4.bll {
+	public class OrganizationUnit : IDisplayable, IContainer {
 		public string Name { get; set; }
 		public string Adress { get; set; }
 		public IList<Lecturer> Lecturers { get; set; }
@@ -19,13 +20,11 @@ namespace lab4 {
 		public override string ToString() {
 			string napis = "";
 
-			napis += $"Name: {this.Name}, ";
-			napis += $"Adress: {this.Adress}, ";
+			napis += $"Name: {Name} ";
+			napis += $"Adress: {Adress} ";
 
 			napis += "Lecturers:\n";
-			foreach (Lecturer lecturer in Lecturers) {
-				napis += lecturer.ToString() + "\n";
-			}
+			Lecturers.ToList().ForEach(lecturer => napis += (lecturer + "\n"));
 
 			return napis;
 		}

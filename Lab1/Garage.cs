@@ -29,7 +29,7 @@ namespace Lab1
         
         public Garage()
         {
-            _cars = null;
+            _cars = null!;
             _address = "nieznany";
             _capacity = 0;
         }
@@ -60,13 +60,13 @@ namespace Lab1
             if(_carsCount == 0)
             {
                 Console.WriteLine("garage empty");
-                return null;
+                return null!;
             }
             else
             {
                 _carsCount--;
                 Car tmp = _cars[_carsCount];
-                _cars[_carsCount] = null;
+                _cars[_carsCount] = null!;
                 return tmp;
             }
         }

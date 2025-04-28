@@ -58,7 +58,7 @@
                 Item temp = catalog.FindItemBy(id);
                 if (temp != null) return temp;
             }
-            return null;
+            return null!;
         }
 
         public Item FindItemBy(string title)
@@ -68,7 +68,7 @@
                 Item temp = catalog.FindItemBy(title);
                 if (temp != null) return temp;
             }
-            return null;
+            return null!;
         }
 
         public Item FindItem(Predicate<Item> predicate)
@@ -78,7 +78,7 @@
                 Item temp = catalog.FindItem(predicate);
                 if (temp != null) return temp;
             }
-            return null;
+            return null!;
         }
 
         public override string ToString()

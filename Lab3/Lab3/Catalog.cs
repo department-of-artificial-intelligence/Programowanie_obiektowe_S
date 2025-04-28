@@ -48,7 +48,7 @@
             foreach (Item item in Items)
                 if (item.Id == id)
                     return item;
-            return null;
+            return null!;
         }
 
         public Item FindItemBy(string title)
@@ -56,7 +56,7 @@
             foreach (Item item in Items)
                 if (item.Title == title)
                     return item;
-            return null;
+            return null!;
         }
 
 
@@ -65,7 +65,7 @@
             foreach (Item item in Items)
                 if (predicate(item))
                     return item;
-            return null;
+            return null!;
         }
     }
 }

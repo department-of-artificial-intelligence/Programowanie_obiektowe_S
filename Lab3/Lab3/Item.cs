@@ -43,7 +43,7 @@
         }
         public override string ToString()
         {
-            return $"Item: | id: {_id}, tytuł: {_title}, wydawca: {_publisher}, data wydania: {_dateOfIssue} ";
+            return $"Item: | id: {_id}, tytul: {_title}, wydawca: {_publisher}, data wydania: {_dateOfIssue} ";
         }
         public virtual void Details()
         {

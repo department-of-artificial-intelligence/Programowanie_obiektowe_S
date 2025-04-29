@@ -1,20 +1,19 @@
 ﻿namespace Lab3
 {
-    class Catalog
+    public class Catalog : IItemManagement
     {
         public IList<Item> Items { get; set; }
-
         public string ThematicDepartment { get; set;}
 
-        public Catalog(IList<Item> items) {  
-            Items = items ?? new List<Item>();
+        public Catalog(IList<Item> items) {
+            Items = items;
             ThematicDepartment = "Nieznany";
         }
 
         public Catalog(string thematicDepartment, IList<Item> items)
         {
             ThematicDepartment = thematicDepartment;
-            Items = items ?? new List<Item>();
+            Items = items;
         }
 
         public void AddItem(Item item)
@@ -24,7 +23,16 @@
 
         public override string ToString()
         {
-            return $"Catalog: | Katalog: {ThematicDepartment}, ilość: {Items.Count}";
+            string temp = $"ThematicDepartment:{ThematicDepartment}";
+            if (Items != null)
+            {
+                temp += ", Przedmioty:";
+                foreach (Item item in Items)
+                {
+                    temp += $"\n\t{item}";
+                }
+            }
+            return temp;
         }
 
         public void ShowAllItems()
@@ -35,6 +43,29 @@
             }
         }
 
+        public Item FindItemBy(int id)
+        {
+            foreach (Item item in Items)
+                if (item.Id == id)
+                    return item;
+            return null!;
+        }
 
+        public Item FindItemBy(string title)
+        {
+            foreach (Item item in Items)
+                if (item.Title == title)
+                    return item;
+            return null!;
+        }
+
+
+        public Item FindItem(Predicate<Item> predicate)
+        {
+            foreach (Item item in Items)
+                if (predicate(item))
+                    return item;
+            return null!;
+        }
     }
 }

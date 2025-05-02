@@ -25,14 +25,14 @@
         <Button x:Name="eightButton" Content="8" Width ="40" Height="40" HorizontalAlignment="Left" Margin="52,68,0,0" VerticalAlignment="Top" Grid.Row="1" Click="OnButtonNumberClick"/>
         <Button x:Name="nineButton" Content="9" Width ="40" Height="40" HorizontalAlignment="Left" Margin="97,68,0,0" VerticalAlignment="Top" Grid.Row="1" Click="OnButtonNumberClick"/>
         <Button x:Name="zeroButton" Content="0" Width ="40" Height="40" HorizontalAlignment="Left" Margin="52,113,0,0" VerticalAlignment="Top" Grid.Row="1" Click="OnButtonNumberClick"/>
-        <Button x:Name="dotButton" Content="." Width ="40" Height="40" HorizontalAlignment="Left" Margin="97,113,0,0" VerticalAlignment="Top" Grid.Row="1" Click="OnButtonNumberClick"/>
+        <Button x:Name="commaButton" Content="," Width ="40" Height="40" HorizontalAlignment="Left" Margin="97,113,0,0" VerticalAlignment="Top" Grid.Row="1" Click="OnButtonNumberClick"/>
         <Button x:Name="cleanButton" Content="C" Width ="40" Height="40" HorizontalAlignment="Left" Margin="154,215,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Click="OnButtonClearClick"/>
         <Button x:Name="addButton" Content="+" Width ="40" Height="85" HorizontalAlignment="Left" Margin="199,215,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Click="OnButtonOperationClick"/>
         <Button x:Name="subButton" Content="-" Width ="40" Height="40" HorizontalAlignment="Left" Margin="154,23,0,0" VerticalAlignment="Top" Grid.Row="1" Click="OnButtonOperationClick"/>
         <Button x:Name="mulButton" Content="*" Width ="40" Height="40" HorizontalAlignment="Left" Margin="154,68,0,0" VerticalAlignment="Top" Grid.Row="1" Click="OnButtonOperationClick"/>
         <Button x:Name="divButton" Content="/" Width ="40" Height="40" HorizontalAlignment="Left" Margin="154,113,0,0" VerticalAlignment="Top" Grid.Row="1" Click="OnButtonOperationClick"/>
         <Button x:Name="equalButton" Content="=" Width ="40" Height="85" HorizontalAlignment="Left" Margin="199,68,0,0" VerticalAlignment="Top" Grid.Row="1" Click="OnButtonResultClick"/>
-        <TextBox x:Name="display" HorizontalAlignment="Left" Margin="27,155,0,0" TextWrapping="Wrap" Text="" TextAlignment="Right" VerticalAlignment="Top" Width="218" Height="28" FontSize="20"/>
+        <TextBox x:Name="display" HorizontalAlignment="Left" Margin="27,155,0,0" TextWrapping="Wrap" Text="0" TextAlignment="Right" VerticalAlignment="Top" Width="218" Height="28" FontSize="20"/>
 
     </Grid>
 </Window>

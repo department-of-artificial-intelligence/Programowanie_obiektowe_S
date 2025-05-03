@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AddStudentWindow" Height="278" Width="368">
     <Grid Margin="0,0,0,-6">
-        <TextBox x:Name="TextBoxFirstname" Text="" HorizontalAlignment="Left" Margin="153,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" TextChanged="TextBox_TextChanged" Height="20"/>
+        <TextBox x:Name="TextBoxFirstname" Text="" HorizontalAlignment="Left" Margin="153,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Height="20"/>
         <TextBox x:Name="TextBoxSurname" Text="" HorizontalAlignment="Left" Margin="153,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Height="20"/>
         <TextBox x:Name="TextBoxStudentNo" Text="" HorizontalAlignment="Left" Margin="153,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Height="20"/>
         <TextBox x:Name="TextBoxFaculty" Text="" HorizontalAlignment="Left" Margin="153,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Height="20"/>

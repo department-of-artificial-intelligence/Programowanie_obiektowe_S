@@ -35,19 +35,26 @@ namespace Lab8.WpfApp
             Student = student ?? new Student();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
         {
-            if (!Regex.IsMatch(TextBoxFirstname.Text))
+            if (!Regex.IsMatch(TextBoxFirstname.Text, @"^\p{L}{1,12}$") ||
+                !Regex.IsMatch(TextBoxSurname.Text, @"^\p{L}{1,12}$") ||
+                !Regex.IsMatch(TextBoxFaculty.Text, @"^\p{L}{1,12}$") ||
+                !Regex.IsMatch(TextBoxStudentNo.Text, @"^[0-9]{4,10}$"))
+            {
+                MessageBox.Show("Invalid input data.");
+                return;
+            }
+
+            Student.Firstname = TextBoxFirstname.Text;
+            Student.Surname = TextBoxSurname.Text;
+            Student.Faculty = TextBoxFaculty.Text;
+
+            if (!int.TryParse(TextBoxStudentNo.Text, out int studentNo))
+                MessageBox.Show("Student is not a number.");
+            
+            Student.StudentNo = studentNo;
+            DialogResult = true;
         }
     }
 }

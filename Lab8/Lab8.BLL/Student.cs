@@ -1,46 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Lab8.BLL
 {
-    public class Student
+    public class Student : INotifyPropertyChanged
     {
-        private string? _firstname;
-        private string? _surname;
-        private string? _faculty;
-        private int _studentNo;
+        public string Firstname { get; set; }
+        public string Surname { get; set; }
+        public string Faculty { get; set; }
+        public int StudentNo { get; set; }
+        public IList<Grade> Grades { get; set; } = new List<Grade>();
 
-        public string? Firstname
+        public string JoinedGrades
         {
-            get { return _firstname; }
-            set { _firstname = value; }
+            get => Grades != null ? string.Join(", ", Grades.Select(g => g.ToString())) : "";
         }
 
-        public string? Surname
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
         {
-            get { return _surname; }
-            set { _surname = value; }
-        }
-
-        public string? Faculty
-        {
-            get { return _faculty; }
-            set { _faculty = value; }
-        }
-
-        public int StudentNo {
-            get { return _studentNo; }
-            set { _studentNo = value; }
-        }
-
-        public Student(string firstname, string surname, string faculty, int studentNo) {
-            Firstname = firstname ?? string.Empty;
-            Surname = surname ?? string.Empty;
-            Faculty = faculty ?? string.Empty;
-            StudentNo = studentNo;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public Student()
@@ -48,7 +32,32 @@ namespace Lab8.BLL
             Firstname = string.Empty;
             Surname = string.Empty;
             Faculty = string.Empty;
-            StudentNo = 0
+            StudentNo = 0;
+            Grades = new List<Grade>();
+        }
+
+        public Student(string firstname, string surname, string faculty, int studentNo)
+        {
+            Firstname = firstname ?? string.Empty;
+            Surname = surname ?? string.Empty;
+            Faculty = faculty ?? string.Empty;
+            StudentNo = studentNo;
+            Grades = new List<Grade>();
+        }
+        public Student(string firstname, string surname, string faculty, int studentNo, List<Grade> grades)
+        {
+            Firstname = firstname ?? string.Empty;
+            Surname = surname ?? string.Empty;
+            Faculty = faculty ?? string.Empty;
+            StudentNo = studentNo;
+            Grades = grades ?? new List<Grade>();
+        }
+
+        public void AddGrade(Grade grade)
+        {
+            Grades.Add(grade);
+            OnPropertyChanged(nameof(Grades));  // Powiadomienie o zmianach w Grades
+            OnPropertyChanged(nameof(JoinedGrades));  // Powiadomienie o zmianach w polu JoinedGrades
         }
     }
 }

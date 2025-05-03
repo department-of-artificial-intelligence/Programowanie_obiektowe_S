@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.Generic;
 
 namespace Lab8.WpfApp
 {
@@ -18,6 +19,7 @@ namespace Lab8.WpfApp
     public partial class MainWindow : Window
     {
         public IList<Student> Students { get; set; }
+        private Student selectedStudent;  // Wybrany student
 
         public MainWindow()
         {
@@ -38,5 +40,88 @@ namespace Lab8.WpfApp
             DataGridStudents.AutoGenerateColumns = false;
             DataGridStudents.ItemsSource = Students;
         }
+        private void AddStudent_Click(object sender, RoutedEventArgs e)
+        {
+            // Tworzymy okno dla nowego studenta
+            AddStudentWindow addWindow = new AddStudentWindow(null); // null wskazuje na nowego studenta
+            if (addWindow.ShowDialog() == true)
+            {
+                // Po zapisaniu studenta w oknie edycji, dodajemy go do listy
+                Students.Add(addWindow.Student);  // Zamiast addWindow.EditedStudent, używamy addWindow.Student
+
+                // Odświeżamy DataGrid
+                DataGridStudents.Items.Refresh();
+            }
+        }
+
+        private void EditStudent_Click(object sender, RoutedEventArgs e)
+        {
+            // Jeśli żaden student nie jest zaznaczony w DataGrid
+            if (selectedStudent == null)
+            {
+                MessageBox.Show("Please select a student to edit.");
+                return;
+            }
+
+            // Tworzymy okno edycji studenta, przekazując zaznaczonego studenta
+            EditStudentWindow editWindow = new EditStudentWindow(selectedStudent);
+            if (editWindow.ShowDialog() == true)
+            {
+                // Zaktualizowany student (dzięki przypisaniu w EditStudentWindow)
+                // Odświeżamy widok DataGrid
+                DataGridStudents.Items.Refresh();
+            }
+        }
+
+        private void ButtonRemoveStudentWindowShow_Click(object sender, RoutedEventArgs e)
+        {
+            if(DataGridStudents.SelectedItem is Student studentToRemove)
+            {
+                Students.Remove(studentToRemove);
+                DataGridStudents.Items.Refresh();
+            }
+        }
+
+        private void DataGridStudents_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (DataGridStudents.SelectedItem != null)
+            {
+                // Pobieramy wybranego studenta
+                Student selectedStudent = DataGridStudents.SelectedItem as Student;
+
+                // Ustawiamy DataGridGrades na listę ocen wybranego studenta
+                DataGridGrades.ItemsSource = selectedStudent.Grades;
+                DataGridGrades.Items.Refresh();
+            }
+        }
+        private void AddGrade_Click(object sender, RoutedEventArgs e)
+        {
+            // Sprawdzamy, czy wybrano studenta
+            if (DataGridStudents.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a student first.");
+                return;
+            }
+
+            // Pobieramy wybranego studenta
+            Student selectedStudent = DataGridStudents.SelectedItem as Student;
+
+            // Otwieramy okno do dodania oceny
+            AddGradeWindow addGradeWindow = new AddGradeWindow();
+            if (addGradeWindow.ShowDialog() == true)
+            {
+                // Dodajemy nową ocenę do listy ocen studenta
+                selectedStudent.AddGrade(addGradeWindow.NewGrade);
+
+                // Odświeżamy DataGrid ocen
+                DataGridGrades.ItemsSource = null; // Resetujemy ItemsSource
+                DataGridGrades.ItemsSource = selectedStudent.Grades; // Ustawiamy zaktualizowaną listę
+                DataGridGrades.Items.Refresh(); // Odświeżamy widok
+
+                // Informujemy o sukcesie
+                MessageBox.Show("Grade added successfully.");
+            }
+        }
+
     }
 }

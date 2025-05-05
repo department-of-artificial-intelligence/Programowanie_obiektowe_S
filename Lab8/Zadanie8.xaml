@@ -1,0 +1,51 @@
+﻿<Window x:Class="Lab8.Zadanie8"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8"
+        mc:Ignorable="d"
+        Title="Zadanie8" Height="367" Width="480">
+    <Grid Margin="0,0,0,-1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="265*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="99*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="99*"/>
+            <ColumnDefinition Width="253*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Add student"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Height="54"
+            Width="99"
+            Grid.Column="1"
+            Grid.Row="1"
+            Click="Button_Click" />
+
+        <Button Content="Delete student"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Height="54"
+            Width="100"
+            Grid.Column="3"
+            Grid.Row="1"
+            Click="DeleteButton_Click" />
+
+        <DataGrid x:Name="DataGridStudents"
+              Grid.ColumnSpan="4"
+              HorizontalAlignment="Left"
+              Margin="1,1,0,1"
+              Width="462"
+              AutoGenerateColumns="False"
+              SelectionChanged="DataGrid_SelectionChanged" Grid.Row="3" Grid.Column="1"/>
+    </Grid>
+</Window>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab4 {
-    internal interface IContainer {
-    }
+namespace Crud.Extensions {
+	public interface IContainer {
+	}
 }

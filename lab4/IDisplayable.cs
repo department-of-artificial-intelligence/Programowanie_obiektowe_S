@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab4 {
-    internal interface IDisplayable {
-    }
+namespace Crud.Extensions {
+	public interface IDisplayable {
+	}
 }

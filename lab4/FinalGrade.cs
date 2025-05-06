@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Crud.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
-namespace lab4 {
-	class FinalGrade {
-
+namespace lab4.bll {
+	public class FinalGrade : IDisplayable {
 		public Subject Subject { get; set; }
 		public DateTime Date { get; set; }
 		public double Value { get; set; }
@@ -17,11 +18,14 @@ namespace lab4 {
 			Date = date;
 		}
 
-
 		public override string ToString() {
-			return $"Subject: {this.Subject}, " +
-				   $"Date: {this.Date}, " +
-				   $"Value: {this.Value}";
+			string napis = "";
+
+			napis += $"Subject: {Subject} ";
+			napis += $"Date: {Date} ";
+			napis += $"Value: {Value}";
+
+			return napis;
 		}
 
 	}

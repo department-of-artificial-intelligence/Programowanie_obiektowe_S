@@ -1,0 +1,34 @@
+﻿<Window x:Class="Lab7.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab7.WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="300">
+    <Grid x:Name="_2">
+        <Button x:Name="_0" Content="0" HorizontalAlignment="Left" Margin="42,121,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="on_number_click"/>
+        <Button x:Name="_1" Content="1" HorizontalAlignment="Left" Margin="77,121,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="on_number_click"/>
+        <Button x:Name="_dwa" Content="2" HorizontalAlignment="Left" Margin="112,121,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="on_number_click"/>
+        <Button x:Name="_3" Content="3" HorizontalAlignment="Left" Margin="42,156,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="on_number_click"/>
+        <Button x:Name="_4" Content="4" HorizontalAlignment="Left" Margin="77,156,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="on_number_click"/>
+        <Button x:Name="_6" Content="6" HorizontalAlignment="Left" Margin="42,191,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="on_number_click"/>
+        <Button x:Name="_7" Content="7" HorizontalAlignment="Left" Margin="77,191,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="on_number_click"/>
+        <Button x:Name="_5" Content="5" HorizontalAlignment="Left" Margin="112,156,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="on_number_click"/>
+        <Button x:Name="_8" Content="8" HorizontalAlignment="Left" Margin="112,191,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="on_number_click"/>
+        <Button x:Name="_9" Content="9" HorizontalAlignment="Left" Margin="42,226,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="on_number_click"/>
+
+        <Button x:Name="dot" Content="." HorizontalAlignment="Left" Margin="92,273,0,0" VerticalAlignment="Top" Height="30" Width="30" Click="on_number_click"/>
+        <TextBox x:Name="MainText" HorizontalAlignment="Center" Margin="0,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="23"/>
+
+        <Button x:Name="add" Margin="191,121,0,0" Width="30" VerticalAlignment="Top" Height="65" HorizontalAlignment="Left" Content="+" Click="on_action_click"/>
+        <Button x:Name="clear" Margin="226,121,0,0" Width="30" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Content="C"/>
+        <Button x:Name="multiple" Margin="226,156,0,0" Width="30" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Content="*"/>
+        <Button x:Name="substract" Margin="191,191,0,0" Width="30" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Content="-"/>
+        <Button x:Name="divide" Margin="226,191,0,0" Width="30" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Content="/"/>
+        <Button x:Name="showResult" Margin="191,226,0,0" Width="62" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Content="=" Click="on_equals_click"/>
+
+
+    </Grid>
+
+</Window>

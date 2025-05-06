@@ -1,0 +1,31 @@
+﻿<Window x:Class="Lab7.BBL.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab7.BBL"
+        mc:Ignorable="d"
+        Title="Calculator" Height="400" Width="300">
+    <Grid>
+        <TextBox x:Name="Wynik" HorizontalAlignment="Center" Margin="0,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" HorizontalContentAlignment="Right">
+
+        </TextBox>
+        <Button x:Name="Przycisk1" Content="1" HorizontalAlignment="Left" Margin="50,117,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="Przycisk2" Content="2" HorizontalAlignment="Left" Margin="80,117,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="Przycisk3" Content="3" HorizontalAlignment="Left" Margin="110,117,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="Przycisk4" Content="4" HorizontalAlignment="Left" Margin="50,147,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="Przycisk5" Content="5" HorizontalAlignment="Left" Margin="80,147,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="Przycisk6" Content="6" HorizontalAlignment="Left" Margin="110,147,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="Przycisk7" Content="7" HorizontalAlignment="Left" Margin="50,177,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="Przycisk8" Content="8" HorizontalAlignment="Left" Margin="80,177,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="Przycisk9" Content="9" HorizontalAlignment="Left" Margin="110,177,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="Przycisk0" Content="0" HorizontalAlignment="Left" Margin="80,207,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="PrzyciskKropka" Content="." HorizontalAlignment="Left" Margin="110,276,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="PrzyciskPlus" Content="+" HorizontalAlignment="Left" Margin="197,117,0,0" VerticalAlignment="Top" Width="30" Height="65" Click="Sumuj"/>
+        <Button x:Name="PrzyciskC" Content="C" HorizontalAlignment="Left" Margin="232,117,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Wyczysc"/>
+        <Button x:Name="PrzyciskAsterisk" Content="*" HorizontalAlignment="Left" Margin="232,152,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Mnoz"/>
+        <Button x:Name="PrzyciskMinus" Content="-" HorizontalAlignment="Left" Margin="197,187,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Odejmuj"/>
+        <Button x:Name="PrzyciskSlash" Content="/" HorizontalAlignment="Left" Margin="232,187,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Dziel"/>
+        <Button x:Name="PrzyciskRownosc" Content="=" HorizontalAlignment="Left" Margin="197,222,0,0" VerticalAlignment="Top" Width="65" Height="30" Click="Rownaj"/>
+    </Grid>
+</Window>

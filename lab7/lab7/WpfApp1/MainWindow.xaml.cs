@@ -18,7 +18,11 @@ namespace WpfApp1
     {
         public MainWindow()
         {
-            InitializeComponent();
+            var button = new Button();
+            button.Click += zero_Click;
+            button.Click += jeden_Click;
+            button.Click += trzy_Click;
+            button.Click += kropka_Click;
         }
 
         private void zero_Click(object sender, RoutedEventArgs e)
@@ -28,8 +32,22 @@ namespace WpfApp1
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var clickedValue = (sender as Button).Text;
-            tbScreen.Text += clickedValue;
+            
+        }
+
+        private void jeden_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void trzy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void kropka_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

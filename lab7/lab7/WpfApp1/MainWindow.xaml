@@ -8,7 +8,7 @@
         Title="MainWindow" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" d:DesignWidth="257">
     <Grid Height="408" RenderTransformOrigin="0.53,0.51" Width="NaN">
         <Button x:Name="zero" Content="0" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" Height="40" Width="34" Click="zero_Click" />
-        <Button x:Name="jeden" Content="1" HorizontalAlignment="Left" Margin="49,177,0,0" VerticalAlignment="Top" Height="40" Width="34" />
+        <Button x:Name="jeden" Content="1" HorizontalAlignment="Left" Margin="49,177,0,0" VerticalAlignment="Top" Height="40" Width="34" Click="jeden_Click" />
         <Button x:Name="dwa" Content="2" HorizontalAlignment="Left" Margin="88,177,0,0" VerticalAlignment="Top" Height="40" Width="34" />
         <Button x:Name="piec" Content="5" HorizontalAlignment="Left" Margin="88,222,0,0" VerticalAlignment="Top" Height="40" Width="34"/>
         <Button x:Name="osiem" Content="8" HorizontalAlignment="Left" Margin="88,267,0,0" VerticalAlignment="Top" Height="40" Width="34"/>

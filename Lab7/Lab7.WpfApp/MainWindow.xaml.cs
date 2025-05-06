@@ -19,7 +19,8 @@ namespace Lab7.WpfApp {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-
+            if (sender is Button ButtonSTART)
+                ButtonSTART.Content += Tekst.Text;
         }
     }
 }

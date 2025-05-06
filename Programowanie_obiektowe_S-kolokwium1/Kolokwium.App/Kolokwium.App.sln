@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kolokwium.App", "Kolokwium.App\Kolokwium.App.csproj", "{EE9EE406-14D8-464F-98BA-4F5D0B28A094}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kolokwium.BLL", "Kolokwium.BLL\Kolokwium.BLL.csproj", "{1DC1E844-FC4E-4EC7-8CAD-C2C1F7972985}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE9EE406-14D8-464F-98BA-4F5D0B28A094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9EE406-14D8-464F-98BA-4F5D0B28A094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9EE406-14D8-464F-98BA-4F5D0B28A094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9EE406-14D8-464F-98BA-4F5D0B28A094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DC1E844-FC4E-4EC7-8CAD-C2C1F7972985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC1E844-FC4E-4EC7-8CAD-C2C1F7972985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC1E844-FC4E-4EC7-8CAD-C2C1F7972985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC1E844-FC4E-4EC7-8CAD-C2C1F7972985}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3213CE9D-C406-4372-86AD-A5741E0FFCE3}
+	EndGlobalSection
+EndGlobal

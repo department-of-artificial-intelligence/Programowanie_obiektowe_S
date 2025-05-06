@@ -10,6 +10,15 @@ namespace gosha
         public int Capacity { get; set; }
         public bool NeedCleaning {  get; set; }
         public List<Animal> Animals { get; set; }
+
+        public Zoo Zoo
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public Cage(int capacity, bool needCleaning, List<Animal> animals) {
             Capacity = capacity;
             NeedCleaning = needCleaning;

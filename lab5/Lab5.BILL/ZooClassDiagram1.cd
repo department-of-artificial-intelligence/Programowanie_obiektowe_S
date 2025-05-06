@@ -1,38 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="gosha.Bird">
-    <Position X="2.5" Y="0.75" Width="1.5" />
+    <Position X="1.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAIBAAAAAAA=</HashCode>
       <FileName>Ptaki.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="gosha.Reptile">
-    <Position X="2.5" Y="3.5" Width="1.5" />
+    <Position X="0.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Gad.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="gosha.Cage">
-    <Position X="5.25" Y="1.25" Width="1.5" />
+    <Position X="4.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAgAQAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAgAQAAACAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Klatka.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Zoo" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="gosha.Employee">
-    <Position X="7.5" Y="1.5" Width="1.5" />
+    <Position X="3.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAACEAAAAAAAAAAEEAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAACEAAAAAAAAAAEEAAAAAQAAAAAABIAAAAAAAAAAAA=</HashCode>
       <FileName>Opiekun.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Zoo" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="gosha.Zoo">
-    <Position X="5.25" Y="4" Width="1.5" />
+    <Position X="5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAAAAAAAAAQAAQECIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Zoo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="gosha.Animal">
+    <Position X="2.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQCEAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAgA=</HashCode>
+      <FileName>Zwierze.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Cage" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="gosha.Mammal">
+    <Position X="0.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Ssaki.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

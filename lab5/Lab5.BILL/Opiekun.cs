@@ -11,6 +11,15 @@ namespace gosha
         public string Name { get; set; }
         public string Role { get; set; }
         public List<Cage> AssignedCages { get; set; } = new List<Cage>();
+
+        public Zoo Zoo
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public Employee(int id, string name, string role)
         {
             Id = id;

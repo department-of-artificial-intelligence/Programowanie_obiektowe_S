@@ -11,14 +11,22 @@ namespace gosha
         public int Legs { get; set; }
         public string Habitat { get; set; }
         public string Species { get; set; }
-        
+
+        public Cage Cage
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public Animal(string diet, int legs, string habitat, string species)
         {
             Diet = diet;
             Legs = legs;
             Habitat = habitat;
             Species = species;
-   
+
 
         }
         public override string ToString()

@@ -12,20 +12,16 @@ namespace Lab1
         private string _adress;
         private int _carsCount;
         private int _capacity;
-
         public int Capacity { get { return _capacity; } set { _capacity = value; _cars = new Car[value]; } }
-
         public string Address { get { return _adress; } set { _adress = value; } }
-
         public Garage()
         {
             _capacity = 0;
             _cars = new Car[Capacity];
-            _adress = "nieznany";
+            _adress = "unknown";
             _carsCount = 0;
 
         }
-
         public Garage(string adress, int capacity)
         {
             Capacity = capacity;
@@ -34,55 +30,54 @@ namespace Lab1
             _carsCount = 0;
 
         }
-
         public void CarIn(Car car)
         {
             if (_carsCount == Capacity)
             {
-                Console.WriteLine("Brak miejsca w garażu");
+                Console.WriteLine("Garage is full");
+                return;
             }
             else
             {
                 _cars[_carsCount] = car;
-                Console.WriteLine("Dodano car do garażu");
+                Console.WriteLine("Added car to the garage");
                 _carsCount++;
             }
         }
-
         public Car CarOut()
         {
             if (_carsCount == 0)
             {
 
-                Console.WriteLine("Garaż jest pusty");
-                return null;
+                Console.WriteLine("Garage is empty");
+                return null!;
             }
             else
             {
                 _carsCount--;
                 Car temp = _cars[_carsCount];
-                Console.WriteLine("Deleted car from the garage");
-                _cars[_carsCount] = null;
+                Console.WriteLine($"Deleted {temp} from the garage");
+                _cars[_carsCount] = null!;
                 return temp;
 
             }
         }
-
         public override string ToString()
-        {
+        {   
             string temp = "";
             foreach (Car car in _cars)
             {
                 if (car != null)
-                { temp += car.ToString(); }
+                { 
+                    temp += car; 
+                }
 
             }
-            return temp;
+            return $"Garage [{Address}]: {temp}";
         }
-
         public void Details()
         {
-            Console.WriteLine(this.ToString());
+            Console.WriteLine(this);
         }
     }
 }

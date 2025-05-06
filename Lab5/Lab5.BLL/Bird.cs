@@ -1,6 +1,8 @@
-﻿namespace Lab5.BLL
+﻿using Generic.Extensions;
+
+namespace Lab5.BLL
 {
-    public class Bird : Animal
+    public class Bird : Animal, IContainer, IDisplayable
     {
         private double _wingWidth;
         private int _strength;

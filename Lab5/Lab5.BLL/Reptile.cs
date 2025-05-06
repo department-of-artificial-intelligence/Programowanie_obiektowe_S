@@ -1,6 +1,8 @@
-﻿namespace Lab5.BLL
+﻿using Generic.Extensions;
+
+namespace Lab5.BLL
 {
-    public class Reptile : Animal
+    public class Reptile : Animal, IContainer, IDisplayable
     {
         private bool _isVenomous;
 

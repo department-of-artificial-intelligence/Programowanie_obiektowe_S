@@ -8,29 +8,17 @@ using System.Threading.Tasks;
 
 namespace lab4
 {
-    internal class FinalGrade
-    {
-        private Subject _subject;
-        private DateTime _date;
-        private double _value;
+    public class FinalGrade : IDisplayable, IContainer
+    {        
 
-        public Subject Subject
-        {
-            get => _subject;
-            set => _subject = value;
-        }
+        public Subject Subject { get; set; }
 
-        public DateTime Date
-        {
-            get => _date;
-            set => _date = value;
-        }
 
-        public double Value
-        {
-            get => _value;
-            set => _value = value;
-        }
+        public DateTime Date { get; set; }
+
+
+        public double Value { get; set; }
+
 
         public FinalGrade(Subject subject, double value, DateTime date)
         {

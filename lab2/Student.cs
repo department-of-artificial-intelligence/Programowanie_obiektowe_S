@@ -1,4 +1,6 @@
-﻿namespace lab2
+﻿using System.Diagnostics;
+
+namespace lab2
 {
     internal class Student : Person
     {
@@ -44,7 +46,13 @@
 
         public override string ToString()
         {
-            return $"FirstName: {FirstName}, LastName: {LastName}, DateOfBirth: {DateOfBirth}, Year: {Year}, Group: {Group}, IndexId: {IndexId}";
+            string temp="";
+            foreach (Grade grade in Grades) 
+            { 
+                temp+=grade.ToString()+"\n";
+            }
+            
+            return $"FirstName: {FirstName}, LastName: {LastName}, DateOfBirth: {DateOfBirth}, Year: {Year}, Group: {Group}, IndexId: {IndexId}, Grades: {temp}";
         }
 
         public void AddGrade(string subjectName, double value, DateTime date)
@@ -59,28 +67,42 @@
 
         public void DisplayGrades()
         {
-
+            string temp = "";
+            foreach (Grade grade in Grades)
+            {
+                temp += grade.ToString() + "\n";
+            }
+            Console.WriteLine(temp);
         }
 
         public void DisplayGrades(string subjectName)
         {
+            string temp = "";
+            foreach (Grade grade in Grades)
+            {
+                if (grade.SubjectName==subjectName)
+                {
+                    temp += grade.ToString() + "\n";
 
+                }
+            }
+            Console.WriteLine(temp);
         }
         public void DeleteGrade(string subjectName, double value, DateTime date)
         {
-
+            Grades.Remove(new Grade(subjectName,value,date));
         }
         public void DeleteGrade(Grade grade)
         {
-
+            Grades.Remove(grade);
         }
         public void DeleteGrades(string subjectName)
         {
-
+            Grades.RemoveAll(g => g.SubjectName==subjectName);
         }
         public void DeleteGrades()
         {
-
+            Grades.Clear();
         }
     }
 }

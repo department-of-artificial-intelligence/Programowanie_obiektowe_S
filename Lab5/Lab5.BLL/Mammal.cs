@@ -1,12 +1,14 @@
-﻿namespace Lab5.BLL
+﻿using Generic.Extensions;
+
+namespace Lab5.BLL
 {
-    public class Mammal : Animal
+    public class Mammal : Animal,IContainer,IDisplayable
     {
-        private string _environment;
+        private string? _environment;
 
         public string Environment
         {
-            get { return _environment; }
+            get { return _environment!; }
             set { _environment = value; }
         }
         public Mammal(string foodType, int legsCount, string origin, string species, string environment) : base(foodType, legsCount, origin, species)

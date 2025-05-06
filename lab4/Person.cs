@@ -1,28 +1,13 @@
 ﻿namespace lab4
 {
-    internal class Person
+    public abstract class Person
     {
-        private string _firstName;
-        private string _lastName;
-        private DateTime _dateOfBirth;
+        
+        public string FirstName { get;set; }        
 
-        public string FirstName
-        {
-            get => _firstName;
-            set => _firstName = value;
-        }
+        public string LastName { get; set; }
 
-        public string LastName
-        {
-            get => _lastName;
-            set => _lastName = value;
-        }
-
-        public DateTime DateOfBirth
-        {
-            get => _dateOfBirth;
-            set => _dateOfBirth = value;
-        }
+        public DateTime DateOfBirth { get; set; }
 
         public Person(string firstName, string lastName, DateTime dateOfBirth)
         {

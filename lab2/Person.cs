@@ -2,19 +2,19 @@
 {
     internal class Person
     {
-        protected string _firstName;
-        protected string _lastName;
+        protected string? _firstName;
+        protected string? _lastName;
         protected DateTime _dateOfBirth;
 
         public string FirstName
         {
-            get { return _firstName; }
+            get { return _firstName!; }
             set { _firstName = value; }
         }
 
         public string LastName
         {
-            get { return _lastName; }
+            get { return _lastName!; }
             set { _lastName = value; }
 
         }

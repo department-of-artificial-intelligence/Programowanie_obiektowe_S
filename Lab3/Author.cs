@@ -8,13 +8,13 @@ namespace lab3
 {
     internal class Author
     {
-        protected string _firstName;
-        protected string _lastName;
-        protected string _nationality;
+        protected string? _firstName;
+        protected string? _lastName;
+        protected string? _nationality;
 
-        public string FirstName { get { return _firstName; } set { _firstName = value; } }
-        public string LastName { get { return _lastName; } set { _lastName = value; } }
-        public string Nationality { get { return _nationality; } set { _nationality = value; } }
+        public string FirstName { get { return _firstName!; } set { _firstName = value; } }
+        public string LastName { get { return _lastName!; } set { _lastName = value; } }
+        public string Nationality { get { return _nationality!; } set { _nationality = value; } }
 
         public Author() {
             FirstName = string.Empty;

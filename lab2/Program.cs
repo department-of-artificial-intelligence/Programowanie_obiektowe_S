@@ -1,9 +1,12 @@
-﻿namespace lab2
+﻿using lab2;
+
+namespace Lab2
 {
     internal class Program
     {
         static void Main(string[] args)
-        {
+        {   
+            //Zad1
             Person person1 = new Person("Adam", "Miś", new DateTime(1990, 3, 20, 12, 30, 10));
             Person person2 = new Student("Michał", "Kot", new DateTime(1990, 4, 13), 3, 5, 12345);
             Person person3 = new Player("Robert", "Lewandowski", new DateTime(1988, 10, 3), "Striker", "Bayern", 41);
@@ -15,6 +18,9 @@
             ((Player)person3).ScoreGoal();
             person3.Details();
 
+
+            Console.WriteLine("\n********************************************************\n");
+            //Zad2
             ((Student)person2).AddGrade("PO", 5.0D, new DateTime(2011, 2, 20));
             ((Student)person2).AddGrade("Bazy Danych", 5.0D, new DateTime(2011, 2, 13));
             person2.Details();
@@ -30,6 +36,20 @@
             student.AddGrade("AWWW", 5.0D, new DateTime(2011, 4, 3));
             student.DeleteGrades();
             student.Details();
+
+            Console.WriteLine("\n********************************************************\n");
+            //Zad3
+            Person footballPlayer =
+            new FootballPlayer("Mateusz", "Żbik", new DateTime(1986, 8, 10), "striker", "FC Barcelona", 10);
+            Person handballPlayer =
+             new HandballPlayer("Piotr", "Kos", new DateTime(1984, 9, 14), "striker", "FC Bayern",10);
+            footballPlayer.Details();
+            handballPlayer.Details();
+            ((Player)handballPlayer).ScoreGoal(); // rzutowanie bezpośrednie
+            (footballPlayer as Player)!.ScoreGoal(); // rzutowanie referencyjne
+            footballPlayer.Details();
+            handballPlayer.Details();
+
         }
     }
 }

@@ -9,8 +9,8 @@ namespace lab3
     internal abstract class Item
     {
         protected int _id;
-        protected string _title;
-        protected string _publisher;
+        protected string? _title;
+        protected string? _publisher;
         protected DateTime _dateOfIssue;
 
         public int Id
@@ -19,9 +19,9 @@ namespace lab3
             set { _id = value; }
         }
         public string Title
-            { get { return _title; } set { _title = value; } }
+            { get { return _title!; } set { _title = value; } }
         public string Publisher
-            { get { return _publisher; } set {_publisher = value; } }
+            { get { return _publisher!; } set {_publisher = value; } }
         public DateTime DateOfIssue 
             { get { return _dateOfIssue; } set {_dateOfIssue = value; } }
 
@@ -50,7 +50,7 @@ namespace lab3
 
         public void Details()
         {
-          Console.WriteLine(  this.ToString());
+          Console.WriteLine(this);
         }
 
         public abstract string GenerateBarCode();

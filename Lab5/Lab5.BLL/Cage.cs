@@ -1,12 +1,15 @@
-﻿namespace Lab5.BLL
+﻿using Generic.Extensions;
+using System.Diagnostics.Metrics;
+
+namespace Lab5.BLL
 {
-    public class Cage
+    public class Cage:IDisplayable,IContainer
     {
-        public static int counter = 0;
+        public static int _counter = 0;
         private int _id;
         private int _size;
         private bool _isCleaningNeed;
-        private List<Animal> _animals;
+        
 
         public int Size
         {
@@ -20,11 +23,7 @@
             set { _isCleaningNeed = value; }
         }
 
-        public List<Animal> Animals
-        {
-            get { return _animals; }
-            set { _animals = value; }
-        }
+        public IList<Animal> Animals { get; set; } 
 
         public int Id
         {
@@ -32,23 +31,21 @@
             set { _id = value; }
         }
 
-        public Cage(int size, bool iscleaningneed, List<Animal> animals)
+        public Cage(int size, bool isCleaningNeed, List<Animal> animals)
         {
-            counter++;
+            _counter++;
+            Id = _counter;
             Size = size;
-            IsCleaningNeed = iscleaningneed;
-            Animals = animals;
-            Id = counter;
+            IsCleaningNeed = isCleaningNeed;
+            Animals = animals ?? new List<Animal>();
         }
 
         public override string ToString()
         {
-            string a = "";
-            foreach (Animal animal in Animals)
-            {
-                a += animal + ", ";
-            }
-            return $"Cage[Id={Id}]: Size={Size}, IsCleaningNeeded={IsCleaningNeed}, Animals={a} ";
+            string animalList = Animals.Count > 0
+                ? string.Join(", ", Animals.Select(a => a.ToString()))
+                : "none";
+            return $"Cage[Id={Id}]: Size={Size}, IsCleaningNeeded={IsCleaningNeed}, Animals={animalList}";
         }
     }
 }

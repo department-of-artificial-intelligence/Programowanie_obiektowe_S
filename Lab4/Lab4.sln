@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab4", "Lab4.csproj", "{9C6EE893-C1AB-48D3-B7A0-6A16814E18E1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B529B833-7398-4D8C-8B65-D7435DE5241C} = {B529B833-7398-4D8C-8B65-D7435DE5241C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generic.Extensions", "..\Generic.Extensions\Generic.Extensions.csproj", "{B529B833-7398-4D8C-8B65-D7435DE5241C}"
 EndProject

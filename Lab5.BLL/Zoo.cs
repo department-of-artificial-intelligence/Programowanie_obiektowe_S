@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+//using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using Generic.Extensions;
 
 namespace Lab5.BLL
 {
-    public class Zoo
+    public class Zoo : IContainer, IDisplayable
     {
         private string _name;
-        private System.Collections.Generic.List<Employee> _employees;
-        private System.Collections.Generic.List<Cage> _cages;
-        private System.Collections.Generic.List<Animal> _animals;
+        private System.Collections.Generic.IList<Employee> _employees;
+        private System.Collections.Generic.IList<Cage> _cages;
+        private System.Collections.Generic.IList<Animal> _animals;
 
-        public Zoo(string name, System.Collections.Generic.List<Employee> employees, System.Collections.Generic.List<Cage> cages, System.Collections.Generic.List<Animal> animals)
+        public Zoo(string name, System.Collections.Generic.IList<Employee> employees, System.Collections.Generic.IList<Cage> cages, System.Collections.Generic.IList<Animal> animals)
         {
             _name = name;
             _employees = employees;

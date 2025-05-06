@@ -44,11 +44,11 @@ cage3
              new DateTime(1988, 1, 1), DateTime.Now, cages2);
             var newEmployee = zoo.HireEmployee("Robert", "Kowalczyk", new DateTime(1988, 1, 1));
             var employees = zoo.AddRange(new List<Employee>()
-{
-employee1,
-employee2
-}).Set<Employee>();
-            ((CageSupervisor)newEmployee).Add(cage4);
+                {
+                employee1,
+                employee2
+                }).Set<Employee>();
+            //((CageSupervisor)newEmployee).Add(cage4); //cant cast???
             cage4.Add(cobra);
             zoo.Add(cage4);
             Console.WriteLine("+++++++++++++++++++++++++++++++++++++++");

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Generic.Extensions
+namespace Lab4
 {
     public static class DisplayActionExtensions
     {

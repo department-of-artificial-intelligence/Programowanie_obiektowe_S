@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Generic.Extensions; 
 
 namespace Lab5.BLL
 {
-    public class Employee
+    public class Employee: IDisplayable
     {
         private string _firstName;
         private string _lastName;
@@ -16,6 +17,18 @@ namespace Lab5.BLL
             _firstName = firstName;
             _lastName = lastName;
             _dateOfBirth = dateOfBirth;
+        }
+
+        public string FirstName 
+        {
+            get { return _firstName; }
+            set { _firstName = value; }
+        }
+
+        public string LastName
+        {
+            get { return _lastName; }
+            set { _lastName = value; }
         }
     }
 }

@@ -15,7 +15,7 @@
             ((Player)person3).ScoreGoal();
             person3.Details();
 
-            ((Student)person2).AddGrade("PO", 5.0D, new DateTime(2011, 2, 20)); 
+            (person2 as Student).AddGrade("PO", 5.0D, new DateTime(2011, 2, 20)); 
             ((Student)person2).AddGrade("Bazy Danych", 5.0D, new DateTime(2011, 2, 13));
             person2.Details();
             Grade grade = new Grade("Bazy Danych", 5.0D, new DateTime(2011, 5, 1));

@@ -39,7 +39,7 @@ namespace Lab8.WpfApp
         private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
         {
             if(!Regex.IsMatch(input TextBoxFirstName.Text, pattern: @"^\p{L}{1,12}$") ||
-                )
+                 )
         }
         
     }

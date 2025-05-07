@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
-        Title="AddStudentWindow" Height="450" Width="800">
+        Title="AddStudentWindow" Height="350" Width="350">
     <Grid>
-        <Label Content="First name:" HorizontalAlignment="Left" Margin="83,107,0,0" VerticalAlignment="Top" Width="91"/>
-        <TextBox x:Name="TextBoxFirstName" HorizontalAlignment="Left" Margin="189,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <Label Content="Sur name:" HorizontalAlignment="Left" Margin="83,151,0,0" VerticalAlignment="Top" Width="91"/>
-        <TextBox x:Name="TextBoxSurName" HorizontalAlignment="Left" Margin="189,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <Label Content="Student no:" HorizontalAlignment="Left" Margin="83,191,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.535,2.285"/>
-        <TextBox x:Name="TextBoxStudentNo" HorizontalAlignment="Left" Margin="189,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <Label Content="Faculty:" HorizontalAlignment="Left" Margin="83,234,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.535,2.285"/>
-        <TextBox x:Name="TextBoxFaculty" HorizontalAlignment="Left" Margin="189,238,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <Button x:Name ="ButtonAddStudent" Content="Add student" HorizontalAlignment="Left" Margin="174,306,0,0" VerticalAlignment="Top"/>
+        <Label Content="First name:" HorizontalAlignment="Left" Margin="62,67,0,0" VerticalAlignment="Top" Width="91"/>
+        <TextBox x:Name="TextBoxFirstName" HorizontalAlignment="Left" Margin="168,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Sur name:" HorizontalAlignment="Left" Margin="62,111,0,0" VerticalAlignment="Top" Width="91"/>
+        <TextBox x:Name="TextBoxSurName" HorizontalAlignment="Left" Margin="168,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Student no:" HorizontalAlignment="Left" Margin="62,151,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.535,2.285"/>
+        <TextBox x:Name="TextBoxStudentNo" HorizontalAlignment="Left" Margin="168,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Faculty:" HorizontalAlignment="Left" Margin="62,194,0,0" VerticalAlignment="Top" Width="91" RenderTransformOrigin="0.535,2.285"/>
+        <TextBox x:Name="TextBoxFaculty" HorizontalAlignment="Left" Margin="168,198,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name ="ButtonAddStudent" Content="Add student" HorizontalAlignment="Left" Margin="153,266,0,0" VerticalAlignment="Top" Click="ButtonAddStudent_Click"/>
 
     </Grid>
 </Window>

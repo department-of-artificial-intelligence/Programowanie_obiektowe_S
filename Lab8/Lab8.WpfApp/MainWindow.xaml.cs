@@ -32,6 +32,30 @@ namespace Lab8.WpfApp
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "StudentNo", Binding = new Binding(path: "StudentNo") });
             DataGridStudents.AutoGenerateColumns = false;
             DataGridStudents.ItemsSource = Students;
+
+            
+        }
+
+        private void AddStudent_Click(object sender, RoutedEventArgs e)
+        {
+            // Tworzymy okno dla nowego studenta
+            AddStudentWindow addWindow = new AddStudentWindow(null); // null wskazuje na nowego studenta
+            if (addWindow.ShowDialog() == true)
+            {
+                // Po zapisaniu studenta w oknie edycji, dodajemy go do listy
+                Students.Add(addWindow.Student);  // Zamiast addWindow.EditedStudent, używamy addWindow.Student
+
+                // Odświeżamy DataGrid
+                DataGridStudents.Items.Refresh();
+            }
+        }
+        private void ButtonRemoveStudentWindowShow_Click(object sender, EventArgs e)
+        {
+            if(DataGridStudents.SelectedItem is Student studentToRemove)
+            {
+                Students.Remove(studentToRemove);
+                DataGridStudents.Items.Refresh();
+            }
         }
     }
 }

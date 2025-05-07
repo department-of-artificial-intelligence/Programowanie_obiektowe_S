@@ -38,8 +38,23 @@ namespace Lab8.WpfApp
 
         private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
         {
-            if(!Regex.IsMatch(input TextBoxFirstName.Text, pattern: @"^\p{L}{1,12}$") ||
-                 )
+            if(!Regex.IsMatch(input: TextBoxFirstName.Text, pattern: @"^\p{L}{1,12}$") ||
+               !Regex.IsMatch(input: TextBoxSurName.Text, pattern: @"^\p{L}{1,12}$") ||
+               !Regex.IsMatch(input: TextBoxFaculty.Text, pattern: @"^\p{L}{1,12}$") ||
+               !Regex.IsMatch(input: TextBoxStudentNo.Text, pattern: @"^[0-9]{4,10}$"))
+            {
+                MessageBox.Show(messageBoxText: "Invalid input data");
+                return;
+            }
+
+            Student.FirstName = TextBoxFirstName.Text;
+            Student.SurName = TextBoxSurName.Text;
+            Student.Faculty = TextBoxFaculty.Text;
+            if (!int.TryParse(TextBoxStudentNo.Text, out int studentNo))
+                MessageBox.Show(messageBoxText: "Student is not a number");
+            Student.StudentNo = studentNo;
+            DialogResult = true;
+
         }
         
     }

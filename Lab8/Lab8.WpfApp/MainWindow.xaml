@@ -8,15 +8,17 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="1,0,-1,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="137*"/>
-            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="383*"/>
+            <ColumnDefinition Width="17*"/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGridStudents_SelectionChanged" Margin="10,62,62,10" RenderTransformOrigin="0.809,0.717" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="DataGridGrades" HorizontalAlignment="Left" Margin="28,284,0,0" VerticalAlignment="Top" Width="692" Height="98" AutoGenerateColumns="True" Grid.ColumnSpan="2"/>
-        <Button x:Name="AddStudent" Content="Add student" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="0.031,0.453" Click="AddStudent_Click"/>
-        <Button x:Name="DeleteStudent" Content="Delete student" HorizontalAlignment="Left" Margin="120,24,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="0.031,0.453" Click="ButtonRemoveStudentWindowShow_Click"/>
-        <Button x:Name="EditStudent" Content="Edit Student" HorizontalAlignment="Left" Margin="229,24,0,0" VerticalAlignment="Top" Width="98" Click="EditStudent_Click"/>
+        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGridStudents_SelectionChanged" Margin="10,62,2,10" RenderTransformOrigin="0.809,0.717"/>
+        <DataGrid x:Name="DataGridGrades" HorizontalAlignment="Left" Margin="28,284,0,0" VerticalAlignment="Top" Width="692" Height="98" AutoGenerateColumns="True"/>
+        <Button x:Name="AddStudent" Content="Add student" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="0.031,0.453" Click="AddStudent_Click" Height="20"/>
+        <Button x:Name="DeleteStudent" Content="Delete student" HorizontalAlignment="Left" Margin="120,24,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="0.031,0.453" Click="ButtonRemoveStudentWindowShow_Click" Height="20"/>
+        <Button x:Name="EditStudent" Content="Edit Student" HorizontalAlignment="Left" Margin="229,24,0,0" VerticalAlignment="Top" Width="98" Click="EditStudent_Click" Height="20"/>
+        <Button x:Name="SaveFile" Content="Save to txt file" Margin="341,24,316,0" VerticalAlignment="Top" Click="SaveFile_Click" Height="20"/>
+        <Button x:Name="LoadFile" Content="Load from XML file" Margin="462,24,170,0" VerticalAlignment="Top" Click="LoadFile_Click" Height="20"/>
         <Button Content="Add Grade" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="120,220,0,0" Click="AddGrade_Click"/>
     </Grid>
 </Window>

@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Lab8.WpfApp
 {
@@ -89,9 +90,12 @@ namespace Lab8.WpfApp
                 // Pobieramy wybranego studenta
                 Student selectedStudent = DataGridStudents.SelectedItem as Student;
 
-                // Ustawiamy DataGridGrades na listę ocen wybranego studenta
-                DataGridGrades.ItemsSource = selectedStudent.Grades;
-                DataGridGrades.Items.Refresh();
+                if (selectedStudent != null)
+                {
+                    // Ustawiamy DataGridGrades na listę ocen wybranego studenta
+                    DataGridGrades.ItemsSource = selectedStudent.Grades;
+                    DataGridGrades.Items.Refresh();
+                }
             }
         }
         private void AddGrade_Click(object sender, RoutedEventArgs e)
@@ -123,5 +127,88 @@ namespace Lab8.WpfApp
             }
         }
 
+        private void SaveFile_Click(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("data.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+
+            foreach(Student s in Students) {
+                sw.WriteLine("[[Student]]");
+                sw.WriteLine("[[Firstname]]");
+                sw.WriteLine($"{s.Firstname}");
+                sw.WriteLine("[Surname]");
+                sw.WriteLine($"{s.Surname}");
+                sw.WriteLine("[StudentNo]");
+                sw.WriteLine($"{s.StudentNo}");
+                sw.WriteLine("[Faculty]");
+                sw.WriteLine($"{s.Faculty}");
+                sw.WriteLine("[[]]");
+            }
+
+            sw.Close();
+
+            MessageBox.Show("Data saved to the file successfully.");
+        }
+
+        private void LoadFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var loadedStudents = new List<Student>();
+
+                using (StreamReader sr = new StreamReader("data.txt"))
+                {
+                    Student currentStudent = null;
+
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+
+                        if (line == "[[Student]]")
+                        {
+                            currentStudent = new Student();
+                        }
+                        else if (line == "[[Firstname]]" && currentStudent != null)
+                        {
+                            currentStudent.Firstname = sr.ReadLine();
+                        }
+                        else if (line == "[Surname]" && currentStudent != null)
+                        {
+                            currentStudent.Surname = sr.ReadLine();
+                        }
+                        else if (line == "[StudentNo]" && currentStudent != null)
+                        {
+                            if (int.TryParse(sr.ReadLine(), out int studentNo))
+                            {
+                                currentStudent.StudentNo = studentNo;
+                            }
+                        }
+                        else if (line == "[Faculty]" && currentStudent != null)
+                        {
+                            currentStudent.Faculty = sr.ReadLine();
+                        }
+                        else if (line == "[[]]" && currentStudent != null)
+                        {
+                            loadedStudents.Add(currentStudent);
+                            currentStudent = null;
+                        }
+                    }
+                }
+
+                // Zastępujemy istniejącą listę nowymi studentami
+                Students = loadedStudents;
+
+                // Odświeżamy źródło danych DataGrid
+                DataGridStudents.ItemsSource = null;
+                DataGridStudents.ItemsSource = Students;
+                DataGridStudents.Items.Refresh();
+
+                MessageBox.Show("Data loaded successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading the file:\n{ex.Message}");
+            }
+        }
     }
 }

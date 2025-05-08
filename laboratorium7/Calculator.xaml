@@ -22,12 +22,12 @@
         <Button Content="8" HorizontalAlignment="Left" Margin="150,265,0,0" VerticalAlignment="Top" Height="32" Width="40" Click="kliknij"/>
         <Button Content="9" HorizontalAlignment="Left" Margin="70,297,0,0" VerticalAlignment="Top" Height="32" Width="40" Click="kliknij"/>
         <Button Content="." HorizontalAlignment="Left" Margin="110,329,0,0" VerticalAlignment="Top" Height="32" Width="40" Click="kliknij"/>
-        <Button Content="=" HorizontalAlignment="Left" Margin="400,297,0,0" VerticalAlignment="Top" Height="32" Width="80"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="400,265,0,0" VerticalAlignment="Top" Height="32" Width="40"/>
-        <Button Content="/" HorizontalAlignment="Left" Margin="440,265,0,0" VerticalAlignment="Top" Height="32" Width="40"/>
-        <Button Content="*" HorizontalAlignment="Left" Margin="440,233,0,0" VerticalAlignment="Top" Height="32" Width="40"/>
-        <Button Content="C" HorizontalAlignment="Left" Margin="440,0,0,0" VerticalAlignment="Center" Height="32" Width="40"/>
-        <Button Content="+" HorizontalAlignment="Left" Margin="400,201,0,0" VerticalAlignment="Top" Height="64" Width="40"/>
+        <Button Content="=" HorizontalAlignment="Left" Margin="400,297,0,0" VerticalAlignment="Top" Height="32" Width="80" Click="wynik"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="400,265,0,0" VerticalAlignment="Top" Height="32" Width="40" Click="opMat"/>
+        <Button Content="/" HorizontalAlignment="Left" Margin="440,265,0,0" VerticalAlignment="Top" Height="32" Width="40" Click="opMat"/>
+        <Button Content="*" HorizontalAlignment="Left" Margin="440,233,0,0" VerticalAlignment="Top" Height="32" Width="40" Click="opMat"/>
+        <Button Content="C" HorizontalAlignment="Left" Margin="440,0,0,0" VerticalAlignment="Center" Height="32" Width="40" Click="wyczysc"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="400,201,0,0" VerticalAlignment="Top" Height="64" Width="40" Click="opMat"/>
         <TextBox x:Name="TekstCalc" HorizontalAlignment="Left" Margin="190,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" Height="40"/>
 
     </Grid>

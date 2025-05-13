@@ -1,0 +1,41 @@
+﻿<Window x:Class="Lab8.AddStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8"
+        mc:Ignorable="d"
+        Title="AddStudentWindow" Height="350" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="124*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="34*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="49*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="TextBoxFirstName" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="116" Height="27" Grid.Column="1" TextChanged="TextBoxFirstName_TextChanged"/>
+        <TextBox x:Name="TextBoxSurName" HorizontalAlignment="Center" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" Width="116" Height="27" Grid.Column="1" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="TextBoxStudentNo" HorizontalAlignment="Center" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Width="116" Height="27" Grid.Column="1"/>
+        <TextBox x:Name="TextBoxFaculty" HorizontalAlignment="Center" Grid.Row="10" TextWrapping="Wrap" VerticalAlignment="Center" Width="116" Height="27" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="76" Height="16"><Run Language="pl-pl" Text="First Name:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Margin="0,8,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" Height="16"><Run Language="pl-pl" Text="Sur Name:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Width="76" Height="16"><Run Language="pl-pl" Text="Student no.:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Margin="0,2,0,0" Grid.Row="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" Height="16"><Run Text="Faculty"/><Run Language="pl-pl" Text=":"/></TextBlock>
+        <Button Content="Add student" HorizontalAlignment="Left" Grid.Row="12" VerticalAlignment="Center" Height="30" Width="115" Click="ButtonAddStudent_Click" Grid.ColumnSpan="2" Margin="93,0,0,0"/>
+
+    </Grid>
+</Window>

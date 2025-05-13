@@ -39,14 +39,22 @@ namespace Lab8
             DataGridStudents.ItemsSource = Students;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Tworzymy nowe okno
+            AddStudentWindow addStudentWindow = new AddStudentWindow();
+
+            // Otwieramy okno
+            addStudentWindow.Show();
+
+            
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,6 +67,11 @@ namespace Lab8
                 // Możesz np. wyświetlić jego dane lub użyć ich gdzieś dalej
                 MessageBox.Show($"Wybrano studenta: {selectedStudent.FirstName} {selectedStudent.SurName}");
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

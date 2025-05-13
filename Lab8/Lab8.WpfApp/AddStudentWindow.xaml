@@ -1,0 +1,21 @@
+﻿<Window x:Class="Lab8.WpfApp.AddStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8.WpfApp"
+        mc:Ignorable="d"
+        Title="AddStudentWindow" Height="250" Width="250" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="First name" HorizontalAlignment="Left" Height="25" Margin="10,20,0,0" VerticalAlignment="Top" Width="75" HorizontalContentAlignment="Right"/>
+        <Label Content="Sur name" HorizontalAlignment="Left" Height="25" Margin="10,50,0,0" VerticalAlignment="Top" Width="75" HorizontalContentAlignment="Right"/>
+        <Label Content="Students no." HorizontalAlignment="Left" Height="25" Margin="10,80,0,0" VerticalAlignment="Top" Width="75" HorizontalContentAlignment="Right"/>
+        <Label Content="Faculty" HorizontalAlignment="Left" Height="25" Margin="10,110,0,0" VerticalAlignment="Top" Width="75" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Right" Margin="0,20,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="25"/>
+        <TextBox x:Name="SurNameTextBox" HorizontalAlignment="Right" Margin="0,50,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="25"/>
+        <TextBox x:Name="StudentsNoTextBox" HorizontalAlignment="Right" Margin="0,80,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="25"/>
+        <TextBox x:Name="FacultyTextBox" HorizontalAlignment="Right" Margin="0,110,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="25"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.782,0.703" Height="25" Width="100" Click="Button_Click"/>
+
+    </Grid>
+</Window>

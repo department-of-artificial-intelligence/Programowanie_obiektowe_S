@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 
 namespace Lab8.WpfApp
 {
@@ -53,6 +54,14 @@ namespace Lab8.WpfApp
                 DataGridStudents.Items.Refresh();
             };
             addStudentWindow.Show();
+        }
+
+        private void ButtonSaveDataToTxt_Click(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("data.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine("[[Student]]");
+            sw.Close();
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Lab8.WpfApp
         public MainWindow()
         {
             InitializeComponent();
+
             Students = new List<Student>()
             {
                 new Student(){imie = "Jan", nazwisko = "Kowalski", wydzial = "WIMII", nrIndeksu = 1010},
@@ -26,21 +27,34 @@ namespace Lab8.WpfApp
             };
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "imie", Binding = new Binding("imie") });
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "nazwisko", Binding = new Binding("nazwisko") });
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "wydział", ClipboardContentBinding = new Binding("wydział") });
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "nrIndeksu", ClipboardContentBinding = new Binding("nrIndeksu") });
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "oceny", ClipboardContentBinding = new Binding("scaloneOceny") });
+            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "wydział", Binding = new Binding("wydzial") });
+            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "nrIndeksu", Binding = new Binding("nrIndeksu") });
+            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "oceny", Binding = new Binding("scaloneOceny") });
             DataGridStudents.AutoGenerateColumns = false;
             DataGridStudents.ItemsSource = Students;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+        private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
+        {
+            AddStudentWindow addStudentWindow = new AddStudentWindow();
+            addStudentWindow.ShowDialog();
+
+            if (!(addStudentWindow.DialogResult ?? false)) return;
+
+            Students.Add(addStudentWindow.Student);
+
+            DataGridStudents.Items.Refresh();
+        }
+        private void ButtonDeleteStudent_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataGridStudents.SelectedItem is Student studentToRemove)
+            {
+                Students.Remove(studentToRemove);
+                DataGridStudents.Items.Refresh();
+                return;
+            }
         }
     }
 }

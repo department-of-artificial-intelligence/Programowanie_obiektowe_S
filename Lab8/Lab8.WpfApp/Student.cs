@@ -18,5 +18,6 @@ namespace Lab8.WpfApp
         public string nazwisko { get => Nazwisko; set => Nazwisko = value; }
         public string wydzial { get => Wydzial; set => Wydzial = value; }
         public int nrIndeksu { get => NrIndeksu; set => NrIndeksu = value; }
+
     }
 }

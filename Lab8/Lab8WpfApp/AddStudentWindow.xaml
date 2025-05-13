@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
-        Title="AddStudentWindow" Height="450" Width="800">
+        Title="AddStudentWindow" Height="200" Width="220">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Top"/>
         <TextBox Name="TextBoxFirstName" HorizontalAlignment="Left" Margin="75,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
@@ -15,7 +15,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="15,60,0,0" TextWrapping="Wrap" Text="Sur Name:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="4,83,0,0" TextWrapping="Wrap" Text="Student No.:" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="31,106,0,0" TextWrapping="Wrap" Text="Faculty:" VerticalAlignment="Top"/>
-        <Button Name="AddStudent" Content="Add Student" HorizontalAlignment="Left" Margin="15,127,0,0" VerticalAlignment="Top" Width="180" Height="32"/>
+        <Button x:Name="AddStudent" Content="Add Student" HorizontalAlignment="Left" Margin="15,127,0,0" VerticalAlignment="Top" Width="180" Height="32" Click="ButtonAddStudent_Click"/>
 
     </Grid>
 </Window>

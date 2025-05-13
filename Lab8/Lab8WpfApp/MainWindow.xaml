@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGrid_SelectionChanged" Margin="0,53,0,-53"/>
-        <Button Name="AddStudentMain" Content="Add Student" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="99" Height="36" Click="AddStudentMain_Click"/>
+        <Button x:Name="AddStudent" Content="Add Student" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="99" Height="36" Click="ButtonAddStudentWindowShow_Click"/>
+        <Button x:Name="DeleteStudent" Content="Delete Student" HorizontalAlignment="Left" Margin="114,10,0,0" VerticalAlignment="Top" Width="94" Height="36" Click="ButtonRemoveStudentWindowShow_Click"/>
+        <DataGrid Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,53,0,-53"/>
 
     </Grid>
 </Window>

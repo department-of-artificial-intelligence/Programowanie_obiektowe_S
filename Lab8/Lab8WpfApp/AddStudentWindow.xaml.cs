@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace Lab8.WpfApp
 {
@@ -33,6 +34,23 @@ namespace Lab8.WpfApp
                 TextBoxSurName.Text = student.SurName;
             }
             Student = student ?? new Student();
+        }
+
+        private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
+        {
+            if(!Regex.IsMatch(TextBoxFirstName.Text, @"^\p{L}{1,12}$") ||
+               !Regex.IsMatch(TextBoxSurName.Text, @"^\p{L}{1,12}$") ||
+               !Regex.IsMatch(TextBoxFaculty.Text, @"^\p{L}{1,12}$") ||
+               !Regex.IsMatch(TextBoxStudentNo.Text, @"^[0-9]{4,10}$"))
+            {
+                MessageBox.Show("Invalid input data");
+                return;
+            }
+            Student.FirstName = TextBoxFirstName.Text;
+            Student.SurName = TextBoxSurName.Text;
+            Student.Faculty = TextBoxFaculty.Text;
+            Student.StudentNo = TextBoxStudentNo.Text;
+            DialogResult = true;
         }
     }
 }

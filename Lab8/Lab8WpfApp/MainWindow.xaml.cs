@@ -30,7 +30,7 @@ namespace Lab8WpfApp
                 new Student(){FirstName = "Michał", SurName = "Nowak", Faculty = "WIMII", StudentNo = "1011"},
                 new Student(){FirstName = "Jacek", SurName = "Makieta", Faculty = "WIMII", StudentNo = "1012"},
             };
-            DataGridStudents.Columns.Add(item:new DataGridTextColumn() { Header = "First name", Binding = new Binding(path:"FirstName") });
+            DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "First name", Binding = new Binding(path: "FirstName") });
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Sur name", Binding = new Binding(path: "SurName") });
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Faculty", Binding = new Binding(path: "Faculty") });
             DataGridStudents.Columns.Add(item: new DataGridTextColumn() { Header = "Student No.", Binding = new Binding(path: "StudentNo") });
@@ -39,14 +39,27 @@ namespace Lab8WpfApp
             DataGridStudents.ItemsSource = Students;
         }
 
-        private void AddStudentMain_Click(object sender, RoutedEventArgs e)
+        private void ButtonAddStudentWindowShow_Click(object sender, RoutedEventArgs e)
         {
-            /*if(!Regex.IsMatch(TextBoxFirstName.Text, @"^\p{L}{1,12}$") ||
-               !Regex.IsMatch(input: TextBoxSurName.Text, pattern: @"^\p{L}{1,12}$") ||
-               !Regex.IsMatch(input: TextBoxFaculty.Text, pattern: @"^\p{L}{1,12}$") ||
-               !Regex.IsMatch(input: TextBoxStudentNo.Text, pattern: @"^\p{L}{1,12}$") ||)*/
-    
-            //ShowDialog(AddStudentWindow);
+            if (sender is Button AddStudent)
+            {
+                AddStudentWindow addStudentWindow = new AddStudentWindow();
+                addStudentWindow.ShowDialog();
+                if (addStudentWindow.DialogResult ?? false)
+                {
+                    Students.Add(addStudentWindow.Student);
+                }
+                DataGridStudents.Items.Refresh();
+            }
+        }
+
+        private void ButtonRemoveStudentWindowShow_Click(object sender, RoutedEventArgs e)
+        {
+            if(DataGridStudents.SelectedItem is Student studentToRemove)
+            {
+                Students.Remove(studentToRemove);
+                DataGridStudents.Items.Refresh();
+            }
         }
     }
 }

@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="Students" Height="450" Width="800">
     <Grid>
-        <Button Content="Add Student&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="24" Width="103"/>
+        <Button Content="Add Student&#xD;&#xA;" Click="AddStudentBTN" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="24" Width="103"/>
         <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,59,0,-60"/>
-        <Button Content="Delete Student&#xD;&#xA;" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Height="24" Width="103"/>
+        <Button Content="Delete Student&#xD;&#xA;" Click="DeleteStudentBTN" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Height="24" Width="103"/>
+        <Button Content="Add Grade" Click="AddGradeBTN" HorizontalAlignment="Left" Margin="253,12,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

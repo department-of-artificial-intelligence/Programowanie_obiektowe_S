@@ -1,0 +1,17 @@
+﻿<Window x:Class="Lab8.WpfApp.AddGradeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8.WpfApp"
+        mc:Ignorable="d"
+        Title="AddGradeWindow" Height="257" Width="362">
+    <Grid>
+        <TextBox x:Name="TextBoxSubjectValue" HorizontalAlignment="Right" Margin="0,53,121,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBoxGradeValue" HorizontalAlignment="Center" Margin="0,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"  />
+        <TextBlock HorizontalAlignment="Left" Margin="64,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.963"><Run Language="pl-pl" Text="Subject"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="69,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-2.269,0.525"><Run Language="pl-pl" Text="Value"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
+        <Button Content="AddGrade" Click="AddGradeBTN" HorizontalAlignment="Center" Margin="0,159,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

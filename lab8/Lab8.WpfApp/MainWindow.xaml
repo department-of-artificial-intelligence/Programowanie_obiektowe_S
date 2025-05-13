@@ -1,0 +1,18 @@
+﻿<Window x:Class="Lab8.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8.WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="600">
+    <Grid>
+        <Button Name ="ButtonAddStudent" Content="Add student" HorizontalAlignment="Left" Height="42" Margin="20,130,0,0" VerticalAlignment="Top" Width="120" Click="ButtonAddStudent_Click"/>
+        <Button Name ="ButtonDeleteStudent" Content="Delete student" HorizontalAlignment="Left" Height="42" Margin="162,130,0,0" VerticalAlignment="Top" Width="120" Click="ButtonDeleteStudent_Click"/>
+        <DataGrid Name="DataGridStudents" HorizontalAlignment="Left" Height="284" Margin="20,200,0,0" VerticalAlignment="Top" Width="564" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button x:Name ="ButtonAddGrade" Content="Add Grade" HorizontalAlignment="Left" Height="42" Margin="302,130,0,0" VerticalAlignment="Top" Width="120" Click="ButtonAddGrade_Click"/>
+        <Button x:Name ="ButtonLoadTxt" Content="Load from txt file" HorizontalAlignment="Left" Height="21" Margin="440,151,0,0" VerticalAlignment="Top" Width="120" Click="ButtonLoadTxt_Click"/>
+        <Button x:Name ="ButtonSaveTxt" Content="Save to txt file" HorizontalAlignment="Left" Height="21" Margin="440,130,0,0" VerticalAlignment="Top" Width="120" Click="ButtonSaveTxt_Click"/>
+
+    </Grid>
+</Window>

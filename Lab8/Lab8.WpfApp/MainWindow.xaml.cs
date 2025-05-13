@@ -1,6 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace Lab8.WpfApp
 {
@@ -15,15 +13,10 @@ namespace Lab8.WpfApp
             InitializeComponent();
             Students = new List<Student>()
             {
-                new Student(){ FirstName = "Jan", LastName = "Kowalski", NumerIndeksu = 1010, Department = "WISII"},
-                new Student(){ FirstName = "Michal", LastName = "Nowak", NumerIndeksu = 1011, Department = "WISII"},
-                new Student(){ FirstName = "Jacek", LastName = "Makieta", NumerIndeksu = 1012, Department = "WISII"}
+                new Student(){ FirstName = "Jan", LastName = "Kowalski", NumerIndeksu = 1010, Department = "WISII", JoinedGrades = new List<Grade>{ new Grade(3.0f), new Grade(4.5f), new Grade(5.0f) }},
+                new Student(){ FirstName = "Michal", LastName = "Nowak", NumerIndeksu = 1011, Department = "WISII", JoinedGrades = new List<Grade>{ new Grade(4.0f), new Grade(4.0f), new Grade(4.0f) }},
+                new Student(){ FirstName = "Jacek", LastName = "Makieta", NumerIndeksu = 1012, Department = "WISII", JoinedGrades = new List<Grade>{ new Grade(3.0f), new Grade(3.5f), new Grade(3.0f) }}
             };
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "First name", Binding = new Binding("FirstName") });
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Last name", Binding = new Binding("LastName") });
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Numer Indeksu", Binding = new Binding("NumerIndeksu") });
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Department", Binding = new Binding("Department") });
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Grades", Binding = new Binding("JoinedGrades") });
             DataGridStudents.AutoGenerateColumns = false;
             DataGridStudents.ItemsSource = Students;
         }
@@ -34,6 +27,20 @@ namespace Lab8.WpfApp
             {
                 Students.Remove(studentToRemove);
                 DataGridStudents.Items.Refresh();
+            }
+        }
+
+        private void ButtonAddGrade_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataGridStudents.SelectedItem is Student selectedStudent)
+            {
+                AddGradeWindow addGradeWindow = new AddGradeWindow();
+                addGradeWindow.gradeAdded += (Grade grade) =>
+                {
+                    selectedStudent.JoinedGrades.Add(grade);
+                    DataGridStudents.Items.Refresh();
+                };
+                addGradeWindow.Show();
             }
         }
 

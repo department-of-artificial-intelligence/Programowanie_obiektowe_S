@@ -6,9 +6,28 @@
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
         Title="Students" Height="450" Width="800">
+    <Window.Resources>
+        <local:GradeListToStringConverter x:Key="GradeListToStringConverter"/>
+    </Window.Resources>
     <Grid>
-        <DataGrid x:Name="DataGridStudents" Margin="50, 120, 50, 10"/>
+        <DataGrid x:Name="DataGridStudents" 
+          Margin="50,120,50,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
+                <DataGridTextColumn Header="Index Number" Binding="{Binding NumerIndeksu}" />
+                <DataGridTextColumn Header="Department" Binding="{Binding Department}" />
+                <DataGridTemplateColumn Header="Grades">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding JoinedGrades, Converter={StaticResource GradeListToStringConverter}}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Content="Add student" HorizontalAlignment="Left" Margin="50,30,0,0" VerticalAlignment="Top" Height="60" Width="155" Click="ButtonOpenDialogAddStudent_Click"/>
         <Button Content="Delete student" HorizontalAlignment="Left" Margin="230,30,0,0" VerticalAlignment="Top" Height="60" Width="155" Click="ButtonRemoveStudentWindowShow_Click"/>
+        <Button Content="Add grade" HorizontalAlignment="Left" Margin="410,30,0,0" VerticalAlignment="Top" Height="60" Width="155" Click="ButtonAddGrade_Click"/>
     </Grid>
 </Window>

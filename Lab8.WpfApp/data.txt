@@ -1,0 +1,33 @@
+[[Student]]
+[FirstName]
+Jan
+[Surname]
+Kowalski
+[Faculty]
+WIMII
+[StudentNo]
+1010
+[Grades]
+asd: 123; asda: 1233
+[[Student]]
+[FirstName]
+Michał
+[Surname]
+Nowak
+[Faculty]
+WIMII
+[StudentNo]
+1011
+[Grades]
+a: 33; b: 123
+[[Student]]
+[FirstName]
+Jacek
+[Surname]
+Makieta
+[Faculty]
+WIMII
+[StudentNo]
+1012
+[Grades]
+

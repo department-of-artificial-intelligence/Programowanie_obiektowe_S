@@ -1,4 +1,5 @@
 ﻿using Lab8.BLL;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace Lab8.WpfApp
 {
@@ -33,7 +35,7 @@ namespace Lab8.WpfApp
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Surname", Binding = new Binding("Surname") });
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Faculty", Binding = new Binding("Faculty") });
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Student No.", Binding = new Binding("StudentNo") });
-            //DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Grades", Binding = new Binding("JoinedGrades") });
+            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Grades", Binding = new Binding("Grades") { Mode = BindingMode.TwoWay, Converter = new GradesConverter()}});
             DataGridStudents.AutoGenerateColumns = false;
             DataGridStudents.ItemsSource = Students;
             
@@ -47,7 +49,6 @@ namespace Lab8.WpfApp
             if (!(addStudentWindow.DialogResult ?? false)) return;
             
             Students.Add(addStudentWindow.Student);
-
             DataGridStudents.Items.Refresh();
             return;
         }
@@ -59,6 +60,67 @@ namespace Lab8.WpfApp
                 Students.Remove(studentToRemove);
                 DataGridStudents.Items.Refresh();
                 return;
+            }
+        }
+
+        private void ButtonAddGrade_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataGridStudents.SelectedItem is Student studentToEdit)
+            {
+                AddGradeWindow addGradeWindow = new AddGradeWindow();
+                addGradeWindow.ShowDialog();
+                if (!(addGradeWindow.DialogResult ?? false)) return;
+                studentToEdit.Grades.Add(addGradeWindow.Grade);
+                DataGridStudents.Items.Refresh();
+                return;
+            }
+        }
+
+        private void ButtonSaveTxt_Click(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("D:\\LocalAccounts\\Student\\Documents\\Jakub_Bytner\\Lab8.WpfApp\\data.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+
+            //sw.WriteLine("[[Student]]");
+            var properties = Students[0].GetType().GetProperties();
+            foreach (var student in Students)
+            {
+                sw.WriteLine("[[Student]]");
+                foreach (var property in properties)
+                {
+                    sw.WriteLine("[" + property.Name + "]");
+                    if (property.Name != "Grades") sw.WriteLine(property.GetValue(student));
+                    else sw.WriteLine(student.WriteGrades());
+                }
+            }
+            sw.Close();
+            MessageBox.Show("Saved!");
+        }
+
+        private void ButtonLoadTxt_Click(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("D:\\LocalAccounts\\Student\\Documents\\Jakub_Bytner\\Lab8.WpfApp\\data.txt", FileMode.Open);
+            StreamReader sr = new StreamReader(fs);
+
+            //var properties = Students[0].GetType().GetProperties();
+
+            while (!sr.EndOfStream)
+            {
+                var ln = sr.ReadLine();
+                Student? student = null;
+                if(ln == "[[Student]]")
+                {
+                    if (student != null) Students.Add(student);
+                    student = new Student();
+                } else if (ln.StartsWith("["))
+                {
+                    ln = ln.Substring(1, ln.Length-2);
+                    MessageBox.Show(ln);
+                    if (student.GetType().GetProperty(ln) != null)
+                    {
+
+                    }
+                }
             }
         }
     }

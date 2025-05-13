@@ -7,7 +7,7 @@ namespace Lab8.BLL
         public string Surname { get; set; }
         public string Faculty { get; set; }
         public int StudentNo { get; set; }
-        public List<Grade> Grades { get; set; }
+        public List<Grade> Grades { get; set; } = new List<Grade>();
 
         public string WriteGrades()
         {

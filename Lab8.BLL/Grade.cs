@@ -11,6 +11,8 @@ namespace Lab8.BLL
         public string Subject {  get; set; }
         public decimal Value { get; set; }
 
+        public Grade() { }
+
         public Grade(string subject, decimal value) 
         {
             Subject = subject;

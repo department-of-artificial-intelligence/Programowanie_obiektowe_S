@@ -1,0 +1,21 @@
+﻿<Window x:Class="lab8.AddStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab8"
+        mc:Ignorable="d"
+        Title="AddStudentWindow" Height="300" Width="300">
+    <Grid>
+        <Label Content="First Name:" HorizontalAlignment="Left" Margin="53,54,0,0" VerticalAlignment="Top"/>
+        <Label Content="Last Name:" HorizontalAlignment="Left" Margin="53,85,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.168,0.233"/>
+        <Label Content="Faculty:" HorizontalAlignment="Left" Margin="53,124,0,0" VerticalAlignment="Top"/>
+        <Label Content="Student No:" HorizontalAlignment="Left" Margin="59,165,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="fname" HorizontalAlignment="Left" Margin="137,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="lname" HorizontalAlignment="Left" Margin="137,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="fac" HorizontalAlignment="Left" Margin="137,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="num" HorizontalAlignment="Left" Margin="137,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="add" Content="Add Student" HorizontalAlignment="Center" Margin="0,215,0,0" VerticalAlignment="Top" Click="dodaj"/>
+
+    </Grid>
+</Window>

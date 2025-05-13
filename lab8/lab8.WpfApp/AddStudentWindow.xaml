@@ -12,7 +12,7 @@
         <TextBox x:Name="TextBoxSurName" HorizontalAlignment="Left" Margin="227,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TextBoxStudentNo" HorizontalAlignment="Left" Margin="227,109,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TextBoxFaculty" HorizontalAlignment="Left" Margin="227,146,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Sur  Name:" HorizontalAlignment="Left" Margin="155,79,0,0"Margin="155,66,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sur  Name:" HorizontalAlignment="Left" Margin="155,79,0,0" VerticalAlignment="Top"/>
         <Label Content="Student No.:&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="148,109,0,0" VerticalAlignment="Top" Height="30"/>
         <Label Content="Faculty:" HorizontalAlignment="Left" Margin="155,146,0,0" VerticalAlignment="Top"/>
         <Button x:Name="ButtonAddStudent" Content="Add student" HorizontalAlignment="Left" Margin="216,197,0,0" VerticalAlignment="Top" Click="ButtonAddStudentClick_Click"/>

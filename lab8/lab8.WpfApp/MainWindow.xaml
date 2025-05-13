@@ -12,8 +12,17 @@
             <RowDefinition Height="171*"/>
         </Grid.RowDefinitions>
         <Button x:Name="ButtonAddStudentClick" Content="Add student" HorizontalAlignment="Left" Margin="56,10,0,0" VerticalAlignment="Top" Height="56" Width="133" Click="Button_Click"/>
-        <Button Content="Delete student" HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top" Height="56" Width="133" Click="Button_Click_1"/>
-        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,92,10,-83" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False" Grid.RowSpan="2"/>
+        <Button x:Name="Delete_but" Content="Delete student" HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top" Height="56" Width="133" Click="Button_Click_1"/>
+        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="5,59,5,-142" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False" Grid.Row="1"/>
+        <Button Content="Close stream" HorizontalAlignment="Left" Margin="413,10,0,0" VerticalAlignment="Top" Width="118"/>
+        <Button Content="Load another student" HorizontalAlignment="Left" Margin="413,0,0,0" VerticalAlignment="Center"/>
+        <Button Content="Load from textfile" HorizontalAlignment="Left" Margin="413,62,0,0" VerticalAlignment="Top" Width="118"/>
+        <Button x:Name="Savetotxt" Content="Save to txt file" HorizontalAlignment="Left" Margin="413,87,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Width="118" Click="Button_Click_2"/>
+        <Button Content="Load from txt file" HorizontalAlignment="Left" Margin="413,20,0,0" Grid.Row="1" VerticalAlignment="Top" Width="118"/>
+        <Button Content="Save to xml file" HorizontalAlignment="Left" Margin="542,87,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Width="100" Click="Button_Click_3"/>
+        <Button x:Name="loadxml" Content="Load from xml file" HorizontalAlignment="Left" Margin="542,20,0,0" Grid.Row="1" VerticalAlignment="Top" Click="loadxml_Click"/>
+        <Button Content="Save to JSON file" HorizontalAlignment="Left" Margin="656,87,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Width="110"/>
+        <Button Content="Load from JSON file" HorizontalAlignment="Left" Margin="656,20,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

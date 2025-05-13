@@ -47,7 +47,7 @@ namespace lab8.WpfApp
             if (!Regex.IsMatch(input: TextBoxFirstName.Text, pattern: @"^\p{L}{1,12}$") ||
                 !Regex.IsMatch(input: TextBoxSurName.Text, pattern: @"^\p{L}{1,12}$") ||
                 !Regex.IsMatch(input: TextBoxFaculty.Text, pattern: @"^\p{L}{1,12}$") ||
-                !Regex.IsMatch(input: TextBoxStudentNo.Text, pattern: @"^\p{L}{1,12}$"))
+                !Regex.IsMatch(input: TextBoxStudentNo.Text, pattern: @"^[0-9]{4,10}$"))
             {
                 MessageBox.Show(messageBoxText: "Invaid input data");
                 return;

@@ -12,6 +12,7 @@ namespace Lab8.BLL
         public string SurName { get; set; }
         public string Faculty {  get; set; }
         public int StudentNo {  get; set; }
+        //public List<int> Grades { get; set; }
         public Student(string firstName, string surName, string faculty, int studentNo)
         {
             FirstName = firstName;

@@ -10,6 +10,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Xml.Serialization;
+using System.Text.Json;
 
 namespace lab8
 {
@@ -19,6 +21,7 @@ namespace lab8
     public partial class MainWindow : Window
     {
         new IList<Student> Students {  get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -62,6 +65,18 @@ namespace lab8
                 DataGridStudents.Items.Refresh();
             }
 
+        }
+
+        private void DodajOcene(object sender, RoutedEventArgs e)
+        {
+            AddGrade g1 = new AddGrade();
+            g1.ShowDialog();
+
+            if(g1.DialogResult == true) 
+            {
+                //odwolac sie do grades
+                DataGridStudents.Items.Refresh();
+            }
         }
 
         private void zapiszDoTXT(object sender, RoutedEventArgs e)
@@ -125,5 +140,66 @@ namespace lab8
 
             MessageBox.Show("Wczytano studentow z data.txt");
         }
+
+        private void zapiszXML(object sender, RoutedEventArgs e)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Student>));
+            using (FileStream fs = new FileStream("data.xml", FileMode.Create))
+            {
+                serializer.Serialize(fs, Students.ToList());
+            }
+
+            MessageBox.Show("Zapisano do pliku xml");
+        }
+
+        private void ZaladujXML(object sender, RoutedEventArgs e)
+        {
+            if (!File.Exists("data.xml"))
+            {
+                MessageBox.Show("Brak pliku data.xml");
+                return;
+            }
+
+            XmlSerializer serializer = new XmlSerializer (typeof(List<Student>));
+            using (FileStream fs = new FileStream("data.xml", FileMode.Open))
+            {
+                Students = (List<Student>)serializer.Deserialize(fs);
+            }
+            DataGridStudents.ItemsSource = Students;
+            DataGridStudents.Items.Refresh();
+            MessageBox.Show("Wczytano studentów z data.xml");
+        }
+
+        private void DodajJSON(object sender, RoutedEventArgs e)
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonStr = JsonSerializer.Serialize(Students.ToList(), options);
+            File.WriteAllText("data.json", jsonStr);
+
+            MessageBox.Show("Dodano do data.json");
+
+        }
+
+        private void ZaladujJSON(object sender, RoutedEventArgs e)
+        {
+            if (!File.Exists("data.json"))
+            {
+                MessageBox.Show("Nie ma takiego pliku");
+                return;
+            }
+
+            string jsonStr = File.ReadAllText("data.json");
+            var loadedStud = JsonSerializer.Deserialize<List<Student>>(jsonStr);
+
+            Students = loadedStud;
+            DataGridStudents.ItemsSource = Students;
+            DataGridStudents.Items.Refresh();
+
+            MessageBox.Show("Zaladowano do data.json");
+
+
+        }
+
+  
     }
 }

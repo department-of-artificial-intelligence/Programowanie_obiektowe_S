@@ -10,17 +10,17 @@
         <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGrid_SelectionChanged"/>
         <Button Content="Add Student" HorizontalAlignment="Left" Margin="65,258,0,0" VerticalAlignment="Top" Click="dodajStudenta"/>
         <Button x:Name="del" Content="Delete Student" HorizontalAlignment="Left" Margin="151,258,0,0" VerticalAlignment="Top" Click="usun"/>
-        <Button Content="Add Grade" HorizontalAlignment="Left" Margin="249,258,0,0" VerticalAlignment="Top"/>
+        <Button Content="Add Grade" HorizontalAlignment="Left" Margin="249,258,0,0" VerticalAlignment="Top" Click="DodajOcene"/>
         <Button Content="Close Stream" HorizontalAlignment="Left" Margin="400,202,0,0" VerticalAlignment="Top"/>
         <Button Content="Load Another Student&#xD;&#xA;" HorizontalAlignment="Left" Margin="400,227,0,0" VerticalAlignment="Top"/>
         <Button Content="Load from txt file
                 " HorizontalAlignment="Left" Margin="400,268,0,0" VerticalAlignment="Top"/>
         <Button Content="save to txt" HorizontalAlignment="Left" Margin="400,321,0,0" VerticalAlignment="Top" Click="zapiszDoTXT"/>
         <Button Content="load from txt&#xD;&#xA;" HorizontalAlignment="Left" Margin="400,346,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.15,0.459" Click="wczytajTXT"/>
-        <Button Content="save to XML" HorizontalAlignment="Left" Margin="497,321,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.452,0.211"/>
-        <Button Content="load to XML" HorizontalAlignment="Left" Margin="497,354,0,0" VerticalAlignment="Top"/>
-        <Button Content="save to JSON" HorizontalAlignment="Left" Margin="594,321,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.149,0.061"/>
-        <Button Content="load from JSON" HorizontalAlignment="Left" Margin="594,354,0,0" VerticalAlignment="Top"/>
+        <Button Content="save to XML" HorizontalAlignment="Left" Margin="497,321,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.452,0.211" Click="zapiszXML"/>
+        <Button Content="load to XML" HorizontalAlignment="Left" Margin="497,354,0,0" VerticalAlignment="Top" Click="ZaladujXML"/>
+        <Button Content="save to JSON" HorizontalAlignment="Left" Margin="594,321,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.149,0.061" Click="DodajJSON"/>
+        <Button Content="load from JSON" HorizontalAlignment="Left" Margin="594,354,0,0" VerticalAlignment="Top" Click="ZaladujJSON"/>
 
     </Grid>
 </Window>

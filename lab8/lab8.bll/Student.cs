@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace lab8.bll
 {
+    //[Serializable]
     public class Student
     {
         public string FirstName { get; set; }
@@ -14,7 +15,7 @@ namespace lab8.bll
         public string Faculty { get; set; }
         public int StudNo {  get; set; }
 
-        public IList<int> Grades { get; set; }
+        public List<Grade> Grades { get; set; }
 
         public Student() 
         {
@@ -22,7 +23,7 @@ namespace lab8.bll
             LastName = "none";
             Faculty = "none";
             StudNo = 0;
-            Grades = new List<int>();
+            Grades = new List<Grade>();
             
         }
 
@@ -32,7 +33,7 @@ namespace lab8.bll
             LastName = lastName;
             Faculty = faculty;
             StudNo = studNo;
-            Grades = new List<int>();
+            Grades = new List<Grade>();
         }
     }
 }

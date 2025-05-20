@@ -8,8 +8,4 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Lab8.BLL\Lab8.BLL.csproj" />
-  </ItemGroup>
-
 </Project>

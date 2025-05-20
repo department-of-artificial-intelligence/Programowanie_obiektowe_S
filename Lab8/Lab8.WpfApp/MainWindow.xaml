@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Students" Height="450" Width="800">
     <Grid>
+        <DataGrid x:Name="Tabela" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,93,10,10" RenderTransformOrigin="0.492,0.523" SelectionChanged="DataGrid_SelectionChanged"/>
+        <Button x:Name="Dodaj" Content="Add student" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="50" Width="150"/>
+        <Button x:Name="Usun" Content="Delete student" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Height="50" Width="150"/>
 
     </Grid>
 </Window>

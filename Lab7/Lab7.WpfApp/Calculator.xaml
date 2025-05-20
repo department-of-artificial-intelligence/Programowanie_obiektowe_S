@@ -20,7 +20,7 @@
         <Button x:Name="Przycisk8" Content="8" HorizontalAlignment="Left" Margin="80,177,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
         <Button x:Name="Przycisk9" Content="9" HorizontalAlignment="Left" Margin="110,177,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
         <Button x:Name="Przycisk0" Content="0" HorizontalAlignment="Left" Margin="80,207,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
-        <Button x:Name="PrzyciskKropka" Content="." HorizontalAlignment="Left" Margin="110,276,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
+        <Button x:Name="PrzyciskKropka" Content="," HorizontalAlignment="Left" Margin="110,276,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="PobierzLiczbe"/>
         <Button x:Name="PrzyciskPlus" Content="+" HorizontalAlignment="Left" Margin="197,117,0,0" VerticalAlignment="Top" Width="30" Height="65" Click="Sumuj"/>
         <Button x:Name="PrzyciskC" Content="C" HorizontalAlignment="Left" Margin="232,117,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Wyczysc"/>
         <Button x:Name="PrzyciskAsterisk" Content="*" HorizontalAlignment="Left" Margin="232,152,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Mnoz"/>

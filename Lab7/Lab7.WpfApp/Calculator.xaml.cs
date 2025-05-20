@@ -1,30 +1,97 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Globalization;
 
 namespace Lab7.BBL {
-    /// <summary>
-    /// Interaction logic for Calculator.xaml
-    /// </summary>
     public partial class Calculator : Window {
+        private double _pierwszaLiczba = 0;
+        private double _drugaLiczba = 0;
+        private string _operacja = "";
+        private bool _czyNowaLiczba = true;
+
         public Calculator() {
             InitializeComponent();
         }
-        static double liczba = 0;
 
         private void PobierzLiczbe(object sender, RoutedEventArgs e) {
-            if(sender is Button button) {
-                Wynik.Text += button.Content;
+            Button przycisk = (Button)sender;
+            string wartosc = przycisk.Content.ToString();
+
+            if (_czyNowaLiczba) {
+                Wynik.Text = "";
+                _czyNowaLiczba = false;
+            }
+
+            if (wartosc == "." && Wynik.Text.Contains(".")) {
+                return;
+            }
+
+            Wynik.Text += wartosc;
+        }
+
+        private void Wyczysc(object sender, RoutedEventArgs e) {
+            Wynik.Text = "0";
+            _pierwszaLiczba = 0;
+            _drugaLiczba = 0;
+            _operacja = "";
+            _czyNowaLiczba = true;
+        }
+
+        private void UstawOperacje(string operacja) {
+            if (!string.IsNullOrEmpty(Wynik.Text)) {
+                _pierwszaLiczba = double.Parse(Wynik.Text, CultureInfo.InvariantCulture);
+                _operacja = operacja;
+                _czyNowaLiczba = true;
+            }
+        }
+
+        private void Sumuj(object sender, RoutedEventArgs e) {
+            UstawOperacje("+");
+        }
+
+        private void Odejmuj(object sender, RoutedEventArgs e) {
+            UstawOperacje("-");
+        }
+
+        private void Mnoz(object sender, RoutedEventArgs e) {
+            UstawOperacje("*");
+        }
+
+        private void Dziel(object sender, RoutedEventArgs e) {
+            UstawOperacje("/");
+        }
+
+        private void Rownaj(object sender, RoutedEventArgs e) {
+            if (!string.IsNullOrEmpty(_operacja) && !_czyNowaLiczba) {
+                _drugaLiczba = double.Parse(Wynik.Text, CultureInfo.InvariantCulture);
+                double wynik = 0;
+
+                switch (_operacja) {
+                    case "+":
+                        wynik = _pierwszaLiczba + _drugaLiczba;
+                        break;
+                    case "-":
+                        wynik = _pierwszaLiczba - _drugaLiczba;
+                        break;
+                    case "*":
+                        wynik = _pierwszaLiczba * _drugaLiczba;
+                        break;
+                    case "/":
+                        if (_drugaLiczba != 0) {
+                            wynik = _pierwszaLiczba / _drugaLiczba;
+                        } else {
+                            MessageBox.Show("Nie można dzielić przez zero!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                            Wyczysc(sender, e);
+                            return;
+                        }
+                        break;
+                }
+
+                Wynik.Text = wynik.ToString();
+                _pierwszaLiczba = wynik;
+                _czyNowaLiczba = true;
+                _operacja = "";
             }
         }
     }

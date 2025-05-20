@@ -30,7 +30,7 @@ namespace Lab8.WpfApp
             { 
                 TextBoxFaculty.Text = student.Faculty;
                 TextBoxFirstName.Text = student.FirstName;
-                TextBoxStudentNo.Text = student.StudentNo;
+                TextBoxStudentNo.Text = student.StudentNo.ToString();
                 TextBoxSurName.Text = student.SurName;
             }
             Student = student ?? new Student();
@@ -49,7 +49,7 @@ namespace Lab8.WpfApp
             Student.FirstName = TextBoxFirstName.Text;
             Student.SurName = TextBoxSurName.Text;
             Student.Faculty = TextBoxFaculty.Text;
-            Student.StudentNo = TextBoxStudentNo.Text;
+            Student.StudentNo = int.Parse(TextBoxStudentNo.Text);
             DialogResult = true;
         }
     }

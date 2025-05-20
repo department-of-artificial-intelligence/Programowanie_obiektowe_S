@@ -19,7 +19,7 @@ namespace Lab8.BLL
             set;
         }
 
-        public string StudentNo
+        public int StudentNo
         {
             get;
             set;

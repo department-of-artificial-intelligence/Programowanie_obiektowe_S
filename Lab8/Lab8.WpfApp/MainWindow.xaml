@@ -6,12 +6,17 @@
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
         Title="Students" Height="450" Width="800">
-    <Grid>
-        <Button Content="Add Student&#xD;&#xA;" Click="AddStudentBTN" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="24" Width="103"/>
-        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,59,0,-60"/>
-        <Button Content="Delete Student&#xD;&#xA;" Click="DeleteStudentBTN" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Height="24" Width="103"/>
-        <Button Content="Add Grade" Click="AddGradeBTN" HorizontalAlignment="Left" Margin="253,12,0,0" VerticalAlignment="Top"/>
+    <Grid Margin="1,0,-1,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="63*"/>
+        </Grid.ColumnDefinitions>
 
-
+        <DataGrid x:Name="DataGridStudents" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGridStudents_SelectionChanged" Margin="10,62,62,10" RenderTransformOrigin="0.809,0.717" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="DataGridGrades" HorizontalAlignment="Left" Margin="28,284,0,0" VerticalAlignment="Top" Width="692" Height="98" AutoGenerateColumns="True" Grid.ColumnSpan="2"/>
+        <Button x:Name="AddStudent" Content="Add student" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="0.031,0.453" Click="AddStudent_Click"/>
+        <Button x:Name="DeleteStudent" Content="Delete student" HorizontalAlignment="Left" Margin="120,24,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="0.031,0.453" Click="ButtonRemoveStudentWindowShow_Click"/>
+        <Button x:Name="EditStudent" Content="Edit Student" HorizontalAlignment="Left" Margin="229,24,0,0" VerticalAlignment="Top" Width="98" Click="EditStudent_Click"/>
+        <Button Content="Add Grade" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="120,220,0,0" Click="AddGrade_Click"/>
     </Grid>
 </Window>

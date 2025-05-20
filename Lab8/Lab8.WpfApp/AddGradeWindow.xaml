@@ -6,12 +6,16 @@
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
         Title="AddGradeWindow" Height="257" Width="362">
-    <Grid>
-        <TextBox x:Name="TextBoxSubjectValue" HorizontalAlignment="Right" Margin="0,53,121,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TextBoxGradeValue" HorizontalAlignment="Center" Margin="0,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"  />
-        <TextBlock HorizontalAlignment="Left" Margin="64,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.573,0.963"><Run Language="pl-pl" Text="Subject"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="69,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-2.269,0.525"><Run Language="pl-pl" Text="Value"/><LineBreak/><Run Language="pl-pl"/></TextBlock>
-        <Button Content="AddGrade" Click="AddGradeBTN" HorizontalAlignment="Center" Margin="0,159,0,0" VerticalAlignment="Top"/>
+    <Grid Margin="10">
+        <Label Content="Subject:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxSubject" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,10,10,0" Width="200"/>
 
+        <Label Content="Score:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,40,0,0"/>
+        <TextBox x:Name="TextBoxScore" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,40,10,0" Width="200"/>
+
+        <Label Content="Date:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,80,0,0"/>
+        <DatePicker x:Name="DatePickerGradeDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,80,10,0" Width="200"/>
+
+        <Button Content="Add Grade" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,120,0,0" Width="200" Height="30" Click="ButtonAddGrade_Click"/>
     </Grid>
 </Window>

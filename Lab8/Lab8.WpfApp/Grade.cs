@@ -1,20 +1,23 @@
 ﻿namespace Lab8.WpfApp
 {
+
     public class Grade
     {
-        public float Value { get; set; }
-
         public string Subject { get; set; }
+        public double Score { get; set; }
+        public DateTime Date { get; set; }
 
-        public Grade(float value, string subject)
+        public Grade(string subject, double score, DateTime date)
         {
-            Value = value;
             Subject = subject;
+            Score = score;
+            Date = date;
         }
 
         public override string ToString()
         {
-            return Subject + "-" + Value;
+            return $"{Subject}: {Score}, {Date.ToShortDateString()}";
         }
     }
+
 }

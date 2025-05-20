@@ -9,15 +9,15 @@ namespace Lab8.WpfApp
     public partial class AddStudentWindow : Window
     {
         public Student Student { get; set; }
-        public AddStudentWindow(Student student = null!)
+        public AddStudentWindow(Student student = null)
         {
             InitializeComponent();
             if (student != null)
             {
                 TextBoxFaculty.Text = student.Faculty;
-                TextBoxFirstName.Text = student.FirstName;
+                TextBoxFirstName.Text = student.Firstname;
                 TextBoxStudentNo.Text = student.StudentNo.ToString();
-                TextBoxSurname.Text = student.SurName;
+                TextBoxSurname.Text = student.Surname;
             }
             Student = student ?? new Student();
         }
@@ -27,29 +27,21 @@ namespace Lab8.WpfApp
             if (!Regex.IsMatch(TextBoxFirstName.Text, @"^\p{L}{1,12}$") ||
                 !Regex.IsMatch(TextBoxSurname.Text, @"^\p{L}{1,12}$") ||
                 !Regex.IsMatch(TextBoxFaculty.Text, @"^\p{L}{1,12}$") ||
-                    !Regex.IsMatch(TextBoxStudentNo.Text, @"^[0-9]{4,10}$")
-                )
+                !Regex.IsMatch(TextBoxStudentNo.Text, @"^[0-9]{4,10}$"))
             {
-                MessageBox.Show("Invalid input data");
+                MessageBox.Show("Invalid input data.");
                 return;
             }
-            Student.FirstName = TextBoxFirstName.Text;
-            Student.SurName = TextBoxSurname.Text;
+
+            Student.Firstname = TextBoxFirstName.Text;
+            Student.Surname = TextBoxSurname.Text;
             Student.Faculty = TextBoxFaculty.Text;
+
             if (!int.TryParse(TextBoxStudentNo.Text, out int studentNo))
-            {
-                MessageBox.Show("Student is not a number");
+                MessageBox.Show("Student is not a number.");
 
-
-            }
-            else
-            {
-                Student.StudentNo = studentNo;
-            }
-
+            Student.StudentNo = studentNo;
             DialogResult = true;
         }
-
-
     }
 }

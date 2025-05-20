@@ -10,38 +10,61 @@ namespace Lab8.WpfApp
     public partial class MainWindow : Window
     {
         public IList<Student> Students { get; set; }
-
+        private Student selectedStudent;  // Wybrany student
 
         public MainWindow()
         {
             InitializeComponent();
+
             Students = new List<Student>
-            { new Student(){FirstName="Jan", SurName="Kowalski", Faculty="WIMII", StudentNo=1010,JoinedGrades=JGrades(new List<Grade>{new Grade(3.5f,"PO"),new Grade(4.5f,"SO") })},
-                new Student(){FirstName="Michał", SurName="Nowak", Faculty="WIMII", StudentNo=1011},
-                new Student(){FirstName="Jacek", SurName="Makieta", Faculty="WIMII", StudentNo=1012},
+            {
+                new Student(){Firstname = "Jan", Surname = "Kowalski", Faculty = "WIiSI", StudentNo = 1010},
+                new Student(){Firstname = "Michał", Surname = "Nowak", Faculty = "WIiSI", StudentNo = 1011},
+                new Student(){Firstname = "Jacek", Surname = "Makieta", Faculty = "WIiSI", StudentNo = 1012},
             };
 
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "First name", Binding = new Binding("FirstName") });
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Sur name", Binding = new Binding("SurName") });
+            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Firstname", Binding = new Binding("Firstname") });
+            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Surname", Binding = new Binding("Surname") });
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Faculty", Binding = new Binding("Faculty") });
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Student No.", Binding = new Binding("StudentNo") });
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Grades", Binding = new Binding("JoinedGrades") });
             DataGridStudents.AutoGenerateColumns = false;
             DataGridStudents.ItemsSource = Students;
         }
-
-        private void AddStudentBTN(object sender, RoutedEventArgs e)
+        private void AddStudent_Click(object sender, RoutedEventArgs e)
         {
-            AddStudentWindow window = new AddStudentWindow();
-            window.ShowDialog();
-            if (window.DialogResult == true)
+            // Tworzymy okno dla nowego studenta
+            AddStudentWindow addWindow = new AddStudentWindow(null); // null wskazuje na nowego studenta
+            if (addWindow.ShowDialog() == true)
             {
-                Students.Add(window.Student);
+                // Po zapisaniu studenta w oknie edycji, dodajemy go do listy
+                Students.Add(addWindow.Student);  // Zamiast addWindow.EditedStudent, używamy addWindow.Student
+
+                // Odświeżamy DataGrid
                 DataGridStudents.Items.Refresh();
             }
         }
 
-        private void DeleteStudentBTN(object sender, RoutedEventArgs e)
+        private void EditStudent_Click(object sender, RoutedEventArgs e)
+        {
+            // Jeśli żaden student nie jest zaznaczony w DataGrid
+            if (selectedStudent == null)
+            {
+                MessageBox.Show("Please select a student to edit.");
+                return;
+            }
+
+            // Tworzymy okno edycji studenta, przekazując zaznaczonego studenta
+            EditStudentWindow editWindow = new EditStudentWindow(selectedStudent);
+            if (editWindow.ShowDialog() == true)
+            {
+                // Zaktualizowany student (dzięki przypisaniu w EditStudentWindow)
+                // Odświeżamy widok DataGrid
+                DataGridStudents.Items.Refresh();
+            }
+        }
+
+        private void ButtonRemoveStudentWindowShow_Click(object sender, RoutedEventArgs e)
         {
             if (DataGridStudents.SelectedItem is Student studentToRemove)
             {
@@ -49,29 +72,47 @@ namespace Lab8.WpfApp
                 DataGridStudents.Items.Refresh();
             }
         }
-        private void AddGradeBTN(object sender, RoutedEventArgs e)
-        {
-            if (DataGridStudents.SelectedItem is Student student)
-            {
-                AddGradeWindow window = new AddGradeWindow(student);
-                window.ShowDialog();
-                if (window.DialogResult == true)
-                {
 
-                    DataGridStudents.Items.Refresh();
-                }
+        private void DataGridStudents_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (DataGridStudents.SelectedItem != null)
+            {
+                // Pobieramy wybranego studenta
+                Student selectedStudent = DataGridStudents.SelectedItem as Student;
+
+                // Ustawiamy DataGridGrades na listę ocen wybranego studenta
+                DataGridGrades.ItemsSource = selectedStudent.Grades;
+                DataGridGrades.Items.Refresh();
+            }
+        }
+        private void AddGrade_Click(object sender, RoutedEventArgs e)
+        {
+            // Sprawdzamy, czy wybrano studenta
+            if (DataGridStudents.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a student first.");
+                return;
+            }
+
+            // Pobieramy wybranego studenta
+            Student selectedStudent = DataGridStudents.SelectedItem as Student;
+
+            // Otwieramy okno do dodania oceny
+            AddGradeWindow addGradeWindow = new AddGradeWindow();
+            if (addGradeWindow.ShowDialog() == true)
+            {
+                // Dodajemy nową ocenę do listy ocen studenta
+                selectedStudent.AddGrade(addGradeWindow.NewGrade);
+
+                // Odświeżamy DataGrid ocen
+                DataGridGrades.ItemsSource = null; // Resetujemy ItemsSource
+                DataGridGrades.ItemsSource = selectedStudent.Grades; // Ustawiamy zaktualizowaną listę
+                DataGridGrades.Items.Refresh(); // Odświeżamy widok
+
+                // Informujemy o sukcesie
+                MessageBox.Show("Grade added successfully.");
             }
         }
 
-        public string JGrades(List<Grade> grades)
-        {
-            string joinedgrades = "";
-            foreach (var g in grades)
-            {
-                joinedgrades += g;
-                joinedgrades += "; ";
-            }
-            return joinedgrades;
-        }
     }
 }

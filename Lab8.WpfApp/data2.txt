@@ -1,0 +1,30 @@
+[[Lab8.BLL.Student, Lab8.BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+[FirstName]
+Jan
+[Surname]
+Kowalski
+[Faculty]
+WIMII
+[StudentNo]
+1010
+[[]]
+[[Lab8.BLL.Student, Lab8.BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+[FirstName]
+Michał
+[Surname]
+Nowak
+[Faculty]
+WIMII
+[StudentNo]
+1011
+[[]]
+[[Lab8.BLL.Student, Lab8.BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+[FirstName]
+Jacek
+[Surname]
+Makieta
+[Faculty]
+WIMII
+[StudentNo]
+1012
+[[]]

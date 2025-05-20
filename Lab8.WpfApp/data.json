@@ -1,0 +1,20 @@
+[
+  {
+    "FirstName": "Jan",
+    "Surname": "Kowalski",
+    "Faculty": "WIMII",
+    "StudentNo": 1010
+  },
+  {
+    "FirstName": "Micha\u0142",
+    "Surname": "Nowak",
+    "Faculty": "WIMII",
+    "StudentNo": 1011
+  },
+  {
+    "FirstName": "Jacek",
+    "Surname": "Makieta",
+    "Faculty": "WIMII",
+    "StudentNo": 1012
+  }
+]

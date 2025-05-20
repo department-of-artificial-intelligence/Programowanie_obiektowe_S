@@ -13,6 +13,12 @@
         <Button x:Name ="ButtonAddGrade" Content="Add Grade" HorizontalAlignment="Left" Height="42" Margin="302,130,0,0" VerticalAlignment="Top" Width="120" Click="ButtonAddGrade_Click"/>
         <Button x:Name ="ButtonLoadTxt" Content="Load from txt file" HorizontalAlignment="Left" Height="21" Margin="440,151,0,0" VerticalAlignment="Top" Width="120" Click="ButtonLoadTxt_Click"/>
         <Button x:Name ="ButtonSaveTxt" Content="Save to txt file" HorizontalAlignment="Left" Height="21" Margin="440,130,0,0" VerticalAlignment="Top" Width="120" Click="ButtonSaveTxt_Click"/>
+        <Button x:Name ="ButtonSaveTxt2" Content="Save to txt file" HorizontalAlignment="Left" Height="21" Margin="565,130,0,0" VerticalAlignment="Top" Width="120" Click="ButtonSaveTxt_Click2"/>
+        <Button x:Name ="ButtonLoadTxt2" Content="Load from txt file" HorizontalAlignment="Left" Height="21" Margin="565,151,0,0" VerticalAlignment="Top" Width="120" Click="ButtonLoadTxt_Click2"/>
+        <Button x:Name ="ButtonSaveXML" Content="Save to XML file" HorizontalAlignment="Left" Height="21" Margin="440,78,0,0" VerticalAlignment="Top" Width="120" Click="ButtonSaveXML_Click"/>
+        <Button x:Name ="ButtonLoadXML" Content="Load from XML file" HorizontalAlignment="Left" Height="21" Margin="440,104,0,0" VerticalAlignment="Top" Width="120" Click="ButtonLoadXML_Click"/>
+        <Button x:Name ="ButtonSaveJSON" Content="Save to JSON file" HorizontalAlignment="Left" Height="21" Margin="565,78,0,0" VerticalAlignment="Top" Width="120" Click="ButtonSaveJSON_Click"/>
+        <Button x:Name ="ButtonLoadJSON" Content="Load from JSON file" HorizontalAlignment="Left" Height="21" Margin="565,104,0,0" VerticalAlignment="Top" Width="120" Click="ButtonLoadJSON_Click"/>
 
     </Grid>
 </Window>

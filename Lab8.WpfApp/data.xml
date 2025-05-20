@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfStudent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Student>
+    <FirstName>Jan</FirstName>
+    <Surname>Kowalski</Surname>
+    <Faculty>WIMII</Faculty>
+    <StudentNo>1010</StudentNo>
+  </Student>
+  <Student>
+    <FirstName>Michał</FirstName>
+    <Surname>Nowak</Surname>
+    <Faculty>WIMII</Faculty>
+    <StudentNo>1011</StudentNo>
+  </Student>
+  <Student>
+    <FirstName>Jacek</FirstName>
+    <Surname>Makieta</Surname>
+    <Faculty>WIMII</Faculty>
+    <StudentNo>1012</StudentNo>
+  </Student>
+</ArrayOfStudent>

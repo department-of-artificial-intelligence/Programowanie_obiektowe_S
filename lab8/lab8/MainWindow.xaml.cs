@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace lab8
 {
@@ -61,6 +62,68 @@ namespace lab8
                 DataGridStudents.Items.Refresh();
             }
 
+        }
+
+        private void zapiszDoTXT(object sender, RoutedEventArgs e)
+        {
+            FileStream fs = new FileStream("data.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs);
+
+            foreach(var student in Students)
+            {
+                string line = $"{student.FirstName};{student.LastName};{student.Faculty};{student.StudNo};{string.Join(",", student.Grades)}";
+                sw.WriteLine(line);
+            }
+
+            sw.Close();
+            fs.Close();
+
+            MessageBox.Show("zapisano do pliku data.txt");
+
+        }
+
+        private void wczytajTXT(object sender, RoutedEventArgs e)
+        {
+            if (!File.Exists("data.txt"))
+            {
+                MessageBox.Show("brak takiego pliku!");
+                return;
+
+            }
+
+            FileStream fs = new FileStream("data.txt", FileMode.Open);
+            StreamReader sr = new StreamReader(fs);
+
+            var loadedStud = new List<Student>();
+
+            while (!sr.EndOfStream)
+            {
+                var line = sr.ReadLine();
+                var dane = line.Split(";");
+
+                if(dane.Length >= 4)
+                {
+                    var stud = new Student
+                    {
+                        FirstName = dane[0],
+                        LastName = dane[1],
+                        Faculty = dane[2],
+                        StudNo = int.Parse(dane[3]),
+                        Grades = dane.Length > 4 && !string.IsNullOrWhiteSpace(dane[4])
+                    ? dane[4].Split(',').Select(int.Parse).ToList()
+                    : new List<int>()
+                    };
+                    loadedStud.Add(stud);
+                }
+            }
+            sr.Close();
+            fs.Close();
+
+            Students = loadedStud;
+            DataGridStudents.ItemsSource = Students;
+            DataGridStudents.Items.Refresh();
+
+            MessageBox.Show("Wczytano studentow z data.txt");
         }
     }
 }

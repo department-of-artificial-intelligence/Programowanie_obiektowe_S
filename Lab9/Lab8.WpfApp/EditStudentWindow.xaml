@@ -1,0 +1,40 @@
+﻿<Window x:Class="Lab8.WpfApp.EditStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab8.WpfApp"
+        mc:Ignorable="d"
+        Title="Edit Student" Height="350" Width="450">
+    <Grid Margin="10">
+        <!-- Definiowanie wierszy -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Definiowanie kolumn -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Etykiety -->
+        <Label Content="Firstname:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="10"/>
+        <Label Content="Surname:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="10"/>
+        <Label Content="Student no.:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Margin="10"/>
+        <Label Content="Faculty:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Margin="10"/>
+
+        <!-- Pola tekstowe -->
+        <TextBox x:Name="TextBoxFirstname" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Margin="10" Height="25"/>
+        <TextBox x:Name="TextBoxSurname" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="1" Margin="10" Height="25"/>
+        <TextBox x:Name="TextBoxStudentNo" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Margin="10" Height="25"/>
+        <TextBox x:Name="TextBoxFaculty" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Margin="10" Height="25"/>
+
+        <!-- Przycisk do zapisania zmian -->
+        <Button x:Name="ButtonEditStudent" Content="Save Changes" HorizontalAlignment="Center" Grid.Row="4" Grid.ColumnSpan="2" Margin="10" Height="40" Width="150" Click="ButtonEditStudent_Click"/>
+    </Grid>
+</Window>

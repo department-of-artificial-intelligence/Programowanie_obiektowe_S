@@ -32,16 +32,15 @@ namespace Lab8.WpfApp
                 TextBoxStudentNo.Text = student.StudentNo.ToString();
                 TextBoxSurName.Text= student.SurName;
             }
-           student = student ?? new Student();
+           Student = student ?? new Student();
         }
 
         private void ButtonAddStudent(object sender, RoutedEventArgs e)
         {
-            if (
-                !Regex.IsMatch(TextBoxFirstName.Text,@"^/{L} { 1,12}$") ||
-                !Regex.IsMatch(TextBoxSurName.Text, @"^/{L} { 1,12}$")  ||
-                !Regex.IsMatch(TextBoxFaculty.Text, @"^/{L}{ 1,12}$")   ||
-                !Regex.IsMatch(TextBoxStudentNo.Text, @"^[0-9]{4,10$"))
+            if (!Regex.IsMatch(TextBoxFirstName.Text, @"^[\p{L}]{1,12}$") ||
+            !Regex.IsMatch(TextBoxSurName.Text, @"^[\p{L}]{1,12}$") ||
+             !Regex.IsMatch(TextBoxFaculty.Text, @"^[\p{L}]{1,12}$") ||
+             !Regex.IsMatch(TextBoxStudentNo.Text, @"^[0-9]{4,10}$"))
             {
                 MessageBox.Show("Invalid input data");
                 return;
@@ -50,7 +49,12 @@ namespace Lab8.WpfApp
             Student.SurName= TextBoxSurName.Text;
             Student.Faculty= TextBoxFaculty.Text;
             if (!int.TryParse(TextBoxStudentNo.Text, out int studentNo))
-                MessageBox.Show("Student is not a number.");
+            {
+                MessageBox.Show("Student No is not a valid number.");
+                return;
+            }
+            Student.StudentNo = studentNo;
+
             Student.StudentNo= studentNo;
             DialogResult = true;
 

@@ -7,13 +7,13 @@ namespace Lab8.BLL
         public string SurName { get; set; }
         public string Faculty { get; set; }
         public int StudentNo { get; set; }
-
+        public IList<Grade> Grades { get; set; } = new List<Grade>();
         public Student()
         {
-            FirstName = string.Empty;
-            SurName = string.Empty;
-            Faculty = string.Empty;
-            StudentNo = 0;
+            FirstName = "Pusto";
+            SurName = "Pusto";
+            Faculty = "Pusto";
+            StudentNo = 0000;
         }
        public Student(string firstName, string surName, string faculty, int studentNo)
         {
@@ -23,5 +23,19 @@ namespace Lab8.BLL
             StudentNo = studentNo;
         }
     }
-
+    public class Grade
+    {
+        public float Value { get; set; }
+        public string SubjectName { get; set; }
+        public Grade()
+        {
+            Value = 0;
+            SubjectName = "Brak";
+        }
+        public Grade(float value, string subjectName)
+        {
+            Value = value;
+            SubjectName = subjectName;
+        }
+    }
 }

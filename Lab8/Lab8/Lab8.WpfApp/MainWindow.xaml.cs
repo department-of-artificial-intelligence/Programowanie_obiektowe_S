@@ -32,7 +32,7 @@ namespace Lab8.WpfApp
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Faculty", Binding = new Binding("Faculty") });
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Student No.", Binding = new Binding("StudentNo") });
             DataGridStudents.AutoGenerateColumns = false;
-            DataGridStudents.ItemsSource= Students;
+            DataGridStudents.ItemsSource = Students;
 
 
 
@@ -40,21 +40,27 @@ namespace Lab8.WpfApp
 
         private void ButtonRemoveStudentWindowShow_Click(object sender, RoutedEventArgs e)
         {
-            if (DataGridStudents.SelectedItem is Student studentToRemove) 
-            { 
+         if(DataGridStudents.SelectedItem is Student studentToRemove)
+            {
                 Students.Remove(studentToRemove);
                 DataGridStudents.Items.Refresh();
             }
-
-            private void ButtonAddStudentWindowShow_Click(object sender, RoutedEventArgs e)
-            {
-                if (DataGridStudents.SelectedItem is Student studentToRemove)
-                {
-                    Students.Remove(studentToRemove);
-                    DataGridStudents.Items.Refresh();
-                }
-
-
-            }
+        
         }
+
+        private void ButtonAddStudentWindowShow_Click(object sender, RoutedEventArgs e)
+        {
+            AddStudentWindow addStudentWindow = new AddStudentWindow();
+            if (addStudentWindow.ShowDialog() == true)
+            {
+                Students.Add(addStudentWindow.Student);
+                DataGridStudents.Items.Refresh();
+            }
+
+
+        }
+
+
+
+    }
 }

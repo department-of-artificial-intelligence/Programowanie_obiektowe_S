@@ -5,26 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab7WpfApp"
         mc:Ignorable="d"
-        Title="Calculator" Height="360" Width="340">
-    <Grid HorizontalAlignment="Left" Width="340">
-        <Button x:Name="Button0" Content="0" HorizontalAlignment="Left" Height="40" Margin="32,87,0,0" VerticalAlignment="Top" Width="39" Click="Button0_Click"/>
-        <Button x:Name="Button1" Content="1" HorizontalAlignment="Left" Height="40" Margin="71,87,0,0" VerticalAlignment="Top" Width="39" Click="Button1_Click"/>
-        <Button Content="2" HorizontalAlignment="Left" Height="40" Margin="110,87,0,0" VerticalAlignment="Top" Width="39" Click="Button2_Click"/>
-        <Button Content="3" HorizontalAlignment="Left" Height="40" Margin="32,127,0,0" VerticalAlignment="Top" Width="39" Click="Button3_Click"/>
-        <Button Content="4" HorizontalAlignment="Left" Height="40" Margin="71,127,0,0" VerticalAlignment="Top" Width="39" Click="Button4_Click"/>
-        <Button Content="5" HorizontalAlignment="Left" Height="40" Margin="110,127,0,0" VerticalAlignment="Top" Width="39" Click="Button5_Click"/>
-        <Button Content="6" HorizontalAlignment="Left" Height="40" Margin="32,167,0,0" VerticalAlignment="Top" Width="39" Click="Button6_Click"/>
-        <Button Content="7" HorizontalAlignment="Left" Height="40" Margin="71,167,0,0" VerticalAlignment="Top" Width="39" Click="Button7_Click"/>
-        <Button Content="8" HorizontalAlignment="Left" Height="40" Margin="110,167,0,0" VerticalAlignment="Top" Width="39" Click="Button8_Click"/>
-        <Button Content="9" HorizontalAlignment="Left" Height="40" Margin="32,207,0,0" VerticalAlignment="Top" Width="39" Click="Button9_Click"/>
-        <Button x:Name="ButtonDot" Content="." HorizontalAlignment="Left" Height="40" Margin="76,267,0,0" VerticalAlignment="Top" Width="39" Click="ButtonDot_Click"/>
-        <Button x:Name="Plus" Content="+" HorizontalAlignment="Left" Height="85" Margin="227,87,0,0" VerticalAlignment="Top" Width="39" Click="Plus_Click"/>
-        <Button x:Name="C" Content="C" HorizontalAlignment="Left" Height="40" Margin="271,87,0,0" VerticalAlignment="Top" Width="39" Click="C_Click"/>
-        <Button x:Name="Multi" Content="*" HorizontalAlignment="Left" Height="40" Margin="271,132,0,0" VerticalAlignment="Top" Width="39"/>
-        <Button x:Name="Div" Content="/" HorizontalAlignment="Left" Height="40" Margin="271,177,0,0" VerticalAlignment="Top" Width="39"/>
-        <Button x:Name="Minus" Content="-" HorizontalAlignment="Left" Height="40" Margin="227,177,0,0" VerticalAlignment="Top" Width="39"/>
-        <Button x:Name="Calc" Content="=" HorizontalAlignment="Left" Height="40" Margin="227,222,0,0" VerticalAlignment="Top" Width="83"/>
-        <TextBox x:Name="OutPut" HorizontalAlignment="Left" Margin="32,40,0,0" TextWrapping="NoWrap" Text="0" VerticalAlignment="Top" Width="278" TextChanged="OutPut_TextChanged" FlowDirection="RightToLeft"/>
+        Title="Calculator" Height="330" Width="300">
+    <Grid HorizontalAlignment="Center" Width="300">
+        <Button x:Name="Button0" Content="0" HorizontalAlignment="Left" Height="40" Margin="12,64,0,0" VerticalAlignment="Top" Width="40" Click="Button0_Click"/>
+        <Button x:Name="Button1" Content="1" HorizontalAlignment="Left" Height="40" Margin="52,64,0,0" VerticalAlignment="Top" Width="40" Click="Button1_Click"/>
+        <Button x:Name="Button2" Content="2" HorizontalAlignment="Left" Height="40" Margin="92,64,0,0" VerticalAlignment="Top" Width="40" Click="Button2_Click"/>
+        <Button x:Name="Button3" Content="3" HorizontalAlignment="Left" Height="40" Margin="12,104,0,0" VerticalAlignment="Top" Width="40" Click="Button3_Click"/>
+        <Button x:Name="Button4" Content="4" HorizontalAlignment="Left" Height="40" Margin="52,104,0,0" VerticalAlignment="Top" Width="40" Click="Button4_Click"/>
+        <Button x:Name="Button5" Content="5" HorizontalAlignment="Left" Height="40" Margin="92,104,0,0" VerticalAlignment="Top" Width="40" Click="Button5_Click"/>
+        <Button x:Name="Button6" Content="6" HorizontalAlignment="Left" Height="40" Margin="12,144,0,0" VerticalAlignment="Top" Width="40" Click="Button6_Click"/>
+        <Button x:Name="Button7" Content="7" HorizontalAlignment="Left" Height="40" Margin="52,144,0,0" VerticalAlignment="Top" Width="40" Click="Button7_Click"/>
+        <Button x:Name="Button8" Content="8" HorizontalAlignment="Left" Height="40" Margin="92,144,0,0" VerticalAlignment="Top" Width="40" Click="Button8_Click"/>
+        <Button x:Name="Button9" Content="9" HorizontalAlignment="Left" Height="40" Margin="12,184,0,0" VerticalAlignment="Top" Width="40" Click="Button9_Click"/>
+        <Button x:Name="ButtonDot" Content="." HorizontalAlignment="Left" Height="40" Margin="62,246,0,0" VerticalAlignment="Top" Width="40" Click="ButtonDot_Click"/>
+        <Button x:Name="Plus" Content="+" HorizontalAlignment="Left" Height="85" Margin="201,42,0,0" VerticalAlignment="Top" Width="40" Click="Plus_Click"/>
+        <Button x:Name="C" Content="C" HorizontalAlignment="Left" Height="40" Margin="245,42,0,0" VerticalAlignment="Top" Width="40" Click="C_Click"/>
+        <Button x:Name="Mul" Content="*" HorizontalAlignment="Left" Height="40" Margin="245,87,0,0" VerticalAlignment="Top" Width="40" Click="Mul_click"/>
+        <Button x:Name="Div" Content="/" HorizontalAlignment="Left" Height="40" Margin="245,132,0,0" VerticalAlignment="Top" Width="40" Click="Div_Click"/>
+        <Button x:Name="Minus" Content="-" HorizontalAlignment="Left" Height="40" Margin="201,132,0,0" VerticalAlignment="Top" Width="40" Click="Minus_Click"/>
+        <Button x:Name="Calc" Content="=" HorizontalAlignment="Left" Height="40" Margin="201,177,0,0" VerticalAlignment="Top" Width="84" Click="Calc_Click"/>
+        <TextBox x:Name="OutPut" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="NoWrap" Text="0" VerticalAlignment="Top" Width="278" FlowDirection="RightToLeft"/>
 
     </Grid>
 </Window>

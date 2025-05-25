@@ -44,6 +44,7 @@
             new List<Student>() { student1, student2, (Student)student3 });
             Console.WriteLine(department);
 
+<<<<<<< HEAD
             student1.Add(grade1);
             student2.AddRange(new List<FinalGrade> { grade2, grade3 });
             ((Student)student3).AddRange(new List<FinalGrade> { grade4 });
@@ -79,6 +80,8 @@
             department2.GetList<OrganizationUnit>(ou => ou.Name == "SKL")
             .Print();
 
+=======
+>>>>>>> c084d9989174665cbdae63b12316673e97fd7bd4
         }
     }
 }

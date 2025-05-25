@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace lab4
 {
+<<<<<<< HEAD
     internal class Department : IContainer, IDisplayable
+=======
+    internal class Department
+>>>>>>> c084d9989174665cbdae63b12316673e97fd7bd4
     {
         public string Name { get; set; }
         public Person Dean { get; set; }
@@ -42,7 +46,10 @@ namespace lab4
             {
                 foreach (var l in Students)
                 {
+<<<<<<< HEAD
                     if (l == null) return res;
+=======
+>>>>>>> c084d9989174665cbdae63b12316673e97fd7bd4
                     res += l.ToString() + "\n";
                 }
             }

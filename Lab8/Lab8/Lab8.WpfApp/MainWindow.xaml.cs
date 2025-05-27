@@ -1,6 +1,7 @@
 ﻿using Lab8.BLL;
 using System.IO;
 using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace Lab8.WpfApp
 {
@@ -18,7 +20,7 @@ namespace Lab8.WpfApp
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
-    
+
     public partial class MainWindow : Window
     {
         public IList<Student> Students { get; set; }
@@ -38,10 +40,11 @@ namespace Lab8.WpfApp
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Surname", Binding = new Binding("Surname") });
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Faculty", Binding = new Binding("Faculty") });
             DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Student No.", Binding = new Binding("StudentNo") });
+            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Grades", Binding = new Binding("Grades") { Mode = BindingMode.TwoWay, Converter = new GradesConverter() } }); 
             DataGridStudents.AutoGenerateColumns = false;
             DataGridStudents.ItemsSource = Students;
 
-            
+
         }
 
         private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
@@ -66,5 +69,17 @@ namespace Lab8.WpfApp
             }
         }
 
+        private void ButtonAddGrade_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataGridStudents.SelectedItem is Student studentToEdit)
+            {
+                AddGradeWindow addGradeWindow = new AddGradeWindow();
+                addGradeWindow.ShowDialog();
+                if (!(addGradeWindow.DialogResult ?? false)) return;
+                studentToEdit.Grades.Add(addGradeWindow.Grade);
+                DataGridStudents.Items.Refresh();
+                return;
+            }
+        }
     }
 }

@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600">
     <Grid>
-        <Button Name ="ButtonAddStudent" Content="Add student" HorizontalAlignment="Left" Height="42" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Click="ButtonAddStudent_Click"/>
-        <Button x:Name ="ButtonAddStudent_Copy" Content="Delete student" HorizontalAlignment="Left" Height="42" Margin="173,10,0,0" VerticalAlignment="Top" Width="120" Click="ButtonAddStudent_Click"/>
-        <DataGrid Name="DataGridStudents" HorizontalAlignment="Left" Height="284" Margin="10,80,0,0" VerticalAlignment="Top" Width="564" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button Name ="ButtonAddStudent" Content="Add student" HorizontalAlignment="Left" Height="42" Margin="20,130,0,0" VerticalAlignment="Top" Width="120" Click="ButtonAddStudent_Click"/>
+        <Button Name ="ButtonDeleteStudent" Content="Delete student" HorizontalAlignment="Left" Height="42" Margin="162,130,0,0" VerticalAlignment="Top" Width="120" Click="ButtonDeleteStudent_Click"/>
+        <DataGrid Name="DataGridStudents" HorizontalAlignment="Left" Height="284" Margin="20,200,0,0" VerticalAlignment="Top" Width="564" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button x:Name ="ButtonAddGrade" Content="Add Grade" HorizontalAlignment="Left" Height="42" Margin="302,130,0,0" VerticalAlignment="Top" Width="120" Click="ButtonAddGrade_Click"/>
     </Grid>
 </Window>

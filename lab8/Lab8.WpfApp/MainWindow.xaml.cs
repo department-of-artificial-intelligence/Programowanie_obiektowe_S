@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Lab8.BLL;
+using System.IO;
 using Lab8.WpfApp;
 
 namespace Lab8.WpfApp;
@@ -71,5 +72,53 @@ public partial class MainWindow : Window
             Students.First(Student => Student.FirstName == agw.Student.FirstName).JoinedGrades = agw.Student.JoinedGrades;
         }
         StudentsGrid.Items.Refresh();
+    }
+
+    private void ButtonSaveXML_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void ButtonLoadXML_Click(object sender, RoutedEventArgs e)
+    {
+        FileStream fs = new FileStream("data.txt",FileMode.Open);
+        StreamWriter writer = new StreamWriter(fs);
+     
+        //while(!sr.EndOfstream)
+        //{
+        //    var ln = sr.ReadLine();
+        //}
+        
+        //sr.Close();
+    }
+
+    private void ButtonSaveTxt_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void ButtonLoadTxt_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void ButtonLoadTxt_Click2(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void ButtonSaveTxt_Click2(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void ButtonLoadJSON_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void ButtonSaveJSON_Click(object sender, RoutedEventArgs e)
+    {
+
     }
 }

@@ -5,31 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="650">
+        Title="MainWindow" Height="550" Width="760">
     <Grid>
-        <Button x:Name="b0" Content="Add student" HorizontalAlignment="Left" Height="59" Margin="61,86,0,0" VerticalAlignment="Top" Width="152" Click="b0_Click"/>
-        <Button x:Name="b2" Content="Delete student" HorizontalAlignment="Left" Height="59" Margin="228,86,0,0" VerticalAlignment="Top" Width="152" Click="b2_Click"/>
-        <DataGrid x:Name="StudentsGrid" HorizontalAlignment="Left" Height="126" Margin="61,0,0,0" VerticalAlignment="Center" Width="440" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Button x:Name="b3" Content="Add grades" HorizontalAlignment="Left" Height="59" Margin="385,86,0,0" VerticalAlignment="Top" Width="152" Click="b3_Click"/>
+        <Button x:Name="b0" Content="Add student" HorizontalAlignment="Left" Height="42" Margin="20,130,0,0" VerticalAlignment="Top" Width="120" Click="b0_Click"/>
+        <Button x:Name="b2" Content="Delete student"  HorizontalAlignment="Left" Height="42" Margin="162,130,0,0" VerticalAlignment="Top" Width="120" Click="b2_Click"/>
+        <DataGrid x:Name="StudentsGrid" HorizontalAlignment="Left" Height="284" Margin="20,200,0,0" VerticalAlignment="Top" Width="664" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <Button x:Name="b3" Content="Add grades"  HorizontalAlignment="Left" Height="42" Margin="302,130,0,0" VerticalAlignment="Top" Width="120" Click="b3_Click"/>
 
-        <StackPanel>
-            <Menu DockPanel.Dock= "Top">
-                <MenuItem Header = "_Plik">
-                    <MenuItem Header = "_Eksportuj"/>
-                    <Separator />
-                    <MenuItem Header="_Wyjscie"/>
-                </MenuItem>
+        <Button x:Name ="ButtonLoadTxt" Content="Load from txt file" HorizontalAlignment="Left" Height="21" Margin="440,156,0,0" VerticalAlignment="Top" Width="152" Click="ButtonLoadTxt_Click"/>
+        <Button x:Name ="ButtonSaveTxt" Content="Save to txt file" HorizontalAlignment="Left" Height="21" Margin="440,130,0,0" VerticalAlignment="Top" Width="152" Click="ButtonSaveTxt_Click"/>
+        <Button x:Name ="ButtonSaveTxt2" Content="Load another student" HorizontalAlignment="Left" Height="21" Margin="597,130,0,0" VerticalAlignment="Top" Width="152" Click="ButtonSaveTxt_Click2"/>
+        <Button x:Name ="ButtonLoadTxt2" Content="Load from txt file (Stream)" HorizontalAlignment="Left" Height="21" Margin="598,157,0,0" VerticalAlignment="Top" Width="152" Click="ButtonLoadTxt_Click2"/>
+        <Button x:Name ="ButtonSaveXML" Content="Save to XML file" HorizontalAlignment="Left" Height="21" Margin="440,78,0,0" VerticalAlignment="Top" Width="152" Click="ButtonSaveXML_Click"/>
+        <Button x:Name ="ButtonLoadXML" Content="Load from XML file" HorizontalAlignment="Left" Height="21" Margin="440,104,0,0" VerticalAlignment="Top" Width="152" Click="ButtonLoadXML_Click"/>
+        <Button x:Name ="ButtonSaveJSON" Content="Save to JSON file" HorizontalAlignment="Left" Height="21" Margin="598,78,0,0" VerticalAlignment="Top" Width="152" Click="ButtonSaveJSON_Click"/>
+        <Button x:Name ="ButtonLoadJSON" Content="Load from JSON file" HorizontalAlignment="Left" Height="21" Margin="598,104,0,0" VerticalAlignment="Top" Width="152" Click="ButtonLoadJSON_Click"/>
+        <Button x:Name ="ButtonCloseStream" Content="Close stream" HorizontalAlignment="Left" Height="21" Margin="440,52,0,0" VerticalAlignment="Top" Width="152" Click="ButtonLoadJSON_Click"/>
 
-                <MenuItem Header="_Studenci">
-                    <MenuItem Header = "_Dodaj nowego" Click="b0_Click"/>
-                    <MenuItem Header="_Usun wybranego" Click="b2_Click"/>
-                </MenuItem>
 
-                <MenuItem Header="Oceny">
-                    <MenuItem Header="_Dodaj dla wybranego studenta" Click="b3_Click"/>
-                </MenuItem>
-            </Menu>
-        </StackPanel>
 
     </Grid>
 </Window>

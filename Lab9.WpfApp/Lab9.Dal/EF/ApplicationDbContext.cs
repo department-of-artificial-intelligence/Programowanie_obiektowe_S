@@ -1,6 +1,6 @@
 ﻿using Lab9.Model.Entities;
 using Microsoft.EntityFrameworkCore;
-namespace Lab11.DAL.EF; 
+namespace Lab9.DAL.EF; 
 public class ApplicationDbContext : DbContext 
 { 
     public virtual DbSet<Grade> Grades { get; set; } = null!; 

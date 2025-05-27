@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab8.WpfApp"
         mc:Ignorable="d"
-        Title="AddStudentWindow" Height="250" Width="300">
+        Title="AddStudentWindow" Height="450" Width="400">
     <Grid>
-        <Label Content="First Name:" HorizontalAlignment="Left" Margin="12,44,0,0" VerticalAlignment="Top"/>
-        <Label Content="Surname:" HorizontalAlignment="Left" Margin="21,75,0,0" VerticalAlignment="Top"/>
-        <Label Content="Student No.:" HorizontalAlignment="Left" Margin="4,106,0,0" VerticalAlignment="Top" Width="76"/>
-        <Label Content="Faculty:" HorizontalAlignment="Left" Margin="31,137,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="TextBoxFirstName" HorizontalAlignment="Left" TextAlignment="Center" VerticalContentAlignment="Center" Height="26" Margin="96,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="TextBoxSurname" HorizontalAlignment="Left" TextAlignment="Center" VerticalContentAlignment="Center" Height="26" Margin="96,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="TextBoxStudentNo" HorizontalAlignment="Left" TextAlignment="Center" VerticalContentAlignment="Center" Height="26" Margin="96,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="TextBoxFaculty" HorizontalAlignment="Left" TextAlignment="Center" VerticalContentAlignment="Center" Height="26" Margin="96,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button Name ="ButtonAddStudent" Content="Add Student" HorizontalAlignment="Left" Height="27" Margin="10,182,0,0" VerticalAlignment="Top" Width="206" Click="ButtonAddStudent_Click"/>
+        <Label Content="First name:" HorizontalAlignment="Left" Height="37" Margin="60,120,0,0" VerticalAlignment="Top" Width="102" FontSize="16"/>
+        <TextBox x:Name="t1" HorizontalAlignment="Left" Height="18" Margin="178,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111"/>
+        <Label Content="Last name:" HorizontalAlignment="Left" Height="37" Margin="60,162,0,0" VerticalAlignment="Top" Width="102" FontSize="16"/>
+        <TextBox x:Name="t2" HorizontalAlignment="Left" Height="18" Margin="178,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111"/>
+        <Label Content="Faculty" HorizontalAlignment="Left" Height="37" Margin="60,204,0,0" VerticalAlignment="Top" Width="102" FontSize="16" RenderTransformOrigin="0.484,1.404"/>
+        <TextBox x:Name="t3" HorizontalAlignment="Left" Height="18" Margin="178,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111"/>
+        <Label Content="Student ID" HorizontalAlignment="Left" Height="37" Margin="60,246,0,0" VerticalAlignment="Top" Width="102" FontSize="16" RenderTransformOrigin="0.484,1.404"/>
+        <TextBox x:Name="t4" HorizontalAlignment="Left" Height="18" Margin="178,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="111"/>
+        <Button x:Name="b1" Content="Add student" HorizontalAlignment="Left" Height="49" Margin="60,318,0,0" VerticalAlignment="Top" Width="229" FontSize="14" Click="b1_Click"/>
 
     </Grid>
 </Window>

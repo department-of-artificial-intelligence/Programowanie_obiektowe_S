@@ -1,5 +1,4 @@
-﻿using Lab8.BLL;
-using System.Text;
+﻿using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,57 +8,68 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Collections.Generic;
+using Lab8.BLL;
+using Lab8.WpfApp;
 
-namespace Lab8.WpfApp
+namespace Lab8.WpfApp;
+
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public IList<Student> Students { get; set; }
+    public MainWindow()
     {
-        public IList<Student> Students { get; set; }
-        public MainWindow()
-        {
-            InitializeComponent();
-            Students = new List<Student>
+        InitializeComponent();
+        Students = new List<Student>()
             {
-                new Student(){FirstName = "Jan", Surname = "Kowalski", Faculty = "WIMII", StudentNo = 1010},
-                new Student(){FirstName = "Michał", Surname = "Nowak", Faculty = "WIMII", StudentNo = 1011},
-                new Student(){FirstName = "Jacek", Surname = "Makieta", Faculty = "WIMII", StudentNo = 1012}
+                new Student(){FirstName = "Jan", LastName = "Kowalski", Faculty = "WIMII", ID = 1010},
+                new Student(){FirstName = "Michal", LastName = "Nowak", Faculty = "WIMII", ID = 1011},
+                new Student(){FirstName = "Jacek", LastName = "Makieta", Faculty = "WIMII", ID = 1012},
             };
+        StudentsGrid.Columns.Add(new DataGridTextColumn() { Header = "First name", Binding = new Binding("FirstName") });
+        StudentsGrid.Columns.Add(new DataGridTextColumn() { Header = "Surname", Binding = new Binding("LastName") });
+        StudentsGrid.Columns.Add(new DataGridTextColumn() { Header = "Faculty", Binding = new Binding("Faculty") });
+        StudentsGrid.Columns.Add(new DataGridTextColumn() { Header = "Student No.", Binding = new Binding("ID") });
+        StudentsGrid.Columns.Add(new DataGridTextColumn() { Header = "Grades", Binding = new Binding("JoinedGrades") { Converter = new GradeConverter() } });
+        StudentsGrid.AutoGenerateColumns = false;
+        StudentsGrid.ItemsSource = Students;
+    }
 
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "First name", Binding = new Binding("FirstName") });
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Surname", Binding = new Binding("Surname") });
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Faculty", Binding = new Binding("Faculty") });
-            DataGridStudents.Columns.Add(new DataGridTextColumn() { Header = "Student No.", Binding = new Binding("StudentNo") });
-            DataGridStudents.AutoGenerateColumns = false;
-            DataGridStudents.ItemsSource = Students;
-        }
-
-        private void ButtonAddStudent_Click(object sender, RoutedEventArgs e)
+    private void b0_Click(object sender, RoutedEventArgs e)
+    {
+        AddStudentWindow asw = new AddStudentWindow();
+        asw.ShowDialog();
+        if (asw.DialogResult == true)
         {
-
+            Students.Add(asw.Student);
         }
+        StudentsGrid.Items.Refresh();
+    }
 
-        private void ButtonDeleteStudent_Click(object sender, RoutedEventArgs e)
+    private void b2_Click(object sender, RoutedEventArgs e)
+    {
+        if (StudentsGrid.SelectedItem is Student studentToRemove)
         {
-
+            Students.Remove(studentToRemove);
+            StudentsGrid.Items.Refresh();
         }
+    }
 
-        private void ButtonAddGrade_Click(object sender, RoutedEventArgs e)
+    private void b3_Click(object sender, RoutedEventArgs e)
+    {
+        if (StudentsGrid.SelectedItem == null)
         {
-
+            MessageBox.Show("Student not selected");
+            return;
         }
-
-        private void ButtonLoadTxt_Click(object sender, RoutedEventArgs e)
+        AddGradeWindow agw = new AddGradeWindow((Student)StudentsGrid.SelectedItem);
+        agw.ShowDialog();
+        if (agw.DialogResult == true)
         {
-
+            Students.First(Student => Student.FirstName == agw.Student.FirstName).JoinedGrades = agw.Student.JoinedGrades;
         }
-
-        private void ButtonSaveTxt_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        StudentsGrid.Items.Refresh();
     }
 }

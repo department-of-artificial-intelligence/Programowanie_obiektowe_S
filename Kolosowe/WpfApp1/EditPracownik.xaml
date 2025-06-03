@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp1.EditPracownik"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="EditPracownik" Height="388" Width="302">
+    <Grid>
+        <Button Content="Edytuj" HorizontalAlignment="Left" Margin="80,56,0,0" VerticalAlignment="Top" Height="72" Width="161" Click="Button_Click"/>
+        <Label Content="imie:" HorizontalAlignment="Left" Margin="47,148,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox Name="imieTekst"  HorizontalAlignment="Left" Margin="146,152,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Nazwisko:" HorizontalAlignment="Left" Margin="47,181,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox Name="nazwiskoTekst" HorizontalAlignment="Left" Margin="146,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Rok:" HorizontalAlignment="Left" Margin="47,217,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox Name="rokTekst"  HorizontalAlignment="Left" Margin="146,221,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="Miesiąc:" HorizontalAlignment="Left" Margin="47,251,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox Name="miesiacTekst" HorizontalAlignment="Left" Margin="146,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Dzień:" HorizontalAlignment="Left" Margin="47,282,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox Name="dzienTekst" HorizontalAlignment="Left" Margin="146,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <Label Content="Id:" HorizontalAlignment="Left" Margin="47,311,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox Name="IDTekst" HorizontalAlignment="Left" Margin="146,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+
+    </Grid>
+</Window>

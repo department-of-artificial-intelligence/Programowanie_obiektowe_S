@@ -14,15 +14,7 @@
     {
       "ConnectionStrings": {
         "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=Imie_Nazwisko_Kolokwium2_AppDb;Trusted_Connection=True;MultipleActiveResultSets=true"
-      },
-      "Logging": {
-        "LogLevel": {
-          "Default": "Information",
-          "Microsoft": "Warning",
-          "Microsoft.Hosting.Lifetime": "Information"
-        }
-      },
-      "AllowedHosts": "*"
+      }
     }
     ```  
 5) Proszę stworzyć wszystkie elementy modelu w projekcie `Kolokwium.Model`, natomiast wszystkie elementy dostępu do danych tj. `ApplicationDbContext` w projekcie `Kolokwium.DAL`. 

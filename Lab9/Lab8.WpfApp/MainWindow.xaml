@@ -10,14 +10,14 @@
         <Button Content="Add student" HorizontalAlignment="Left" Margin="31,86,0,0" VerticalAlignment="Top" Height="70" Width="180" Click="ButtonAddStudent_Click"/>
         <Button Content="Delete student" HorizontalAlignment="Left" Margin="216,86,0,0" VerticalAlignment="Top" Height="70" Width="180" Click="ButtonDeleteStudent_Click"/>
         <DataGrid x:Name="DataGridStudents" Margin="31,165,31,35" AutoGenerateColumns="False" Grid.ColumnSpan="2"/>
-        <Button Content="Close stream" HorizontalAlignment="Left" Margin="410,21,0,0" VerticalAlignment="Top" Width="150" Height="25"/>
-        <Button Content="Load another student" HorizontalAlignment="Left" Margin="410,51,0,0" VerticalAlignment="Top" Width="150" Height="25"/>
-        <Button Content="Load from txt file(Stream)" HorizontalAlignment="Left" Margin="410,81,0,0" VerticalAlignment="Top" Width="150" Height="25"/>
-        <Button Content="Save to txt file" HorizontalAlignment="Left" Margin="410,111,0,0" VerticalAlignment="Top" Width="114" Height="20"/>
-        <Button Content="Load from txt file" HorizontalAlignment="Left" Margin="410,136,0,0" VerticalAlignment="Top" Width="114" Height="20"/>
-        <Button Content="Save to XML file" HorizontalAlignment="Left" Margin="529,111,0,0" VerticalAlignment="Top" Width="114" Height="20"/>
-        <Button Content="Load from XML file" HorizontalAlignment="Left" Margin="529,136,0,0" VerticalAlignment="Top" Width="114" Height="20"/>
-        <Button Content="Save to JSON file" HorizontalAlignment="Left" Margin="648,111,0,0" VerticalAlignment="Top" Width="114" Height="20"/>
-        <Button Content="Load from JSON file" HorizontalAlignment="Left" Margin="648,136,0,0" VerticalAlignment="Top" Width="114" Height="20"/>
+        <Button Content="Close stream" HorizontalAlignment="Left" Margin="410,21,0,0" VerticalAlignment="Top" Width="150" Height="25" Click="BtnCloseStream_Click"/>
+        <Button Content="Load another student" HorizontalAlignment="Left" Margin="410,51,0,0" VerticalAlignment="Top" Width="150" Height="25" Click="BtnLoadStudent_Click" />
+        <Button Content="Load from txt file(Stream)" HorizontalAlignment="Left" Margin="410,81,0,0" VerticalAlignment="Top" Width="150" Height="25" Click="BtnLoadTxtStream_Click" />
+        <Button Content="Save to txt file" HorizontalAlignment="Left" Margin="410,111,0,0" VerticalAlignment="Top" Width="114" Height="20" Click="BtnSaveTxt_Click"/>
+        <Button Content="Load from txt file" HorizontalAlignment="Left" Margin="410,136,0,0" VerticalAlignment="Top" Width="114" Height="20" Click="BtnLoadTxt_Click"/>
+        <Button Content="Save to XML file" HorizontalAlignment="Left" Margin="529,111,0,0" VerticalAlignment="Top" Width="114" Height="20" Click="BtnSaveXML_Click"/>
+        <Button Content="Load from XML file" HorizontalAlignment="Left" Margin="529,136,0,0" VerticalAlignment="Top" Width="114" Height="20" Click="BtnLoadXML_Click"/>
+        <Button Content="Save to JSON file" HorizontalAlignment="Left" Margin="648,111,0,0" VerticalAlignment="Top" Width="114" Height="20" Click="BtnSaveJSON_Click"/>
+        <Button Content="Load from JSON file" HorizontalAlignment="Left" Margin="648,136,0,0" VerticalAlignment="Top" Width="114" Height="20" Click="BtnLoadJSON_Click"/>
     </Grid>
 </Window>
